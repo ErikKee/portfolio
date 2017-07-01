@@ -1,9 +1,9 @@
 # portfolio
 
 ===== Theme Color =====
-White BG: #FFFFFF
-Black: #000000
-Green: #8fc31f
+- White BG: #FFFFFF
+- Black: #000000
+- Green: #8fc31f
 
 
 ===== TODO =====
@@ -21,8 +21,8 @@ Green: #8fc31f
 - App Challenge (show image gallery)
 
 [RESUME]
-Resume button
-Github button
+- Resume button
+- Github button
 
 
 [MUSIC]
