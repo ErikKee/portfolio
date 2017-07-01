@@ -55,9 +55,58 @@ html,body{
 	background: linear-gradient(to right, #134e5e, #71b280); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-/* DEMO */
+/* DEMO & SLICK */
 .demo{
 	border: 1px solid black;
 	margin: 0 auto;
 	height: 500px;
 }
+
+#demo{
+	box-sizing: border-box;
+}
+
+.slick-slider{
+	margin: 0 auto;
+	width: 80%;
+}
+
+.slick-prev,
+.slick-next
+{
+    width: auto;
+    height: auto;
+}
+
+.slick-prev{
+	-webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.slick-next{
+	-webkit-transform: translate(50%, -50%);
+    -ms-transform: translate(50%, -50%);
+    transform: translate(50%, -50%);
+}
+
+.slick-prev::before {
+    font-family: FontAwesome;
+    content: "\f104";
+    font-size: 5rem;
+}  
+.slick-next::before {
+    font-family: FontAwesome;
+    content: "\f105";
+    font-size: 5rem;
+} 
+
+/* BOTTOM BUTTONS */
+#master-buttons button{
+	background-color: transparent;
+	color: white;
+	border-radius: 0;
+}
+
+
+
