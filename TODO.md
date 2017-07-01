@@ -1,3 +1,5 @@
+
+# Message to Team
 # YT - July 1 2017
 - styling required(master buttons, create a center holder to hold project list, demo etc)
 
@@ -22,3 +24,8 @@
 		2. opacity = 0 initially
 		????
 	=================================================================================
+
+# Usage
+1. Show Demo
+- Click on Projects
+- Click on first list [Video Game Engine]
