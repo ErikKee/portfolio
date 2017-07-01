@@ -58,8 +58,8 @@ html,body{
 }
 
 /* PROJECTS */
-#projects .list-group{
-
+#projects{
+	display: none;
 }
 
 #projects .list-group-item{
