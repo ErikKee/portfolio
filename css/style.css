@@ -62,13 +62,13 @@ html,body{
 	height: 500px;
 }
 
-#demo{
-	box-sizing: border-box;
+.demo .row .col:first-child{
+	border-right: 1px solid black;
 }
 
-.slick-slider{
-	margin: 0 auto;
-	width: 80%;
+.demo .description{
+	padding-left: 2em;
+	padding-right: 2em;
 }
 
 .slick-prev,
@@ -106,6 +106,7 @@ html,body{
 	background-color: transparent;
 	color: white;
 	border-radius: 0;
+	cursor: pointer;
 }
 
 
