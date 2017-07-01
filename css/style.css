@@ -1,3 +1,28 @@
+/*THEME COLORS */
+.color-white{
+	color: #FFFFFF;
+}
+
+.color-black{
+	color: rgba(0,0,0,0.7);
+}
+
+.color-green{
+	color: #8fc31f;
+}
+
+.bg-color-white{
+	background-color: #fff;
+}
+
+.bg-color-black{
+	background-color: rgba(0,0,0,0.7);
+}
+
+.bg-color-green{
+	background-color: #8fc31f;
+}
+
 .box{
 	width: 300px;
 	height: 300px;
@@ -15,4 +40,11 @@
 
 .box:active{
 	background-color: #aaa;
+}
+
+/* DEMO */
+.demo{
+	border: 1px solid black;
+	margin: 0 auto;
+	height: 500px;
 }
