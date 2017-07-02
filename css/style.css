@@ -122,13 +122,18 @@ html,body{
 } 
 
 /* BOTTOM BUTTONS */
+#master-buttons{
+	bottom: 2rem;
+}
+
 #master-buttons button{
-	background-color: transparent;
+	background-color: rgba(0,0,0,0.25);
+	border: none;
 	color: white;
 	border-radius: 0;
 	cursor: pointer;
 	z-index: 5;
+	padding: 1rem;
 }
-
 
 
