@@ -4,7 +4,13 @@
 - styling required(master buttons, create a center holder to hold project list, demo etc)
 
 
+
+
 # Current challenges
+2. 	opacity = 0 will still take up the space unless we use absolute position. 
+	
+
+
 1. 	the current approach to show/hide contents is too complex to be maintained when
 	there are more sections. 
 	e.g. the demo is visible, there are three master buttons that would close the demo
