@@ -16,7 +16,7 @@
 	=================================================================================
 
 	--------------------------------------------------------------------------------------------------------------------------
-	#KIKAHO Comment - July 1 2017 
+	#KIKAHO - July 1 2017 
 	I haven't start working on it yet but I thought it would be simple, 
 	I may be wrong but here is what I thought how it would work:
 	Similar to how the buttons on http://www.etiennegodiard.com/ works, 
@@ -77,3 +77,7 @@
 1. Show Demo
 - Click on Projects
 - Click on first list [Video Game Engine]
+
+
+#KIKAHO July 1 2017
+- Use rectangular with text for buttons (eg. text in a div or rect), instead of <button>, unless <button> can achieve the same look
