@@ -62,9 +62,9 @@ html,body{
 	display: none;
 }
 
-#projects .list-group-item{
-	border: none;
+#projects .card-group .card{
 	background-color: transparent;
+	cursor: pointer;
 }
 
 #projects .video-game{
@@ -127,6 +127,7 @@ html,body{
 	color: white;
 	border-radius: 0;
 	cursor: pointer;
+	z-index: 5;
 }
 
 
