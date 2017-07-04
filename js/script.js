@@ -8,6 +8,7 @@ $(document).ready(function(){
 
 	$("#demo").hide();
 
+
 	
 	$("#programming-toggle").on("click",function(){
 		console.log("Programming");

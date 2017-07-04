@@ -109,6 +109,14 @@ EXCLUDE: PROGRAMMING | RESUME | MUSIC, NEXT, PREV, BACK(if we're still doing bac
 	padding-right: 2em;
 }
 
+.slick,
+.slick-list,
+.slick-track,
+.content{
+	height: 100%;
+	width:100%;
+}
+
 .slick-prev,
 .slick-next
 {
@@ -139,9 +147,58 @@ EXCLUDE: PROGRAMMING | RESUME | MUSIC, NEXT, PREV, BACK(if we're still doing bac
 	font-size: 5rem;
 } 
 
+/* PREV & NEXT BUTTON CONTAINER */
+#demo-next {
+	position: absolute;
+	top: 28%;
+	right: 2px;
+	height: 40%;
+	z-index: 500;
+
+}
+
+#demo-prev {
+	position: absolute;
+	top: 28%;
+	left: 2px;
+	height: 40%;
+	width: 5%;
+	z-index: 500;
+
+}
+
+#demo-next button {
+	z-index: 500;
+	height: 100%;
+	font-size: 0.9rem;
+	line-height: 70%;
+	color: #FFFFFF;
+	text-align: right;
+	background-color: blue;
+}
+
+#demo-prev button {
+	z-index: 500;
+	height: 100%;
+	font-size: 0.9rem;
+	line-height: 70%;
+	color: #FFFFFF;
+	text-align: left;
+	background-color: blue;
+}
+
+/* PREV & NEXT's ARROW SIZE */
+#demo-next span{
+	font-size: 4.5rem;
+}
+
+#demo-prev span{
+	font-size: 4.5rem;
+}
+
 /* BOTTOM BUTTONS */
 #master-buttons{
-	bottom: 1.3rem;
+	bottom: 1.4rem;
 }
 
 #master-buttons button{
