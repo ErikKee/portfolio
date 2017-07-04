@@ -58,19 +58,33 @@ html,body{
 
 #master{
 	height: 100%;
+
 }
 
-/* PROJECTS */
-#projects{
+/* 
+To contain everything except for navigation buttons, 
+so that all content are in the same size 
+Everything = programming list, resume page, music list, programming/music slicker 
+EXCLUDE: PROGRAMMING | RESUME | MUSIC, NEXT, PREV, BACK(if we're still doing back);
+*/
+#master-container{
+	top: 12%;
+	height: 72%;
+	display: center-block;
+	background-color: rgba(0,0,100,0.2);
+}
+
+/* PROGRAMMING */
+#programming{
 	display: none;
 }
 
-#projects .card-group .card{
+#programming .card-group .card{
 	background-color: transparent;
 	cursor: pointer;
 }
 
-#projects .video-game{
+#programming .video-game{
 	cursor:pointer;
 }
 
@@ -82,11 +96,12 @@ html,body{
 .demo{
 	border: 1px solid black;
 	margin: 0 auto;
-	height: 35rem;
+	height: 100%;
 }
 
 .demo .row .col:first-child{
 	border-right: 1px solid black;
+	height: 100%;
 }
 
 .demo .description{
@@ -97,46 +112,109 @@ html,body{
 .slick-prev,
 .slick-next
 {
-    width: auto;
-    height: auto;
+	width: auto;
+	height: auto;
 }
 
 .slick-prev{
 	-webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
 }
 
 .slick-next{
 	-webkit-transform: translate(50%, -50%);
-    -ms-transform: translate(50%, -50%);
-    transform: translate(50%, -50%);
+	-ms-transform: translate(50%, -50%);
+	transform: translate(50%, -50%);
 }
 
 .slick-prev::before {
-    font-family: FontAwesome;
-    content: "\f104";
-    font-size: 5rem;
+	font-family: FontAwesome;
+	content: "\f104";
+	font-size: 5rem;
 }  
 .slick-next::before {
-    font-family: FontAwesome;
-    content: "\f105";
-    font-size: 5rem;
+	font-family: FontAwesome;
+	content: "\f105";
+	font-size: 5rem;
 } 
 
 /* BOTTOM BUTTONS */
 #master-buttons{
-	bottom: 2rem;
+	bottom: 1.3rem;
 }
 
 #master-buttons button{
-	background-color: rgba(0,0,0,0.25);
+	font-size: 1.5rem;
+	background-color: rgba(0,0,0,0.0);
 	border: none;
 	color: white;
 	border-radius: 0;
 	cursor: pointer;
 	z-index: 5;
 	padding: 1rem;
+	width: 100%;
+
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font: light;
+	font-weight: 100;
 }
+
+/* Vertical separating line between bottom buttons */
+#master-buttons .row [class*='col']:not(:last-child):after {
+	background: #FFFFFF;
+	width: 1px;
+	content: "";
+	display:block;
+	position: absolute;
+	top:0;
+	bottom: 0;
+	right: 0;
+	min-height: auto;
+}
+
+/* PROJECT TITLE */
+#projectTitle{
+	font-size: 3rem;
+	background-color: rgba(0,0,0,0.1);
+	border: none;
+	color: white;
+	border-radius: 0;
+	z-index: 5;
+	width: 100%;
+	height: 100%;
+	line-height: 100%;
+
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font-weight: 100;
+}
+
+/* BACK BUTTON */
+#backButton{
+	color: white;
+	font-size: 2.5rem;
+	line-height: 100%;
+
+
+	background-color: rgba(0,0,0,0.1);
+	border: none;
+	
+	border-radius: 0;
+	z-index: 5;
+	width: 100%;
+	height: 100%;
+
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font-weight: lighter;
+}
+
+/* To make button's text position in top right */
+#backButton span {
+	display: block;
+	position: absolute;
+	top:0;
+	right:0;
+}
+
 
 

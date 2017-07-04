@@ -3,26 +3,32 @@ $(document).ready(function(){
 		infinite: true,
 		speed: 500,
 		fade: true,
-		cssEase: 'linear'
+		cssEase: 'ease-out'
 	});
 
 	$("#demo").hide();
 
 	
-	$("#project-toggle").on("click",function(){
-		console.log("Project");
-		//show projects section
-		if($("#projects").is(':visible')){
-			$("#projects").fadeOut();
+	$("#programming-toggle").on("click",function(){
+		console.log("Programming");
+		//show programming section
+		$("#demo").fadeOut(function(){
+				$("#programming").fadeIn();
+			});
+
+		/*
+		if($("#programming").is(':visible')){
+			$("#programming").fadeOut();
 		}else{
 			$("#demo").fadeOut(function(){
-				$("#projects").fadeIn();
+				$("#programming").fadeIn();
 			});
 		}
+		*/
 	});
 
 	$(".video-game").on("click",function(){
-		$("#projects").fadeOut(function(){
+		$("#programming").fadeOut(function(){
 			$("#demo").fadeIn();
 		});
 	});

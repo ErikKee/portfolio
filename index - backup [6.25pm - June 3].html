@@ -28,6 +28,22 @@
 		</div>
 
 		<div class="row">
+			<div class="col bg-info">
+				Woohoo
+			</div>
+			<div class="col bg-warning">
+				Woohoo
+			</div>
+		</div>
+
+
+
+	</div>
+
+
+
+	<div id="master" class="d-flex align-items-center">
+		<div class="holder container h-75">
 			<section id="programming">
 				<div class="card-group h-100">
 					<div class="card video-game">
@@ -76,20 +92,19 @@
 
 			</section>
 
+
 			<section id="demo">
 				<div class="container">
 					
-					<div class="slick">
-
+					<div class="slick" style="height: 20%;">
 						<div class="demo bg-color-green" >
 							<div class="container-fluid h-100 p-0">
-								<div class="row align-items-center h-100 w-100 p-0 m-0">
-
-									<div class="col p-0 h-100">
+								<div class="row align-items-center h-100 w-100 m-0">
+									<div class="col w-100">
 										<h2>Geng Geng Demo</h2>
 										<img src="images/kid-running.jpg" class="img-fluid w-75 mx-auto">
 									</div>
-									<div class="col p-0">
+									<div class="col w-100">
 										<div class="description">
 											<h3>Geng geng o</h3>
 											<p>This demo so geng, geng until too geng</p>
@@ -132,28 +147,24 @@
 				</div>
 			</section>
 		</div>
-	</div>
+		<div id="master-buttons" class="container-fluid fixed-bottom" style="margin-left: 2%; margin-right: 2%;">
+			<div class="row">
 
-	<div id="master-buttons" class="container-fluid fixed-bottom" style="margin-left: 2%; margin-right: 2%;">
-		<div class="row">
+				<div class="col" align="center">
+					<button type="button" id="programming-toggle" class="btn btn-secondary">PROGRAMMING</button>
+				</div>
 
-			<div class="col" align="center">
-				<button type="button" id="programming-toggle" class="btn btn-secondary">PROGRAMMING</button>
-			</div>
-
-			<div class="col" align="center">
-				<button type="button" id="resume-toggle" class="btn btn-secondary">RESUME</button>
-			</div>
+				<div class="col" align="center">
+					<button type="button" id="resume-toggle" class="btn btn-secondary">RESUME</button>
+				</div>
 
 
-			<div class="col" align="center">
-				<button type="button" id="project-toggle" class="btn btn-secondary">MUSIC</button>
+				<div class="col" align="center">
+					<button type="button" id="project-toggle" class="btn btn-secondary">MUSIC</button>
+				</div>
 			</div>
 		</div>
 	</div>
-
-
-
 
 	<script src="node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="slick/slick.min.js"></script>
