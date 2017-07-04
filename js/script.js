@@ -3,10 +3,10 @@ $(document).ready(function(){
 		infinite: true,
 		speed: 500,
 		fade: true,
-		cssEase: 'ease-out'
+		cssEase: 'ease-out',
 	});
 
-	$("#demo").hide();
+	// $("#demo").hide();
 
 	
 	$("#programming-toggle").on("click",function(){

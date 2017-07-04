@@ -109,6 +109,14 @@ EXCLUDE: PROGRAMMING | RESUME | MUSIC, NEXT, PREV, BACK(if we're still doing bac
 	padding-right: 2em;
 }
 
+.slick,
+.slick-list,
+.slick-track,
+.slick-slide{
+	height: 100%;
+	width: 100%;
+}
+
 .slick-prev,
 .slick-next
 {
