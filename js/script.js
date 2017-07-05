@@ -8,6 +8,14 @@ $(document).ready(function(){
 
 	$("#demo").hide();
 
+/*	$(window).resize(function() {
+        $('#master-container .slick-slide').height($('#master-container').height())
+        $('#master-container .slick-slide').width($('#master-container').width())
+    });
+    
+    $('#master-container .slick-slide').height($('#master-container').height())
+    $('#master-container .slick-slide').width($('#master-container').width())*/
+
 
 	
 	$("#programming-toggle").on("click",function(){

@@ -61,6 +61,11 @@ html,body{
 
 }
 
+#title-container{
+	top: 10%;
+	background-color: rgba(0,100,0,0.2);
+}
+
 /* 
 To contain everything except for navigation buttons, 
 so that all content are in the same size 
@@ -68,9 +73,7 @@ Everything = programming list, resume page, music list, programming/music slicke
 EXCLUDE: PROGRAMMING | RESUME | MUSIC, NEXT, PREV, BACK(if we're still doing back);
 */
 #master-container{
-	top: 12%;
 	height: 72%;
-	display: center-block;
 	background-color: rgba(0,0,100,0.2);
 }
 
@@ -91,17 +94,19 @@ EXCLUDE: PROGRAMMING | RESUME | MUSIC, NEXT, PREV, BACK(if we're still doing bac
 
 /* DEMO & SLICK */
 #demo{
+	table-layout:fixed;
 }
 
 .demo{
 	border: 1px solid black;
 	margin: 0 auto;
-	height: 100%;
+	/*height: inherit;*/
+	/*table-layout:fixed;*/
 }
 
 .demo .row .col:first-child{
 	border-right: 1px solid black;
-	height: 100%;
+	height: inherit;
 }
 
 .demo .description{
@@ -113,7 +118,7 @@ EXCLUDE: PROGRAMMING | RESUME | MUSIC, NEXT, PREV, BACK(if we're still doing bac
 .slick-list,
 .slick-track,
 .content{
-	height: 100%;
+	height: 95%;
 	width:100%;
 }
 
