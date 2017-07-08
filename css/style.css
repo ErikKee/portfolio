@@ -42,11 +42,16 @@
 	background-color: #aaa;
 }
 
+/* Smallest font size */
+.textSmall{
+	font-size: 0.75rem;
+}
+
 /* HOLDER */
 html,body{
 	width: 100%;
 	height: 100%;
-
+	min-height: 35rem;
 	background: #134e5e; /* fallback for old browsers */
 	background: -webkit-linear-gradient(to right, #134e5e, #71b280); /* Chrome 10-25, Safari 5.1-6 */
 	background: linear-gradient(to right, #134e5e, #71b280); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -57,13 +62,22 @@ html,body{
 }
 
 #master{
-	height: 100%;
+	/*position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 
+*/
+	position: relative;
 }
 
 #title-container{
-	top: 10%;
 	background-color: rgba(0,100,0,0.2);
+	/*position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -292%);*/
+	/*margin-top: 6%;*/
 }
 
 /* 
@@ -73,13 +87,28 @@ Everything = programming list, resume page, music list, programming/music slicke
 EXCLUDE: PROGRAMMING | RESUME | MUSIC, NEXT, PREV, BACK(if we're still doing back);
 */
 #master-container{
-	height: 72%;
-	background-color: rgba(0,0,100,0.2);
+	/*height: 40%;*/
+	height: 60%;
+	width: 100%;
+	min-height: 30rem;
+	/*position: relative;
+*/	background-color: rgba(0,0,100,0.2);
+
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -45%);
+	
+}
+
+.centerTV {
+display: inline-flex;
 }
 
 /* PROGRAMMING */
 #programming{
-	display: none;
+	/*display: none;*/
 }
 
 #programming .card-group .card{
@@ -118,8 +147,13 @@ EXCLUDE: PROGRAMMING | RESUME | MUSIC, NEXT, PREV, BACK(if we're still doing bac
 .slick-list,
 .slick-track,
 .content{
-	height: 95%;
+	height: 100%;
 	width:100%;
+
+	/*position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -70%);*/
 }
 
 .slick-prev,
@@ -130,9 +164,24 @@ EXCLUDE: PROGRAMMING | RESUME | MUSIC, NEXT, PREV, BACK(if we're still doing bac
 }
 
 .slick-prev{
-	-webkit-transform: translate(-50%, -50%);
+	/*-webkit-transform: translate(-50%, -50%);
 	-ms-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);*/
+
+	/**/
+
+	position: absolute;
+	top: 28%;
+	left: 2px;
+	height: 40%;
+	width: 5%;
+
+	z-index: 500;
+	font-size: 0.9rem;
+	line-height: 70%;
+	color: #FFFFFF;
+	text-align: right;
+	background-color: blue;
 }
 
 .slick-next{
