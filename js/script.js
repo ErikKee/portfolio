@@ -9,6 +9,27 @@ $(document).ready(function(){
 
 	$("#demo").hide();
 
+	$('.image-link').magnificPopup({
+		type:'image',
+		// Delay in milliseconds before popup is removed
+		removalDelay: 300,
+
+		// Class that is added to popup wrapper and background
+		// make it unique to apply your CSS animations just to this exact popup
+		mainClass: 'mfp-fade'
+	});
+
+
+
+	$('.ajax-popup-link').magnificPopup({
+		type: 'ajax',
+		// Delay in milliseconds before popup is removed
+		removalDelay: 300,
+
+		// Class that is added to popup wrapper and background
+		// make it unique to apply your CSS animations just to this exact popup
+		mainClass: 'mfp-fade'
+	});
 
 
 /*	$(window).resize(function() {
@@ -63,4 +84,36 @@ $(document).ready(function(){
 	  console.log("NEXT");
 	})
 
+
+	
+
 });
+
+var previousExpandedDetailID = "";
+
+function toggleDetail(id) {
+	console.log("DETAIL");
+	if(previousExpandedDetailID != id && previousExpandedDetailID != ""){
+		console.log("PREVIOUS DETAIL");
+		document.getElementById(previousExpandedDetailID+"-toggle").innerHTML = '<i class="fa fa-angle-right" aria-hidden="true"></i>' + " " + document.getElementById(previousExpandedDetailID+"-toggle").getAttribute("value");
+		document.getElementById(previousExpandedDetailID).style.height = '0px';
+		previousExpandedDetailID = id;
+	}
+
+
+    if (document.getElementById(id).style.height == '0px') {
+    	//document.getElementById(id+"-toggle").innerHTML = document.getElementById(id+"-toggle").getAttribute("value") + " " + '<i class="fa fa-caret-down" aria-hidden="true"></i>';
+    	document.getElementById(id+"-toggle").innerHTML = '<i class="fa fa-angle-down" aria-hidden="true"></i>' + " " + document.getElementById(id+"-toggle").getAttribute("value");
+        document.getElementById(id).style.height = '75px';
+        previousExpandedDetailID = id;
+        console.log("OFFSET = " + document.getElementById(id).offsetHeight);
+       
+    }
+    else {
+        //document.getElementById(id+"-toggle").innerHTML = document.getElementById(id+"-toggle").getAttribute("value") + " " + '<i class="fa fa-caret-right" aria-hidden="true"></i>';
+        document.getElementById(id+"-toggle").innerHTML = '<i class="fa fa-angle-right" aria-hidden="true"></i>' + " " + document.getElementById(id+"-toggle").getAttribute("value");
+        document.getElementById(id).style.height = '0px';
+        previousExpandedDetailID = id;
+        console.log("OFFSET = " + document.getElementById(id).offsetHeight);
+    }
+}

@@ -10,6 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
 	<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
 	<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="magnific-popup/magnific-popup.css">
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
@@ -26,19 +27,30 @@
 				<button id="backButton"> <span>BACK | <b>✕</b></span></button>
 			</div>
 		</div> -->
+		<!-- <div class="realDemoButton">
+			<div class="container ">
+				<div class="row justify-content-between">
+					<div class="col-1">
+						One of three columns
+					</div>
+					<div class="col-1">
+						One of three columns
+					</div>
+				</div>
+			</div>
+		</div> -->
 
 
-
-		<div id="demo-prev" class="bg-color-white">
-			<button type="button" class="custom-slick-prev">
+		<div id="demo-prev" class="col-1 p-0">
+			<button type="button" class="custom-slick-prev" style="float: left;">
 				<span><i class="fa fa-angle-left" aria-hidden="true"></i></span>
 				<br>
 				PREV
 			</button>
 		</div> 
 
-		<div id="demo-next" class="bg-color-white">
-			<button type="button" class="custom-slick-next">
+		<div id="demo-next" class="col-1 p-0">
+			<button type="button" class="custom-slick-next w-100">
 				<span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
 				<br>
 				NEXT
@@ -59,6 +71,9 @@
 		</div> -->
 
 
+
+
+
 			
 		<!-- TITLE BAR -->
 			<!-- <div id="title-container" class="container col-10" style="padding-top: 5rem;">
@@ -77,93 +92,232 @@
 
 			<!-- <div id="master-container" class="container col-10"> -->
 			
-				<div class="slick" style="opacity: 0.2;">
-				<!-- Programming page -->
-					<div class="demo bg-color-green" id="programming" style="opacity: 0.2;">
-						<div class="container-fluid">
-							<div class="card-group">
-								<div class="card video-game">
-									<div class="card-block">
+				<div class="slick" style="opacity: 1.0;">
+					
+					<!-- LANDING PAGE -->
+					<div class="demo" name="programming-list">
+						<div class="container bg-info col-10 p-0 align-items-center" style="height: 28rem; margin-bottom: 5rem; margin-top: 4rem;">
+							<div id="projectTitle" style="text-align: center;">
+								AYYYYYYYYY<br/>
+								LANDING PAGE
+							</div>
+						</div>
+					</div>
+
+					<!-- PROGRAMMING LIST -->
+					<div class="demo bg-color-green" name="programming-list">
+						<div class="container col-10 p-0" style="height: 28rem; margin-bottom: 5rem; margin-top: 4rem;">
+
+							<div class="row">
+								<div class="col-3 programming-card video-game">
 										<h4 class="card-title">Three.js</h4>
 										<p>Video Game Engine Demo</p>
 										<p class="textSmall">[Coursework - Video Game Engine]</p>
-									</div>
 								</div>
-								<div class="card glsl">
-									<div class="card-block">
+								<div class="col-3 programming-card glsl">
 										<h4 class="card-title">GLSL</h4>
 										<p>GLSL DEMO</p>
 										<p class="textSmall">[Coursework - OpenGL Shading Language]</p>
-									</div>
 								</div>
-								<div class="card">
-									<div class="card-block">
+								<div class="col-3 programming-card">
 										<h4 class="card-title">Internship</h4>
 										<p>HouseNearby</p>
 										<p class="textSmall">[Internship - iOS Development]</p>
-									</div>
 								</div>
-								<div class="card">
-									<div class="card-block">
+								<div class="col-3 programming-card">
 										<h4 class="card-title">Hackathon</h4>
 										<p>TEACH ME!</p>
 										<p class="textSmall">[Hackathon - App Challenge @GREAT2016]</p>
-									</div>
 								</div>
-								<div class="card">
-									<div class="card-block">
+								<div class="col-3 programming-card">
 										<h4 class="card-title">iOS</h4>
 										<p>InTheBooks</p>
 										<p class="textSmall">[Coursework - Mobile App Development]</p>
-									</div>
 								</div>
-								<div class="card">
-									<div class="card-block">
+								<div class="col-3 programming-card">
 										<h4 class="card-title">iOS</h4>
 										<p>ESCAPE</p>
 										<p class="textSmall">[Coursework - Mobile App Development]</p>
-									</div>
 								</div>
-								<div class="card">
-									<div class="card-block">
+								<div class="col-3 programming-card">
 										<h4 class="card-title">iOS</h4>
 										<p>RUNTIME</p>
 										<p class="textSmall">[Coursework - Mobile App Development]</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- RESUME -->
+					<div id="resumePage" class="demo" name="programming-list">
+						<div class="container col-10 p-0" style="height: 28rem; margin-bottom: 5rem; margin-top: 4rem; background-color: rgb(0,0,0,0.1);">
+
+							<div id="title-container" class="container col-12">
+								<div class="row">
+									<div class="col-9 p-0">
+										<div id="projectTitle">
+											RESUME
+										</div>
+									</div>
+									<div class="col-3 p-0" align="text-right">
+										<button id="backButton"> <span>BACK | <b>✕</b></span></button>
+									</div>
+								</div>
+							</div>
+
+
+
+							<div class="row" style="height: 24rem; ">
+								<div class="col-6 pl-4">
+									<p class="textMedium2 mt-2" style="color: #8fc31f;">Name</p>
+									<p class="textMedium1">KIKAHO</p>
+									<p class="textMedium2" style="color: #8fc31f;">Programming</p>
+									<p class="textMedium1">
+										Swift, Java, JavaScript, C, C++<br/>html, CSS, Bootstrap4, MySQL, JSON<br/>Three.js, GLSL
+									</p>
+									<p class="textMedium2" style="color: #8fc31f;">Education</p>
+									<p class="textMedium1">
+										Oklahoma State University, Stillwater, Oklahoma<br/>Bachelor of Science in Computer Science
+									</p>
+									<p class="textMedium2" style="color: #8fc31f;">Language</p>
+									<p class="textMedium1">
+										English, Chinese, Cantonese - Native profieciency<br/>
+										Japanese, Malay - Limited working profieciency
+									</p>
+
+								</div>
+								<div class="col-6 pl-3">
+									<p class="textMedium2 mt-2" style="color: #8fc31f;">Experience</p>
+									<p class="textMedium1 expandableTextHeader" id="experience-wenbit-detail-toggle" 
+									value="iOS Developer Intern | Wenbit Sdn Bhd, Malaysia"
+									onclick="toggleDetail('experience-wenbit-detail')">
+										<i class="fa fa-angle-right" aria-hidden="true"></i> iOS Developer Intern | Wenbit Sdn Bhd, Malaysia
+									</p>
+									<div id="experience-wenbit-detail" class="text-detail" style="height: 0px;">
+										<p class="textSmall">
+											Developed a housing properties searching iOS application<br/>
+											Implemented search feature that interacts with company's online database and designed the user interface
+										</p>
+									</div>
+
+									<p class="textMedium2" style="color: #8fc31f;">Academic Projects</p>
+
+									<p class="textMedium1 expandableTextHeader" id="projects-game-engine-detail-toggle" 
+									value="Video Game Engine"
+									onclick="toggleDetail('projects-game-engine-detail')">
+										<i class="fa fa-angle-right" aria-hidden="true"></i> Video Game Engine
+									</p>
+									<div id="projects-game-engine-detail" class="text-detail" style="height: 0px;">
+										<p class="textSmall">
+											Developed a 3D graphical engine based on Three.js that is able to render a scene according to custom JSON file, custom script can also be applied into each rendered objects to achieve player control and animation effects. 
+										</p>
+									</div>
+
+									
+
+									<p class="textMedium1 expandableTextHeader" id="projects-google-dev-detail-toggle"
+									value="Google Developer Study Jam"
+									onclick="toggleDetail('projects-google-dev-detail')">
+										<i class="fa fa-angle-right" aria-hidden="true"></i> Google Developer Study Jam
+									</p>
+									<div id="projects-google-dev-detail" class="text-detail" style="height: 0px;">
+										<p class="textSmall">
+											A workshop held in Oklahoma State University by Google. The objective is to create an Android mobile application that is capable to detect device shaking motion and perform animation accordingly.
+										</p>
+									</div>
+
+									<p class="textMedium1 expandableTextHeader" id="projects-ios-inthebooks-detail-toggle"
+									value="iOS Application - In The Books"
+									onclick="toggleDetail('projects-ios-inthebooks-detail')">
+										<i class="fa fa-angle-right" aria-hidden="true"></i> iOS Application - In The Books
+									</p>
+									<div id="projects-ios-inthebooks-detail" class="text-detail" style="height: 0px;">
+										<p class="textSmall">
+											Developed as a team to create an iOS application for hotel inventory management that is capable of storing data into online database.
+										</p>
+									</div>
+
+									<p class="textMedium2" style="color: #8fc31f;">Campus Involvement</p>
+									<p class="textMedium1 expandableTextHeader" id="campus-drum-detail-toggle" 
+									value="Malaysia 24 Season Drum Troupe"
+									onclick="toggleDetail('campus-drum-detail')">
+										<i class="fa fa-angle-right" aria-hidden="true"></i> Malaysia 24 Season Drum Troupe
+									</p>
+									<div id="campus-drum-detail" class="text-detail" style="height: 0px;">
+										<p class="textSmall">
+											Developed a housing properties searching iOS application<br/>
+											Implemented search feature that interacts with company's online database and designed the user interface
+										</p>
+									</div>
+
+
+									<br/>
+									<button href="popupDummy.html" class="ajax-popup-link demoButton">RESUME.PDF</button>
+									<button href="popupDummy.html" class="ajax-popup-link demoButton">GITHUB</button>
+								</div> 
+								<!-- END RIGHT COLUMN -->
+							</div>
+						</div>
+					</div>
+
+					<!-- MUSIC LIST -->
+					<div class="demo bg-color-green" name="music-list">
+						<div class="container col-10 p-0" style="height: 28rem; margin-bottom: 5rem; margin-top: 4rem;">
+
+							<div class="row h-100">
+								<div class="col-4 midi">
+									<div class="card-block">
+										<h4 class="card-title">MIDI</h4>
+										<p>MIDI Demo Tracks</p>
+									</div>
+								</div>
+								<div class="col-4 guitar">
+									<div class="card-block">
+										<h4 class="card-title">GUITAR</h4>
+										<p>Guitar Demo Videos</p>
+									</div>
+								</div>
+								<div class="col-4 drum">
+									<div class="card-block">
+										<h4 class="card-title">DRUM</h4>
+										<p>Malaysia 24 Season Drum troupe @OSU</p>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 
-					<!-- RESUME Page -->
-					<div class="demo bg-color-green" value="programming-list">
-						<h4>RESUME AND STUFF</h4>
-					</div>
+					<!-- PROTOTYPE PAGE -->
+					<div class="demo bg-color-green" name="programming-1">
+						<div class="container col-10 p-0 bg-color-white" style="height: 15rem; margin-bottom: 5rem; margin-top: 4rem;">
 
-					<!-- MUSIC List -->
-					<div class="demo bg-color-green" id="programming" style="opacity: 0.2;">
-						<div class="container-fluid">
-							<div class="card-group">
-								<div class="card midi">
-									<div class="card-block">
-										<h4 class="card-title">MIDI</h4>
-										<p>MIDI Composing</p>
-										<p class="textSmall">[MIDI Demo Tracks]</p>
+							<div id="title-container" class="container col-12">
+								<div class="row">
+									<div class="col-9 bg-color-green p-0">
+										<div id="projectTitle">
+											VIDEO GAME ENGINE
+										</div>
+									</div>
+									<div class="col-3 bg-color-green p-0" align="text-right">
+										<button id="backButton"> <span>BACK | <b>✕</b></span></button>
 									</div>
 								</div>
-								<div class="card guitar">
-									<div class="card-block">
-										<h4 class="card-title">Guitar</h4>
-										<p>Electric Guitar</p>
-										<p class="textSmall">[Short Guitar Demo Videos]</p>
-									</div>
+							</div>
+
+
+
+							<div class="row bg-color-green" style="height: 24rem;">
+								<div class="col-6 pl-5 pt-5 bg-info">
+									<img src="images/kid-running.jpg" href="images/kid-running.jpg"  class="image-link img-fluid w-75 mx-auto">
 								</div>
-								<div class="card">
-									<div class="card-block">
-										<h4 class="card-title">Drum</h4>
-										<p>Malaysia 24 Season Drum Troupe</p>
-										<p class="textSmall">[Introduction + Videos]</p>
-									</div>
+								<div class="col-6 pt-5 pl-5">
+									3D graphical game engine based on Three.js
+									Able to generate scene based on an input JSON file
+									Implemented keyboard control
+									<br/>
+									<br/>
+									<button href="popupDummy.html" class="ajax-popup-link demoButton">VIEW DEMO</button>
+									<button href="popupDummy.html" class="ajax-popup-link demoButton">VIEW ON GITHUB</button>
 								</div>
 							</div>
 						</div>
@@ -249,30 +403,32 @@
 						third
 					</div>
 
-					<!-- Third page -->
+					<!-- PROTOTYPE PAGE -->
 					<div class="demo bg-color-green" name="programming-list">
-						<div class="container col-12 p-0 bg-color-white" style="height: 50%; margin-bottom: 5rem; margin-top: 5rem;">
+						<div class="container col-10 p-0 bg-color-white" style="height: 28rem; margin-bottom: 5rem; margin-top: 4rem;">
 
-						<div id="title-container" class="container col-12" style="padding-top: 5rem;">
-							<div class="row">
-								<div class="col-9 bg-color-green p-0">
-									<div id="projectTitle">
-										WRYYYYYYYYYY
+							<div id="title-container" class="container col-12">
+								<div class="row">
+									<div class="col-9 bg-color-green p-0">
+										<div id="projectTitle">
+											WRYYYYYYYYYY
+										</div>
+									</div>
+									<div class="col-3 bg-color-green p-0" align="text-right">
+										<button id="backButton"> <span>BACK | <b>✕</b></span></button>
 									</div>
 								</div>
-								<div class="col-3 bg-color-green p-0" align="text-right">
-									<button id="backButton"> <span>BACK | <b>✕</b></span></button>
-								</div>
 							</div>
-						</div>
-							HAHA
 
-							<div class="row bg-color-green">
-								<div class="col-6">
-									AYY
+
+
+							<div class="row bg-color-white" style="height: 24rem; opacity: 0.5;">
+								<div class="col-6 pl-5 pt-5 bg-info">
+									<img src="images/kid-running.jpg" href="images/kid-running.jpg"  class="image-link img-fluid w-75 mx-auto">
 								</div>
-								<div class="col-6">
+								<div class="col-6 pt-5 pl-5">
 									LMAO
+									<a href="popupDumie.html" class="ajax-popup-link">Show inline popup</a>
 								</div>
 							</div>
 						</div>
@@ -289,6 +445,8 @@
 
 
 	<div id="master-buttons" class="container-fluid fixed-bottom" style="margin-left: 2%; margin-right: 2%;">
+
+
 		<div class="row">
 
 			<div class="col" align="center">
@@ -311,6 +469,7 @@
 
 	<script src="node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="slick/slick.min.js"></script>
+	<script src="magnific-popup/jquery.magnific-popup.js"></script>
 
 	<script src="node_modules/tether/dist/js/tether.min.js"></script>
 	<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>

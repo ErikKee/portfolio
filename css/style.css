@@ -42,9 +42,34 @@
 	background-color: #aaa;
 }
 
+.textBig {
+	font-size: 2rem;
+	font-weight: font-weight: 700;
+}
+
+.textMedium2 {
+	color: white;
+	font-size: 1.15rem;
+	font-weight: 500;
+	line-height: 0.5rem;
+	margin-bottom: 0.45rem;
+	margin-top: 2.0rem;
+}
+
+.textMedium1 {
+	color: white;
+	font-size: 0.85rem;
+	font-weight: 400;
+	line-height: 1rem;
+	margin-bottom: 0rem;
+}
+
 /* Smallest font size */
 .textSmall{
+	color: white;
 	font-size: 0.75rem;
+	font-weight: 100;
+
 }
 
 /* HOLDER */
@@ -71,13 +96,45 @@ html,body{
 	position: relative;
 }
 
+.slick,
+.slick-list,
+.slick-track,
+.content{
+	height: 100%;
+	width:100%;
+	position: absolute;
+
+	/*position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -70%);*/
+}
+
+
 #title-container{
-	background-color: rgba(0,100,0,0.2);
+	/*background-color: rgba(0,100,0,0.2);*/
+	height: 3.5rem;
 	/*position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -292%);*/
 	/*margin-top: 6%;*/
+}
+
+/* PROJECT TITLE */
+#projectTitle{
+	font-size: 2.5rem;
+	/*background-color: rgba(0,0,0,0.1);*/
+	border: none;
+	color: white;
+	border-radius: 0;
+	z-index: 5;
+	width: 100%;
+	height: 100%;
+	line-height: 100%;
+
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font-weight: 100;
 }
 
 /* 
@@ -102,22 +159,46 @@ EXCLUDE: PROGRAMMING | RESUME | MUSIC, NEXT, PREV, BACK(if we're still doing bac
 	
 }
 
-.centerTV {
-display: inline-flex;
+.programming-card {
+	border: 1px solid rgba(255,255,255,0.8);
+	height: 12rem;
+	vertical-align: middle;
 }
 
-/* PROGRAMMING */
-#programming{
-	/*display: none;*/
+
+#resumePage .row [class*='col-6']:not(:last-child):after {
+	background: #FFFFFF;
+	width: 1px;
+	height: 90%;
+	vertical-align: middle;
+	content: "";
+	display:block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	min-height: auto;
+
 }
 
-#programming .card-group .card{
-	background-color: transparent;
-	cursor: pointer;
+.text-detail {
+	padding-right: 1rem;
+	padding-left: 1rem;
+    height: 0px;
+    overflow: hidden;
+    transition: height 0.3s;
+    -moz-transition: height 0.3s; /* Firefox 4 */
+    -webkit-transition: height 0.3s; /* Safari and Chrome */
+    -o-transition: height 0.3s; /* Opera */
 }
 
-#programming .video-game{
-	cursor:pointer;
+.expandableTextHeader{
+	transition-duration: 0.05s;
+}
+
+.expandableTextHeader:hover {
+	opacity: 0.7;
+
 }
 
 
@@ -143,102 +224,89 @@ display: inline-flex;
 	padding-right: 2em;
 }
 
-.slick,
-.slick-list,
-.slick-track,
-.content{
-	height: 100%;
-	width:100%;
 
-	/*position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -70%);*/
-}
-
-.slick-prev,
-.slick-next
-{
-	width: auto;
-	height: auto;
-}
-
-.slick-prev{
-	/*-webkit-transform: translate(-50%, -50%);
-	-ms-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);*/
-
-	/**/
-
-	position: absolute;
-	top: 28%;
-	left: 2px;
-	height: 40%;
-	width: 5%;
-
-	z-index: 500;
+/* Default design for buttons inside a demo, eg:"VIEW DEMO" and "VIEW ON GITHUB"; */
+.demoButton {
+	background-color: transparent;
+	border: 1px solid rgba(255,255,255,0.4);
+	color: white;
+	padding: 2px;
+	text-align: center;
+	text-decoration: none;
 	font-size: 0.9rem;
-	line-height: 70%;
-	color: #FFFFFF;
-	text-align: right;
-	background-color: blue;
+	margin: 6px 2px;
+	width: 12rem;
+	outline:none;
+	display: inline;
 }
 
-.slick-next{
-	-webkit-transform: translate(50%, -50%);
-	-ms-transform: translate(50%, -50%);
-	transform: translate(50%, -50%);
+.demoButton:focus {outline:none;}
+
+.demoButton:hover {
+	background-color: rgba(255,255,255,0.2);
+	outline:none;
+
 }
 
-.slick-prev::before {
-	font-family: FontAwesome;
-	content: "\f104";
-	font-size: 5rem;
-}  
-.slick-next::before {
-	font-family: FontAwesome;
-	content: "\f105";
-	font-size: 5rem;
-} 
 
-/* PREV & NEXT BUTTON CONTAINER */
+/* PREV & NEXT BUTTON */
 #demo-next {
 	position: absolute;
-	top: 28%;
+	border: none;
+	top: 23%;
 	right: 2px;
-	height: 40%;
+	height: 60%;
 	z-index: 500;
-
+	background-color: transparent;
 }
 
 #demo-prev {
 	position: absolute;
-	top: 28%;
+	border: none;
+	top: 23%;
 	left: 2px;
-	height: 40%;
-	width: 5%;
+	height: 60%;
+	width: 95%;
 	z-index: 500;
+	background-color: transparent;
 
 }
 
+#demo-next button:hover {
+	color: rgba(255,255,255,0.7);
+	transition-duration: 0.1s;
+}
+
+#demo-prev button:hover {
+	color: rgba(255,255,255,0.7);
+	transition-duration: 0.1s;
+}
+
+
 #demo-next button {
+	background-color: transparent;
+	border: none; /*1px solid rgba(255,255,255,0.4);*/
 	z-index: 500;
 	height: 100%;
+	width: 100%;
 	font-size: 0.9rem;
 	line-height: 70%;
 	color: #FFFFFF;
 	text-align: right;
-	background-color: blue;
+	outline: none;
 }
 
 #demo-prev button {
+	background-color: transparent;
+	border: none;/*1px solid rgba(255,255,255,0.4);*/
 	z-index: 500;
 	height: 100%;
+	width: 100%;
 	font-size: 0.9rem;
 	line-height: 70%;
 	color: #FFFFFF;
 	text-align: left;
-	background-color: blue;
+	outline: none;
 }
 
 /* PREV & NEXT's ARROW SIZE */
@@ -253,6 +321,7 @@ display: inline-flex;
 /* BOTTOM BUTTONS */
 #master-buttons{
 	bottom: 1.4rem;
+	outline: none;
 }
 
 #master-buttons button{
@@ -261,54 +330,51 @@ display: inline-flex;
 	border: none;
 	color: white;
 	border-radius: 0;
-	cursor: pointer;
 	z-index: 5;
-	padding: 1rem;
+	height: 4rem;
+	vertical-align: middle;
 	width: 100%;
+	outline: none;
 
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 	font: light;
 	font-weight: 100;
 }
 
+#master-buttons button:hover{
+	color: rgba(255,255,255,0.8);
+	font-size: 1.55rem;
+	transition-duration: 0.2s;
+}
+
 /* Vertical separating line between bottom buttons */
 #master-buttons .row [class*='col']:not(:last-child):after {
 	background: #FFFFFF;
 	width: 1px;
+	height: 80%;
+	vertical-align: middle;
 	content: "";
 	display:block;
 	position: absolute;
-	top:0;
+	top:10%;
 	bottom: 0;
 	right: 0;
 	min-height: auto;
 }
 
-/* PROJECT TITLE */
-#projectTitle{
-	font-size: 3rem;
-	background-color: rgba(0,0,0,0.1);
-	border: none;
-	color: white;
-	border-radius: 0;
-	z-index: 5;
-	width: 100%;
-	height: 100%;
-	line-height: 100%;
 
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-	font-weight: 100;
-}
 
 /* BACK BUTTON */
 #backButton{
 	color: white;
-	font-size: 2.5rem;
+	font-size: 2rem;
 	line-height: 100%;
 
 
-	background-color: rgba(0,0,0,0.1);
+	/*background-color: rgba(0,0,0,0.1);*/
+	background-color: transparent;
 	border: none;
+	outline: none;
 	
 	border-radius: 0;
 	z-index: 5;
@@ -317,6 +383,12 @@ display: inline-flex;
 
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 	font-weight: lighter;
+}
+
+#backButton:hover {
+	color: rgba(255,255,255,0.8);
+	transition-duration: 0.2s;
+
 }
 
 /* To make button's text position in top right */
@@ -329,3 +401,38 @@ display: inline-flex;
 
 
 
+/* Magnific-Popup animation configuration */
+
+/* overlay at start */
+.mfp-fade.mfp-bg {
+  opacity: 0;
+
+  -webkit-transition: all 0.15s ease-out;
+  -moz-transition: all 0.15s ease-out;
+  transition: all 0.15s ease-out;
+}
+/* overlay animate in */
+.mfp-fade.mfp-bg.mfp-ready {
+  opacity: 0.8;
+}
+/* overlay animate out */
+.mfp-fade.mfp-bg.mfp-removing {
+  opacity: 0;
+}
+
+/* content at start */
+.mfp-fade.mfp-wrap .mfp-content {
+  opacity: 0;
+
+  -webkit-transition: all 0.15s ease-out;
+  -moz-transition: all 0.15s ease-out;
+  transition: all 0.15s ease-out;
+}
+/* content animate it */
+.mfp-fade.mfp-wrap.mfp-ready .mfp-content {
+  opacity: 1;
+}
+/* content animate out */
+.mfp-fade.mfp-wrap.mfp-removing .mfp-content {
+  opacity: 0;
+}
