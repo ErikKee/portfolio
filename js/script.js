@@ -31,6 +31,38 @@ $(document).ready(function(){
 		mainClass: 'mfp-fade'
 	});
 
+	$('#VideoGameGallery').magnificPopup({
+
+		// Delay in milliseconds before popup is removed
+		removalDelay: 150,
+
+		// Class that is added to popup wrapper and background
+		// make it unique to apply your CSS animations just to this exact popup
+		mainClass: 'mfp-fade',
+		closeBtnInside:true,
+		navigateByImgClick: false,
+
+		items: [
+		{
+			src: 'images/VideoGameEngine01.jpg',
+			title: 'DEMO 01'
+		},
+		{
+			src: 'images/VideoGameEngine01.jpg',
+			title: 'DEMO 02'
+        },
+        {
+	        src: 'images/VideoGameEngine03.jpg',
+			title: 'DEMO 03'
+	    }
+	    ],
+	    gallery: {
+	      enabled: true
+	    },
+	    type: 'image', // this is a default type
+
+
+	});
 
 /*	$(window).resize(function() {
         $('#master-container .slick-slide').height($('#master-container').height())
