@@ -76,7 +76,7 @@ $(document).ready(function(){
 
 		items: [
 		{
-			src: '#flexsliderLightbox02',
+			src: '#slick-video-game-2',
 			type: 'inline'
 		}
 	    ],
@@ -102,8 +102,14 @@ $(document).ready(function(){
 	    }
 	});
 
-
-
+	$('.slick-video-game').each(function(){
+		$(this).slick({
+			infinite: true,
+			speed: 500,
+			fade: true,
+			cssEase: 'linear'
+		});
+	})
 
 	$('.flexslider').flexslider({
 		startAt: 0, 
