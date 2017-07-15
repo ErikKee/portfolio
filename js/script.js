@@ -7,6 +7,7 @@ $(document).ready(function(){
 		cssEase: 'ease-out'
 	});
 
+
 	$("#demo").hide();
 
 	$('.image-link').magnificPopup({
@@ -31,38 +32,100 @@ $(document).ready(function(){
 		mainClass: 'mfp-fade'
 	});
 
+
+
+
 	$('#VideoGameGallery').magnificPopup({
 
 		// Delay in milliseconds before popup is removed
-		removalDelay: 150,
+		removalDelay: 100,
 
 		// Class that is added to popup wrapper and background
 		// make it unique to apply your CSS animations just to this exact popup
 		mainClass: 'mfp-fade',
-		closeBtnInside:true,
 		navigateByImgClick: false,
 
 		items: [
 		{
-			src: 'images/VideoGameEngine01.jpg',
-			title: 'DEMO 01'
-		},
-		{
-			src: 'images/VideoGameEngine01.jpg',
-			title: 'DEMO 02'
-        },
-        {
-	        src: 'images/VideoGameEngine03.jpg',
-			title: 'DEMO 03'
-	    }
+			src: '#flexsliderLightbox',
+			type: 'inline'
+		}
 	    ],
-	    gallery: {
-	      enabled: true
-	    },
-	    type: 'image', // this is a default type
 
-
+	    callbacks: {
+	    	open: function() {
+	    		$('.slick').animate({opacity:'0'}, 0);
+		    },
+	    	close: function(){
+	    		$('.slick').animate({opacity:'1'}, 50);
+	    	}
+	    }
 	});
+
+	$('#VideoGameGallery02').magnificPopup({
+
+		//var winHeight = $(window).height();
+
+		// Delay in milliseconds before popup is removed
+		removalDelay: 100,
+
+		// Class that is added to popup wrapper and background
+		// make it unique to apply your CSS animations just to this exact popup
+		mainClass: 'mfp-fade',
+		navigateByImgClick: false,
+
+		items: [
+		{
+			src: '#flexsliderLightbox02',
+			type: 'inline'
+		}
+	    ],
+
+	    callbacks: {
+	    	beforeOpen: function() {
+		    	console.log('Start of popup initialization');
+		    	console.log("PRE HEIGHT = " + $('.slick').height() );
+		    	//$('.flexslider').flexslider(0);
+		  	},
+	    	open: function() {
+	    		//$('.slick').animate({opacity:'0'}, 0);
+	    		/*$(window).height(winHeight);*/
+	    		//$('.flexslider').flexslider(0);
+		    },
+	    	close: function(){
+	    		//$('body').height(50+'px'); 
+	    		//$('.slick').animate({opacity:'1'}, 50);
+
+	    		console.log("POST HEIGHT = " + $('.slick').height() );
+	    		//$('.flexslider').flexslider(0);
+	    	}
+	    }
+	});
+
+
+
+
+	$('.flexslider').flexslider({
+		startAt: 0, 
+		/*directionNav : false,*/
+    	slideshow: false,
+		animation:"fade",
+		animationSpeed: 300,
+		controlNav: false
+/*		start: function(){
+			console.log("SLIDER START");
+			$('.flexslider').flexslider(0);
+		}*/
+	});
+
+	$('.flexslider').on('click', function(){
+		console.log("SLIDE PLEASE");
+        $('.flexslider').flexslider("next")
+    });  
+
+/*	$('.flexslider').on('click', function () {
+		$(this).siblings('.slides').children('li').children('a.flex-next').trigger('click');
+	});*/
 
 /*	$(window).resize(function() {
         $('#master-container .slick-slide').height($('#master-container').height())

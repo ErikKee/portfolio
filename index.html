@@ -11,6 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
 	<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="magnific-popup/magnific-popup.css">
+	<link rel="stylesheet" href="flexSlider/flexslider.css" type="text/css">
 
 <!-- 	<script src="pace/pace.min.js"></script>
   	<link href="pace/pace-minimal.css" rel="stylesheet" /> -->
@@ -276,11 +277,33 @@
 						<div class="row pt-2" style="height: 24rem; ">
 
 							<div class="col pl-4 ">
-								<img id="VideoGameGallery" src="images/kid-running.jpg" href="images/kid-running.jpg"  
-								class="img-fluid w-75 mx-auto">
 
 
-								
+								<div id="VideoGameGallery" class="bg-warning container magnificPopupImageTriger w-75 mx-auto">
+									<img src="images/kid-running.jpg" href="images/kid-running.jpg" class="img-fluid">
+									<!-- <div class="overlay">123123</div> -->
+								</div>
+
+
+
+<!-- 
+								<div class="flexslider">
+									<ul class="slides">
+										<li>
+											<img src="images/VideoGameEngine01.jpg" />
+										</li>
+										<li  id="VideoGameGallery">
+
+											<img src="images/VideoGameEngine02.jpg" />
+										</li>
+										<li>
+											<img src="images/VideoGameEngine03.jpg" />
+										</li>
+									</ul>
+								</div> -->
+
+
+
 
 							<!-- 	<div id="videoGame01" class="mfp-hide magnificPopupContainer">
 									<img id="VideoGameGallery" src="images/VideoGameEngine01.jpg" class="magnificPopupMid img-fluid mx-auto">
@@ -302,7 +325,7 @@
 								</p>
 
 								<br/>
-								<button href="popupDummy.html" class="ajax-popup-link demoButton">VIEW DEMO</button>
+								<button id="VideoGameGallery02" class="demoButton">VIEW DEMO</button>
 								<button href="popupDummy.html" class="ajax-popup-link demoButton">GITHUB</button>
 							</div> 
 							<!-- END RIGHT COLUMN -->
@@ -398,6 +421,43 @@
 
 
 
+	<div id="flexsliderLightbox" class="container w-75 mfp-hide">
+		<div class="flexslider imageGalleryLightbox">
+			<ul class="slides">
+				<li>
+					<img src="images/VideoGameEngine01.jpg" />
+					<div class="flexSliderText">DEMO 01</div>
+				</li>
+				<li >
+					<img src="images/VideoGameEngine02.jpg" />
+				</li>
+				<li>
+					<img src="images/VideoGameEngine03.jpg" />
+				</li>
+			</ul>
+		</div>
+	</div>
+
+
+	<div id="flexsliderLightbox02" class="container mfp-hide">
+		<div class="flexslider imageGalleryLightbox">
+			<ul class="slides">
+				<li>
+					<img src="images/VideoGameEngine01.jpg" />
+					<div class="flexSliderText">DEMO 04</div>
+				</li>
+				<li >
+					<img src="images/VideoGameEngine02.jpg" />
+					<div class="flexSliderText">DEMO 05</div>
+				</li>
+				<li>
+					<img src="images/VideoGameEngine03.jpg" />
+					<div class="flexSliderText">DEMO 06</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+
 
 <!-- 	<img id="videoGame01" src="images/VideoGameEngine01.jpg" class="container d-flex justify-content-md-center magnificPopupMid mfp-hide img-fluid mx-auto">
 
@@ -433,6 +493,8 @@
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
 <script src="slick/slick.min.js"></script>
 <script src="magnific-popup/jquery.magnific-popup.js"></script>
+
+<script src="flexSlider/jquery.flexslider.js"></script>
 
 <script src="node_modules/tether/dist/js/tether.min.js"></script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
