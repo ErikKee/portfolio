@@ -92,6 +92,13 @@ html,body{
 	background: linear-gradient(to right, #134e5e, #71b280); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+@media only screen and (max-height: 600px) {
+    /* For mobile phones: */
+    [class*="demo"] {
+        padding-top: 5rem;
+    }
+}
+
 
 
 
@@ -108,6 +115,7 @@ html,body{
 	height: 100%;
 	width:100%;
 	min-height: 35rem;
+
 /*	position: absolute;
 */
 	/*position: absolute;
@@ -120,6 +128,7 @@ html,body{
 .demo{
 	position: absolute;
 	min-height: 35rem;
+	/*padding-top: 5rem;*/
 	/*border: 1px solid black;*/
 	/*margin: 8rem;*/
 	/*height: inherit;*/
@@ -135,7 +144,9 @@ html,body{
 
 /* Project title's font */
 #projectTitle{
-	font-size: 2.5rem;
+	font-size: 3rem;
+	text-align: left;
+	padding-left: 0;
 	/*background-color: rgba(0,0,0,0.1);*/
 	border: none;
 	color: white;
@@ -154,6 +165,7 @@ html,body{
 	color: white;
 	font-size: 2rem;
 	line-height: 100%;
+	text-align: right;
 
 
 	/*background-color: rgba(0,0,0,0.1);*/
@@ -171,7 +183,7 @@ html,body{
 }
 
 #backButton:hover {
-	color: rgba(255,255,255,0.8);
+	color: rgba(255,255,255,0.5);
 	transition-duration: 0.2s;
 
 }
@@ -278,6 +290,12 @@ html,body{
 */
 
 
+.navigation-top {
+	/*padding-top: 5%;*/
+	top: 7.5%;
+	z-index: 500;
+}
+
 /* PREV & NEXT BUTTON [will only appear in demo mode] */
 #demo-next {
 	position: absolute;
@@ -376,8 +394,8 @@ html,body{
 /* Programming demo list */
 .programming-card {
 	border: 1px solid rgba(255,255,255,0.8);
-	height: 12rem;
-	width: 12rem;
+	height: 15rem;
+	width: 15rem;
 }
 
 .programming-card:hover {

@@ -8,6 +8,16 @@ $(document).ready(function(){
 	});
 
 
+
+	$(".slickGallery").slick({
+		infinite: true,
+		speed: 200,
+		fade: true,
+		arrows: true,
+		cssEase: 'ease-out'
+	});
+
+
 	$("#demo").hide();
 
 	$('.image-link').magnificPopup({
@@ -43,11 +53,11 @@ $(document).ready(function(){
 		// Class that is added to popup wrapper and background
 		// make it unique to apply your CSS animations just to this exact popup
 		mainClass: 'mfp-fade',
-		navigateByImgClick: false,
+		/*navigateByImgClick: false,*/
 
 		items: [
 		{
-			src: '#flexsliderLightbox',
+			src: '#slickGallery',
 			type: 'inline'
 		}
 	    ],
