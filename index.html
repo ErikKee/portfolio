@@ -20,12 +20,12 @@
 </head>
 <body>
 
+<!-- Attempting to have a universal title & back button -->
 	<div class="navigation-top container-fluid fixed-top"> 
 		<div class="row">
 			<div class="col-10 push-1 p-0"> 
-				<div id="projectTitle"> WUT </div>
+				<div id="title"> WUT </div>
 			</div>
-
 
 			<div class="col-2 pull-1">
 				<button id="backButton"> <span>BACK | <b>✕</b></span></button>
@@ -55,7 +55,7 @@
 	<div class="slick d-flex align-items-center" style="opacity: 1.0;">
 
 		<!-- LANDING PAGE -->
-		<div class="demo d-flex align-items-center" name="programming-list">
+		<div class="demo d-flex align-items-center" title="" type="landing-page">
 			<div class="container bg-info col-10 p-0 justify-content-md-center d-flex align-items-center" style="height: 28rem; margin-bottom: 5rem; margin-top: 4rem;">
 				<div class="textBig text-center">
 					AYYYYYYYYY<br/>
@@ -64,52 +64,66 @@
 			</div>
 		</div>
 
-		<!-- PROGRAMMING LIST -->
-		<div class="demo d-flex align-items-center" align="center" name="programming-list">
-			<div class="container col-10 p-0 d-flex align-items-center" style="height: 28rem; margin-bottom: 5rem; margin-top: 4rem;">
+		<!-- <div class="navigation-top container-fluid fixed-top"> 
+		<div class="row">
+			<div class="col-10 push-1 p-0"> 
+				<div id="projectTitle"> WUT </div>
+			</div>
 
-				<div class="row justify-content-md-center bg-info">
-					<div class="programming-card video-game d-flex align-items-center justify-content-md-center">
-						<div>
-							<h4 class="card-title">Three.js</h4>
-							<p>Video Game Engine Demo</p>
-							<p class="textSmall">[Coursework - Video Game Engine]</p>
+			<div class="col-2 pull-1">
+				<button id="backButton"> <span>BACK | <b>✕</b></span></button>
+			</div>
+		</div> -->
+
+		<!-- PROGRAMMING LIST -->
+		<div class="demo" title="PROGRAMMING WORK" type="programming-list">
+			<div class="d-flex align-items-center" style="width: 100%; height: 100%;" align="center" name="programming-list">
+				<div class="container col-10 p-0 d-flex align-items-center" style="height: 28rem; margin-bottom: 5rem; margin-top: 4rem;">
+
+
+					<div class="row justify-content-md-center bg-info">
+						<div class="programming-card video-game d-flex align-items-center justify-content-md-center">
+							<div>
+								<h4 class="card-title">Three.js</h4>
+								<p>Video Game Engine Demo</p>
+								<p class="textSmall">[Coursework - Video Game Engine]</p>
+							</div>
 						</div>
-					</div>
-					<div class="programming-card glsl d-flex align-items-center justify-content-md-center">
-						<div>
-							<h4 class="card-title">GLSL</h4>
-							<p>GLSL DEMO</p>
-							<p class="textSmall">[Coursework - OpenGL Shading Language]</p>
+						<div class="programming-card glsl d-flex align-items-center justify-content-md-center">
+							<div>
+								<h4 class="card-title">GLSL</h4>
+								<p>GLSL DEMO</p>
+								<p class="textSmall">[Coursework - OpenGL Shading Language]</p>
+							</div>
 						</div>
-					</div>
-					<div class="programming-card internship d-flex align-items-center justify-content-md-center">
-						<div>
-							<h4 class="card-title">Internship</h4>
-							<p>HouseNearby</p>
-							<p class="textSmall">[iOS Development]</p>
+						<div class="programming-card internship d-flex align-items-center justify-content-md-center">
+							<div>
+								<h4 class="card-title">Internship</h4>
+								<p>HouseNearby</p>
+								<p class="textSmall">[iOS Development]</p>
+							</div>
 						</div>
-					</div>
-					
-					<div class="programming-card hackathon d-flex align-items-center justify-content-md-center">
-						<div>
-							<h4 class="card-title">Hackathon</h4>
-							<p>TEACH ME!</p>
-							<p class="textSmall">[App Challenge @GREAT2016]</p>
+						
+						<div class="programming-card hackathon d-flex align-items-center justify-content-md-center">
+							<div>
+								<h4 class="card-title">Hackathon</h4>
+								<p>TEACH ME!</p>
+								<p class="textSmall">[App Challenge @GREAT2016]</p>
+							</div>
 						</div>
-					</div>
-					<div class="programming-card ios d-flex align-items-center justify-content-md-center">
-						<div>
-							<h4 class="card-title">iOS</h4>
-							<p>InTheBooks</p>
-							<p class="textSmall">[Mobile App Development]</p>
+						<div class="programming-card ios d-flex align-items-center justify-content-md-center">
+							<div>
+								<h4 class="card-title">iOS</h4>
+								<p>InTheBooks</p>
+								<p class="textSmall">[Mobile App Development]</p>
+							</div>
 						</div>
-					</div>
-					<div class="programming-card android d-flex align-items-center justify-content-md-center">
-						<div>
-							<h4 class="card-title">Android</h4>
-							<p>ESCAPE</p>
-							<p class="textSmall">[Mobile App Development]</p>
+						<div class="programming-card android d-flex align-items-center justify-content-md-center">
+							<div>
+								<h4 class="card-title">Android</h4>
+								<p>ESCAPE</p>
+								<p class="textSmall">[Mobile App Development]</p>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -117,25 +131,10 @@
 		</div>
 
 		<!-- RESUME -->
-		<div id="resumePage" class="demo d-flex align-items-center" name="programming-list">
-			<div class="container col-10 p-0" style="height: 28rem; margin-bottom: 5rem; margin-top: 4rem; background-color: rgb(0,0,0,0.1);">
+		<div id="resumePage" class="demo d-flex align-items-center" title="RESUME" type="resume-page">
+			<div class="container d-flex align-items-center col-10 p-0" style="height: 28rem; margin-bottom: 5rem; margin-top: 4rem; background-color: rgb(0,0,0,0.1);">
 
 				<!-- <div> -->
-
-					<div id="title-container" class="container col-12">
-						<div class="row">
-							<div class="col-9 p-0">
-								<div id="projectTitle">
-									RESUME
-								</div>
-							</div>
-							<div class="col-3 p-0" align="text-right">
-								<button id="backButton"> <span>BACK | <b>✕</b></span></button>
-							</div>
-						</div>
-					</div>
-
-
 					<div id="verticalDivider">
 						<div class="row pt-2" style="height: 24rem; ">
 							<div class="col pl-4">
@@ -234,7 +233,7 @@
 
 
 		<!-- MUSIC LIST -->
-		<div class="demo d-flex align-items-center" align="center" name="music-list">
+		<div class="demo d-flex align-items-center" align="center" title="MUSIC WORKS" type="music-list">
 			<div class="container col-10 p-0 d-flex align-items-center" style="height: 28rem; margin-bottom: 5rem; margin-top: 4rem;">
 
 				<div class="row w-100 justify-content-md-center bg-info">
@@ -262,32 +261,18 @@
 
 
 		<!-- PROGRAMMING 01 - VIDEO GAME ENGINE -->
-		<div id="resumePage" class="demo d-flex align-items-center" name="programming-list">
-			<div class="container col-10 p-0" style="height: 28rem; margin-bottom: 5rem; margin-top: 4rem; background-color: rgb(0,0,0,0.1);">
+		<div id="resumePage" class="demo d-flex align-items-center" title="VIDEO GAME ENGINE" type="programming-item">
+			<div class="container d-flex align-items-center col-10 p-0" style="height: 28rem; margin-bottom: 5rem; margin-top: 4rem; background-color: rgb(0,0,0,0.1);">
 
 				<!-- <div> -->
 
-					<div id="title-container" class="container col-12">
-						<div class="row">
-							<div class="col-9 p-0">
-								<div id="projectTitle">
-									VIDEO GAME ENGINE
-								</div>
-							</div>
-							<div class="col-3 p-0" align="text-right">
-								<button id="backButton"> <span>BACK | <b>✕</b></span></button>
-							</div>
-						</div>
-					</div>
-
-
 					<div id="verticalDivider">
-						<div class="row pt-2" style="height: 24rem; ">
+						<div class="row pt-2" style="height: 20rem;">
 
 							<div class="col pl-4 d-flex align-items-center">
 								
 
-								<div id="VideoGameGallery" class="bg-warning container magnificPopupImageTriger w-75 mx-auto">
+								<div id="programming-flexslider-toggle" class="bg-warning container magnificPopupImageTriger w-75 mx-auto">
 									<img src="images/kid-running.jpg" href="images/kid-running.jpg" class="img-fluid">
 									<!-- <div class="overlay">123123</div> -->
 								</div>
@@ -351,7 +336,7 @@
 
 
 		<!-- PROTOTYPE PAGE -->
-		<div class="demo bg-color-green" name="programming-1">
+		<div class="demo bg-color-green" title="programming-1" type="programming-item">
 			<div class="container col-10 p-0 bg-color-white" style="height: 15rem; margin-bottom: 5rem; margin-top: 4rem;">
 
 				<div id="title-container" class="container col-12">
@@ -451,16 +436,16 @@
 
 
 	<div id="flexsliderLightbox02" class="container mfp-hide">
-		<div class="flexslider imageGalleryLightbox d-flex align-items-center ">
+		<div class="flexslider programming-1-flexslider imageGalleryLightbox">
 			<ul class="slides">
 				<li>
 					<div class="container bg-color-white">
 
 						<div class="row">
-							<div class="col-6 bg-info">
+							<div class="col bg-info">
 								<img src="images/VideoGameEngine01.jpg" />
 							</div>
-							<div class="col-6 bg-warning">
+							<div class="col bg-warning">
 								Heyyyyyyy
 							</div>
 						</div>
@@ -473,7 +458,7 @@
 					<div class="container bg-color-white">
 
 						<div class="row">
-							<div class="col-6 bg-info">
+							<div class="col-6 w-50 bg-info">
 								<img src="images/VideoGameEngine02.jpg" />
 							</div>
 							<div class="col-6 bg-warning">
@@ -481,8 +466,6 @@
 							</div>
 						</div>
 					</div>
-					<!-- <img src="images/VideoGameEngine02.jpg" />
-					<div class="flexSliderText">DEMO 05</div> -->
 				</li>
 				<li>
 					<div class="container bg-color-white">
@@ -496,20 +479,32 @@
 							</div>
 						</div>
 					</div>
-					<!-- <img src="images/VideoGameEngine03.jpg" />
-					<div class="flexSliderText">DEMO 06</div> -->
 				</li>
 			</ul>
+			<div>
+				<button id="programming-1-flexslider-prev" class="custom-flexslider-button-prev">
+					<span><i class="fa fa-angle-left" aria-hidden="true"></i></span>
+					<br>
+					PREV
+				</button>
+				<button id="programming-1-flexslider-next" class="custom-flexslider-button-next">
+					<span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+					<br>
+					NEXT
+				</button>
+			</div>
 		</div>
 	</div>
 
 	<div id="slickGallery" class="container w-75 d-flex align-items-center justify-content-md-center bg-info mfp-hide" style="opacity: 1.0;">
 		<div class="slickGallery bg-warning" style="height: 100%; width: 100%;">
+
 			<div style="height: 100%; width: 100%;">
+
 				<img style="width: 100%; height: 100%;" src="images/VideoGameEngine01.jpg" />
 			</div>
 			<div>
-				<img src="images/VideoGameEngine02.jpg" />
+				<img class="img-fluid" src="images/VideoGameEngine02.jpg" />
 			</div>
 			<div>
 				<img src="images/VideoGameEngine03.jpg" />

@@ -32,7 +32,7 @@ $(document).ready(function(){
 
 
 
-	$('.ajax-popup-link').magnificPopup({
+/*	$('.ajax-popup-link').magnificPopup({
 		type: 'ajax',
 		// Delay in milliseconds before popup is removed
 		removalDelay: 300,
@@ -41,11 +41,11 @@ $(document).ready(function(){
 		// make it unique to apply your CSS animations just to this exact popup
 		mainClass: 'mfp-fade'
 	});
+*/
 
 
 
-
-	$('#VideoGameGallery').magnificPopup({
+/*	$('#VideoGameGallery').magnificPopup({
 
 		// Delay in milliseconds before popup is removed
 		removalDelay: 100,
@@ -53,7 +53,7 @@ $(document).ready(function(){
 		// Class that is added to popup wrapper and background
 		// make it unique to apply your CSS animations just to this exact popup
 		mainClass: 'mfp-fade',
-		/*navigateByImgClick: false,*/
+		navigateByImgClick: false,
 
 		items: [
 		{
@@ -70,11 +70,9 @@ $(document).ready(function(){
 	    		$('.slick').animate({opacity:'1'}, 50);
 	    	}
 	    }
-	});
+	});*/
 
-	$('#VideoGameGallery02').magnificPopup({
-
-		//var winHeight = $(window).height();
+	$('#programming-flexslider-toggle').magnificPopup({
 
 		// Delay in milliseconds before popup is removed
 		removalDelay: 100,
@@ -94,19 +92,31 @@ $(document).ready(function(){
 	    callbacks: {
 	    	beforeOpen: function() {
 		    	console.log('Start of popup initialization');
-		    	console.log("PRE HEIGHT = " + $('.slick').height() );
-		    	//$('.flexslider').flexslider(0);
+
+		    	$('.programming-1-flexslider').flexslider({
+					startAt: 0, 
+					directionNav : false,
+			    	slideshow: false,
+					animation:"fade",
+					animationSpeed: 300,
+					controlNav: false
+				});
 		  	},
 	    	open: function() {
-	    		//$('.slick').animate({opacity:'0'}, 0);
-	    		/*$(window).height(winHeight);*/
-	    		//$('.flexslider').flexslider(0);
+	    		$('.slick').animate({opacity:'0'}, 150);
+	    		$('#demo-prev').animate({opacity:'0'}, 150);
+	    		$('#demo-next').animate({opacity:'0'}, 150);
+	    		
 		    },
 	    	close: function(){
+	    		console.log("DESTROY");
+	    		$('.programming-1-flexslider').flexslider("destroy");
 	    		//$('body').height(50+'px'); 
-	    		//$('.slick').animate({opacity:'1'}, 50);
+	    		$('.slick').animate({opacity:'1'}, 150);
+	    		$('#demo-prev').animate({opacity:'1'}, 150);
+	    		$('#demo-next').animate({opacity:'1'}, 150);
 
-	    		console.log("POST HEIGHT = " + $('.slick').height() );
+	    		/*console.log("POST HEIGHT = " + $('.slick').height() );*/
 	    		//$('.flexslider').flexslider(0);
 	    	}
 	    }
@@ -115,22 +125,22 @@ $(document).ready(function(){
 
 
 
-	$('.flexslider').flexslider({
+	/*$('.programming-1-flexslider').flexslider({
 		startAt: 0, 
-		/*directionNav : false,*/
+		directionNav : false,
     	slideshow: false,
 		animation:"fade",
 		animationSpeed: 300,
 		controlNav: false
-/*		start: function(){
-			console.log("SLIDER START");
-			$('.flexslider').flexslider(0);
-		}*/
-	});
+	});*/
 
-	$('.flexslider').on('click', function(){
+	$('#programming-1-flexslider-prev').on('click', function(){
 		console.log("SLIDE PLEASE");
-        $('.flexslider').flexslider("next")
+        $('.programming-1-flexslider').flexslider("previous");
+    });  
+    $('#programming-1-flexslider-next').on('click', function(){
+		console.log("SLIDE PLEASE");
+        $('.programming-1-flexslider').flexslider("next");
     });  
 
 /*	$('.flexslider').on('click', function () {
@@ -189,7 +199,15 @@ $(document).ready(function(){
 	  console.log("NEXT");
 	})
 
-
+	/*$('.slick').on('afterChange', function(event, slick, currentSlide, nextSlide){
+		console.log($(slick.$slides.get(currentSlide)).attr('type'));
+	});
+*/
+	/* Change title */
+	$('.slick').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+		console.log($(slick.$slides.get(currentSlide)).attr('type'));
+		$('#title').text($(slick.$slides.get(nextSlide)).attr('title'));
+	});
 	
 
 });
