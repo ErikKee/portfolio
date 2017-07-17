@@ -72,7 +72,7 @@ $(document).ready(function(){
 	    }
 	});*/
 
-	$('#programming-flexslider-toggle').magnificPopup({
+	$('.programming-flexslider-toggle').magnificPopup({
 
 		// Delay in milliseconds before popup is removed
 		removalDelay: 100,
@@ -84,7 +84,7 @@ $(document).ready(function(){
 
 		items: [
 		{
-			src: '#flexsliderLightbox02',
+			src: $('.programming-flexslider-toggle').attr('toggleTarget'),
 			type: 'inline'
 		}
 	    ],
@@ -93,7 +93,10 @@ $(document).ready(function(){
 	    	beforeOpen: function() {
 		    	console.log('Start of popup initialization');
 
-		    	$('.programming-1-flexslider').flexslider({
+		    	//$('.programming-flexslider-toggle').attr('toggleTarget');
+		    	console.log("HEH = " + $('.programming-flexslider-toggle').attr('toggleTarget'));
+
+		    	$($('.programming-flexslider-toggle').attr('toggleTarget')).flexslider({
 					startAt: 0, 
 					directionNav : false,
 			    	slideshow: false,
@@ -101,6 +104,25 @@ $(document).ready(function(){
 					animationSpeed: 300,
 					controlNav: false
 				});
+
+		    	$($('.programming-flexslider-toggle').attr('toggleTarget') + '-prev').on('click', function(){
+					console.log("SLIDE PLEASE");
+			        $($('.programming-flexslider-toggle').attr('toggleTarget')).flexslider("previous");
+			    });  
+			    $($('.programming-flexslider-toggle').attr('toggleTarget') + '-next').on('click', function(){
+					console.log("SLIDE PLEASE");
+			        $($('.programming-flexslider-toggle').attr('toggleTarget')).flexslider("next");
+			    });
+
+
+		    	/*$('.programming-1-flexslider').flexslider({
+					startAt: 0, 
+					directionNav : false,
+			    	slideshow: false,
+					animation:"fade",
+					animationSpeed: 300,
+					controlNav: false
+				});*/
 		  	},
 	    	open: function() {
 	    		$('.slick').animate({opacity:'0'}, 150);
@@ -110,7 +132,7 @@ $(document).ready(function(){
 		    },
 	    	close: function(){
 	    		console.log("DESTROY");
-	    		$('.programming-1-flexslider').flexslider("destroy");
+	    		$($('.programming-flexslider-toggle').attr('toggleTarget')).flexslider("destroy");
 	    		//$('body').height(50+'px'); 
 	    		$('.slick').animate({opacity:'1'}, 150);
 	    		$('#demo-prev').animate({opacity:'1'}, 150);
@@ -134,14 +156,14 @@ $(document).ready(function(){
 		controlNav: false
 	});*/
 
-	$('#programming-1-flexslider-prev').on('click', function(){
+/*	$('#programming-1-flexslider-prev').on('click', function(){
 		console.log("SLIDE PLEASE");
         $('.programming-1-flexslider').flexslider("previous");
     });  
     $('#programming-1-flexslider-next').on('click', function(){
 		console.log("SLIDE PLEASE");
         $('.programming-1-flexslider').flexslider("next");
-    });  
+    });  */
 
 /*	$('.flexslider').on('click', function () {
 		$(this).siblings('.slides').children('li').children('a.flex-next').trigger('click');
