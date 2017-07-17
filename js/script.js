@@ -41,7 +41,7 @@ $(document).ready(function(){
 		// make it unique to apply your CSS animations just to this exact popup
 		mainClass: 'mfp-fade'
 	});
-*/
+	*/
 
 
 
@@ -71,8 +71,10 @@ $(document).ready(function(){
 	    	}
 	    }
 	});*/
-
-	$('.programming-flexslider-toggle').magnificPopup({
+	
+	$('.programming-flexslider-toggle').each(function(){
+		var self = this;
+		$(this).magnificPopup({
 
 		// Delay in milliseconds before popup is removed
 		removalDelay: 100,
@@ -84,35 +86,35 @@ $(document).ready(function(){
 
 		items: [
 		{
-			src: $('.programming-flexslider-toggle').attr('toggleTarget'),
+			src: $(this).attr('toggleTarget'),
 			type: 'inline'
 		}
-	    ],
+		],
 
-	    callbacks: {
-	    	beforeOpen: function() {
-		    	console.log('Start of popup initialization');
+		callbacks: {
+			beforeOpen: function() {
+				console.log('Start of popup initialization');
 
 		    	//$('.programming-flexslider-toggle').attr('toggleTarget');
-		    	console.log("HEH = " + $('.programming-flexslider-toggle').attr('toggleTarget'));
+		    	console.log("HEH = " + $(self).attr('toggleTarget'));
 
-		    	$($('.programming-flexslider-toggle').attr('toggleTarget')).flexslider({
-					startAt: 0, 
-					directionNav : false,
-			    	slideshow: false,
-					animation:"fade",
-					animationSpeed: 300,
-					controlNav: false
-				});
+		    	$($(self).attr('toggleTarget')).flexslider({
+		    		startAt: 0, 
+		    		directionNav : false,
+		    		slideshow: false,
+		    		animation:"fade",
+		    		animationSpeed: 300,
+		    		controlNav: false
+		    	});
 
-		    	$($('.programming-flexslider-toggle').attr('toggleTarget') + '-prev').on('click', function(){
-					console.log("SLIDE PLEASE");
-			        $($('.programming-flexslider-toggle').attr('toggleTarget')).flexslider("previous");
-			    });  
-			    $($('.programming-flexslider-toggle').attr('toggleTarget') + '-next').on('click', function(){
-					console.log("SLIDE PLEASE");
-			        $($('.programming-flexslider-toggle').attr('toggleTarget')).flexslider("next");
-			    });
+		    	$($(self).attr('toggleTarget') + '-prev').on('click', function(){
+		    		console.log("SLIDE PLEASE");
+		    		$($(self).attr('toggleTarget')).flexslider("previous");
+		    	});  
+		    	$($(self).attr('toggleTarget') + '-next').on('click', function(){
+		    		console.log("SLIDE PLEASE");
+		    		$($(self).attr('toggleTarget')).flexslider("next");
+		    	});
 
 
 		    	/*$('.programming-1-flexslider').flexslider({
@@ -123,16 +125,16 @@ $(document).ready(function(){
 					animationSpeed: 300,
 					controlNav: false
 				});*/
-		  	},
-	    	open: function() {
-	    		$('.slick').animate({opacity:'0'}, 150);
-	    		$('#demo-prev').animate({opacity:'0'}, 150);
-	    		$('#demo-next').animate({opacity:'0'}, 150);
-	    		
-		    },
-	    	close: function(){
-	    		console.log("DESTROY");
-	    		$($('.programming-flexslider-toggle').attr('toggleTarget')).flexslider("destroy");
+			},
+			open: function() {
+				$('.slick').animate({opacity:'0'}, 150);
+				$('#demo-prev').animate({opacity:'0'}, 150);
+				$('#demo-next').animate({opacity:'0'}, 150);
+
+			},
+			close: function(){
+				console.log("DESTROY");
+				$($('.programming-flexslider-toggle').attr('toggleTarget')).flexslider("destroy");
 	    		//$('body').height(50+'px'); 
 	    		$('.slick').animate({opacity:'1'}, 150);
 	    		$('#demo-prev').animate({opacity:'1'}, 150);
@@ -142,7 +144,12 @@ $(document).ready(function(){
 	    		//$('.flexslider').flexslider(0);
 	    	}
 	    }
+	})
 	});
+
+	// $('.programming-flexslider-toggle').magnificPopup({
+
+	// });
 
 
 
@@ -178,9 +185,9 @@ $(document).ready(function(){
     $('#master-container .slick-slide').width($('#master-container').width())*/
 
 
-	
-	$("#programming-toggle").on("click",function(){
-		console.log("Programming");
+
+    $("#programming-toggle").on("click",function(){
+    	console.log("Programming");
 		//show programming section
 		/*$("#demo").fadeOut(function(){
 				$("#programming").fadeIn();
@@ -199,11 +206,11 @@ $(document).ready(function(){
 		*/
 	});
 
-	$(".video-game").on("click",function(){
+    $(".video-game").on("click",function(){
 
-		console.log("Video Game Card");
+    	console.log("Video Game Card");
 
-		$(".slick").slick('slickFilter', "[name!='programming-list']");
+    	$(".slick").slick('slickFilter', "[name!='programming-list']");
 
 		/*$("#programming").fadeOut(function(){
 			$("#demo").fadeIn();
@@ -211,20 +218,20 @@ $(document).ready(function(){
 	});
 
 
-	$('.custom-slick-prev').click(function(){
-	  $('.slick').slick('slickPrev');
-	  console.log("PREV");
-	})
+    $('.custom-slick-prev').click(function(){
+    	$('.slick').slick('slickPrev');
+    	console.log("PREV");
+    })
 
-	$('.custom-slick-next').click(function(){
-	  $('.slick').slick('next');
-	  console.log("NEXT");
-	})
+    $('.custom-slick-next').click(function(){
+    	$('.slick').slick('next');
+    	console.log("NEXT");
+    })
 
 	/*$('.slick').on('afterChange', function(event, slick, currentSlide, nextSlide){
 		console.log($(slick.$slides.get(currentSlide)).attr('type'));
 	});
-*/
+	*/
 	/* Change title */
 	$('.slick').on('beforeChange', function(event, slick, currentSlide, nextSlide){
 		console.log($(slick.$slides.get(currentSlide)).attr('type'));
@@ -246,13 +253,13 @@ function toggleDetail(id) {
 	}
 
 
-    if (document.getElementById(id).style.height == '0px') {
+	if (document.getElementById(id).style.height == '0px') {
     	//document.getElementById(id+"-toggle").innerHTML = document.getElementById(id+"-toggle").getAttribute("value") + " " + '<i class="fa fa-caret-down" aria-hidden="true"></i>';
     	document.getElementById(id+"-toggle").innerHTML = '<i class="fa fa-angle-down" aria-hidden="true"></i>' + " " + document.getElementById(id+"-toggle").getAttribute("value");
-        document.getElementById(id).style.height = '75px';
-        previousExpandedDetailID = id;
-        console.log("OFFSET = " + document.getElementById(id).offsetHeight);
-       
+    	document.getElementById(id).style.height = '75px';
+    	previousExpandedDetailID = id;
+    	console.log("OFFSET = " + document.getElementById(id).offsetHeight);
+
     }
     else {
         //document.getElementById(id+"-toggle").innerHTML = document.getElementById(id+"-toggle").getAttribute("value") + " " + '<i class="fa fa-caret-right" aria-hidden="true"></i>';
