@@ -8,7 +8,7 @@
 }
 
 .color-green{
-	color: #8fc31f;
+	color: #8fc31f; /* rgb(143,195,31) */
 }
 
 .bg-color-white{
@@ -258,20 +258,39 @@ html,body{
 .magnificPopupImageTriger{
 }
 
-.magnificPopupImageTriger .overlay {
-	background-color: rgb(255,0,255,0.5);
+.overlay{
+
+	color: rgb(255,255,255,0.85);
+	font-weight: 100;
+	font-size: 1.5rem;
+
+	background-color: rgb(0,0,0,0.3); /*rgb(143,195,31, 0.5);*/ /*rgb(0,0,0,0.3);*/
 	position: absolute; 
 	top: 0; 
 	right: 0; 
-	height: inherit;
-	width: inherit;
+	height: 100%;
+	width: 100%;
+	transition-duration: 0.2s;
+	opacity: 0;
+}
+
+.overlay .overlayText{
+	padding-top: 0.2rem;
+	color: rgb(255,255,255,1);
+	font-weight: 300;
+	font-size: 0.8rem;
+}
+
+.magnificPopupImageTriger:hover .overlay {
+	opacity: 1;
 }
 
 
 .magnificPopupImageTriger img{
-	opacity: 0.2;
+	opacity: 1;
 	height: 100%;
 	width: 100%;
+	padding: 0;
 }
 
 .magnificPopupMid {

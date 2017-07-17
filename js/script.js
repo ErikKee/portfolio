@@ -206,7 +206,7 @@ $(document).ready(function(){
 	/* Change title */
 	$('.slick').on('beforeChange', function(event, slick, currentSlide, nextSlide){
 		console.log($(slick.$slides.get(currentSlide)).attr('type'));
-		$('#title').text($(slick.$slides.get(nextSlide)).attr('title'));
+		$('#title').text($(slick.$slides.get(nextSlide)).attr('top-title'));
 	});
 	
 
