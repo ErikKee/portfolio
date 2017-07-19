@@ -1,4 +1,16 @@
 $(document).ready(function(){			
+
+	
+	/* To identify current page type*/
+	const landing = "landing-page";
+	const resumePage = "resume-page";
+	const programmingList = "programming-list";
+	const musicList = "music-list";
+	const programmingItem = "programming-item";
+	const musicItem = "music-item";
+	var currentPageType = landing;
+
+
 	$(".slick").slick({
 		infinite: true,
 		speed: 200,

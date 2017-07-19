@@ -70,7 +70,7 @@
 	color: white;
 	font-size: 0.85rem;
 	font-weight: 400;
-	line-height: 1rem;
+	line-height: 1.2rem;
 	margin-bottom: 0rem;
 }
 
@@ -195,8 +195,12 @@ html,body{
 	right:0;
 }
 
+#verticalDivider{
+
+}
+
 /* Include following class to generate vertical divider in between columns */
-#verticalDivider .row [class*='col']:not(:last-child):after {
+.verticalDivider .row [class*='col']:not(:last-child):after {
 	background: rgb(255,255,255,0.5);
 	width: 1px;
 	height: 100%;
@@ -257,6 +261,11 @@ html,body{
 
 .magnificPopupImageTriger{
 }
+
+/*.magnificPopupImageTriger img {
+	height: 0.5rem;
+	width: 0.5rem;
+}*/
 
 .overlay{
 

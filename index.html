@@ -24,7 +24,7 @@
 	<div class="navigation-top container-fluid fixed-top"> 
 		<div class="row">
 			<div class="col-10 push-1 p-0"> 
-				<div id="title"> WUT </div>
+				<div id="title"></div>
 			</div>
 
 			<div class="col-2 pull-1">
@@ -55,7 +55,7 @@
 	<div class="slick d-flex align-items-center" style="opacity: 1.0;">
 
 		<!-- LANDING PAGE -->
-		<div class="demo d-flex align-items-center" top-title="" type="landing-page">
+		<div id="landing" class="demo d-flex align-items-center" top-title="" type="landing-page" slideOrder="0">
 			<div class="container bg-info col-10 p-0 justify-content-md-center d-flex align-items-center" style="height: 28rem; margin-bottom: 5rem; margin-top: 4rem;">
 				<div class="textBig text-center">
 					AYYYYYYYYY<br/>
@@ -64,19 +64,8 @@
 			</div>
 		</div>
 
-		<!-- <div class="navigation-top container-fluid fixed-top"> 
-		<div class="row">
-			<div class="col-10 push-1 p-0"> 
-				<div id="projectTitle"> WUT </div>
-			</div>
-
-			<div class="col-2 pull-1">
-				<button id="backButton"> <span>BACK | <b>✕</b></span></button>
-			</div>
-		</div> -->
-
 		<!-- PROGRAMMING LIST -->
-		<div class="demo" top-title="PROGRAMMING WORK" type="programming-list">
+		<div id="programming-list" class="demo" top-title="PROGRAMMING WORK" type="programming-list" slideOrder="0">
 			<div class="d-flex align-items-center" style="width: 100%; height: 100%;" align="center" name="programming-list">
 				<div class="container col-10 p-0 d-flex align-items-center" style="height: 28rem; margin-bottom: 5rem; margin-top: 4rem;">
 
@@ -131,18 +120,19 @@
 		</div>
 
 		<!-- RESUME -->
-		<div class="demo d-flex align-items-center" top-title="RESUME" type="resume-page">
-			<div class="container d-flex align-items-center col-10 p-0" style="height: 28rem; margin-bottom: 5rem; margin-top: 4rem; background-color: rgb(0,0,0,0.1);">
+		<div id="resume" class="demo verticalDivider d-flex align-items-center" 
+		top-title="RESUME" type="resume-page" slideOrder="0">
+			<div class="container d-flex align-items-center col-10" style="height: 28rem; margin-bottom: 5rem; margin-top: 4rem; background-color: rgb(0,0,0,0.1);">
 
 				<!-- <div> -->
 					<div id="verticalDivider">
 						<div class="row pt-2" style="height: 24rem; ">
-							<div class="col pl-4">
+							<div class="col">
 								<p class="textMedium2 mt-2" style="color: #8fc31f;">Name</p>
 								<p class="textMedium1">KIKAHO</p>
 								<p class="textMedium2" style="color: #8fc31f;">Programming</p>
 								<p class="textMedium1">
-									Swift, Java, JavaScript, C, C++<br/>html, CSS, Bootstrap4, MySQL, JSON<br/>Three.js, GLSL
+									Swift, Java, JavaScript, jQuery, C, C++<br/>html, CSS, Bootstrap4, MySQL, JSON<br/>Three.js, GLSL
 								</p>
 								<p class="textMedium2" style="color: #8fc31f;">Education</p>
 								<p class="textMedium1">
@@ -156,7 +146,7 @@
 
 							</div>
 
-							<div class="col pl-3">
+							<div class="col">
 								<p class="textMedium2 mt-2" style="color: #8fc31f;">Experience</p>
 								<p class="textMedium1 hiddenTextToggle" id="experience-wenbit-detail-toggle" 
 								value="iOS Developer Intern | Wenbit Sdn Bhd, Malaysia"
@@ -233,7 +223,8 @@
 
 
 		<!-- MUSIC LIST -->
-		<div class="demo d-flex align-items-center" align="center" top-title="MUSIC WORKS" type="music-list">
+		<div id="music-list" class="demo d-flex align-items-center" align="center" 
+		top-title="MUSIC WORKS" type="music-list" slideOrder="0">
 			<div class="container col-10 p-0 d-flex align-items-center" style="height: 28rem; margin-bottom: 5rem; margin-top: 4rem;">
 
 				<div class="row w-100 justify-content-md-center bg-info">
@@ -261,167 +252,327 @@
 
 
 		<!-- PROGRAMMING 01 - VIDEO GAME ENGINE -->
-		<div class="demo d-flex align-items-center" top-title="VIDEO GAME ENGINE" type="programming-item">
-			<div class="container d-flex align-items-center col-10 p-0" style="height: 28rem; margin-bottom: 5rem; margin-top: 4rem; background-color: rgb(0,0,0,0.1);">
+		<div id="programming-1" class="demo verticalDivider d-flex align-items-center" top-title="VIDEO GAME ENGINE" type="programming-item" slideOrder="0">
+			<div class="container d-flex align-items-center col-10" style="height: 28rem; margin-bottom: 5rem; margin-top: 4rem; background-color: rgb(0,0,0,0.1);">
 
-				<!-- <div> -->
 
-					<div id="verticalDivider">
-						<div class="row pt-2" style="height: 20rem;">
+				<div class="row pt-2" style="height: 20rem;">
 
-							<div class="col pl-4 d-flex align-items-center">
-								
+					<div class="col d-flex align-items-center">
+						
 
-								<div id="programming-flexslider-toggle" toggleTarget="#flexsliderLightbox02" class="container programming-flexslider-toggle magnificPopupImageTriger w-75 p-0 mx-auto">
-									<img src="images/kid-running.jpg" href="images/kid-running.jpg" class="img-fluid">
-									<div class="overlay d-flex align-items-center justify-content-md-center">
-										<div class="align-items-center text-center">
-											<i class="fa fa-search-plus" aria-hidden="true"></i>
-											<p class="overlayText">Click to view image gallery</p>
-										</div>
-									</div>
+						<div toggleTarget="#flexsliderLightbox02" class="container programming-flexslider-toggle magnificPopupImageTriger w-75 p-0 mx-auto">
+							<img src="images/thumbnail-p-1.jpg" class="img-responsive">
+							<div class="overlay d-flex align-items-center justify-content-md-center">
+								<div class="align-items-center text-center">
+									<i class="fa fa-search-plus" aria-hidden="true"></i>
+									<p class="overlayText">Click to view image gallery</p>
 								</div>
-
 							</div>
-
-							<div class="col pl-3 d-flex align-items-center">
-							<div>
-								<p class="textMedium1">
-									A 3D graphical engine based on Three.js that is capable of rendering a scene according to custom JSON file. Custom scripts can also be applied into each rendered objects to achieve player control and animation effects. 
-								</p>
-
-								<br/>
-								<button id="VideoGameGallery02" class="demoButton">VIEW DEMO</button>
-								<button href="popupDummy.html" class="ajax-popup-link demoButton">GITHUB</button>
-							</div>
-								
-							</div> 
-							<!-- END RIGHT COLUMN -->
 						</div>
+
 					</div>
-				<!-- </div> -->
+
+					<div class="col pl-3 d-flex align-items-center">
+						<div>
+							<p class="textMedium2" style="color: #8fc31f;">Coursework: Three.js</p>
+							<p class="textMedium1">
+								A 3D graphical engine based on Three.js that is capable of rendering a scene according to custom JSON file. Custom scripts can also be applied into each rendered objects to achieve player control and animation effects. 
+							</p>
+
+							<br/>
+							<button id="VideoGameGallery02" class="demoButton">VIEW DEMO</button>
+							<button href="popupDummy.html" class="ajax-popup-link demoButton">GITHUB</button>
+						</div>
+						
+					</div> 
+					<!-- END RIGHT COLUMN -->
+				</div>
 			</div>
 		</div>
 
 		<!-- PROGRAMMING 02 - GLSL -->
-		<div class="demo d-flex align-items-center" top-title="OpenGL Shading Language" type="programming-item">
-			<div class="container d-flex align-items-center col-10 p-0" style="height: 28rem; margin-bottom: 5rem; margin-top: 4rem; background-color: rgb(0,0,0,0.1);">
+		<div id="programming-2" class="demo verticalDivider d-flex align-items-center" top-title="OpenGL Shading Language" type="programming-item" slideOrder="1">
+			<div class="container d-flex align-items-center col-10" style="height: 28rem; margin-bottom: 5rem; margin-top: 4rem; background-color: rgb(0,0,0,0.1);">
 
-				<!-- <div> -->
+				<div class="row pt-2" style="height: 20rem;">
 
-					<div id="verticalDivider">
-						<div class="row pt-2" style="height: 20rem;">
+					<div class="col d-flex align-items-center">
+						
 
-							<div class="col pl-4 d-flex align-items-center">
-								
+						<div toggleTarget="#flexsliderLightbox03" class="container programming-flexslider-toggle magnificPopupImageTriger w-75 p-0 mx-auto">
+							<img src="images/programming-2-1.jpg" class="img-responsive">
+							<div class="overlay d-flex align-items-center justify-content-md-center">
+								<div class="align-items-center text-center">
+									<i class="fa fa-search-plus" aria-hidden="true"></i>
+									<p class="overlayText">Click to view image gallery</p>
+								</div>
+							</div>
+						</div>
 
-								<div id="programming-flexslider-toggle02" toggleTarget="#flexsliderLightbox03" class="container programming-flexslider-toggle magnificPopupImageTriger w-75 p-0 mx-auto">
-									<img src="images/kid-running.jpg" href="images/kid-running.jpg" class="img-fluid">
-									<div class="overlay d-flex align-items-center justify-content-md-center">
-										<div class="align-items-center text-center">
-											<i class="fa fa-search-plus" aria-hidden="true"></i>
-											<p class="overlayText">Click to view image gallery</p>
-										</div>
+					</div>
+
+					<div class="col pl-3 d-flex align-items-center">
+						<div>
+							<p class="textMedium2" style="color: #8fc31f;">Coursework: OpenGL Shading Language</p>
+							<p class="textMedium1">
+								An animated scene created utilizing OpenGL Shading Language (GLSL).
+							</p>
+
+							<br/>
+							<button id="VideoGameGallery02" class="demoButton">VIEW DEMO</button>
+							<button href="popupDummy.html" class="ajax-popup-link demoButton">GITHUB</button>
+						</div>
+						
+					</div> 
+					<!-- END RIGHT COLUMN -->
+				</div>
+			</div>
+		</div>
+
+		<!-- PROGRAMMING 03 - Internship -->
+		<div id="programming-3" class="demo verticalDivider d-flex align-items-center" top-title="Internship" type="programming-item" slideOrder="2">
+			<div class="container d-flex align-items-center col-10" style="height: 28rem; margin-bottom: 5rem; margin-top: 4rem; background-color: rgb(0,0,0,0.1);">
+
+				<div class="row pt-2" style="height: 20rem;">
+
+					<div class="col d-flex align-items-center">
+						
+
+						<div toggleTarget="#flexsliderLightbox03" class="container programming-flexslider-toggle magnificPopupImageTriger w-75 p-0 mx-auto">
+
+							<img src="images/programming-2-1.jpg" class="img-responsive">
+
+							<div class="overlay d-flex align-items-center justify-content-md-center">
+								<div class="align-items-center text-center">
+									<i class="fa fa-search-plus" aria-hidden="true"></i>
+									<p class="overlayText">Click to view image gallery</p>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="col pl-3 d-flex align-items-center">
+						<div>
+							<p class="textMedium2" style="color: #8fc31f;">HouseNearby - Wenbit Sdn Bhd</p>
+							<p class="textMedium1">
+								The company I've interned with is a startup company in Malaysia called Wenbit Sdn Bhd. The objective is to design and create a housing property searching iOS application. My tasks include designing the application's user interface, user experience, and its functionality. 
+								I have successfully implemented a search feature that is able communicate with company's online database through RESTful api, and get search result according to user's input.
+							</p>
+						</div>
+						
+					</div> 
+					<!-- END RIGHT COLUMN -->
+				</div>
+			</div>
+		</div>
+
+		<!-- PROGRAMMING 04 - Hackathon -->
+		<div id="programming-4" class="demo verticalDivider d-flex align-items-center" top-title="Hackathon" type="programming-item" slideOrder="3">
+			<div class="container d-flex align-items-center col-10" style="height: 28rem; margin-bottom: 5rem; margin-top: 4rem; background-color: rgb(0,0,0,0.1);">
+
+				<div class="row pt-2" style="height: 20rem;">
+
+					<div class="col d-flex align-items-center">
+						
+
+						<div toggleTarget="#flexsliderLightbox03" class="container programming-flexslider-toggle magnificPopupImageTriger w-75 p-0 mx-auto">
+
+							<img src="images/programming-2-1.jpg" class="img-responsive">
+
+							<div class="overlay d-flex align-items-center justify-content-md-center">
+								<div class="align-items-center text-center">
+									<i class="fa fa-search-plus" aria-hidden="true"></i>
+									<p class="overlayText">Click to view image gallery</p>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="col pl-3 d-flex align-items-center">
+						<div>
+							<p class="textMedium2" style="color: #8fc31f;">App Challenge @GREAT2016</p>
+							<p class="textMedium1">
+								Pitched an application idea and made its prototype in an application challenge hackathon event held in Sarawak, Malaysia. The main idea is to build a platform for people to get help in learning, and earn money from teaching. Sort of like UBER but for education, anyone can be a teacher as long as they have the knowledge in that subject matter.
+							</p>
+						</div>
+						
+					</div> 
+					<!-- END RIGHT COLUMN -->
+				</div>
+			</div>
+		</div>
+
+		<!-- PROGRAMMING 05 - iOS -->
+		<div id="programming-5" class="demo verticalDivider d-flex align-items-center" top-title="iOS Development" type="programming-item" slideOrder="4">
+			<div class="container d-flex align-items-center col-10" style="height: 28rem; margin-bottom: 5rem; margin-top: 4rem; background-color: rgb(0,0,0,0.1);">
+
+				<div class="row pt-2" style="height: 20rem;">
+
+					<div class="col d-flex align-items-center">
+						
+
+						<div toggleTarget="#flexsliderLightbox03" class="container programming-flexslider-toggle magnificPopupImageTriger w-75 p-0 mx-auto">
+
+							<img src="images/programming-2-1.jpg" class="img-responsive">
+
+							<div class="overlay d-flex align-items-center justify-content-md-center">
+								<div class="align-items-center text-center">
+									<i class="fa fa-search-plus" aria-hidden="true"></i>
+									<p class="overlayText">Click to view image gallery</p>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="col pl-3 d-flex align-items-center">
+						<div>
+							<p class="textMedium2" style="color: #8fc31f;">iOS Development</p>
+							<p class="textMedium1">
+								Mobile Application Development course provided the opportunity to learn about iOS development, and collaboration with other students.
+								<br/>
+								The gallery included showed some of the key projects I have done in the course.
+
+
+								Link: https://github.com/BW0ng/TeamAssignment1
+							</p>
+						</div>
+						
+					</div> 
+					<!-- END RIGHT COLUMN -->
+				</div>
+			</div>
+		</div>
+
+		<!-- PROGRAMMING 06 - Android -->
+		<div id="programming-6" class="demo verticalDivider d-flex align-items-center" top-title="Google Developer Study Jam" type="programming-item" slideOrder="5">
+			<div class="container d-flex align-items-center col-10" style="height: 28rem; margin-bottom: 5rem; margin-top: 4rem; background-color: rgb(0,0,0,0.1);">
+
+				<div class="row pt-2" style="height: 20rem;">
+
+					<div class="col d-flex align-items-center">
+						
+
+						<div toggleTarget="#flexsliderLightbox03" class="container programming-flexslider-toggle magnificPopupImageTriger w-75 p-0 mx-auto">
+
+							<img src="images/programming-2-1.jpg" class="img-responsive">
+
+							<div class="overlay d-flex align-items-center justify-content-md-center">
+								<div class="align-items-center text-center">
+									<i class="fa fa-search-plus" aria-hidden="true"></i>
+									<p class="overlayText">Click to view image gallery</p>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="col pl-3 d-flex align-items-center">
+						<div>
+							<p class="textMedium2" style="color: #8fc31f;">Android Development</p>
+							<p class="textMedium1">
+								An Android development workshop held by Google at Oklahoma State University. The objective was to create a Magic Ball Android Application that shows random ansower when user shake their device.
+							</p>
+
+							<br/>
+							<button href="popupDummy.html" class="ajax-popup-link demoButton">GITHUB</button>
+						</div>
+					</div> 
+					<!-- END RIGHT COLUMN -->
+				</div>
+			</div>
+		</div>
+
+		<!-- MUSIC 01 - Drum -->
+		<div id="music-1" class="demo d-flex align-items-center verticalDivider" top-title="Malaysia 24 Season Drum Troupe" type="music-item" slideOrder="0">
+			<div class="container d-flex align-items-center justify-content-md-center col-10" style="height: 28rem; margin-bottom: 5rem; margin-top: 4rem; background-color: rgb(0,0,0,0.1);">
+
+					<div class="row pt-2" style="height: 20rem;">
+
+						<div class="col d-flex align-items-center">
+							
+
+							<div toggleTarget="#music-item-1" class="container programming-flexslider-toggle magnificPopupImageTriger w-75 p-0 mx-auto">
+
+								<img src="images/programming-2-1.jpg" class="img-responsive">
+
+								<div class="overlay d-flex align-items-center justify-content-md-center">
+									<div class="align-items-center text-center">
+										<i class="fa fa-search-plus" aria-hidden="true"></i>
+										<p class="overlayText">Click to view image gallery</p>
 									</div>
 								</div>
-
 							</div>
 
-							<div class="col pl-3 d-flex align-items-center">
+						</div>
+
+						<div class="col pl-3 d-flex align-items-center">
 							<div>
+								<p class="textMedium2" style="color: #8fc31f;">Drum</p>
 								<p class="textMedium1">
-									A 3D graphical engine based on Three.js that is capable of rendering a scene according to custom JSON file. Custom scripts can also be applied into each rendered objects to achieve player control and animation effects. 
+									Wrote songs for the troupe, coached members in drumming. Performed in various events includeding the NBA half time show for OKC Thunder, 24 Festive Drum International Tournament 2016, Culture Night for ConocoPhillips, Creative Oklahoma, and various campus event in OSU.
 								</p>
 
 								<br/>
-								<button id="VideoGameGallery02" class="demoButton">VIEW DEMO</button>
-								<button href="popupDummy.html" class="ajax-popup-link demoButton">GITHUB</button>
+								<button href="popupDummy.html" class="ajax-popup-link demoButton">PERFORMANCE VIDEO</button>
 							</div>
-								
-							</div> 
-							<!-- END RIGHT COLUMN -->
+
+							
+							
+						</div> 
+						<!-- END RIGHT COLUMN -->
+					</div>
+			</div>
+		</div>
+
+		<!-- MUSIC 02 - MIDI -->
+		<div id="music-2" class="demo d-flex align-items-center verticalDivider" top-title="MIDI Composing" type="music-item" slideOrder="1">
+			<div class="container bg-primary d-flex justify-content-md-center align-items-center col-10" style="height: 28rem; margin-bottom: 5rem; margin-top: 4rem; background-color: rgb(0,0,0,0.1);">
+
+				<!-- <div id="verticalDivider"> -->
+					<div class="row col-12 bg-color-white pt-2" style="height: 20rem;">
+					
+						<div class="col-6 bg-warning d-flex align-items-center">
+							<p class="textBig"> Music player here </p>
 						</div>
+
+						<div class="col-6 bg-info  d-flex align-items-center">
+							<div>
+								<p class="textMedium2" style="color: #8fc31f;">Song list here</p>
+								<p class="textMedium1">
+									section: Shorts - Loops - Drafts
+								</p>
+							</div>
+						</div> 
+						<!-- END RIGHT COLUMN -->
 					</div>
 				<!-- </div> -->
 			</div>
 		</div>
 
+		<!-- MUSIC 03 - Guitar -->
+		<div id="music-3" class="demo d-flex align-items-center" top-title="Guitar" type="music-item" slideOrder="2">
+			<div class="container d-flex align-items-center col-10" style="height: 28rem; margin-bottom: 5rem; margin-top: 4rem; background-color: rgb(0,0,0,0.1);">
 
+				<div id="verticalDivider">
+					<div class="row pt-2" style="height: 20rem;">
 
+						<div class="col d-flex align-items-center">
+							<p class="textBig"> Video here? </p>
+						</div>
 
-
-		<!-- PROTOTYPE PAGE -->
-		<div class="demo bg-color-green" top-title="programming-1" type="programming-item">
-			<div class="container col-10 p-0 bg-color-white" style="height: 15rem; margin-bottom: 5rem; margin-top: 4rem;">
-
-				<div id="title-container" class="container col-12">
-					<div class="row">
-						<div class="col-9 bg-color-green p-0">
-							<div id="projectTitle">
-								VIDEO GAME ENGINE
+						<div class="col pl-3 d-flex align-items-center">
+							<div>
+								<p class="textMedium2" style="color: #8fc31f;">Song list here</p>
+								<p class="textMedium1">
+									not even sure if needed to have 2 section in this page hmm
+								</p>
 							</div>
-						</div>
-						<div class="col-3 bg-color-green p-0" align="text-right">
-							<button id="backButton"> <span>BACK | <b>✕</b></span></button>
-						</div>
-					</div>
-				</div>
-
-
-
-				<div class="row bg-color-green" style="height: 24rem;">
-					<div class="col-6 pl-5 pt-5 bg-info">
-						<img src="images/kid-running.jpg" href="images/kid-running.jpg"  class="image-link img-fluid w-75 mx-auto">
-					</div>
-					<div class="col-6 pt-5 pl-5">
-						3D graphical game engine based on Three.js
-						Able to generate scene based on an input JSON file
-						Implemented keyboard control
-						<br/>
-						<br/>
-						<button href="popupDummy.html" class="ajax-popup-link demoButton">VIEW DEMO</button>
-						<button href="popupDummy.html" class="ajax-popup-link demoButton">VIEW ON GITHUB</button>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Third page -->
-		<div class="demo bg-color-green" name="programming-list">
-			iOS - RUNTIME
-		</div>
-
-		<!-- Third page -->
-		<div class="demo bg-color-green" name="programming-list">
-			third
-		</div>
-
-		<!-- PROTOTYPE PAGE -->
-		<div class="demo bg-color-green" name="programming-list">
-			<div class="container col-10 p-0 bg-color-white" style="height: 28rem; margin-bottom: 5rem; margin-top: 4rem;">
-
-				<div id="title-container" class="container col-12">
-					<div class="row">
-						<div class="col-9 bg-color-green p-0">
-							<div id="projectTitle">
-								WRYYYYYYYYYY
-							</div>
-						</div>
-						<div class="col-3 bg-color-green p-0" align="text-right">
-							<button id="backButton"> <span>BACK | <b>✕</b></span></button>
-						</div>
-					</div>
-				</div>
-
-
-
-				<div class="row bg-color-white" style="height: 24rem; opacity: 0.5;">
-					<div class="col-6 pl-5 pt-5 bg-info">
-						<img src="images/kid-running.jpg" href="images/kid-running.jpg"  class="image-link img-fluid w-75 mx-auto">
-					</div>
-					<div class="col-6 pt-5 pl-5">
-						LMAO
-						<a href="popupDumie.html" class="ajax-popup-link">Show inline popup</a>
+						</div> 
+						<!-- END RIGHT COLUMN -->
 					</div>
 				</div>
 			</div>
