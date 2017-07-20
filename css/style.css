@@ -160,7 +160,7 @@ html,body{
 }
 
 /* BACK BUTTON */
-#backButton{
+#back-button{
 	color: white;
 	font-size: 2rem;
 	line-height: 100%;
@@ -181,14 +181,14 @@ html,body{
 	font-weight: lighter;
 }
 
-#backButton:hover {
+#back-button:hover {
 	color: rgba(255,255,255,0.5);
 	transition-duration: 0.2s;
 
 }
 
 /* To make button's text position in top right */
-#backButton span {
+#back-button span {
 	display: block;
 	position: absolute;
 	top:0;
@@ -425,8 +425,14 @@ html,body{
 	width: 12rem;
 }
 
-.programming-card:hover {
-	background-color: rgba(255,255,255,0.2);
+.programming-card-top-half {
+	/*border-bottom: 1px solid rgba(255,255,255,0.8);
+	border-width: 50%;*/
+}
+
+.programming-card-bottom-half {
+	border-top: 1px solid rgba(255,255,255,0.8);
+	
 }
 
 /* Music demo list */
@@ -435,6 +441,28 @@ html,body{
 	height: 15rem;
 	width: 15rem;
 	text-align: center;
+}
+
+/*.programming-card:hover, .music-card:hover {
+	background-color: rgba(255,255,255,0.2);
+}*/
+
+.programming-card-effect{
+	color: rgb(255,0,255,0.85);
+	font-weight: 100;
+	font-size: 1.5rem;
+
+	background-color: rgb(143,195,31, 0.5); /*rgb(143,195,31, 0.5);*/ /*rgb(0,0,0,0.3);*/
+	position: absolute; 
+	top: 0; 
+	left: 0; 
+	height: 0%;
+	width: 2%;
+	transition-duration: 0.2s;
+}
+
+.programming-card:hover .programming-card-effect{
+	height: 100%;
 }
 
 

@@ -1,61 +1,38 @@
+
+/* To identify current page type*/
+const landingPage = "landing-page";
+const resumePage = "resume-page";
+const programmingList = "programming-list";
+const musicList = "music-list";
+const programmingItem = "programming-item";
+const musicItem = "music-item";
+var currentPageType = landingPage;
+
+var enableButton = true;
+
+// Animation timing
+const fadeOutTime = 80;
+const fadeInTime = 250;
+
+
 $(document).ready(function(){			
 
 	
-	/* To identify current page type*/
-	const landing = "landing-page";
-	const resumePage = "resume-page";
-	const programmingList = "programming-list";
-	const musicList = "music-list";
-	const programmingItem = "programming-item";
-	const musicItem = "music-item";
-	var currentPageType = landing;
+
 
 
 	$(".slick").slick({
 		infinite: true,
-		speed: 200,
+		speed: 0,
 		fade: true,
 		arrows: false,
 		cssEase: 'ease-out'
 	});
-
-
-
-	$(".slickGallery").slick({
-		infinite: true,
-		speed: 200,
-		fade: true,
-		arrows: true,
-		cssEase: 'ease-out'
-	});
-
-
-	$("#demo").hide();
-
-	$('.image-link').magnificPopup({
-		type:'image',
-		// Delay in milliseconds before popup is removed
-		removalDelay: 300,
-
-		// Class that is added to popup wrapper and background
-		// make it unique to apply your CSS animations just to this exact popup
-		mainClass: 'mfp-fade'
-	});
-
-
-
-/*	$('.ajax-popup-link').magnificPopup({
-		type: 'ajax',
-		// Delay in milliseconds before popup is removed
-		removalDelay: 300,
-
-		// Class that is added to popup wrapper and background
-		// make it unique to apply your CSS animations just to this exact popup
-		mainClass: 'mfp-fade'
-	});
-	*/
-
-
+	
+	$('#title').text("");
+	$('#back-button').hide();
+	$('.custom-slick-prev').hide();
+	$('.custom-slick-next').hide();
 
 /*	$('#VideoGameGallery').magnificPopup({
 
@@ -98,7 +75,7 @@ $(document).ready(function(){
 
 		items: [
 		{
-			src: $(this).attr('toggleTarget'),
+			src: $(this).attr('toggle-target'),
 			type: 'inline'
 		}
 		],
@@ -107,10 +84,10 @@ $(document).ready(function(){
 			beforeOpen: function() {
 				console.log('Start of popup initialization');
 
-		    	//$('.programming-flexslider-toggle').attr('toggleTarget');
-		    	console.log("HEH = " + $(self).attr('toggleTarget'));
+		    	//$('.programming-flexslider-toggle').attr('toggle-target');
+		    	console.log("HEH = " + $(self).attr('toggle-target'));
 
-		    	$($(self).attr('toggleTarget')).flexslider({
+		    	$($(self).attr('toggle-target')).flexslider({
 		    		startAt: 0, 
 		    		directionNav : false,
 		    		slideshow: false,
@@ -119,13 +96,13 @@ $(document).ready(function(){
 		    		controlNav: false
 		    	});
 
-		    	$($(self).attr('toggleTarget') + '-prev').on('click', function(){
+		    	$($(self).attr('toggle-target') + '-prev').on('click', function(){
 		    		console.log("SLIDE PLEASE");
-		    		$($(self).attr('toggleTarget')).flexslider("previous");
+		    		$($(self).attr('toggle-target')).flexslider("previous");
 		    	});  
-		    	$($(self).attr('toggleTarget') + '-next').on('click', function(){
+		    	$($(self).attr('toggle-target') + '-next').on('click', function(){
 		    		console.log("SLIDE PLEASE");
-		    		$($(self).attr('toggleTarget')).flexslider("next");
+		    		$($(self).attr('toggle-target')).flexslider("next");
 		    	});
 
 
@@ -146,7 +123,7 @@ $(document).ready(function(){
 			},
 			close: function(){
 				console.log("DESTROY");
-				$($('.programming-flexslider-toggle').attr('toggleTarget')).flexslider("destroy");
+				$($('.programming-flexslider-toggle').attr('toggle-target')).flexslider("destroy");
 	    		//$('body').height(50+'px'); 
 	    		$('.slick').animate({opacity:'1'}, 150);
 	    		$('#demo-prev').animate({opacity:'1'}, 150);
@@ -196,62 +173,160 @@ $(document).ready(function(){
     $('#master-container .slick-slide').height($('#master-container').height())
     $('#master-container .slick-slide').width($('#master-container').width())*/
 
+    // BACK BUTTON
+    $('#back-button').on("click",function(){
+    	console.log("BACK BUTTON | X");
+    	if(currentPageType == programmingList || currentPageType == resumePage || currentPageType == musicList){
+    		switchPage(landingPage);
+    	}
+    	else if(currentPageType == programmingItem){
+    		switchPage(programmingList);
+    	}
+    	else if(currentPageType == musicItem){
+    		switchPage(musicList);
+    	}
+	});
 
-
-    $("#programming-toggle").on("click",function(){
+    $("#programming-button").on("click",function(){
     	console.log("Programming");
-		//show programming section
-		/*$("#demo").fadeOut(function(){
-				$("#programming").fadeIn();
-			});*/
-
-			$("#programming").fadeIn();
-
-		/*
-		if($("#programming").is(':visible')){
-			$("#programming").fadeOut();
-		}else{
-			$("#demo").fadeOut(function(){
-				$("#programming").fadeIn();
-			});
-		}
-		*/
+    	switchPage("programming-list");
 	});
 
-    $(".video-game").on("click",function(){
+	$("#resume-button").on("click",function(){
+    	console.log("Resume");
+    	switchPage("resume-page");
+    });
 
-    	console.log("Video Game Card");
+    $("#music-button").on("click",function(){
+    	//this = $(self)
+    	console.log("Music");
+    	switchPage("music-list");
+    	
+    });
 
-    	$(".slick").slick('slickFilter', "[name!='programming-list']");
+    $(".programming-card").on("click",function(){
 
-		/*$("#programming").fadeOut(function(){
-			$("#demo").fadeIn();
-		});*/
+    	console.log("Programming Card");
+    	console.log("index = " + $(this).attr('target-index'));
+    	switchPage("programming-item", $(this).attr('target-index'));
+
+    	
 	});
 
+    $(".music-card").on("click",function(){
+    	console.log("Music Card");
+    	console.log("index = " + $(this).attr('target-index'));
+    	switchPage("music-item", $(this).attr('target-index'))
+	});
 
     $('.custom-slick-prev').click(function(){
-    	$('.slick').slick('slickPrev');
     	console.log("PREV");
+    	prevNextButton("prev");
     })
 
     $('.custom-slick-next').click(function(){
-    	$('.slick').slick('next');
     	console.log("NEXT");
+    	prevNextButton("next");
     })
 
-	/*$('.slick').on('afterChange', function(event, slick, currentSlide, nextSlide){
-		console.log($(slick.$slides.get(currentSlide)).attr('type'));
-	});
-	*/
-	/* Change title */
-	$('.slick').on('beforeChange', function(event, slick, currentSlide, nextSlide){
-		console.log($(slick.$slides.get(currentSlide)).attr('type'));
+	/* ==================== KEEP FOR STUDY PURPOSE ==================== */
+	/*	$('.slick').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+		console.log($(slick.$slides.get(currentSlide)).attr('page-type'));
 		$('#title').text($(slick.$slides.get(nextSlide)).attr('top-title'));
-	});
-	
 
+	});*/
 });
+
+
+function switchPage(pageType, pageIndex){
+
+	console.log("target index = " + pageIndex);
+
+	if(currentPageType != pageType){
+		$('#title').stop();
+		$('#back-button').stop();
+		$('.slick').stop();
+
+		$('.custom-slick-prev').animate({opacity:'0'}, fadeOutTime);
+		$('.custom-slick-next').animate({opacity:'0'}, fadeOutTime);
+		$('#title').animate({opacity:'0'}, fadeOutTime);
+		$('#back-button').animate({opacity:'0', display:'none'}, fadeOutTime);
+		$('.slick').animate({opacity:'0'}, fadeOutTime, 'swing', function(){
+			$('#back-button').hide();
+			// Re-filter .slick
+			$('.slick').slick('slickUnfilter');
+	    	$('.slick').slick('slickFilter', "[page-type= '" + pageType +"']");
+	    	$('.slick').slick('slickGoTo', pageIndex, false);
+	    	$('.slick').animate({opacity:'1'}, fadeInTime, 'swing');
+
+	    	// Show navigation buttons (PREV & NEXT) only in programmingItem/musicItem pages
+	    	if(currentPageType == programmingItem || currentPageType == musicItem){
+	    		$('.custom-slick-prev').show();
+				$('.custom-slick-next').show();
+	    		$('.custom-slick-prev').animate({opacity:'1'}, fadeInTime);
+				$('.custom-slick-next').animate({opacity:'1'}, fadeInTime);
+	    	}
+	    	else{
+	    		$('.custom-slick-prev').hide();
+				$('.custom-slick-next').hide();
+	    	}
+
+	    	// Change top title
+	    	var currentIndex = $(".slick").slick("slickCurrentSlide");
+			var $slides = $(".slick").slick("getSlick").$slides;
+			var topTitle = $slides.eq( currentIndex ).attr('top-title');
+			$('#title').text(topTitle);
+	    	$('#title').animate({opacity:'1'}, fadeInTime, 'swing');
+
+	    	// Show back button as long as use is not in landing page
+	    	if(currentPageType != landingPage){
+	    		$('#back-button').show();
+	    		$('#back-button').animate({opacity:'1'}, fadeInTime);
+	    	}
+	    });
+	    currentPageType = pageType;
+	}
+
+	/*if(currentPageType == programmingItem || currentPageType == musicItem){
+		$('.custom-slick-prev').animate({opacity:'0'}, 80, 'swing', function(){
+			$('.custom-slick-prev')
+	}else{
+		$('.custom-slick-prev').hide();
+	}*/
+}
+
+function prevNextButton(direction){
+	$('#title').stop();
+	$('#back-button').stop();
+	$('.slick').stop();
+	
+	$('#title').animate({opacity:'0'}, fadeOutTime);
+	$('#back-button').animate({opacity:'0'}, fadeOutTime);
+	$('.slick').animate({opacity:'0'}, fadeOutTime, 'swing', function(){
+
+		if(direction == "prev"){
+    		$('.slick').slick('prev');
+    	}
+    	else if (direction == "next"){
+    		$('.slick').slick('next');
+    	}
+    	else{
+    		console.log("something wrong with prevNextButton()");
+    	}
+
+    	$('.slick').animate({opacity:'1'}, fadeInTime, 'swing');
+
+    	// Change top title
+    	var currentIndex = $(".slick").slick("slickCurrentSlide");
+		var $slides = $(".slick").slick("getSlick").$slides;
+		var topTitle = $slides.eq( currentIndex ).attr('top-title');
+		$('#title').text(topTitle);
+    	$('#title').animate({opacity:'1'}, fadeInTime, 'swing');
+
+    	$('#back-button').animate({opacity:'1'}, fadeInTime);
+    });
+}
+
 
 var previousExpandedDetailID = "";
 
