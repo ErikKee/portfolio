@@ -447,6 +447,7 @@ html,body{
 	transition-duration: 0.2s;
 }
 
+
 /* Vertical separating line between bottom buttons */
 #navigation-bottom .row [class*='col']:not(:last-child):after {
 	background: #FFFFFF;
@@ -476,9 +477,11 @@ html,body{
 /* Programming demo list */
 .programming-card {
 	border: 1px solid rgba(255,255,255,0.6);
-	height: 13rem;
-	width: 13rem;
-	transition-duration: 0.2s;
+/*	height: 13rem;
+	width: 13rem;*/
+	transition-duration: 0.5s;
+	-webkit-transition-timing-function: ease-out; /* Safari and Chrome */
+    transition-timing-function: ease-out;
 }
 
 .card-horizontal-divider .container [class*='col']:not(:last-child):after {
@@ -495,6 +498,7 @@ html,body{
 }
 
 
+
 /* Music demo list */
 .music-card {
 	border: 1px solid rgba(255,255,255,0.8);
@@ -504,7 +508,8 @@ html,body{
 }
 
 .programming-card:hover, .music-card:hover {
-	background-color: rgba(255,255,255,0.2);
+	/*background-color: rgba(255,0,255,0.2);*/
+	
 }
 
 .programming-card-effect{
@@ -514,15 +519,15 @@ html,body{
 
 	background-color: rgb(143,195,31, 0.5); /*rgb(143,195,31, 0.5);*/ /*rgb(0,0,0,0.3);*/
 	position: absolute; 
-	top: 0; 
-	left: 0; 
-	height: 0%;
-	width: 2%;
+	bottom: 0; 
+	/*left: 0;*/ 
+	height: 3px;
+	width: 0%;
 	transition-duration: 0.2s;
 }
 
 .programming-card:hover .programming-card-effect{
-	height: 100%;
+	width: 100%;
 }
 
 
@@ -679,7 +684,7 @@ html,body{
 @media only screen and (max-width: 1499px) {
 
 
-    .programming-cards-container{
+/*    .programming-cards-container{
 		width: 45rem;
 		height: 26rem;
 	}
@@ -688,7 +693,7 @@ html,body{
 		
 		height: 13rem;
 		width: 13rem;
-	}
+	}*/
 }
 
 /* 3x2 Horizontal */
@@ -697,14 +702,14 @@ html,body{
 		font-size: 0.8rem;
 	}
 
-    .programming-cards-container{
+/*    .programming-cards-container{
 		height: 24rem;
 	}
 
 	.programming-card {
 		height: 12rem;
 		width: 12rem;
-	}
+	}*/
 }
 
 /* 3x2 Horizontal [Smallest] */
@@ -714,7 +719,7 @@ html,body{
 		transition-duration: 0.2s;
 	}
 
-    .programming-cards-container{
+   /* .programming-cards-container{
 		height: 20rem;
 		width: 35rem;
 	}
@@ -722,7 +727,7 @@ html,body{
 	.programming-card {
 		height: 10rem;
 		width: 10rem;
-	}
+	}*/
 }
 
 /* 
@@ -732,7 +737,7 @@ html,body{
 */
 /* 2x3 Vertical orientation*/
 @media only screen and (max-width: 980px) and (max-height: 1280px){
-	.programming-cards-container{
+/*	.programming-cards-container{
 		height: 48rem;
 		width: 40rem;
 	}
@@ -740,19 +745,19 @@ html,body{
 	.programming-card {
 		height: 16rem;
 		width: 16rem;
-	}
+	}*/
 }
 
 /* 3x2 Horizontal orientation*/
 @media only screen and (max-width: 980px) and (max-height: 900px){
-	.programming-cards-container{
+/*	.programming-cards-container{
 		height: 24rem;
 	}
 
 	.programming-card {
 		height: 12rem;
 		width: 12rem;
-	}
+	}*/
 }
 
 
@@ -782,7 +787,7 @@ html,body{
 */
 /* 2x3 Vertical orientation*/
 @media only screen and (max-width: 800px) and (max-height: 1280px){
-	.programming-cards-container{
+/*	.programming-cards-container{
 		height: 54rem;
 		width: 40rem;
 	}
@@ -790,19 +795,19 @@ html,body{
 	.programming-card {
 		height: 18rem;
 		width: 18rem;
-	}
+	}*/
 }
 
 /* 2x3 Horizontal orientation*/
 @media only screen and (max-width: 800px) and (max-height: 800px){
-	.programming-cards-container{
+/*	.programming-cards-container{
 		height: 24rem;
 	}
 
 	.programming-card {
 		height: 12rem;
 		width: 12rem;
-	}
+	}*/
 }
 
 
@@ -817,7 +822,7 @@ html,body{
 		font-size: 0.75rem;
 	}
 
-    .programming-cards-container{
+/*    .programming-cards-container{
 		width: 32rem;
 		height: 42rem;
 	}
@@ -826,13 +831,13 @@ html,body{
 		
 		height: 14rem;
 		width: 14rem;
-	}
+	}*/
 }
 
 /* 3x2 */
 @media only screen and (max-width: 680px) and (max-height: 650px){
 
-    .programming-cards-container{
+/*    .programming-cards-container{
 		width: 32rem;
 		height: 36rem;
 	}
@@ -841,12 +846,12 @@ html,body{
 		
 		height: 12rem;
 		width: 12rem;
-	}
+	}*/
 }
 
 /* 2x3 Extra small */
 @media only screen and (max-width: 680px) and (max-height: 560px){
-	.programming-cards-container{
+/*	.programming-cards-container{
 		height: 20rem;
 		width: 35rem;
 	}
@@ -854,7 +859,7 @@ html,body{
 	.programming-card {
 		height: 10rem;
 		width: 10rem;
-	}
+	}*/
 }
 
 /* 
@@ -868,13 +873,13 @@ html,body{
 		font-size: 0.70rem;
 	}
 
-	#navigation-bottom #programming-button{
+/*	#navigation-bottom #programming-button{
 		font-size: 1.35rem;
 	}
 
 	#title{
 		font-size: 2.5rem;
-	}
+	}*/
 }
 
 
@@ -888,7 +893,7 @@ html,body{
 	html,body{
 		font-size: 0.55rem;
 	}
-
+/*
 	#navigation-bottom #programming-button{
 		font-size: 1.25rem;
 	}
@@ -906,7 +911,7 @@ html,body{
 		
 		height: 15rem;
 		width: 15rem;
-	}
+	}*/
 }
 
 
@@ -915,7 +920,7 @@ html,body{
 		font-size: 0.55rem;
 	}
 
-
+/*
     .programming-cards-container{
 		width: 32rem;
 		height: 39rem;
@@ -925,7 +930,7 @@ html,body{
 		
 		height: 13rem;
 		width: 13rem;
-	}
+	}*/
 }
 
 /* 2x3 Smallest */
@@ -935,7 +940,7 @@ html,body{
 	}
 
 
-    .programming-cards-container{
+/*    .programming-cards-container{
 		width: 25rem;
 		height: 30rem;
 	}
@@ -944,5 +949,5 @@ html,body{
 		
 		height: 10rem;
 		width: 10rem;
-	}
+	}*/
 }

@@ -11,8 +11,8 @@ var currentPageType = landingPage;
 var enableButton = true;
 
 // Animation timing
-const fadeOutTime = 80;
-const fadeInTime = 250;
+const fadeOutTime = 120;
+const fadeInTime = 350;
 
 
 $(document).ready(function(){			
