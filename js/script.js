@@ -19,7 +19,15 @@ $(document).ready(function(){
 
 	
 
+	$( window ).resize(function(){
+		console.log("WIDTH = " + $(window).width()); 
 
+		if($(window).width() < 840){
+			document.getElementById("back-button").innerHTML = '<span><b>✕</b></span>';
+		}else{
+			document.getElementById("back-button").innerHTML = '<span>BACK | <b>✕</b></span>';
+		}
+	});
 
 	$(".slick").slick({
 		infinite: true,
@@ -174,7 +182,7 @@ $(document).ready(function(){
     $('#master-container .slick-slide').width($('#master-container').width())*/
 
     // BACK BUTTON
-    $('#back-button').on("click",function(){
+    $('.back-button-extended-area').on("click",function(){
     	console.log("BACK BUTTON | X");
     	if(currentPageType == programmingList || currentPageType == resumePage || currentPageType == musicList){
     		switchPage(landingPage);
@@ -236,6 +244,7 @@ $(document).ready(function(){
 
 	});*/
 });
+
 
 
 function switchPage(pageType, pageIndex){
