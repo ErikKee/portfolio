@@ -17,16 +17,68 @@ const fadeInTime = 350;
 
 $(document).ready(function(){			
 
-	
+	programmingListResize();
 
 	$( window ).resize(function(){
-		console.log("WIDTH = " + $(window).width()); 
+		//console.log("WIDTH = " + $(window).width()); 
 
 		if($(window).width() < 840){
 			document.getElementById("back-button").innerHTML = '<span><b>✕</b></span>';
 		}else{
 			document.getElementById("back-button").innerHTML = '<span>BACK | <b>✕</b></span>';
 		}
+
+
+		programmingListResize();
+
+		/*$('.programming-cards-container').height( ($(window).height()) * 0.65 );
+
+		$('.programming-cards-container').width((($(window).height()) * 1.2));
+
+		$('.programming-card').height(($('.programming-cards-container').height()) * 0.5 );
+
+		$('.programming-card').width($('.programming-card').height());*/
+
+
+		/*// 0.8 = programming cards 3x2 break point (0.83)
+		var screenRatio = ( ($(window).height()) /  ($(window).width()));
+		//console.log("RATIO: " + screenRatio);
+
+		// 1.4 = real vertical
+		if(screenRatio > 1.4){
+			// Vertical 2x3
+
+			console.log("1.4 - " + screenRatio);
+			$('.programming-cards-container').height( ($(window).width()) * 1 );
+			$('.programming-cards-container').width((($(window).width()) * 0.8));
+			$('.programming-card').height(($('.programming-cards-container').width()) * 0.45 );
+			$('.programming-card').width($('.programming-card').height());
+		}
+		else if(screenRatio > 1.04){
+			// Vertical 2x3
+
+			console.log("1.04 - " + screenRatio);
+			$('.programming-cards-container').height( ($(window).width()) * 0.8 );
+			$('.programming-cards-container').width((($(window).width()) * 0.72));
+			$('.programming-card').height(($('.programming-cards-container').width()) * 0.38 );
+			$('.programming-card').width($('.programming-card').height());
+		}
+		else if(screenRatio > 0.8){
+			// Square
+			console.log("0.8 - " + screenRatio);
+			$('.programming-cards-container').height( ($(window).height()) * 0.5 );
+			$('.programming-cards-container').width((($(window).height()) * 1.1));
+			$('.programming-card').height(($('.programming-cards-container').height()) * 0.5 );
+			$('.programming-card').width($('.programming-card').height());
+		}else{
+			// < 0.8
+			// Horizontal 3x2
+			console.log("less than 0.8 - " + screenRatio);
+			$('.programming-cards-container').height( ($(window).height()) * 0.65 );
+			$('.programming-cards-container').width((($(window).height()) * 1.2));
+			$('.programming-card').height(($('.programming-cards-container').height()) * 0.5 );
+			$('.programming-card').width($('.programming-card').height());
+		}*/
 	});
 
 	$(".slick").slick({
@@ -41,6 +93,14 @@ $(document).ready(function(){
 	$('#back-button').hide();
 	$('.custom-slick-prev').hide();
 	$('.custom-slick-next').hide();
+
+	//$('.programming-cards-container').height();
+/*	$('.programming-cards-container').height( ($(window).height()) * 0.5 );
+	$('.programming-cards-container').width((($(window).height()) * 0.8));
+	$('.programming-card').height($('.programming-cards-container').height() * 0.3);
+	$('.programming-card').width($('.programming-card').height());*/
+
+	programmingListResize();
 
 /*	$('#VideoGameGallery').magnificPopup({
 
@@ -266,6 +326,12 @@ function switchPage(pageType, pageIndex){
 			$('.slick').slick('slickUnfilter');
 	    	$('.slick').slick('slickFilter', "[page-type= '" + pageType +"']");
 	    	$('.slick').slick('slickGoTo', pageIndex, false);
+
+	    	if(pageType == programmingList){
+	    		console.log("PRO LIST RESET");
+	    		programmingListResize();
+	    	}
+
 	    	$('.slick').animate({opacity:'1'}, fadeInTime, 'swing');
 
 	    	// Show navigation buttons (PREV & NEXT) only in programmingItem/musicItem pages
@@ -364,4 +430,42 @@ function toggleDetail(id) {
         previousExpandedDetailID = id;
         console.log("OFFSET = " + document.getElementById(id).offsetHeight);
     }
+}
+
+function programmingListResize(){
+		var screenRatio = ( ($(window).height()) /  ($(window).width()));
+
+		// 1.4 = real vertical
+		if(screenRatio > 1.4){
+			// Vertical 2x3
+			//console.log("1.4 - " + screenRatio);
+			$('.programming-cards-container').height( ($(window).width()) * 1 );
+			$('.programming-cards-container').width((($(window).width()) * 0.8));
+			$('.programming-card').height(($('.programming-cards-container').height()) * 0.34 );
+			$('.programming-card').width($('.programming-card').height());
+		}
+		else if(screenRatio > 1.04){
+			// Vertical 2x3
+			//console.log("1.04 - " + screenRatio);
+			$('.programming-cards-container').height( ($(window).width()) * 0.8 );
+			$('.programming-cards-container').width((($(window).width()) * 0.72));
+			$('.programming-card').height(($('.programming-cards-container').height()) * 0.34 );
+			$('.programming-card').width($('.programming-card').height());
+		}
+		else if(screenRatio > 0.8){
+			// Square
+			//console.log("0.8 - " + screenRatio);
+			$('.programming-cards-container').height( ($(window).height()) * 0.5 );
+			$('.programming-cards-container').width((($(window).height()) * 1.1));
+			$('.programming-card').height(($('.programming-cards-container').height()) * 0.5 );
+			$('.programming-card').width($('.programming-card').height());
+		}else{
+			// < 0.8
+			// Horizontal 3x2
+			//console.log("less than 0.8 - " + screenRatio);
+			$('.programming-cards-container').height( ($(window).height()) * 0.65 );
+			$('.programming-cards-container').width((($(window).height()) * 1.2));
+			$('.programming-card').height(($('.programming-cards-container').height()) * 0.5 );
+			$('.programming-card').width($('.programming-card').height());
+		}
 }

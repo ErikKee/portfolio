@@ -469,9 +469,11 @@ html,body{
 */
 
 .programming-cards-container{
-	width: 80rem;
-	height: 25rem;
-	transition-duration: 0.1s;
+
+	/* SIZING IN script.js */
+/*	width: 80rem;
+	height: 25rem;*/
+	/*transition-duration: 0.1s;*/
 }
 
 /* Programming demo list */
@@ -479,9 +481,7 @@ html,body{
 	border: 1px solid rgba(255,255,255,0.6);
 /*	height: 13rem;
 	width: 13rem;*/
-	transition-duration: 0.5s;
-	-webkit-transition-timing-function: ease-out; /* Safari and Chrome */
-    transition-timing-function: ease-out;
+	
 }
 
 .card-horizontal-divider .container [class*='col']:not(:last-child):after {
@@ -508,7 +508,10 @@ html,body{
 }
 
 .programming-card:hover, .music-card:hover {
-	/*background-color: rgba(255,0,255,0.2);*/
+	background-color: rgba(255,255,255,0.1);
+	transition-duration: 0.2s;
+	-webkit-transition-timing-function: ease-out; /* Safari and Chrome */
+    transition-timing-function: ease-out;
 	
 }
 
