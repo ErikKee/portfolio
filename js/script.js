@@ -163,7 +163,7 @@ function init(){
 	$('.custom-slick-prev').hide();
 	$('.custom-slick-next').hide();
 
-	programmingListResize();
+	//programmingListResize();
 
 	reInitTrack(false);
 
@@ -273,7 +273,7 @@ $(document).ready(function(){
 		}
 
 
-		programmingListResize();
+		//programmingListResize();
 
 	});
 
@@ -578,10 +578,13 @@ function switchPage(pageType, pageIndex){
 
 		$('.custom-slick-prev').animate({opacity:'0'}, fadeOutTime);
 		$('.custom-slick-next').animate({opacity:'0'}, fadeOutTime);
+
+		if(pageType == landingPage){$('#back-button').animate({opacity:'0', display:'none'}, fadeOutTime);}
+
 		$('#title').animate({opacity:'0'}, fadeOutTime);
-		$('#back-button').animate({opacity:'0', display:'none'}, fadeOutTime);
+		//$('#back-button').animate({opacity:'0', display:'none'}, fadeOutTime);
 		$('.slick').animate({opacity:'0'}, fadeOutTime, 'swing', function(){
-			$('#back-button').hide();
+			//$('#back-button').hide();
 			// Re-filter .slick
 			$('.slick').slick('slickUnfilter');
 	    	$('.slick').slick('slickFilter', "[page-type= '" + pageType +"']");
@@ -589,7 +592,7 @@ function switchPage(pageType, pageIndex){
 
 	    	if(pageType == programmingList){
 	    		console.log("PRO LIST RESET");
-	    		programmingListResize();
+	    		//programmingListResize();
 	    	}
 
 	    	if(pageType == musicItem){
@@ -633,8 +636,8 @@ function switchPage(pageType, pageIndex){
 		console.log("pageType = " + pageType + " | currentPageType: " + currentPageType);
 
 		// Destroy nanoscroller plugin
-		// Placed outside of animation because currentPageType and pageType is already the same after animation delay
-		if(currentPageType == musicItem && (pageType != musicItem || pageType != musicList)){
+		// Placed outside of animation because currentPageType and pageType will already be the same after animation delay
+		if((currentPageType == musicItem || currentPageType == musicList) && (pageType != musicItem && pageType != musicList)){
 			console.log("Destroying nanoscroller");
 
 			audio.pause();
@@ -657,11 +660,11 @@ function switchPage(pageType, pageIndex){
 
 function prevNextButton(direction){
 	$('#title').stop();
-	$('#back-button').stop();
+	//$('#back-button').stop();
 	$('.slick').stop();
 	
 	$('#title').animate({opacity:'0'}, fadeOutTime);
-	$('#back-button').animate({opacity:'0'}, fadeOutTime);
+	//$('#back-button').animate({opacity:'0'}, fadeOutTime);
 	$('.slick').animate({opacity:'0'}, fadeOutTime, 'swing', function(){
 
 		if(direction == "prev"){
@@ -683,7 +686,7 @@ function prevNextButton(direction){
 		$('#title').text(topTitle);
     	$('#title').animate({opacity:'1'}, fadeInTime, 'swing');
 
-    	$('#back-button').animate({opacity:'1'}, fadeInTime);
+    	//$('#back-button').animate({opacity:'1'}, fadeInTime);
     });
 }
 
