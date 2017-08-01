@@ -14,13 +14,249 @@ var enableButton = true;
 const fadeOutTime = 120;
 const fadeInTime = 350;
 
+/* MIDI PLAYER*/
+var extension = ".mp3";
+var agent = navigator.userAgent.toLowerCase();
 
-$(document).ready(function(){			
+/*
+Rumor said that firefox won't support mp3, but mp3 seem to work fine for my firefox browser. 
+still haven't tested on Opera though 
+*/
+if(agent.indexOf('firefox') != -1 || agent.indexOf('opera') != -1){
+	console.log("using .ogg");
+	extension = ".ogg";
+}
+
+var audio = new Audio();
+
+/* File name of the songs*/
+var playlist = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"];
+var currentPlaylistIndex = 0;
+var currentVolume = 0;
+
+
+var trackTitle = ["Welcome Back", "Night Season", "Air Forest", "Bar Fight", 
+"Punk", "Sherd Master", "Gear Up", "RAWR", "Panic", "Insomnia", "Bai"];
+
+var trackDate = ["September 4, 2015", "March 5th, 2017", "April 15, 2010", "December 4, 2012", "May 19, 2015",
+ "Unknown", "Febuary 29, 2016", "September 27, 2014", "January 27, 2012", "July 17, 2015", "October 3, 2012"];
+
+
+var trackDescription = [
+"Welcome back, you did great.", 
+"This is an ongoing draft that I've been working on since March of 2017.", 
+"Instrumental solo part of one of my oldest piece.", 
+"I wrote this piece with a comedic bar fight scene in mind.", 
+"Heyo This is Track 05", 
+"When I first learn guitar, I imagined this is how being a guitar sherd master would feel like.", 
+"Now imagine a video game briefing or choose your weapon/equipment screen.", 
+" ", 
+" ", 
+"Zzz", 
+" "];
+
+audio.src = 'audio/' + playlist[currentPlaylistIndex] + extension;
+audio.controls = true;
+audio.loop = false;
+audio.autoplay = false;
+audio.addEventListener("timeupdate", function(){seekTimeUpdate();});
+audio.addEventListener("ended", function(){switchTrack();})
+
+var seeking = false;
+
+function switchTrack(){
+	console.log("SWITCH TRACK");
+	if(currentPlaylistIndex == playlist.length - 1){
+		currentPlaylistIndex = 0
+	}
+	else{
+		currentPlaylistIndex++;
+	}
+	//audio.src = 'audio/' + playlist[currentPlaylist][currentPlaylistIndex] + extension;
+	console.log("SWITCH TO " + playlist[currentPlaylistIndex]);
+	reInitTrack(true);
+
+	audio.play();
+	seekTimeUpdate();
+}
+
+function seekTimeUpdate(){
+
+	var time = (audio.currentTime / audio.duration) * 100;
+	//console.log("update time, time = " + time + " | SEEKING = " + seeking);
+
+	//console.log("seeking = " + seeking);
+
+	if(seeking === false){
+		$('#seek-slider').val(time).change();
+		$('#midi-current-time').text(secondToString(audio.currentTime));
+		console.log("seeking false - updating time");
+	}else{
+		console.log("seeking true - should stop updating");
+	}
+
+	// Re-print just in case if reInitTrack() failed to print at initialization
+	$('#midi-end-time').text(secondToString(audio.duration));
+}
+
+function reInitTrack(autoPlay){
+	audio.pause();
+	audio.src = 'audio/' + playlist[currentPlaylistIndex] + extension;
+	audio.play();
+
+	if(autoPlay == false){
+		// Play for 50miliseconds just to get audio duration
+		window.setTimeout(function(){
+			$('#midi-end-time').text(secondToString(audio.duration));
+			audio.pause();
+		}, 50);
+		// Reset play time after getting audio duration
+		audio.currentTime = 0;
+		$('#midi-current-time').text(secondToString(audio.currentTime));
+		$('#midi-play-button').html('<i class="fa fa-play" aria-hidden="true"></i>');
+	}
+	else{
+		$('#midi-current-time').text(secondToString(audio.currentTime));
+		$('#midi-end-time').text(secondToString(audio.duration));
+		$('#midi-play-button').html('<i class="fa fa-pause" aria-hidden="true"></i>');
+	}
+
+
+	$('#midi-title-text').html(trackTitle[currentPlaylistIndex]);
+	$('#midi-date-text').text(trackDate[currentPlaylistIndex]);
+	$('#midi-description-text').text(trackDescription[currentPlaylistIndex]);
+
+
+
+}
+
+function secondToString(input){
+	var min = Math.floor(input / 60);
+	var sec = Math.floor(input - min * 60);
+
+	//if(min < 10){min = "0" + min;}
+	if(sec < 10){sec = "0" + sec;}
+
+	return (min + " : " + sec);
+}
+
+function init(){
+
+	$(".slick").slick({
+		infinite: true,
+		speed: 0,
+		fade: true,
+		arrows: false,
+		cssEase: 'ease-out',
+		swipe: false
+	});
+
+	if($(window).width() < 840){
+		document.getElementById("back-button").innerHTML = '<span><b>✕</b></span>';
+		document.getElementById("programming-button").innerHTML = 'PROGM';
+	}else{
+		document.getElementById("back-button").innerHTML = '<span>BACK | <b>✕</b></span>';
+		document.getElementById("programming-button").innerHTML = 'PROGRAMMING';
+	}
+	$('#title').text("");
+	$('#back-button').hide();
+	$('.custom-slick-prev').hide();
+	$('.custom-slick-next').hide();
 
 	programmingListResize();
 
+	reInitTrack(false);
+
+
+}
+
+$(document).ready(function(){
+
+
+	var isWebkit = 'WebkitAppearance' in document.documentElement.style;
+	console.log("WEBKIT = " + isWebkit);
+
+	//$('#midi-tracklist-container').nanoScroller();
+
+
+/*
+	$('.midi-category-button').click(function(){
+		console.log("TRACK");
+		console.log("TRACK: " + $(this).attr("track-category"));
+
+		var lastCategory = currentPlaylist;
+		currentPlaylist = $(this).attr("track-category");
+		console.log("CHANGE TRACK, DURATION = " + audio.duration);
+
+		console.log("currentPlaylist = " + currentPlaylist + " | " + $('.midi-category-button').attr("track-category"))
+
+
+		if(currentPlaylist != lastCategory){
+
+			$('#midi-tracklist-container').animate({opacity:'0'}, 150, 'swing', function(){
+				
+				$('#midi-tracklist-0').hide();
+				$('#midi-tracklist-1').hide();
+				$('#midi-tracklist-2').hide();
+
+				if(currentPlaylist == 0){
+					$('#midi-tracklist-0').show();
+				}else if(currentPlaylist == 1){
+					$('#midi-tracklist-1').show();
+				}else if(currentPlaylist == 2){
+					$('#midi-tracklist-2').show();
+				}
+			
+
+				$('#midi-tracklist-container').animate({opacity:'1'}, 150, 'swing');
+			});
+
+		}
+	});*/
+
+	var currentPlayingIndex = "";
+	$('.midi-track-button').click(function(){
+
+		if(currentPlaylistIndex == ""){
+			currentPlayingIndex = $(this);
+			currentPlayingIndex.addClass('hovered');
+		}
+		else{
+			console.log("currentPlayingIndex = " + currentPlayingIndex);
+			currentPlayingIndex.removeClass('hovered');
+		}
+
+		currentPlayingIndex = $(this)
+		var thisTarget = $(this).attr('track-id');
+		currentPlayingIndex.addClass('hovered');
+		console.log("Argument = " + thisTarget);
+		console.log("currentPlaylistIndex " + currentPlaylistIndex);
+		currentPlaylistIndex = thisTarget;
+		reInitTrack(true);
+
+
+
+		/*var thisTarget = $(this).attr('track-id');
+		var firstDigit = thisTarget.substring(0,1);
+		var secondDigit = thisTarget.substring(1,2);
+		console.log("first = " + firstDigit + "second = " + secondDigit);
+		console.log("currentPlaylist" + currentPlaylist + " | currentPlaylistIndex " + currentPlaylistIndex);
+
+		if(currentPlaylist != firstDigit || currentPlaylistIndex != secondDigit){
+			currentPlaylist = firstDigit;
+			currentPlaylistIndex = secondDigit;
+			reInitTrack(true);
+		}
+		else{
+			console.log("SAME");
+		}*/
+	});
+
+	//programmingListResize();
+
 	$( window ).resize(function(){
 		//console.log("WIDTH = " + $(window).width()); 
+
 
 		if($(window).width() < 840){
 			document.getElementById("back-button").innerHTML = '<span><b>✕</b></span>';
@@ -28,79 +264,106 @@ $(document).ready(function(){
 			document.getElementById("back-button").innerHTML = '<span>BACK | <b>✕</b></span>';
 		}
 
+		if($(window).width() < 840){
+			document.getElementById("back-button").innerHTML = '<span><b>✕</b></span>';
+			document.getElementById("programming-button").innerHTML = 'PRGMG';
+		}else{
+			document.getElementById("back-button").innerHTML = '<span>BACK | <b>✕</b></span>';
+			document.getElementById("programming-button").innerHTML = 'PROGRAMMING';
+		}
+
 
 		programmingListResize();
 
-		/*$('.programming-cards-container').height( ($(window).height()) * 0.65 );
-
-		$('.programming-cards-container').width((($(window).height()) * 1.2));
-
-		$('.programming-card').height(($('.programming-cards-container').height()) * 0.5 );
-
-		$('.programming-card').width($('.programming-card').height());*/
-
-
-		/*// 0.8 = programming cards 3x2 break point (0.83)
-		var screenRatio = ( ($(window).height()) /  ($(window).width()));
-		//console.log("RATIO: " + screenRatio);
-
-		// 1.4 = real vertical
-		if(screenRatio > 1.4){
-			// Vertical 2x3
-
-			console.log("1.4 - " + screenRatio);
-			$('.programming-cards-container').height( ($(window).width()) * 1 );
-			$('.programming-cards-container').width((($(window).width()) * 0.8));
-			$('.programming-card').height(($('.programming-cards-container').width()) * 0.45 );
-			$('.programming-card').width($('.programming-card').height());
-		}
-		else if(screenRatio > 1.04){
-			// Vertical 2x3
-
-			console.log("1.04 - " + screenRatio);
-			$('.programming-cards-container').height( ($(window).width()) * 0.8 );
-			$('.programming-cards-container').width((($(window).width()) * 0.72));
-			$('.programming-card').height(($('.programming-cards-container').width()) * 0.38 );
-			$('.programming-card').width($('.programming-card').height());
-		}
-		else if(screenRatio > 0.8){
-			// Square
-			console.log("0.8 - " + screenRatio);
-			$('.programming-cards-container').height( ($(window).height()) * 0.5 );
-			$('.programming-cards-container').width((($(window).height()) * 1.1));
-			$('.programming-card').height(($('.programming-cards-container').height()) * 0.5 );
-			$('.programming-card').width($('.programming-card').height());
-		}else{
-			// < 0.8
-			// Horizontal 3x2
-			console.log("less than 0.8 - " + screenRatio);
-			$('.programming-cards-container').height( ($(window).height()) * 0.65 );
-			$('.programming-cards-container').width((($(window).height()) * 1.2));
-			$('.programming-card').height(($('.programming-cards-container').height()) * 0.5 );
-			$('.programming-card').width($('.programming-card').height());
-		}*/
 	});
 
-	$(".slick").slick({
-		infinite: true,
-		speed: 0,
-		fade: true,
-		arrows: false,
-		cssEase: 'ease-out'
+	init();
+	 //$('input[type="range"]').rangeslider();
+
+	 $(function(){
+		$('#volume-slider').rangeslider({
+			polyfill:false,
+			onInit:function(){
+				//$('.header .pull-right').text($('input[type="range"]').val()+'K');
+			},
+			onSlide:function(position, value){
+				//console.log('onSlide');
+				console.log('VOL - position: ' + position, 'value: ' + value);
+				audio.volume = value / 100;
+				//$('.header .pull-right').text(value+'K');
+				
+			},
+			onSlideEnd:function(position, value){
+				//console.log('onSlideEnd');
+				console.log('VOL - position: ' + position, 'value: ' + value);
+				audio.volume = value / 100;
+
+			}
+		});
+
+		$('#seek-slider').rangeslider({
+			
+
+			polyfill:false,
+			onInit:function(){
+				seeking = false;
+				//console.log("SEEK");
+				//$('.header .pull-right').text($('input[type="range"]').val()+'K');
+			},
+			onSlide:function(position, value){
+				$('#midi-current-time').text(secondToString(audio.duration * (value/100)));
+				//console.log('onSlide');
+				//console.log('SEEK - position: ' + position, 'value: ' + value);
+				
+				//$('.header .pull-right').text(value+'K');
+			},
+			onSlideEnd:function(position, value){
+				//console.log('onSlideEnd');
+				//console.log("DURATION - " + audio.duration);
+				//console.log('SEEK - position: ' + position, 'value: ' + value);
+				seeking = false;
+				audio.currentTime = audio.duration * (value/100);
+			}
+		});
+
 	});
-	
-	$('#title').text("");
-	$('#back-button').hide();
-	$('.custom-slick-prev').hide();
-	$('.custom-slick-next').hide();
 
-	//$('.programming-cards-container').height();
-/*	$('.programming-cards-container').height( ($(window).height()) * 0.5 );
-	$('.programming-cards-container').width((($(window).height()) * 0.8));
-	$('.programming-card').height($('.programming-cards-container').height() * 0.3);
-	$('.programming-card').width($('.programming-card').height());*/
+	/* $('#seek-slider').mousedown(function(){
+	console.log("MIDI DOWN");
+*/
 
-	programmingListResize();
+
+	$(document)
+    .on('mousedown', '.rangeslider', function(e) {
+    	e.preventDefault();
+    	console.log("ON MOUSDOWN");
+    	if(this.id == "js-rangeslider-1"){
+    		seeking = true;
+    	}
+    })
+    .on('mouseup', function() {
+    	if(seeking == true){
+    		seeking = false;
+    	}
+    });
+  
+    $('#midi-prev-button').click(function(){
+    	if(audio.currentTime > 2){
+    		console.log("> 2");
+    		audio.currentTime = 0;
+    	}
+    	else{
+    		console.log("PREV TRACK");
+    	}
+    })
+    $('#midi-next-button').click(function(){
+    	console.log("NEXT TRACK");
+
+    })
+
+
+
+//})
 
 /*	$('#VideoGameGallery').magnificPopup({
 
@@ -134,82 +397,76 @@ $(document).ready(function(){
 		$(this).magnificPopup({
 
 		// Delay in milliseconds before popup is removed
-		removalDelay: 100,
+			removalDelay: 100,
 
-		// Class that is added to popup wrapper and background
-		// make it unique to apply your CSS animations just to this exact popup
-		mainClass: 'mfp-fade',
-		navigateByImgClick: false,
+			// Class that is added to popup wrapper and background
+			// make it unique to apply your CSS animations just to this exact popup
+			mainClass: 'mfp-fade',
+			navigateByImgClick: false,
+			closeBtnInside: false,
 
-		items: [
-		{
-			src: $(this).attr('toggle-target'),
-			type: 'inline'
-		}
-		],
+			items: [
+			{
+				src: $(this).attr('toggle-target'),
+				type: 'inline'
+			}
+			],
 
-		callbacks: {
-			beforeOpen: function() {
-				console.log('Start of popup initialization');
+			callbacks: {
+				beforeOpen: function() {
+					console.log('Start of popup initialization');
 
-		    	//$('.programming-flexslider-toggle').attr('toggle-target');
-		    	console.log("HEH = " + $(self).attr('toggle-target'));
+			    	//$('.programming-flexslider-toggle').attr('toggle-target');
+			    	console.log("HEH = " + $(self).attr('toggle-target'));
 
-		    	$($(self).attr('toggle-target')).flexslider({
-		    		startAt: 0, 
-		    		directionNav : false,
-		    		slideshow: false,
-		    		animation:"fade",
-		    		animationSpeed: 300,
-		    		controlNav: false
-		    	});
+			    	$($(self).attr('toggle-target')).flexslider({
+			    		startAt: 0, 
+			    		directionNav : false,
+			    		slideshow: false,
+			    		animation:"fade",
+			    		animationSpeed: 300,
+			    		controlNav: false
+			    	});
 
-		    	$($(self).attr('toggle-target') + '-prev').on('click', function(){
-		    		console.log("SLIDE PLEASE");
-		    		$($(self).attr('toggle-target')).flexslider("previous");
-		    	});  
-		    	$($(self).attr('toggle-target') + '-next').on('click', function(){
-		    		console.log("SLIDE PLEASE");
-		    		$($(self).attr('toggle-target')).flexslider("next");
-		    	});
+			    	$($(self).attr('toggle-target') + '-prev').on('click', function(){
+			    		console.log("SLIDE PLEASE");
+			    		$($(self).attr('toggle-target')).flexslider("previous");
+			    	});  
+			    	$($(self).attr('toggle-target') + '-next').on('click', function(){
+			    		console.log("SLIDE PLEASE");
+			    		$($(self).attr('toggle-target')).flexslider("next");
+			    	});
 
 
-		    	/*$('.programming-1-flexslider').flexslider({
-					startAt: 0, 
-					directionNav : false,
-			    	slideshow: false,
-					animation:"fade",
-					animationSpeed: 300,
-					controlNav: false
-				});*/
-			},
-			open: function() {
-				$('.slick').animate({opacity:'0'}, 150);
-				$('#demo-prev').animate({opacity:'0'}, 150);
-				$('#demo-next').animate({opacity:'0'}, 150);
+			    	/*$('.programming-1-flexslider').flexslider({
+						startAt: 0, 
+						directionNav : false,
+				    	slideshow: false,
+						animation:"fade",
+						animationSpeed: 300,
+						controlNav: false
+					});*/
+				},
+				open: function() {
+					$('.slick').animate({opacity:'0'}, 150);
+					$('#demo-prev').animate({opacity:'0'}, 150);
+					$('#demo-next').animate({opacity:'0'}, 150);
 
-			},
-			close: function(){
-				console.log("DESTROY");
-				$($('.programming-flexslider-toggle').attr('toggle-target')).flexslider("destroy");
-	    		//$('body').height(50+'px'); 
-	    		$('.slick').animate({opacity:'1'}, 150);
-	    		$('#demo-prev').animate({opacity:'1'}, 150);
-	    		$('#demo-next').animate({opacity:'1'}, 150);
+				},
+				close: function(){
+					console.log("DESTROY");
+					$($('.programming-flexslider-toggle').attr('toggle-target')).flexslider("destroy");
+		    		//$('body').height(50+'px'); 
+		    		$('.slick').animate({opacity:'1'}, 150);
+		    		$('#demo-prev').animate({opacity:'1'}, 150);
+		    		$('#demo-next').animate({opacity:'1'}, 150);
 
-	    		/*console.log("POST HEIGHT = " + $('.slick').height() );*/
-	    		//$('.flexslider').flexslider(0);
-	    	}
-	    }
-	})
+		    		/*console.log("POST HEIGHT = " + $('.slick').height() );*/
+		    		//$('.flexslider').flexslider(0);
+		    	}
+		    }
+		})
 	});
-
-	// $('.programming-flexslider-toggle').magnificPopup({
-
-	// });
-
-
-
 
 	/*$('.programming-1-flexslider').flexslider({
 		startAt: 0, 
@@ -241,7 +498,7 @@ $(document).ready(function(){
     $('#master-container .slick-slide').height($('#master-container').height())
     $('#master-container .slick-slide').width($('#master-container').width())*/
 
-    // BACK BUTTON
+    // Button: BACK | X
     $('.back-button-extended-area').on("click",function(){
     	console.log("BACK BUTTON | X");
     	if(currentPageType == programmingList || currentPageType == resumePage || currentPageType == musicList){
@@ -255,16 +512,19 @@ $(document).ready(function(){
     	}
 	});
 
+    // Button: Bottom - PROGRAMMING
     $("#programming-button").on("click",function(){
     	console.log("Programming");
     	switchPage("programming-list");
 	});
 
+    // Button: Bottom - RESUME
 	$("#resume-button").on("click",function(){
     	console.log("Resume");
     	switchPage("resume-page");
     });
 
+	// Button: Bottom - MUSIC
     $("#music-button").on("click",function(){
     	//this = $(self)
     	console.log("Music");
@@ -277,8 +537,6 @@ $(document).ready(function(){
     	console.log("Programming Card");
     	console.log("index = " + $(this).attr('target-index'));
     	switchPage("programming-item", $(this).attr('target-index'));
-
-    	
 	});
 
     $(".music-card").on("click",function(){
@@ -296,6 +554,8 @@ $(document).ready(function(){
     	console.log("NEXT");
     	prevNextButton("next");
     })
+
+
 
 	/* ==================== KEEP FOR STUDY PURPOSE ==================== */
 	/*	$('.slick').on('beforeChange', function(event, slick, currentSlide, nextSlide){
@@ -332,6 +592,17 @@ function switchPage(pageType, pageIndex){
 	    		programmingListResize();
 	    	}
 
+	    	if(pageType == musicItem){
+	    		console.log("MUSIC ITEM");
+	    		//$('#midi-tracklist-container').nanoScroller();
+	    		console.log("initializing midi scrollbar");
+	    		$('#midi-tracklist-container-scroller').nanoScroller({
+
+	    		});
+
+
+	    	}
+
 	    	$('.slick').animate({opacity:'1'}, fadeInTime, 'swing');
 
 	    	// Show navigation buttons (PREV & NEXT) only in programmingItem/musicItem pages
@@ -359,6 +630,20 @@ function switchPage(pageType, pageIndex){
 	    		$('#back-button').animate({opacity:'1'}, fadeInTime);
 	    	}
 	    });
+		console.log("pageType = " + pageType + " | currentPageType: " + currentPageType);
+
+		// Destroy nanoscroller plugin
+		// Placed outside of animation because currentPageType and pageType is already the same after animation delay
+		if(currentPageType == musicItem && (pageType != musicItem || pageType != musicList)){
+			console.log("Destroying nanoscroller");
+
+			audio.pause();
+			audio.currentTime = 0;
+			$('#midi-play-button').html('<i class="fa fa-play" aria-hidden="true"></i>');
+			$(".nano").nanoScroller({ destroy: true });
+
+		}
+
 	    currentPageType = pageType;
 	}
 
@@ -469,3 +754,32 @@ function programmingListResize(){
 			$('.programming-card').width($('.programming-card').height());
 		}
 }
+
+
+/* MIDI PLAYER */
+
+
+
+$('#midi-play-button').click(function(){
+	console.log("MIDI PLAY");
+	if(audio.paused){
+		audio.play();
+		
+		$('#midi-play-button').html('<i class="fa fa-pause" aria-hidden="true"></i>')
+
+	}
+	else{
+		audio.pause();
+		$('#midi-play-button').html('<i class="fa fa-play" aria-hidden="true"></i>');
+
+	}
+})
+
+$('#midi-prev-button').click(function(){
+	console.log("MIDI PREV");
+})
+
+$('#midi-next-button').click(function(){
+	console.log("MIDI NEXT");
+})
+
