@@ -32,7 +32,6 @@ var audio = new Audio();
 /* File name of the songs*/
 var playlist = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"];
 var currentPlaylistIndex = 0;
-var currentVolume = 0;
 
 
 var trackTitle = ["Welcome Back", "Night Season", "Air Forest", "Bar Fight", 
@@ -59,18 +58,28 @@ audio.src = 'audio/' + playlist[currentPlaylistIndex] + extension;
 audio.controls = true;
 audio.loop = false;
 audio.autoplay = false;
+audio.volume = 0.8;
 audio.addEventListener("timeupdate", function(){seekTimeUpdate();});
-audio.addEventListener("ended", function(){switchTrack();})
+audio.addEventListener("ended", function(){switchTrack("next");})
 
 var seeking = false;
 
-function switchTrack(){
-	console.log("SWITCH TRACK");
-	if(currentPlaylistIndex == playlist.length - 1){
-		currentPlaylistIndex = 0
+function switchTrack(direction){
+	if(direction == "next"){
+		if(currentPlaylistIndex == playlist.length - 1){
+			currentPlaylistIndex = 0
+		}
+		else{
+			currentPlaylistIndex++;
+		}
 	}
 	else{
-		currentPlaylistIndex++;
+		if(currentPlaylistIndex == 0){
+			currentPlaylistIndex = playlist.length - 1
+		}
+		else{
+			currentPlaylistIndex--;
+		}
 	}
 	//audio.src = 'audio/' + playlist[currentPlaylist][currentPlaylistIndex] + extension;
 	console.log("SWITCH TO " + playlist[currentPlaylistIndex]);
@@ -159,7 +168,7 @@ function init(){
 		document.getElementById("programming-button").innerHTML = 'PROGRAMMING';
 	}
 	$('#title').text("");
-	$('#back-button').hide();
+	$('#back-button').css( "display", "none" );
 	$('.custom-slick-prev').hide();
 	$('.custom-slick-next').hide();
 
@@ -170,92 +179,76 @@ function init(){
 
 }
 
+function refreshMidiTrackList(){
+	var playlistChildren = $('#midi-tracklist').children().toArray();
+
+	for(var i = 0; i < playlist.length - 1; i++){
+		if($(playlistChildren[i]).attr('track-id') == currentPlaylistIndex){
+			console.log("EQUAL TO PLAYLIST = " +  i);
+			$(playlistChildren[i]).addClass('hovered');
+		}
+		else{
+			console.log("NOT EQUAL = " + i);
+			$(playlistChildren[i]).removeClass('hovered');
+		}
+	}
+}
+
 $(document).ready(function(){
 
 
 	var isWebkit = 'WebkitAppearance' in document.documentElement.style;
 	console.log("WEBKIT = " + isWebkit);
 
-	//$('#midi-tracklist-container').nanoScroller();
-
-
-/*
-	$('.midi-category-button').click(function(){
-		console.log("TRACK");
-		console.log("TRACK: " + $(this).attr("track-category"));
-
-		var lastCategory = currentPlaylist;
-		currentPlaylist = $(this).attr("track-category");
-		console.log("CHANGE TRACK, DURATION = " + audio.duration);
-
-		console.log("currentPlaylist = " + currentPlaylist + " | " + $('.midi-category-button').attr("track-category"))
-
-
-		if(currentPlaylist != lastCategory){
-
-			$('#midi-tracklist-container').animate({opacity:'0'}, 150, 'swing', function(){
-				
-				$('#midi-tracklist-0').hide();
-				$('#midi-tracklist-1').hide();
-				$('#midi-tracklist-2').hide();
-
-				if(currentPlaylist == 0){
-					$('#midi-tracklist-0').show();
-				}else if(currentPlaylist == 1){
-					$('#midi-tracklist-1').show();
-				}else if(currentPlaylist == 2){
-					$('#midi-tracklist-2').show();
-				}
-			
-
-				$('#midi-tracklist-container').animate({opacity:'1'}, 150, 'swing');
-			});
-
-		}
-	});*/
 
 	var currentPlayingIndex = "";
+
+
 	$('.midi-track-button').click(function(){
 
-		if(currentPlaylistIndex == ""){
+		/*if(currentPlaylistIndex == ""){
 			currentPlayingIndex = $(this);
 			currentPlayingIndex.addClass('hovered');
 		}
 		else{
 			console.log("currentPlayingIndex = " + currentPlayingIndex);
 			currentPlayingIndex.removeClass('hovered');
-		}
+		}*/
 
 		currentPlayingIndex = $(this)
 		var thisTarget = $(this).attr('track-id');
-		currentPlayingIndex.addClass('hovered');
+		//currentPlayingIndex.addClass('hovered');
+
+
 		console.log("Argument = " + thisTarget);
 		console.log("currentPlaylistIndex " + currentPlaylistIndex);
+
+
 		currentPlaylistIndex = thisTarget;
 		reInitTrack(true);
+		refreshMidiTrackList();
 
-
-
-		/*var thisTarget = $(this).attr('track-id');
-		var firstDigit = thisTarget.substring(0,1);
-		var secondDigit = thisTarget.substring(1,2);
-		console.log("first = " + firstDigit + "second = " + secondDigit);
-		console.log("currentPlaylist" + currentPlaylist + " | currentPlaylistIndex " + currentPlaylistIndex);
-
-		if(currentPlaylist != firstDigit || currentPlaylistIndex != secondDigit){
-			currentPlaylist = firstDigit;
-			currentPlaylistIndex = secondDigit;
-			reInitTrack(true);
-		}
-		else{
-			console.log("SAME");
-		}*/
 	});
 
 	//programmingListResize();
 
-	$( window ).resize(function(){
-		//console.log("WIDTH = " + $(window).width()); 
+	$(window).on('resize', _.debounce(function() {
+	    console.log("HORY SHIT");
+
+	    $('#volume-slider').rangeslider('update', true);
+		$('#seek-slider').rangeslider('update', true);
+
+		console.log("span position = " + $('.flexslider-text-container span').position().top);
+
+
+		// Bootstrap smallest size
+		if($(window).width() < 576){
+			//var flexsliderImageHeight = $('.flexslider > ul > li > .flexslider-container > .row').height();
+			//$('.flexslider-text-container span').css('top', '-' + flexsliderImageHeight + 'px');
+
+		}else{
+			
+		}
 
 
 		if($(window).width() < 840){
@@ -271,11 +264,7 @@ $(document).ready(function(){
 			document.getElementById("back-button").innerHTML = '<span>BACK | <b>✕</b></span>';
 			document.getElementById("programming-button").innerHTML = 'PROGRAMMING';
 		}
-
-
-		//programmingListResize();
-
-	});
+	}, 100));
 
 	init();
 	 //$('input[type="range"]').rangeslider();
@@ -284,7 +273,7 @@ $(document).ready(function(){
 		$('#volume-slider').rangeslider({
 			polyfill:false,
 			onInit:function(){
-				//$('.header .pull-right').text($('input[type="range"]').val()+'K');
+				audio.volume = 0.8;
 			},
 			onSlide:function(position, value){
 				//console.log('onSlide');
@@ -354,10 +343,14 @@ $(document).ready(function(){
     	}
     	else{
     		console.log("PREV TRACK");
+    		switchTrack("prev");
+    		refreshMidiTrackList();
     	}
     })
     $('#midi-next-button').click(function(){
     	console.log("NEXT TRACK");
+    	switchTrack("next");
+    	refreshMidiTrackList();
 
     })
 
@@ -438,6 +431,8 @@ $(document).ready(function(){
 			    	});
 
 
+
+
 			    	/*$('.programming-1-flexslider').flexslider({
 						startAt: 0, 
 						directionNav : false,
@@ -451,6 +446,13 @@ $(document).ready(function(){
 					$('.slick').animate({opacity:'0'}, 150);
 					$('#demo-prev').animate({opacity:'0'}, 150);
 					$('#demo-next').animate({opacity:'0'}, 150);
+
+					/*if($(window).width() < 576){
+						var flexsliderImageHeight = $('.flexslider > ul > li > .flexslider-container > .row').height();
+						$('.flexslider-text-container span').css('top', '-' + flexsliderImageHeight + 'px');
+					}else{
+						$('.flexslider-text-container span').css('top', '');
+					}*/
 
 				},
 				close: function(){
@@ -579,7 +581,7 @@ function switchPage(pageType, pageIndex){
 		$('.custom-slick-prev').animate({opacity:'0'}, fadeOutTime);
 		$('.custom-slick-next').animate({opacity:'0'}, fadeOutTime);
 
-		if(pageType == landingPage){$('#back-button').animate({opacity:'0', display:'none'}, fadeOutTime);}
+		//if(pageType == landingPage){$('#back-button').animate({opacity:'0'}, fadeOutTime);}
 
 		$('#title').animate({opacity:'0'}, fadeOutTime);
 		//$('#back-button').animate({opacity:'0', display:'none'}, fadeOutTime);
@@ -602,6 +604,9 @@ function switchPage(pageType, pageIndex){
 	    		$('#midi-tracklist-container-scroller').nanoScroller({
 
 	    		});
+	    		reInitTrack(false);
+	    		$('#volume-slider').rangeslider('update', true);
+				$('#seek-slider').rangeslider('update', true);
 
 
 	    	}
@@ -629,8 +634,19 @@ function switchPage(pageType, pageIndex){
 
 	    	// Show back button as long as use is not in landing page
 	    	if(currentPageType != landingPage){
-	    		$('#back-button').show();
-	    		$('#back-button').animate({opacity:'1'}, fadeInTime);
+	    		console.log("BACK = " + $('#back-button').css("display"));
+
+	    		if ($('#back-button').css("display") === 'none') {
+	    			console.log("SHOW BACK BUTTON");
+					$('#back-button').show(fadeInTime);
+					$('#back-button').animate({opacity:'1'}, fadeInTime);
+				}
+	    		//$('#back-button').show();
+	    		//('#back-button').animate({opacity:'1'}, fadeInTime);
+	    	}
+	    	else{
+	    		console.log("BACK = " +$('#back-button').css("display"));
+	    		$('#back-button').hide(fadeInTime);
 	    	}
 	    });
 		console.log("pageType = " + pageType + " | currentPageType: " + currentPageType);
