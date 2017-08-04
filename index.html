@@ -31,6 +31,8 @@
 </head>
 <body>
 
+	<div id="initial-screen"></div>
+
 <!-- Attempting to have a universal title & back button -->
 	<div class="navigation-top container-fluid fixed-top"> 
 		<div class="row">
@@ -41,7 +43,6 @@
 			<div class="col-2 offset-2 offset-sm-0 pull-1">
 				<div class="back-button-extended-area"></div>
 				<button id="back-button" minimal-button=""><span>BACK | <b>✕</b></span></button>
-
 			</div>
 		</div>
 		
@@ -69,100 +70,92 @@
 
 		<!-- LANDING PAGE -->
 		<div class="demo d-flex align-items-center" top-title="" page-type="landing-page">
+			<!-- <div data-vimeo-id="59777392" id="video-background"></div> -->
+
+			<video id="background-video" autoplay loop muted>
+				<source src="video/grass-35.mp4" type="video/mp4">
+			</video>
+
 			<div class="container col-10 p-0 justify-content-center d-flex align-items-center" style="height: 28rem; margin-bottom: 5rem; margin-top: 4rem;">
-				<div class="container d-flex align-items-center justify-content-center">
+				<div class="container p-0 m-0 d-flex align-items-center justify-content-center">
 					<div>
-						<img src="images/logo2.png" style="height: 10rem; width: 10rem;">
-						<div>
-							<p class="textMedium2 text-center">Ayyyyyyyy</p>
-							<p class="textSmall text-center">Lmao</p>
+						<!-- logo1b.png || Logo2.png -->
+						<img class="mx-auto d-block" src="images/logo2.png" style="height: 10rem; width: 10rem;">
+						<div class="mx-auto">
+							<p class="textMedium2 text-center" style="color: white;">Erik Kee</p>
+							<p class="textSmall text-center" style="color: white;">Developer - Songwriter - Explorer</p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 
+		<!-- MUSIC LIST -->
+<!-- 		<div class="demo d-flex align-items-center" top-title=" " page-type="music-list">
+			<div class="container mb-5 col-10 d-flex align-items-center">
+
+				<div class="row w-100 justify-content-center d-flex align-items-center">
+
+					<div class="container w-50">
+						<div class="music-card drum justify-content-center d-flex align-items-center text-center" target-index="0">
+							<div>
+								<p class="textMedium4 p-0 m-0">Drum</p>
+								<p class="textSmall m-2">Malaysia 24 Season Drum troupe @OSU</p>
+							</div>
+						</div> -->
+
 		<!-- PROGRAMMING LIST -->
-		<div class="demo" top-title=" " page-type="programming-list">
+		<div class="demo d-flex align-items-center" top-title=" " page-type="programming-list">
 
-			<div class="d-flex align-items-center" style="width: 100%; height: 100%;" align="center" name="programming-list">
-				<div class="container col-10 d-flex align-items-center justify-content-center" style="height: 28rem; margin-bottom: 5rem; margin-top: 4rem;">
+			<div class="container mb-5 col-10 d-flex align-items-center">
 
-<!-- 
-					<div class="row w-100 justify-content-center d-flex align-items-center">
-
-						<div class="container w-50">
-							<div class="music-card drum justify-content-center d-flex align-items-center text-center" target-index="0">
-								<div>
-									<p class="textMedium4 p-0 m-0">Drum</p>
-									<p class="textSmall m-2">Malaysia 24 Season Drum troupe @OSU</p>
-								</div>
-							</div>
-							<div class="music-card midi justify-content-center d-flex align-items-center text-center" target-index="1">	
-								<div>
-									<p class="textMedium4">MIDI Programming</p>
-									<p class="textSmall">MIDI Demo Tracks</p>
-								</div>
-							</div>
-							<div class="music-card guitar justify-content-center d-flex align-items-center text-center" target-index="2">
-								<div>
-									<p class="textMedium4">Guitar</p>
-									<p class="textSmall">Guitar Demo Videos</p>
-								</div>
-							</div>
-						</div>
-
-					</div>
- -->
-
-					<div class="row w-100 programming-cards-container justify-content-center p-0">
+					<div class="row w-100 programming-cards-container d-flex align-items-center justify-content-center p-0">
 
 						<div class="container w-75">
 
-							<div id="programming-0" class="programming-card p-0 m-0 d-flex align-items-center justify-content-center" target-index="0">
-								<div class="align-items-center justify-content-center">
+							<div class="programming-card d-flex align-items-center justify-content-center text-center" target-index="0">
+								<div>
 									<h4 class="textMedium4 mt-3">Three.js</h4> 
-									<p class="textSmall mb-3">[Coursework - Video Game Engine]</p>
+									<p class="textSmall mb-3">Coursework - Video Game Engine</p>
 								</div>
 							</div>
 
-							<div id="programming-1" class="programming-card m-0 p-0 d-flex align-items-center justify-content-center" target-index="1">
-								<div class="d-flex align-items-center justify-content-center">
+							<div class="programming-card d-flex align-items-center justify-content-center text-center" target-index="1">
+								<div>
 									<div>
 										<h4 class="textMedium4 mt-3">GLSL</h4>
-										<p class="textSmall mb-3">[Coursework - OpenGL Shading Language]</p>
+										<p class="textSmall mb-3">Coursework - OpenGL Shading Language]</p>
 									</div>
 								</div>
 							</div>
 
 
-							<div id="programming-2" class="programming-card m-0 p-0 d-flex align-items-center justify-content-center" target-index="2">
+							<div class="programming-card d-flex align-items-center justify-content-center text-center" target-index="2">
 								<div>
 									<h4 class="textMedium4 mt-3">Internship</h4>
-									<p class="textSmall mb-3">[iOS Development - HouseNearby]</p>
+									<p class="textSmall mb-3">iOS Development - HouseNearby</p>
 								</div>
 							</div>
 							
-							<div id="programming-3" class="programming-card m-0 p-0 d-flex align-items-center justify-content-center" target-index="3">
+							<div class="programming-card d-flex align-items-center justify-content-center text-center" target-index="3">
 								<div>
 									<h4 class="textMedium4 mt-3">Hackathon</h4>
-									<p class="textSmall mb-3">[App Challenge @GREAT2016 - TEACH ME!]</p>
+									<p class="textSmall mb-3">App Challenge @GREAT2016 - TEACH ME!</p>
 								</div>
 							</div>
-							<div id="programming-4" class="programming-card m-0 p-0 d-flex align-items-center justify-content-center" target-index="4">
+							<div class="programming-card d-flex align-items-center justify-content-center text-center" target-index="4">
 								<div>
 									<h4 class="textMedium4 mt-3">iOS</h4>
-									<p class="textSmall mb-3">[Coursework - Mobile App Development]</p>
+									<p class="textSmall mb-3">Coursework - Mobile App Development</p>
 								</div>
 							</div>
-							<div id="programming-5" class="programming-card m-0 p-0 d-flex align-items-center justify-content-center" target-index="5">
+							<div class="programming-card d-flex align-items-center justify-content-center text-center" target-index="5">
 								<div>
 									<h4 class="textMedium4 mt-3">Android</h4>
-									<p class="textSmall mb-3">[Google Developer Study Jam]</p>
+									<p class="textSmall mb-3">Google Developer Study Jam</p>
 								</div>
 							</div>
 						</div>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -275,9 +268,8 @@
 
 
 		<!-- MUSIC LIST -->
-		<div class="demo d-flex align-items-center" align="center" 
-		top-title=" " page-type="music-list">
-			<div class="container col-10 p-0 d-flex align-items-center" style="height: 28rem; margin-bottom: 5rem; margin-top: 4rem;">
+		<div class="demo d-flex align-items-center" top-title=" " page-type="music-list">
+			<div class="container mb-5 col-10 d-flex align-items-center">
 
 				<div class="row w-100 justify-content-center d-flex align-items-center">
 
@@ -309,10 +301,11 @@
 
 		<!-- PROGRAMMING 00 - VIDEO GAME ENGINE -->
 		<div class="demo d-flex align-items-center" top-title="VIDEO GAME ENGINE" page-type="programming-item">
-			<div class="container mb-5 d-flex align-items-center col-10">
+			<div class="container mb-5 col-10 d-flex align-items-center">
 
-
+				
 				<div class="row pt-5 pt-sm-2">
+
 
 					<div class="col-12 col-sm-6 verticalDivider d-flex align-items-center">
 						
@@ -590,7 +583,7 @@
 
 		<!-- MUSIC 01 - MIDI -->
 		<div class="demo d-flex align-items-center" top-title="MIDI Programming" page-type="music-item">
-			<div class="container col-10 mb-5 d-flex align-items-center justify-content-center" style="background-color: rgba(100,100,100,0.5);">
+			<div class="container col-10 mb-5 d-flex align-items-center justify-content-center" style="background-color: rgba(100,100,100,0.0);">
 
 
 
@@ -621,7 +614,7 @@
 							</div>
 
 							<!-- PREV PLAY NEXT BUTTON -->
-							<div id="midi-player-buttons" class="p-0 m-0 d-flex align-items-center justify-content-center">
+							<div id="midi-player-buttons-container" class="p-0 m-0 d-flex align-items-center justify-content-center">
 								<button id="midi-prev-button" class="col-2"><i class="fa fa-backward" aria-hidden="true"></i></button>
 								<button id="midi-play-button" class="col-8 col-sm-6"><i class="fa fa-play" aria-hidden="true"></i></button>
 								<button id="midi-next-button" class="col-2"><i class="fa fa-forward" aria-hidden="true"></i></button>
@@ -1537,11 +1530,11 @@
 
 		<div class="row">
 
-			<div class="col-4" align="center">
+			<div class="col-4 bottom-vertical-divider" align="center">
 				<button type="button" id="programming-button">PROGRAMMING</button>
 			</div>
 
-			<div class="col-4" align="center">
+			<div class="col-4 bottom-vertical-divider" align="center">
 				<button type="button" id="resume-button">RESUME</button>
 			</div>
 
@@ -1574,6 +1567,8 @@
 
 <script src="nanoscroller/jquery.nanoscroller.min.js"></script>
 <script src="nanoscroller/overthrow.min.js"></script>
+
+<script src="https://player.vimeo.com/api/player.js"></script>
 
 <script src="node_modules/tether/dist/js/tether.min.js"></script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>

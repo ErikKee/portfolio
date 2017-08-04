@@ -11,8 +11,8 @@ var currentPageType = landingPage;
 var enableButton = true;
 
 // Animation timing
-const fadeOutTime = 120;
-const fadeInTime = 350;
+const fadeOutTime = 220;
+const fadeInTime = 400;
 
 /* MIDI PLAYER*/
 var extension = ".mp3";
@@ -87,6 +87,7 @@ function switchTrack(direction){
 
 	audio.play();
 	seekTimeUpdate();
+	refreshMidiTrackList();
 }
 
 function seekTimeUpdate(){
@@ -139,17 +140,21 @@ function reInitTrack(autoPlay){
 
 }
 
+/* Convert second into MM:SS format */
 function secondToString(input){
 	var min = Math.floor(input / 60);
 	var sec = Math.floor(input - min * 60);
 
-	//if(min < 10){min = "0" + min;}
 	if(sec < 10){sec = "0" + sec;}
 
 	return (min + " : " + sec);
 }
 
+
+/* Initialize some items, called on page load */
 function init(){
+	$(".slick").css("opacity", '0');
+
 
 	$(".slick").slick({
 		infinite: true,
@@ -172,13 +177,24 @@ function init(){
 	$('.custom-slick-prev').hide();
 	$('.custom-slick-next').hide();
 
-	//programmingListResize();
-
 	reInitTrack(false);
+	refreshMidiTrackList();
 
+	setTimeout(function(){
+		$('#initial-screen').hide(1000);
+		$(".slick").css("opacity", '1');
+	}, 300);
+
+	/*$('#initial-screen').animate({}, 5500, 'swing', function(){
+		$('#initial-screen').animate({opacity:'0'}, 1500, 'swing', function(){
+			$('#initial-screen').hide();
+
+		});
+	});*/
 
 }
 
+/* Update playlist item's highlight */
 function refreshMidiTrackList(){
 	var playlistChildren = $('#midi-tracklist').children().toArray();
 
@@ -197,32 +213,20 @@ function refreshMidiTrackList(){
 $(document).ready(function(){
 
 
-	var isWebkit = 'WebkitAppearance' in document.documentElement.style;
-	console.log("WEBKIT = " + isWebkit);
-
-
-	var currentPlayingIndex = "";
-
-
+	/* Midi playlist's song button */
 	$('.midi-track-button').click(function(){
 
-		/*if(currentPlaylistIndex == ""){
-			currentPlayingIndex = $(this);
-			currentPlayingIndex.addClass('hovered');
+		/* To solve a problem where the audio volume would suddenly turned into 0 */
+		if(audio.volume == 0){
+			console.log("audio = " + audio.volume);
+			audio.volume = 0.8;
+			$('#volume-slider').val(audio.volume * 100).change();
 		}
-		else{
-			console.log("currentPlayingIndex = " + currentPlayingIndex);
-			currentPlayingIndex.removeClass('hovered');
-		}*/
 
-		currentPlayingIndex = $(this)
 		var thisTarget = $(this).attr('track-id');
-		//currentPlayingIndex.addClass('hovered');
 
-
-		console.log("Argument = " + thisTarget);
-		console.log("currentPlaylistIndex " + currentPlaylistIndex);
-
+		//console.log("currentPlaylistIndex " + currentPlaylistIndex);
+		//console.log("target track-id = " + thisTarget);
 
 		currentPlaylistIndex = thisTarget;
 		reInitTrack(true);
@@ -230,15 +234,13 @@ $(document).ready(function(){
 
 	});
 
-	//programmingListResize();
 
 	$(window).on('resize', _.debounce(function() {
-	    console.log("HORY SHIT");
-
-	    $('#volume-slider').rangeslider('update', true);
+	    console.log("Debouncing");
+	    $('#volume-slider').val(audio.volume * 100).change();
 		$('#seek-slider').rangeslider('update', true);
 
-		console.log("span position = " + $('.flexslider-text-container span').position().top);
+		//console.log("span position = " + $('.flexslider-text-container span').position().top);
 
 
 		// Bootstrap smallest size
@@ -291,7 +293,6 @@ $(document).ready(function(){
 		});
 
 		$('#seek-slider').rangeslider({
-			
 
 			polyfill:false,
 			onInit:function(){
@@ -317,13 +318,9 @@ $(document).ready(function(){
 
 	});
 
-	/* $('#seek-slider').mousedown(function(){
-	console.log("MIDI DOWN");
-*/
-
-
+	/* Handle MIDI player seek bar's behavior. Doesn't work on chrome */
 	$(document)
-    .on('mousedown', '.rangeslider', function(e) {
+	.on('mousedown', '.rangeslider', function(e) {
     	e.preventDefault();
     	console.log("ON MOUSDOWN");
     	if(this.id == "js-rangeslider-1"){
@@ -518,6 +515,7 @@ $(document).ready(function(){
     $("#programming-button").on("click",function(){
     	console.log("Programming");
     	switchPage("programming-list");
+    	//$(this).css("background-color", "rgba(143,195,31, 0.1)");
 	});
 
     // Button: Bottom - RESUME
@@ -569,9 +567,12 @@ $(document).ready(function(){
 
 
 
+/* Handle page switching */
 function switchPage(pageType, pageIndex){
 
 	console.log("target index = " + pageIndex);
+
+	/* pageType is the target page type, white currentPageType is the previous one */
 
 	if(currentPageType != pageType){
 		$('#title').stop();
@@ -632,24 +633,37 @@ function switchPage(pageType, pageIndex){
 			$('#title').text(topTitle);
 	    	$('#title').animate({opacity:'1'}, fadeInTime, 'swing');
 
-	    	// Show back button as long as use is not in landing page
+	    	// Show back button as long as user is not in landing page
 	    	if(currentPageType != landingPage){
 	    		console.log("BACK = " + $('#back-button').css("display"));
 
 	    		if ($('#back-button').css("display") === 'none') {
 	    			console.log("SHOW BACK BUTTON");
-					$('#back-button').show(fadeInTime);
-					$('#back-button').animate({opacity:'1'}, fadeInTime);
+					//$('#back-button').show(fadeInTime);
+					//$('#back-button').animate({opacity:'1'}, fadeInTime);
 				}
 	    		//$('#back-button').show();
 	    		//('#back-button').animate({opacity:'1'}, fadeInTime);
 	    	}
 	    	else{
 	    		console.log("BACK = " +$('#back-button').css("display"));
-	    		$('#back-button').hide(fadeInTime);
+	    		//$('#back-button').hide(fadeInTime);
+	    		//var v = $('#background-video').get(0);
+	    		//v.play();
+	    		//changeTextColor("white");
 	    	}
+
+	    	if(pageType == landingPage){
+	    		var v = $('#background-video').get(0);
+	    		v.play();
+	    	}
+
 	    });
-		console.log("pageType = " + pageType + " | currentPageType: " + currentPageType);
+		/*console.log("currentPageType = " + currentPageType  + " | pageType: " + pageType);
+		console.log("T = " + (currentPageType != "landing-page"));
+		console.log("T = " + (pageType == "landing-page"));
+		console.log("T = " + (currentPageType == "landing-page"));
+		console.log("T = " + (pageType != "landing-page"));*/
 
 		// Destroy nanoscroller plugin
 		// Placed outside of animation because currentPageType and pageType will already be the same after animation delay
@@ -663,6 +677,25 @@ function switchPage(pageType, pageIndex){
 
 		}
 
+		if((currentPageType != landingPage) && (pageType == landingPage)){
+    		//toggleClass
+    		//Back to landing page
+    		console.log("IF == ");
+    		$('#back-button').hide(fadeInTime);
+    		changeTextColor();
+    		//var v = $('#background-video').get(0);
+    		//$('#background-video').get(0).play();
+    		
+    	}
+    	else if((currentPageType == landingPage) && (pageType != landingPage)){
+    		//toggle
+    		// From landing page to somewhere else
+    		console.log("ELSE == ");
+    		changeTextColor();
+    		$('#back-button').show(fadeInTime);
+			$('#back-button').animate({opacity:'1'}, fadeInTime);
+    	}
+
 	    currentPageType = pageType;
 	}
 
@@ -672,6 +705,14 @@ function switchPage(pageType, pageIndex){
 	}else{
 		$('.custom-slick-prev').hide();
 	}*/
+}
+
+function changeTextColor(){
+	//if(color == "white"){
+		console.log("CHANGING COLOR");
+		$('#navigation-bottom button').toggleClass('black');
+		$("#navigation-bottom .row .bottom-vertical-divider").toggleClass('black');
+	//}
 }
 
 function prevNextButton(direction){
@@ -781,11 +822,14 @@ function programmingListResize(){
 
 $('#midi-play-button').click(function(){
 	console.log("MIDI PLAY");
+	if(audio.volume == 0){
+		console.log("audio = " + audio.volume);
+		audio.volume = 0.8;
+		$('#volume-slider').val(audio.volume * 100).change();
+	}
 	if(audio.paused){
 		audio.play();
-		
-		$('#midi-play-button').html('<i class="fa fa-pause" aria-hidden="true"></i>')
-
+		$('#midi-play-button').html('<i class="fa fa-pause" aria-hidden="true"></i>');
 	}
 	else{
 		audio.pause();

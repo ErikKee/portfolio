@@ -43,24 +43,26 @@
 }
 
 .textBig {
-	color: white;
+	color: rgb(76,76,76);
 	font-size: 2rem;
-	font-weight: 500;
+	font-weight: 100;
 }
 
+/* Used in programming-list and music-list */
 .textMedium4 {
-	color: white;
+	color: rgb(76,76,76);
 	font-size: 1.75rem;
-	font-weight: 500;
+	font-weight: 600;
 	line-height: 0.5rem;
 	margin-bottom: 0.45rem;
 	margin-top: 2.0rem;
 }
 
+/* Currently the only usage is MIDI title */
 .textMedium3 {
-	color: white;
+	color: rgb(76,76,76);
 	font-size: 1.5rem;
-	font-weight: 300;
+	font-weight: 500;
 	line-height: 0.5rem;
 	margin-bottom: 0.45rem;
 	margin-top: 2.0rem;
@@ -68,35 +70,36 @@
 
 /* Mainly for sub-title with green text */
 .textMedium2 {
-	color: white;
+	color: rgb(76,76,76);
 	font-size: 1.15rem;
-	font-weight: 100;
+	font-weight: 500;
 	line-height: 1.15rem;
 	margin-bottom: 0;
 	/*margin-top: 2.0rem;*/
 }
 
+/* Most of the detail text */
 .textMedium1 {
-	color: white;
+	color: rgb(76,76,76);
 	font-size: 0.85rem;
-	font-weight: 100;
+	font-weight: 400;
 	line-height: 1.2rem;
 	margin-bottom: 0rem;
 }
 
 .textSmall2{
-	color: white;
+	color: rgb(76,76,76);
 	font-size: 0.80rem;
-	font-weight: 100;
+	font-weight: 400;
 
 }
 
 
 /* Smallest font size */
 .textSmall{
-	color: white;
+	color: rgb(76,76,76);
 	font-size: 0.70rem;
-	font-weight: 100;
+	font-weight: 400;
 
 }
 
@@ -104,15 +107,26 @@
 html,body{
 	/*font-family: 'Roboto', sans-serif;*/
 	/*font-family:  sans-serif;*/
-	color: black;
+	color: rgb(76,76,76);;
 
 	width: 100%;
 	height: 100%;
 	transition-duration: 0.2s;
 	min-height: 35rem;
-	background: #134e5e; /* fallback for old browsers */
+	background: rgba(255,255,255,1); /*#134e5e;*/ /* fallback for old browsers */
 	/*background: -webkit-linear-gradient(to right, #134e5e, #71b280);*/ /* Chrome 10-25, Safari 5.1-6 */
 	/*background: linear-gradient(to right, #134e5e, #71b280);*/ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+#initial-screen{
+	z-index: 1000;
+	background-color: rgb(255,255,255);
+	position: absolute;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	overflow: hidden;
 }
 /*
 @media only screen and (max-height: 600px) {
@@ -165,6 +179,32 @@ html,body{
 	========== ITEMS IN DEMO CONTAINER ==========
 */
 
+video {
+  position: absolute;
+  min-width: 150%;
+  min-height: 150%;
+  left: -50%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  background-size: cover;
+  background-color: rgba(143,195,31,0.4); /* Background fall back */
+}
+
+#video-background{
+	min-width: 100%;
+	min-height: 100%;
+	position: absolute;
+
+}
+
+.content-base{
+	width: 100%;
+	height: 150%;
+	position: absolute;
+	background-color: rgba(143,195,31, 0.1);
+}
+
 
 /* DEMO & SLICK */
 .slick,
@@ -209,7 +249,7 @@ html,body{
 	padding-left: 0;
 	/*background-color: rgba(0,0,0,0.1);*/
 	border: none;
-	color: white;
+	color: rgb(76,76,76);;
 	border-radius: 0;
 	z-index: 5;
 	width: 100%;
@@ -221,14 +261,24 @@ html,body{
 	font-weight: 400;
 }
 
+
+.custom-slick-prev, .custom-slick-next{
+	display: none;
+}
+
+
+
+
 /* BACK BUTTON */
 #back-button{
-	color: white;
+	display: none; /* Hide initially */
+	color: rgb(76,76,76);;
 	font-size: 2rem;
 	line-height: 100%;
 	text-align: right;
 
 	white-space: nowrap;
+	cursor:pointer;
 
 
 	/*background-color: rgba(0,0,0,0.1);*/
@@ -247,7 +297,7 @@ html,body{
 }
 
 #back-button:hover {
-	color: rgba(255,255,255,0.5);
+	color: rgb(76,76,76); /*rgba(255,255,255,0.5);*/
 	transition-duration: 0.2s;
 }
 
@@ -265,7 +315,7 @@ html,body{
 
 /* Include following class to generate vertical divider in between columns */
 .row [class*='verticalDivider']:not(:last-child):after {
-	background: rgba(255,255,255,0.5);
+	background: rgba(76,76,76,0.5);
 	width: 1px;
 	height: 100%;
 	vertical-align: middle;
@@ -303,8 +353,8 @@ html,body{
 .demo-button {
 	position: relative;
 	background-color: transparent;
-	border: 1px solid rgba(255,255,255,0.4);
-	color: white;
+	border: 1px solid rgba(50,50,50,0.4);
+	color: rgb(76,76,76);
 	padding: 2px;
 	text-align: center;
 	text-decoration: none;
@@ -318,9 +368,13 @@ html,body{
 .demo-button:focus {outline:none;}
 
 .demo-button:hover {
-	background-color: rgba(255,255,255,0.2);
+	background-color: rgba(50,50,50,0.2);
 	outline:none;
 
+}
+
+.programming-flexslider-toggle{
+	box-shadow: 1px 1px 5px #888888;
 }
 
 .button-external-link span{
@@ -352,6 +406,7 @@ html,body{
 	width: 100%;
 	transition-duration: 0.2s;
 	opacity: 0;
+
 }
 
 .overlay .overlayText{
@@ -419,7 +474,7 @@ html,body{
 }
 
 #demo-next button:hover, #demo-prev button:hover {
-	color: rgba(255,255,255,0.7);
+	color: rgba(50,50,50,0.7);
 	transition-duration: 0.1s;
 }
 
@@ -431,7 +486,7 @@ html,body{
 	width: 100%;
 	font-size: 0.9rem;
 	line-height: 70%;
-	color: #FFFFFF;
+	color: rgb(76,76,76);
 	font-weight: 100;
 	/*text-align: right;*/
 	outline: none;
@@ -448,11 +503,37 @@ html,body{
 	outline: none;
 }
 
+/* Six button classes below are the same thing but different font color */
+/* White font (without .black) for the main screen, black font (.black) for the rest */
+#navigation-bottom button.black{
+	font-size: 1.5rem;
+	background-color: rgba(0,0,0,0.0);
+	border: none;
+	color: rgb(50,50,50);
+	opacity: 0.8;
+	border-radius: 0;
+	z-index: 5;
+	height: 4rem;
+	vertical-align: middle;
+	width: 100%;
+	outline: none;
+
+	font-family: 'Roboto', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font-weight: 100;
+}
+
+#navigation-bottom button.black:hover{
+	opacity: 1;
+	font-size: 1.55rem;
+	transition-duration: 0.2s;
+}
+
 #navigation-bottom button{
 	font-size: 1.5rem;
 	background-color: rgba(0,0,0,0.0);
 	border: none;
-	color: white;
+	color: rgb(255,255,255);
+	opacity: 1;
 	border-radius: 0;
 	z-index: 5;
 	height: 4rem;
@@ -465,15 +546,28 @@ html,body{
 }
 
 #navigation-bottom button:hover{
-	color: rgba(255,255,255,0.8);
+	opacity: 0.8;
 	font-size: 1.55rem;
 	transition-duration: 0.2s;
 }
 
-
 /* Vertical separating line between bottom buttons */
-#navigation-bottom .row [class*='col']:not(:last-child):after {
-	background: #FFFFFF;
+#navigation-bottom .row .bottom-vertical-divider.black:after {
+	background: rgba(76,76,76,0.8);
+	width: 1px;
+	height: 80%;
+	vertical-align: middle;
+	content: "";
+	display:block;
+	position: absolute;
+	top:10%;
+	bottom: 0;
+	right: 0;
+	min-height: auto;
+}
+
+#navigation-bottom .row .bottom-vertical-divider:after {
+	background: rgba(255,255,255,1);
 	width: 1px;
 	height: 80%;
 	vertical-align: middle;
@@ -509,12 +603,7 @@ html,body{
 }
 
 /* Programming demo list */
-.programming-card {
-	/*border: 1px solid rgba(255,255,255,0.6);*/
-/*	height: 13rem;
-	width: 13rem;*/
-	
-}
+
 
 .card-horizontal-divider .container [class*='col']:not(:last-child):after {
 	background: rgba(255,255,255,0.5);
@@ -532,10 +621,11 @@ html,body{
 
 
 /* Music demo list */
-.music-card {
+.music-card, .programming-card {
+	cursor: pointer;
+
 	/*border: 1px solid rgba(255,255,255,0.8);*/
-	width: 100%;
-	box-shadow: 10 10 1px 1px #141414;
+	
 
 }
 
@@ -594,6 +684,7 @@ html,body{
 }
 
 .custom-flexslider-button-next{
+	cursor: pointer;
 	text-align: right;
 
 	height: 100%;
@@ -615,6 +706,7 @@ html,body{
 }
 
 .custom-flexslider-button-prev{
+	cursor: pointer;
 	text-align: left;
 
 	height: 100%;
@@ -726,7 +818,7 @@ div#mp3_player > canvas{
 
 
 
-#midi-player-buttons{
+#midi-player-buttons-container{
 	min-height: 4rem;
 }
 
@@ -735,7 +827,7 @@ div#mp3_player > canvas{
 #midi-prev-button, #midi-next-button, #midi-play-button, #midi-vol-up-icon, #midi-vol-down-icon{
 	background-color: transparent;
 	border: none;
-	color: rgba(255,255,255,0.8);
+	color: rgba(50,50,50,0.8);
 	outline: none;
 	-webkit-transition: all 0.15s ease-in;
 	-moz-transition: all 0.15s ease-in;
@@ -746,10 +838,12 @@ div#mp3_player > canvas{
 
 #midi-play-button{
 	font-size: 2rem;
+	cursor: pointer;
 }
 
 #midi-prev-button, #midi-next-button{
 	font-size: 1.3rem;
+	cursor:pointer;
 }
 
 
@@ -941,10 +1035,11 @@ div#mp3_player > canvas{
 }
 
 .midi-track-button{
+	cursor:pointer;
 	font-size: 0.85rem;
 	font-weight: 100;
-	color: rgba(255,255,255,0.8);
-	background-color: rgba(100,100,150,0.5);
+	color: rgba(76,76,76,0.8); /*rgba(255,255,255,0.8);*/
+	background-color: rgba(143,195,31, 0.1); /*rgba(100,100,150,0.5);*/
 	border: none;
 	outline: none;
 	transition: background-color 0.15s ease-out;
@@ -958,7 +1053,7 @@ div#mp3_player > canvas{
 }
 
 .midi-track-button:hover, .midi-track-button.hovered{
-	background-color: rgba(100,100,150,0.8);
+	background-color: rgba(143,195,31, 0.5); /*rgba(100,100,150,0.8);*/
 	transition: background-color 0s;
 }
 
@@ -1038,10 +1133,11 @@ div#mp3_player > canvas{
 	bottom: 0;
 	width: 150%;
 	height: 150%;
+	cursor:pointer;
 }
 
 .back-button-extended-area:hover ~ #back-button{
-	color: rgba(255,255,255,0.5);
+	color: rgb(76,76,76, 0.5); /*rgba(255,255,255,0.5);*/
 	transition-duration: 0.2s;
 }
 
