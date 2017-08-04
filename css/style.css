@@ -984,6 +984,18 @@ div#mp3_player > canvas{
 
 
 
+.guitar-thumbnail{
+	min-height: 5rem;
+	background-image:    url(images/background.svg);
+    background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;
+
+}
+
+
+
+
 /* Magnific-Popup animation configuration */
 
 /* overlay at start */
