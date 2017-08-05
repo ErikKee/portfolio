@@ -153,7 +153,6 @@ function secondToString(input){
 
 /* Initialize some items, called on page load */
 function init(){
-	$(".slick").css("opacity", '0');
 
 
 	$(".slick").slick({
@@ -182,7 +181,7 @@ function init(){
 
 	setTimeout(function(){
 		$('#initial-screen').hide(1000);
-		$(".slick").css("opacity", '1');
+		//$(".slick").css("opacity", '1');
 	}, 300);
 
 	/*$('#initial-screen').animate({}, 5500, 'swing', function(){
@@ -210,7 +209,14 @@ function refreshMidiTrackList(){
 	}
 }
 
+
 $(document).ready(function(){
+	console.log("ON READY");
+
+  // Hide the div
+  //$(".slick").hide();
+  // Show the div after 5s
+  //$(".slick").delay(5000).fadeIn(100); 
 
 
 	/* Midi playlist's song button */
@@ -351,37 +357,6 @@ $(document).ready(function(){
 
     })
 
-
-
-//})
-
-/*	$('#VideoGameGallery').magnificPopup({
-
-		// Delay in milliseconds before popup is removed
-		removalDelay: 100,
-
-		// Class that is added to popup wrapper and background
-		// make it unique to apply your CSS animations just to this exact popup
-		mainClass: 'mfp-fade',
-		navigateByImgClick: false,
-
-		items: [
-		{
-			src: '#slickGallery',
-			type: 'inline'
-		}
-	    ],
-
-	    callbacks: {
-	    	open: function() {
-	    		$('.slick').animate({opacity:'0'}, 0);
-		    },
-	    	close: function(){
-	    		$('.slick').animate({opacity:'1'}, 50);
-	    	}
-	    }
-	});*/
-	
 	$('.programming-flexslider-toggle').each(function(){
 		var self = this;
 		$(this).magnificPopup({
@@ -426,18 +401,6 @@ $(document).ready(function(){
 			    		console.log("SLIDE PLEASE");
 			    		$($(self).attr('toggle-target')).flexslider("next");
 			    	});
-
-
-
-
-			    	/*$('.programming-1-flexslider').flexslider({
-						startAt: 0, 
-						directionNav : false,
-				    	slideshow: false,
-						animation:"fade",
-						animationSpeed: 300,
-						controlNav: false
-					});*/
 				},
 				open: function() {
 					$('.slick').animate({opacity:'0'}, 150);
