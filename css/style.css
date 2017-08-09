@@ -117,14 +117,19 @@ html,body{
 	/*background: linear-gradient(to right, #134e5e, #71b280);*/ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-/*.slick-slider::-moz-selection { background: rgba(143,195,31, 0.3)}
-.slick-slider::selection { background: rgba(143,195,31, 0.3); }*/
+
 
 /* Default text highlight color */
 ::-moz-selection { background: rgba(143,195,31, 0.3)}
 ::selection { background: rgba(143,195,31, 0.3); }
 
 
+
+/*
+	======================================================================
+	Initial Screen
+	======================================================================
+*/
 
 #initial-screen{
 	z-index: 1000;
@@ -137,59 +142,6 @@ html,body{
 	overflow: hidden;
 }
 
-/*#everything-else{
-	display: none;
-}*/
-/*
-@media only screen and (max-height: 600px) {
-    [class*="demo"] {
-        padding-top: 5rem;
-    }
-}
-*/
-/*.programming-cards-container{
-	width: 45rem;
-	background-color: rgba(200,100,100,1);
-}*/
-
-/*@media only screen and (max-height: 600px) {
-    .programming-cards-container{
-		width: 35rem;
-		background-color: rgba(200,100,100,1);
-	}
-
-	.programming-card {
-		border: 1px solid rgba(255,255,255,0.8);
-		height: 10rem;
-		width: 10rem;
-	}
-}*/
-
-/*@media only screen and (max-width: 1028px) {
-
-	body{
-		font-size: 0.5rem;
-	}
-    [class*="programming-cards-container"]{
-		width: 55rem;
-		height: 70%;
-		background-color: rgba(100,200,100,1);
-	}
-
-	[class*="programming-card"] {
-		border: 1px solid rgba(0,255,255,0.8);
-		height: 10rem;
-		width: 10rem;
-		background-color: rgba(100,100,255,0.2);
-	}
-}*/
-
-
-
-
-/*
-	========== ITEMS IN DEMO CONTAINER ==========
-*/
 
 video {
   position: absolute;
@@ -218,15 +170,12 @@ video {
 	position: absolute;
 }
 
-.content-base{
-	width: 100%;
-	height: 150%;
-	position: absolute;
-	background-color: rgba(143,195,31, 0.1);
-}
 
-
-/* DEMO & SLICK */
+/* 
+	======================================================================
+	DEMO & SLICK
+	======================================================================
+*/
 .slick,
 .slick-list,
 .slick-track,
@@ -234,13 +183,6 @@ video {
 	height: 100%;
 	width:100%;
 	min-height: 35rem;
-
-/*	position: absolute;
-*/
-	/*position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -70%);*/
 }
 
 .slick-slider {
@@ -250,8 +192,6 @@ video {
 	-ms-user-select: text;
 	user-select: text;
 }
-
-
 
 /* First container inside slick */
 .demo{
@@ -265,83 +205,6 @@ video {
 	/*table-layout:fixed;*/
 }
 
-
-/* Project title's container */
-#title-container{
-	/*background-color: rgba(0,100,0,0.2);*/
-	/*height: auto;*/
-}
-
-/* Project title's font */
-#title{
-	font-size: 3rem;
-	text-align: left;
-	padding-left: 0;
-	/*background-color: rgba(0,0,0,0.1);*/
-	border: none;
-	color: rgb(76,76,76);;
-	border-radius: 0;
-	z-index: 5;
-	width: 100%;
-	height: 100%;
-	line-height: 100%;
-	white-space: pre-wrap;
-
-	/*font-family: 'Roboto', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; */
-	font-weight: 400;
-}
-
-
-.custom-slick-prev, .custom-slick-next{
-	display: none;
-}
-
-
-
-
-/* BACK BUTTON */
-#back-button{
-	display: none; /* Hide initially */
-	color: rgb(76,76,76);;
-	font-size: 2rem;
-	line-height: 100%;
-	text-align: right;
-
-	white-space: nowrap;
-	cursor:pointer;
-
-
-	/*background-color: rgba(0,0,0,0.1);*/
-	background-color: transparent;
-	border: none;
-	outline: none;
-	
-	border-radius: 0;
-	z-index: 5;
-	width: 100%;
-	height: 100%;
-
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-	/*font-family: 'Roboto', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; */
-	font-weight: 100;
-}
-
-#back-button:hover {
-	color: rgb(76,76,76); /*rgba(255,255,255,0.5);*/
-	transition-duration: 0.2s;
-}
-
-/* To make button's text position in top right */
-#back-button span {
-	display: block;
-	position: absolute;
-	top:0;
-	right:0;
-}
-
-#verticalDivider{
-
-}
 
 /* Include following class to generate vertical divider in between columns */
 .row [class*='verticalDivider']:not(:last-child):after {
@@ -358,28 +221,6 @@ video {
 	min-height: auto;
 }
 
-/* Text that is initially hidden until reveal button triggered */
-.hiddenText {
-
-	padding-right: 1rem;
-	padding-left: 1rem;
-    height: 0px;
-    overflow: hidden;
-    transition: height 0.3s;
-    -moz-transition: height 0.3s; /* Firefox 4 */
-    -webkit-transition: height 0.3s; /* Safari and Chrome */
-    -o-transition: height 0.3s; /* Opera */
-}
-
-.hiddenTextToggle{
-	cursor: pointer;
-	transition-duration: 0.05s;
-}
-
-.hiddenTextToggle:hover {
-	opacity: 0.7;
-	padding-left: 0.2rem;
-}
 
 /* Default design for buttons inside a demo, eg:"VIEW DEMO" and "VIEW ON GITHUB"; */
 .demo-button {
@@ -406,11 +247,7 @@ video {
 
 }
 
-.programming-flexslider-toggle{
-	box-shadow: 1px 1px 5px #888888;
-}
-
-.button-external-link span{
+.demo-button span{
 	opacity: 0.75;
 	font-size: 0.6rem;
 	right: 5px;
@@ -423,7 +260,6 @@ video {
 
 
 .overlay{
-
 	color: rgba(255,255,255,0.85);
 	font-weight: 100;
 	font-size: 1.5rem;
@@ -436,7 +272,6 @@ video {
 	width: 100%;
 	transition-duration: 0.2s;
 	opacity: 0;
-
 }
 
 .overlay .overlayText{
@@ -460,7 +295,9 @@ video {
 
 
 /*
-	========== NAVIGATION BUTTONS ==========
+	======================================================================
+	NAVIGATION BUTTONS (Programming, Resume, Music, Prev, Next)
+	======================================================================
 */
 
 
@@ -468,6 +305,76 @@ video {
 	/*padding-top: 5%;*/
 	top: 7.5%;
 	z-index: 500;
+	transition-duration: 0.2s;
+}
+
+/* Project title's font */
+#title{
+	font-size: 3rem;
+	text-align: left;
+	padding-left: 0;
+	/*background-color: rgba(0,0,0,0.1);*/
+	border: none;
+	color: rgb(76,76,76);;
+	border-radius: 0;
+	z-index: 5;
+	width: 100%;
+	height: 100%;
+	line-height: 100%;
+	white-space: pre-wrap;
+
+	font-weight: 400;
+}
+
+
+/* BACK BUTTON */
+#back-button{
+	display: none; /* Hide initially */
+	color: rgb(76,76,76);;
+	font-size: 2rem;
+	line-height: 100%;
+	text-align: right;
+
+	white-space: nowrap;
+	cursor:pointer;
+
+	background-color: transparent;
+	border: none;
+	outline: none;
+	
+	border-radius: 0;
+	z-index: 5;
+	width: 100%;
+	height: 100%;
+
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight: 100;
+}
+
+#back-button:hover {
+	color: rgb(76,76,76); /*rgba(255,255,255,0.5);*/
+	transition-duration: 0.2s;
+}
+
+/* To make button's text position in top right */
+#back-button span {
+	display: block;
+	position: absolute;
+	top:0;
+	right:0;
+}
+
+/* For easier reach */
+.back-button-extended-area{
+	position: absolute;
+	bottom: 0;
+	width: 150%;
+	height: 150%;
+	cursor:pointer;
+}
+
+.back-button-extended-area:hover ~ #back-button{
+	color: rgb(76,76,76, 0.5); /*rgba(255,255,255,0.5);*/
 	transition-duration: 0.2s;
 }
 
@@ -605,29 +512,52 @@ video {
 }
 
 
-/*
-	PAGE SPECIFIC SETTINGS
-*/
 
-/* RESUME PAGE */
+/*
+	======================================================================
+	RESUME
+	======================================================================
+*/
 .resume-margin{
 	margin-top: 15rem;
 	min-height: 35rem;
 }
 
+/* Text that is initially hidden until reveal button triggered */
+.hiddenText {
 
-/* PROGRAMMING LIST */
-.programming-cards-container{
-
-
-	/* SIZING IN script.js */
-/*	width: 80rem;
-	height: 25rem;*/
-	/*transition-duration: 0.1s;*/
+	padding-right: 1rem;
+	padding-left: 1rem;
+    height: 0px;
+    overflow: hidden;
+    transition: height 0.3s;
+    -moz-transition: height 0.3s; /* Firefox 4 */
+    -webkit-transition: height 0.3s; /* Safari and Chrome */
+    -o-transition: height 0.3s; /* Opera */
 }
 
-/* Programming demo list */
+.hiddenTextToggle{
+	cursor: pointer;
+	transition-duration: 0.05s;
+}
 
+.hiddenTextToggle:hover {
+	opacity: 0.7;
+	padding-left: 0.2rem;
+}
+
+
+
+/*
+	======================================================================
+	Programming-list and Music-list
+	======================================================================
+
+*/
+
+.programming-flexslider-toggle{
+	box-shadow: 1px 1px 5px #888888;
+}
 
 .card-horizontal-divider .container [class*='col']:not(:last-child):after {
 	background: rgba(255,255,255,0.5);
@@ -642,35 +572,21 @@ video {
 
 }
 
-
-
-/* Music demo list */
 .music-card, .programming-card {
 	cursor: pointer;
-
-	/*border: 1px solid rgba(255,255,255,0.8);*/
-	
-
 }
 
 .music-card .textMedium4, .programming-card .textMedium4{
 	transition-duration: 0.15s;
 	-webkit-transition-timing-function: ease-out; /* Safari and Chrome */
     transition-timing-function: ease-out;
-
 }
-
-
 
 .music-card:hover .textMedium4, .programming-card:hover .textMedium4{
 	font-size: 1.85rem;
 
 }
-
-
-
 .programming-card:hover, .music-card:hover {
-	/*background-color: rgba(255,255,255,0.1);*/
 	transition-duration: 0.2s;
 	-webkit-transition-timing-function: ease-out; /* Safari and Chrome */
     transition-timing-function: ease-out;
@@ -685,26 +601,23 @@ video {
 	background-color: rgba(143,195,31, 0.5); /*rgba(143,195,31, 0.5);*/ /*rgba(0,0,0,0.3);*/
 	position: absolute; 
 	bottom: 0; 
-	/*left: 0;*/ 
 	height: 3px;
 	width: 0%;
 	transition-duration: 0.2s;
 }
 
-/*.programming-card:hover .programming-card-effect, .music-card:hover .programming-card-effect{
-	width: 65%;
-}
+
+
+/*
+	======================================================================
+	Magnific popup > flexslider (from programming & music-item's thumbnail)
+	======================================================================
+
 */
-
-
-/* Slick inside programming page */
 .imageGalleryLightbox {
-/*	width: 70%;
-	height: 70%;*/
 	background:none;
 	border:none;
 	box-shadow:none;
-
 }
 
 .custom-flexslider-button-next{
@@ -748,7 +661,6 @@ video {
 	line-height: 70%;
 	color: rgba(255,255,255,0.1);
 	font-weight: 100;
-	/*text-align: right;*/
 	outline: none;
 	transition-duration: 0.35s;
 }
@@ -766,8 +678,6 @@ video {
 	background: -webkit-linear-gradient(to right, rgba(0,0,0,0.1), rgba(0,0,0,0));
 	background: linear-gradient(to right, rgba(0,0,0,0.1), rgba(0,0,0,0));
 }
-
-
 
 .custom-flexslider-button-prev span, .custom-flexslider-button-next span{
 	font-size: 4rem;
@@ -811,42 +721,15 @@ video {
 }
 
 
-
-
-/* MIDI PLAYER */
-/*div#mp3_player{
-	position: absolute;
-	width: 500px;
-	height: 60px;
-	background: rgba(100,200,100,0.5);
-	padding: 5px;
-	margin: 50px auto;
-}
-
-
-
-div#mp3_player > div > audio{
-	position: absolute;
-	width: 500px;
-	background: rgba(150,100,100,0.5);
-	float: left;
-}
-
-div#mp3_player > canvas{
-	position: absolute;
-	width: 500px;
-	height: 30px;
-	background: rgba(100,100,150,0.5);
-	float: left;
-}*/
-
-
+/*
+	======================================================================
+	M2 - MIDI
+	======================================================================
+*/
 
 #midi-player-buttons-container{
 	min-height: 4rem;
 }
-
-
 
 #midi-prev-button, #midi-next-button, #midi-play-button, #midi-vol-up-icon, #midi-vol-down-icon{
 	background-color: transparent;
@@ -856,9 +739,7 @@ div#mp3_player > canvas{
 	-webkit-transition: all 0.15s ease-in;
 	-moz-transition: all 0.15s ease-in;
 	transition: all 0.15s ease-in;
-
 }
-
 
 #midi-play-button{
 	font-size: 2rem;
@@ -879,16 +760,13 @@ div#mp3_player > canvas{
 	font-size: 2.2rem;
 }
 
-
 .rangeslider,
 .rangeslider__fill {
 	border: none;
 	background-color: transparent;
-
 	-moz-box-shadow: none;
 	-webkit-box-shadow: none;
 	box-shadow: none;
-
 	-moz-border-radius: none;
 	-webkit-border-radius: none;
 	border-radius: none;
@@ -897,6 +775,7 @@ div#mp3_player > canvas{
 .rangeslider {
 	position:relative;
 }
+
 .rangeslider:after{
 	top:50%;
 	left:0;
@@ -921,19 +800,11 @@ div#mp3_player > canvas{
 	max-height:100%;
 }
 
-/*.rangeslider--disabled{
-	filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
-	opacity:0.4;
-}*/
-
 .rangeslider__fill{
 	position:absolute;
 	background:rgba(150,150,150,0.8);
 	transition: background-color 0.3s;
 }
-
-
-
 
 .rangeslider--horizontal .rangeslider__fill{
 	top:0;
@@ -944,14 +815,10 @@ div#mp3_player > canvas{
 	width:100%;
 }
 
-
-
 .rangeslider__fill,
 .rangeslider__handle{
 	z-index:1;
 }
-
-/* === */
 
 .rangeslider__handle {
   background: transparent;
@@ -965,8 +832,6 @@ div#mp3_player > canvas{
   background-color: rgba(100,100,100,1);
 
   transition: background-color 0.3s, width 0.3s, height 0.3s, margin 0.3s;
-
-
 }
 
 .rangeslider__handle:after {
@@ -986,7 +851,6 @@ div#mp3_player > canvas{
 .rangeslider__handle:active, .rangeslider--active .rangeslider__handle, .rangeslider--active .rangeslider__fill {
 	/*background-image: none;*/
 	background:rgba(143,195,31,1);
-	/*transition-duration: background-color 0.55s;*/
 }
 
 .rangeslider__handle:active, .rangeslider--active .rangeslider__handle {
@@ -995,7 +859,6 @@ div#mp3_player > canvas{
 	width: 15px;
 	height: 15px;
 	margin-top: 15px;
-	/*transition-duration: background-color 0.55s;*/
 }
 
 .rangeslider__handle:active .rangeslider__handle:after, .rangeslider--active .rangeslider__handle:active {
@@ -1012,11 +875,6 @@ div#mp3_player > canvas{
 
 }
 
-/*===*/
-
-
-
-
 .rangeslider--horizontal .rangeslider__fill{
 	top:50%;
 	height:3px;
@@ -1026,7 +884,7 @@ div#mp3_player > canvas{
 
 
 
-/* MIDI RIGHT SIDE */
+/* MIDI RIGHT SIDE - playlist */
 #midi-category-container{
 	border-bottom: solid 1px rgba(255,255,255, 0.7);
 }
@@ -1036,16 +894,10 @@ div#mp3_player > canvas{
 	overflow: hidden;
 }
 
-.wrapper{
-	width: 100%;
-}
-
 .nano { background: transparent; max-height: 10rem; }
 /*.nano > .nano-content { padding: 10px; }*/
 .nano > .nano-pane   { background: rgba(100,100,100,0.2); }
 .nano > .nano-pane > .nano-slider { background: rgba(0,0,0,0.2); }
-
-
 
 .midi-category-button{
 	color: rgba(255,255,255,0.8);
@@ -1101,41 +953,54 @@ div#mp3_player > canvas{
 }
 
 
-.guitar-thumbnail-container{
 
+/*
+	======================================================================
+	M3 - Guitar
+	======================================================================
+*/
+.guitar-thumbnail-container{
+	background-repeat: no-repeat;
+	background-size:cover;
+	min-height: 5rem;
+	cursor: pointer;
 }
 
-.guitar-thumbnail-container:hover .guitar-thumbnail-effect{
+.guitar-thumbnail-container:hover .guitar-thumbnail-effect, .guitar-thumbnail-text:hover .guitar-thumbnail-effect{
 	width: 100%;
 }
 
 .guitar-thumbnail-effect{
 	background-color: rgba(143,195,31, 0.5);
-	height: 2px;
+	height: 3px;
 	width: 0px;
 	bottom: 0;
 	transition-duration: 0.5s;
 }
 
 .guitar-thumbnail{
-	opacity: 0.5;
+	opacity: 0.8;
 	transition: opacity 0.2s;
 }
 
-.guitar-thumbnail:hover{
-	opacity: 1;
-}
+
 
 .guitar-thumbnail-text{
 	color: white;
-	background-color: rgba(0,0,0,0.2);
-	width: 100%;
-	padding-left: 0.5rem;
-	padding-bottom: 0.5rem;
-	bottom: 0;
-	position: absolute;
+	font-size: 1.2rem;
+	font-weight: 600;
+	
+	position:absolute;
+	top:50%;
+	left:50%; 
+	text-align:center;
+	transform: translateX(-50%) translateY(-50%);
+
 }
 
+.guitar-thumbnail-container:hover .guitar-thumbnail{
+	opacity: 1;
+}
 
 
 
@@ -1176,18 +1041,7 @@ div#mp3_player > canvas{
 }
 
 
-.back-button-extended-area{
-	position: absolute;
-	bottom: 0;
-	width: 150%;
-	height: 150%;
-	cursor:pointer;
-}
 
-.back-button-extended-area:hover ~ #back-button{
-	color: rgb(76,76,76, 0.5); /*rgba(255,255,255,0.5);*/
-	transition-duration: 0.2s;
-}
 
 
 

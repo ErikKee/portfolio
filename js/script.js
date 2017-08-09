@@ -64,6 +64,16 @@ audio.addEventListener("ended", function(){switchTrack("next");})
 
 var seeking = false;
 
+
+//============
+
+
+/*var videoInstance1 = new Vimeo.Player("guitar1");
+var videoPlayer = videoInstance1;*/
+/*var videoInstance2 = new Vimeo.Player("guitar2");
+var videoInstance3 = new Vimeo.Player("guitar3");
+var videoInstance4 = new Vimeo.Player("guitar4");*/
+
 function switchTrack(direction){
 	if(direction == "next"){
 		if(currentPlaylistIndex == playlist.length - 1){
@@ -173,8 +183,8 @@ function init(){
 	}
 	$('#title').text("");
 	$('#back-button').css( "display", "none" );
-	$('.custom-slick-prev').hide();
-	$('.custom-slick-next').hide();
+	$('#demo-prev').hide();
+	$('#demo-next').hide();
 
 	reInitTrack(false);
 	refreshMidiTrackList();
@@ -183,6 +193,9 @@ function init(){
 		$('#initial-screen').hide(1000);
 		//$(".slick").css("opacity", '1');
 	}, 300);
+
+	var v = $('#background-video').get(0);
+	v.play();
 
 	/*$('#initial-screen').animate({}, 5500, 'swing', function(){
 		$('#initial-screen').animate({opacity:'0'}, 1500, 'swing', function(){
@@ -208,15 +221,40 @@ function refreshMidiTrackList(){
 		}
 	}
 }
+/*
+var videoInstance1 = new Vimeo.Player("guitar1");
+var videoPlayer = videoInstance1;
 
+function vimeoPlayer(command){
+	if(command == "unload"){
+		videoPlayer.unload();
+	}
+	if(command == "play"){
+		videoPlayer.play();
+	}
+}*/
 
 $(document).ready(function(){
 	console.log("ON READY");
+	/*var videoInstance1 = new Vimeo.Player("guitar1");
+	var videoPlayer = videoInstance1;*/
 
   // Hide the div
   //$(".slick").hide();
   // Show the div after 5s
   //$(".slick").delay(5000).fadeIn(100); 
+
+  	/*$('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
+		disableOn: 700,
+		type: 'iframe',
+		mainClass: 'mfp-fade',
+		removalDelay: 160,
+		preloader: false,
+
+		fixedContentPos: false,
+	});*/
+
+
 
 
 	/* Midi playlist's song button */
@@ -430,6 +468,97 @@ $(document).ready(function(){
 		})
 	});
 
+
+
+	$('.guitar-popup-toggle').each(function(){
+		var self = this;
+		//var iframe = document.getElementById('video');
+		// $f == Froogaloop
+		//var player = $f(iframe);
+
+		/*var targetId = $(self).attr('toggle-target');
+		$videoId = $(targetId + " div").attr("id");
+		console.log("VIDEO HEY = " + videoId);
+		$videoPlayer = new Vimeo.Player($videoId);*/
+
+		$(this).magnificPopup({
+
+		// Delay in milliseconds before popup is removed
+			removalDelay: 100,
+
+			// Class that is added to popup wrapper and background
+			// make it unique to apply your CSS animations just to this exact popup
+			mainClass: 'mfp-fade',
+			navigateByImgClick: false,
+			closeBtnInside: false,
+
+			items: [
+			{
+				src: $('<div class="container d-flex align-items-center justify-content-center"> <iframe src="https://player.vimeo.com/video/' + $(self).attr('toggle-target') + '?autoplay=1&title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> </div>'),
+				type: 'inline'
+			}
+			],
+
+			callbacks: {
+
+				beforeOpen: function() {
+					console.log('Start of popup initialization');
+			    	//$('.programming-flexslider-toggle').attr('toggle-target');
+			    	console.log("HEH = " + $(self).attr('toggle-target'));
+				},
+				open: function() {
+					
+					//player.api("play");
+					
+
+					/*var targetId = $(self).attr('toggle-target');
+					var videoId = $(targetId + " div").attr("id");
+					console.log("VIDEO HEY = " + videoId);*/
+					//var videoPlayer = videoInstance1;
+
+					//videoPlayer.play();
+
+					/*videoPlayer.on('play', function(){
+						console.log("playing video");
+					});*/
+
+					//vimeoPlayer("play");
+
+
+
+					$('.slick').animate({opacity:'0'}, 150);
+					$('#demo-prev').animate({opacity:'0'}, 150);
+					$('#demo-next').animate({opacity:'0'}, 150);
+
+					/*if($(window).width() < 576){
+						var flexsliderImageHeight = $('.flexslider > ul > li > .flexslider-container > .row').height();
+						$('.flexslider-text-container span').css('top', '-' + flexsliderImageHeight + 'px');
+					}else{
+						$('.flexslider-text-container span').css('top', '');
+					}*/
+
+				},
+				close: function(){
+					console.log("DESTROY");
+					//$videoPlayer.unload(); 
+					/*videoPlayer = videoInstance1;
+					videoPlayer.unload();*/
+
+					//vimeoPlayer("unload");
+
+					//$($('.programming-flexslider-toggle').attr('toggle-target')).flexslider("destroy");
+		    		//$('body').height(50+'px'); 
+		    		$('.slick').animate({opacity:'1'}, 150);
+		    		$('#demo-prev').animate({opacity:'1'}, 150);
+		    		$('#demo-next').animate({opacity:'1'}, 150);
+
+		    		/*console.log("POST HEIGHT = " + $('.slick').height() );*/
+		    		//$('.flexslider').flexslider(0);
+		    	}
+		    }
+		})
+	});
+
 	/*$('.programming-1-flexslider').flexslider({
 		startAt: 0, 
 		directionNav : false,
@@ -508,12 +637,12 @@ $(document).ready(function(){
     	switchPage("music-item", $(this).attr('target-index'))
 	});
 
-    $('.custom-slick-prev').click(function(){
+    $('#demo-prev').click(function(){
     	console.log("PREV");
     	prevNextButton("prev");
     })
 
-    $('.custom-slick-next').click(function(){
+    $('#demo-next').click(function(){
     	console.log("NEXT");
     	prevNextButton("next");
     })
@@ -542,8 +671,8 @@ function switchPage(pageType, pageIndex){
 		$('#back-button').stop();
 		$('.slick').stop();
 
-		$('.custom-slick-prev').animate({opacity:'0'}, fadeOutTime);
-		$('.custom-slick-next').animate({opacity:'0'}, fadeOutTime);
+		$('#demo-prev').animate({opacity:'0'}, fadeOutTime);
+		$('#demo-next').animate({opacity:'0'}, fadeOutTime);
 
 		//if(pageType == landingPage){$('#back-button').animate({opacity:'0'}, fadeOutTime);}
 
@@ -579,14 +708,14 @@ function switchPage(pageType, pageIndex){
 
 	    	// Show navigation buttons (PREV & NEXT) only in programmingItem/musicItem pages
 	    	if(currentPageType == programmingItem || currentPageType == musicItem){
-	    		$('.custom-slick-prev').show();
-				$('.custom-slick-next').show();
-	    		$('.custom-slick-prev').animate({opacity:'1'}, fadeInTime);
-				$('.custom-slick-next').animate({opacity:'1'}, fadeInTime);
+	    		$('#demo-prev').show();
+				$('#demo-next').show();
+	    		$('#demo-prev').animate({opacity:'1'}, fadeInTime);
+				$('#demo-next').animate({opacity:'1'}, fadeInTime);
 	    	}
 	    	else{
-	    		$('.custom-slick-prev').hide();
-				$('.custom-slick-next').hide();
+	    		$('#demo-prev').hide();
+				$('#demo-next').hide();
 	    	}
 
 	    	// Change top title

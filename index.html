@@ -62,7 +62,7 @@
 
 	<!-- PREV & NEXT button for programming-item and music-item -->
 	<div id="demo-prev" class="col-1 p-0">
-		<button type="button" class="custom-slick-prev" style="text-align: left;">
+		<button type="button" style="text-align: left;">
 			<span><i class="fa fa-angle-left" aria-hidden="true"></i></span>
 			<br>
 			PREV
@@ -70,7 +70,7 @@
 	</div> 
 
 	<div id="demo-next" class="col-1 p-0">
-		<button type="button" class="custom-slick-next w-100" style="text-align: right;">
+		<button type="button" class="w-100" style="text-align: right;">
 			<span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
 			<br>
 			NEXT
@@ -109,7 +109,7 @@
 
 			<div class="container mb-5 col-10 d-flex align-items-center">
 
-					<div class="row w-100 programming-cards-container d-flex align-items-center justify-content-center p-0">
+					<div class="row w-100 d-flex align-items-center justify-content-center p-0">
 
 						<div class="container w-75">
 
@@ -327,9 +327,9 @@
 							</p>
 
 							<br/>
-							<button onclick="window.open('http://www.google.com');" class="demo-button button-external-link">VIEW DEMO<span><i class="fa fa-external-link" aria-hidden="true"></i></span></button>
+							<button onclick="window.open('http://www.google.com');" class="demo-button">VIEW DEMO<span><i class="fa fa-external-link" aria-hidden="true"></i></span></button>
 							<br/>
-							<button onclick="window.open('http://www.google.com');" class="demo-button button-external-link">GITHUB<span><i class="fa fa-external-link" aria-hidden="true"></i></span></button>
+							<button onclick="window.open('http://www.google.com');" class="demo-button">GITHUB<span><i class="fa fa-external-link" aria-hidden="true"></i></span></button>
 						</div>
 						
 					</div> 
@@ -370,9 +370,9 @@
 								An animated scene created utilizing OpenGL Shading Language (GLSL).
 							</p>
 							<br/>
-							<button onclick="window.open('http://www.google.com');" class="demo-button button-external-link">VIEW DEMO<span><i class="fa fa-external-link" aria-hidden="true"></i></span></button>
+							<button onclick="window.open('http://www.google.com');" class="demo-button">VIEW DEMO<span><i class="fa fa-external-link" aria-hidden="true"></i></span></button>
 							<br/>
-							<button onclick="window.open('http://www.google.com');" class="demo-button button-external-link">GITHUB<span><i class="fa fa-external-link" aria-hidden="true"></i></span></button>
+							<button onclick="window.open('http://www.google.com');" class="demo-button">GITHUB<span><i class="fa fa-external-link" aria-hidden="true"></i></span></button>
 						</div>
 						
 					</div> 
@@ -527,7 +527,7 @@
 							</p>
 
 							<br/>
-							<button onclick="window.open('http://www.google.com');" class="demo-button button-external-link">GITHUB<span><i class="fa fa-external-link" aria-hidden="true"></i></span></button>
+							<button onclick="window.open('http://www.google.com');" class="demo-button">GITHUB<span><i class="fa fa-external-link" aria-hidden="true"></i></span></button>
 						</div>
 					</div> 
 					<!-- END RIGHT COLUMN -->
@@ -681,26 +681,111 @@
 		<div class="demo d-flex align-items-center" top-title="Guitar" page-type="music-item">
 			<div class="container col-10 mb-5 d-flex align-items-center justify-content-center">
 
-				<div class="row pt-2 pt-sm-2">
+
+				<div class="row w-75 pt-2 pt-sm-2">
+
+				<!-- //guitar-video-1 -->
+
+				<!-- <div toggle-target="228303101" class="container guitar-popup-toggle magnificPopupImageTriger w-75 p-0 mx-auto">Woooooah</div>
+
+
+				<div toggle-target="228303124" class="container guitar-popup-toggle magnificPopupImageTriger w-75 p-0 mx-auto">Woooooah2</div>
+
+				<div toggle-target="228303057" class="container guitar-popup-toggle magnificPopupImageTriger w-75 p-0 mx-auto">Woooooah3</div>
+
+				<div toggle-target="228302979" class="container guitar-popup-toggle magnificPopupImageTriger w-75 p-0 mx-auto">Woooooah4</div> -->
+
+					<div toggle-target="228303101" class="col-12 col-sm-6 mx-auto my-2 guitar-thumbnail-container container guitar-popup-toggle align-items-center justify-content-center">
+							<img src="images/guitar3d2.jpg" class="img-fluid guitar-thumbnail"></img>
+							<div class="guitar-thumbnail-text">Solo Arrangement 1</div>
+							<div class="guitar-thumbnail-effect"></div>
+					</div>
+
+					<div toggle-target="228303124" class="col-12 col-sm-6 mx-auto my-2 guitar-thumbnail-container container guitar-popup-toggle align-items-center justify-content-center">
+							<img src="images/guitar4d2.jpg" class="img-fluid guitar-thumbnail"></img>
+							<div class="guitar-thumbnail-text">Solo Arrangement 2</div>
+							<div class="guitar-thumbnail-effect"></div>
+					</div>
+
+					<div toggle-target="228303057" class="col-12 col-sm-6 mx-auto my-2 guitar-thumbnail-container container guitar-popup-toggle align-items-center justify-content-center">
+							<img src="images/guitar2d2.jpg" class="img-fluid guitar-thumbnail"></img>
+							<div class="guitar-thumbnail-text">Solo Arrangement 3</div>
+							<div class="guitar-thumbnail-effect"></div>
+					</div>
+
+					<div toggle-target="228302979" class="col-12 col-sm-6 mx-auto my-2 guitar-thumbnail-container container guitar-popup-toggle align-items-center justify-content-center">
+							<img src="images/guitar1d2.jpg" class="img-fluid guitar-thumbnail"></img>
+							<div class="guitar-thumbnail-text">Solo Arrangement 4</div>
+							<div class="guitar-thumbnail-effect"></div>
+					</div>
+
+
+
+					<!-- <div class="col-12 col-sm-6 mx-auto my-2 guitar-thumbnail-container">
+						<div class="container align-items-center justify-content-center">
+							<img src="images/guitar4d2.jpg" class="img-fluid guitar-thumbnail"></img>
+							<div class="guitar-thumbnail-text">Solo Arrangement 1</div>
+							<div class="guitar-thumbnail-effect"></div>
+						</div>
+					</div>
 
 					<div class="col-12 col-sm-6 mx-auto my-2 guitar-thumbnail-container">
-						<div class="container">
-							
-							<img src="images/guitar3.jpg" class="img-fluid guitar-thumbnail"></img>
-							<div class="guitar-thumbnail-text"> Heyyyy</div>
+						<div class="container align-items-center justify-content-center">
+							<img src="images/guitar2d2.jpg" class="img-fluid guitar-thumbnail"></img>
+							<div class="guitar-thumbnail-text">Solo Arrangement 1</div>
+							<div class="guitar-thumbnail-effect"></div>
 						</div>
-						<div class="guitar-thumbnail-effect"></div>
 					</div>
+
+					<div class="col-12 col-sm-6 mx-auto my-2 guitar-thumbnail-container">
+						<div class="container align-items-center justify-content-center">
+							<img src="images/guitar1d2.jpg" class="img-fluid guitar-thumbnail"></img>
+							<div class="guitar-thumbnail-text">Solo Arrangement 1</div>
+							<div class="guitar-thumbnail-effect"></div>
+						</div>
+					</div> -->
+
+<!-- 
 					<div class="col-12 col-sm-6 mx-auto my-2 d-flex align-items-center">
 						<img src="images/guitar4.jpg" class="img-fluid guitar-thumbnail">
 						<div class="guitar-thumbnail-text"> Heyyyy</div>
 					</div>
+
+
 					<div class="col-12 col-sm-6 mx-auto my-2d-flex align-items-center">
-						<img src="images/guitar2.jpg" class="img-fluid guitar-thumbnail">
+						<figure>
+							<img src="images/guitar2.jpg" style="object-fit: cover;">
+							<figcaption> Heyyyy </figcaption>
+							<div class="figure-effect"></div>
+						</figure>
 					</div>
+
+
 					<div class="col-12 col-sm-6 mx-auto my-2 d-flex align-items-center">
 						<img src="images/guitar1.jpg" class="img-fluid guitar-thumbnail">
 					</div>
+
+ -->
+
+
+
+<!-- 					<div class="col-12 col-sm-6 mx-auto my-2 guitar-thumbnail-container" style="background-image:url(images/guitar3.jpg);">
+						<div class="container">
+							<div class="guitar-thumbnail-text"> Heyyyy</div>
+						</div>
+						<div class="guitar-thumbnail-effect"></div>
+					</div>
+					<div class="col-12 col-sm-6 mx-auto my-2 guitar-thumbnail-container" style="background-image:url(images/guitar4.jpg);">
+						<div class="guitar-thumbnail-text"> Heyyyy</div>
+					</div>
+					<div class="col-12 col-sm-6 mx-auto my-2 guitar-thumbnail-container" style="background-image:url(images/guitar2.jpg);">
+					</div>
+					<div class="col-12 col-sm-6 mx-auto my-2 guitar-thumbnail-container" style="background-image:url(images/guitar1.jpg);">
+					</div> -->
+
+
+
+
 <!-- 
 					<div class="col-12 col-sm-6 guitar-thumbnail bg-info d-flex align-items-center" style="background-image:url(images/guitar1.jpg);">
 
@@ -738,6 +823,16 @@
 	</div>
 	<!-- END SLICK -->
 
+<!-- 	<div id="guitar-video-1" class="container d-flex align-items-center justify-content-center mfp-hide">
+
+		<iframe src="//player.vimeo.com/video/80312270?api=1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen id="video"></iframe>
+
+		<iframe id="video" src="https://player.vimeo.com/video/228303101?api=1&title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+		<div>Heyyyy</div>
+
+	</div>
+ -->
 	<div id="flexslider-p-0" class="container mfp-hide">
 		<div class="flexslider flexslider-p-0 imageGalleryLightbox">
 			<ul class="slides">
@@ -1373,6 +1468,7 @@
 <script src="nanoscroller/overthrow.min.js"></script>
 
 <script src="https://player.vimeo.com/api/player.js"></script>
+<script src="froogaloop/froogaloop2.min.js"></script>
 
 <script src="node_modules/tether/dist/js/tether.min.js"></script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
