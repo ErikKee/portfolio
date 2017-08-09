@@ -255,6 +255,9 @@ $(document).ready(function(){
 	});*/
 
 
+	$('#debug-text').text($(window).width());
+
+
 
 
 	/* Midi playlist's song button */
