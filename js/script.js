@@ -590,7 +590,7 @@ $(document).ready(function(){
     $('#master-container .slick-slide').width($('#master-container').width())*/
 
     // Button: BACK | X
-    $('.back-button-extended-area').on("click",function(){
+    $('#back-button-container').on("click",function(){
     	console.log("BACK BUTTON | X");
     	if(currentPageType == programmingList || currentPageType == resumePage || currentPageType == musicList){
     		switchPage(landingPage);
