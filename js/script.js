@@ -591,7 +591,7 @@ $(document).ready(function(){
 
     // Button: BACK | X
     $('#back-button-container').on("click",function(){
-    	console.log("BACK BUTTON | X");
+    	console.log("#back-button-container --- BACK BUTTON | X");
     	if(currentPageType == programmingList || currentPageType == resumePage || currentPageType == musicList){
     		switchPage(landingPage);
     	}
