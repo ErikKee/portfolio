@@ -276,7 +276,7 @@ $(document).ready(function(){
 	}
 
 
-	$('#debug-text').text($(window).width());
+	/*$('#debug-text').text($(window).width());*/
 
 
 
@@ -972,8 +972,10 @@ $(window).bind("load", function() {
 	if (WURFL.is_mobile === true && WURFL.form_factor === "Smartphone") {
 	    // targetSmartPhoneDevices();
 	    console.log("is mobile!!!!!!!!!!!!!!!!!");
+	    $('#debug-text').text("THIS IS MOBILE");
 	}
 	else{
+		$('#debug-text').text("NOT MOBILE");
 		var video = document.getElementById('background-video');
 
 		var sourceMp4 = document.createElement('source');
