@@ -973,7 +973,7 @@ video {
 	right: 0;
 }
 
-.midi-track-button:hover, .midi-track-button.hovered{
+.midi-track-button:hover{
 	background-color: rgba(143,195,31, 0.5); /*rgba(100,100,150,0.8);*/
 	transition: background-color 0s;
 }

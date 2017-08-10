@@ -213,11 +213,24 @@ function refreshMidiTrackList(){
 	for(var i = 0; i < playlist.length - 1; i++){
 		if($(playlistChildren[i]).attr('track-id') == currentPlaylistIndex){
 			console.log("EQUAL TO PLAYLIST = " +  i);
-			$(playlistChildren[i]).addClass('hovered');
+			//$(playlistChildren[i]).addClass('hovered');
+			$(playlistChildren[i]).css("background-color", "rgba(143,195,31, 0.5)");
+
+			$(playlistChildren[i]).hover(function(){
+				$(this).css("background-color", "rgba(143,195,31, 0.5)");
+			}, function(){
+				$(this).css("background-color", "rgba(143,195,31, 0.5)");
+			});
 		}
 		else{
 			console.log("NOT EQUAL = " + i);
-			$(playlistChildren[i]).removeClass('hovered');
+			//$(playlistChildren[i]).removeClass('hovered');
+			$(playlistChildren[i]).css("background-color", "rgba(143,195,31, 0.1)");
+			$(playlistChildren[i]).hover(function(){
+				$(this).css("background-color", "rgba(143,195,31, 0.5)");
+			}, function(){
+				$(this).css("background-color", "rgba(143,195,31, 0.1)");
+			});
 		}
 	}
 }
@@ -980,53 +993,35 @@ $('#midi-next-button').click(function(){
 
 /* load video after page load */
 $(window).bind("load", function() {  
+	console.log("loading background video");
 
-	if (WURFL.is_mobile === true && WURFL.form_factor === "Smartphone") {
-	    // targetSmartPhoneDevices();
-	    console.log("is mobile!!!!!!!!!!!!!!!!!");
-	    $('#debug-text').text("THIS IS MOBILE");
+	$('#debug-text').text(WURFL.form_factor);
+
+	var video = document.getElementById('background-video');
+	var sourceMp4 = document.createElement('source');
+	sourceMp4.setAttribute('src', 'video/grass-35.mp4');
+	sourceMp4.setAttribute('type', 'video/mp4');
+
+	video.appendChild(sourceMp4);
+	video.play();
+
+	if(video.play == true){
+		$('#debug-text2').text("PLAYING");
+	}else{
+		$('#debug-text2').text("NOT PLAYING");
+	}
+
+	/* If video can't play, then it is mobile device */
+	if(video.paused === true){
+		$('#video-credit').hide();
+		$('#debug-text2').text("PAUSED REMOVING VIDEO");
+		//video.children('source').prop('src', '');
+		video.src = "";
+		video.load();
+		video.remove();
 	}
 	else{
-		$('#debug-text').text(WURFL.form_factor);
-		var video = document.getElementById('background-video');
-
-		var sourceMp4 = document.createElement('source');
-		var sourceWebm = document.createElement('source'); 
-		var sourceOgv = document.createElement('source'); 
-		sourceMp4.setAttribute('src', 'video/grass-35.mp4');
-		sourceMp4.setAttribute('type', 'video/mp4');
-		sourceWebm.setAttribute('src', 'video/grass-35.webm');
-		sourceWebm.setAttribute('type', 'video/webm');
-		sourceOgv.setAttribute('src', 'video/grass-35.ogv');
-		sourceOgv.setAttribute('type', 'video/ogv');
-
-		video.appendChild(sourceMp4);
-		video.appendChild(sourceWebm);
-		video.appendChild(sourceOgv);
-		video.play();
-
-		if(video.play == true){
-			$('#debug-text2').text("PLAYING");
-		}else{
-			$('#debug-text2').text("NOT PLAYING");
-		}
-
-		//var v = $('#background-video').get(0);
-		 //v.pause();
-
-		if(video.paused === true){
-			$('#video-credit').hide();
-			$('#debug-text2').text("PAUSED REMOVING VIDEO");
-			//video.children('source').prop('src', '');
-			video.src = "";
-			video.load();
-			video.remove();
-
-		}
-		else{
-			$('#debug-text2').text("PLAYING");
-		}
+		$('#debug-text2').text("PLAYING");
 	}
-
 	
 }); 
