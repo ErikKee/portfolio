@@ -254,6 +254,16 @@ $(document).ready(function(){
 		fixedContentPos: false,
 	});*/
 
+	$(".custom-flexslider-button-next").mouseup(function(){
+	    $(this).blur();
+	});
+
+	
+
+	$(".custom-flexslider-button-prev").mouseup(function(){
+	    $(this).blur();
+	});
+
 
 	$('#debug-text').text($(window).width());
 

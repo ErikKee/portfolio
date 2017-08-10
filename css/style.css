@@ -385,6 +385,7 @@ video {
 	top: 23%;
 	right: 2px;
 	height: 60%;
+	width: 12%;
 	z-index: 500;
 	background-color: transparent;
 }
@@ -395,7 +396,7 @@ video {
 	top: 23%;
 	left: 2px;
 	height: 60%;
-	width: 95%;
+	width: 12%;
 	z-index: 500;
 	background-color: transparent;
 
@@ -1041,185 +1042,6 @@ video {
 }
 
 
-
-
-
-
-/* 
-	======================================================================
-	MEDIA QUERIES - WIDTH: 1499
-	======================================================================
-*/
-
-/* 6x1 Largest */
-@media only screen and (max-width: 1499px) {
-
-
-/*    .programming-cards-container{
-		width: 45rem;
-		height: 26rem;
-	}
-
-	.programming-card {
-		
-		height: 13rem;
-		width: 13rem;
-	}*/
-}
-
-/* 3x2 Horizontal */
-@media only screen and (max-height: 610px) and (max-width: 1499px) {
-	html,body{
-		font-size: 0.8rem;
-	}
-
-/*    .programming-cards-container{
-		height: 24rem;
-	}
-
-	.programming-card {
-		height: 12rem;
-		width: 12rem;
-	}*/
-}
-
-/* 3x2 Horizontal [Smallest] */
-@media only screen and (max-height: 450px){
-	html,body{
-		font-size: 0.7rem;
-		transition-duration: 0.2s;
-	}
-
-   /* .programming-cards-container{
-		height: 20rem;
-		width: 35rem;
-	}
-
-	.programming-card {
-		height: 10rem;
-		width: 10rem;
-	}*/
-}
-
-/* 
-	======================================================================
-	MEDIA QUERIES - WIDTH: 980
-	======================================================================
-*/
-/* 2x3 Vertical orientation*/
-@media only screen and (max-width: 980px) and (max-height: 1280px){
-/*	.programming-cards-container{
-		height: 48rem;
-		width: 40rem;
-	}
-
-	.programming-card {
-		height: 16rem;
-		width: 16rem;
-	}*/
-}
-
-/* 3x2 Horizontal orientation*/
-@media only screen and (max-width: 980px) and (max-height: 900px){
-/*	.programming-cards-container{
-		height: 24rem;
-	}
-
-	.programming-card {
-		height: 12rem;
-		width: 12rem;
-	}*/
-}
-
-
-
-/* 
-	======================================================================
-	MEDIA QUERIES - WIDTH: 840
-	======================================================================
-*/
-/* 3x2 */
-@media only screen and (max-width: 840px) and (max-height: 1150px) {
-	/*html,body{
-		font-size: 0.75rem;
-	}*/
-
-	/*.navigation-top{
-		top: 5%;
-	}*/
-
-}
-
-
-/* 
-	======================================================================
-	MEDIA QUERIES - WIDTH: 800
-	======================================================================
-*/
-/* 2x3 Vertical orientation*/
-@media only screen and (max-width: 800px) and (max-height: 1280px){
-/*	.programming-cards-container{
-		height: 54rem;
-		width: 40rem;
-	}
-
-	.programming-card {
-		height: 18rem;
-		width: 18rem;
-	}*/
-}
-
-/* 2x3 Horizontal orientation*/
-@media only screen and (max-width: 800px) and (max-height: 800px){
-/*	.programming-cards-container{
-		height: 24rem;
-	}
-
-	.programming-card {
-		height: 12rem;
-		width: 12rem;
-	}*/
-}
-
-
-/* 
-	======================================================================
-	MEDIA QUERIES - WIDTH: 680
-	======================================================================
-*/
-/* 2x3 */
-@media only screen and (max-width: 680px) {
-	/*html,body{
-		font-size: 0.75rem;
-	}*/
-
-/*    .programming-cards-container{
-		width: 32rem;
-		height: 42rem;
-	}
-
-	.programming-card {
-		
-		height: 14rem;
-		width: 14rem;
-	}*/
-}
-
-/* 3x2 */
-@media only screen and (max-width: 680px) and (max-height: 650px){
-
-/*    .programming-cards-container{
-		width: 32rem;
-		height: 36rem;
-	}
-
-	.programming-card {
-		
-		height: 12rem;
-		width: 12rem;
-	}*/
-}
-
 /* MOBILE */
 @media only screen and (max-width: 576px){
 
@@ -1231,21 +1053,10 @@ video {
 		font-size: 2rem;
 	}
 
-
-
 	.row [class*='verticalDivider']:not(:last-child):after {
 		display: none;
 
 	}
-
-	/*html,body{
-		min-height: auto;
-	}
-
-	.resume-margin{
-		margin-top: 15rem;
-		min-height: auto;
-	}*/
 
 	.flexslider-image-container span{
 		display: inline;
