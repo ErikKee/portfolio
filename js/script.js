@@ -1011,15 +1011,16 @@ $(window).bind("load", function() {
 			$('#debug-text2').text("NOT PLAYING");
 		}
 
-		var v = $('#background-video').get(0);
-	 //v.pause();
+		//var v = $('#background-video').get(0);
+		 //v.pause();
 
-	if(v.paused === true){
-		$('#debug-text2').text("PAUSED");
-	}
-	else{
-		$('#debug-text2').text("PLAYING");
-	}
+		if(video.paused === true){
+			$('#debug-text2').text("PAUSED REMOVING VIDEO");
+			video.children('source').prop('src', '');
+		}
+		else{
+			$('#debug-text2').text("PLAYING");
+		}
 	}
 
 	
