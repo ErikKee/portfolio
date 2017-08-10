@@ -1015,9 +1015,13 @@ $(window).bind("load", function() {
 		 //v.pause();
 
 		if(video.paused === true){
+			$('#video-credit').hide();
 			$('#debug-text2').text("PAUSED REMOVING VIDEO");
-			video.children('source').prop('src', '');
+			//video.children('source').prop('src', '');
+			video.src = "";
+			video.load();
 			video.remove();
+
 		}
 		else{
 			$('#debug-text2').text("PLAYING");
