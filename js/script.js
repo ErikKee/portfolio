@@ -1017,6 +1017,7 @@ $(window).bind("load", function() {
 		if(video.paused === true){
 			$('#debug-text2').text("PAUSED REMOVING VIDEO");
 			video.children('source').prop('src', '');
+			video.remove();
 		}
 		else{
 			$('#debug-text2').text("PLAYING");
