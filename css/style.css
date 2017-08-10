@@ -57,7 +57,7 @@
 .textMedium3 {
 	color: rgb(76,76,76);
 	font-size: 1.5rem;
-	font-weight: 500;
+	font-weight: 400;
 	line-height: 0.5rem;
 	margin-bottom: 0.45rem;
 	margin-top: 2.0rem;
@@ -67,7 +67,7 @@
 .textMedium2 {
 	color: rgb(76,76,76);
 	font-size: 1.15rem;
-	font-weight: 500;
+	font-weight: 400;
 	line-height: 1.15rem;
 	margin-bottom: 0;
 	/*margin-top: 2.0rem;*/
@@ -519,8 +519,8 @@ video {
 	======================================================================
 */
 .resume-margin{
-	margin-top: 15rem;
-	min-height: 35rem;
+	/*margin-top: 15rem;
+	min-height: 35rem;*/
 }
 
 /* Text that is initially hidden until reveal button triggered */
@@ -1140,13 +1140,13 @@ video {
 */
 /* 3x2 */
 @media only screen and (max-width: 840px) and (max-height: 1150px) {
-	html,body{
+	/*html,body{
 		font-size: 0.75rem;
-	}
+	}*/
 
-	.navigation-top{
+	/*.navigation-top{
 		top: 5%;
-	}
+	}*/
 
 }
 
@@ -1189,9 +1189,9 @@ video {
 */
 /* 2x3 */
 @media only screen and (max-width: 680px) {
-	html,body{
+	/*html,body{
 		font-size: 0.75rem;
-	}
+	}*/
 
 /*    .programming-cards-container{
 		width: 32rem;
@@ -1221,7 +1221,15 @@ video {
 }
 
 /* MOBILE */
-@media only screen and (max-width: 992px){
+@media only screen and (max-width: 576px){
+
+	html,body{
+		font-size: 0.75rem;
+	}
+
+	#title{
+		font-size: 2rem;
+	}
 
 
 
@@ -1230,14 +1238,14 @@ video {
 
 	}
 
-	html,body{
-		min-height: 45rem;
+	/*html,body{
+		min-height: auto;
 	}
 
 	.resume-margin{
 		margin-top: 15rem;
-		min-height: 45rem;
-	}
+		min-height: auto;
+	}*/
 
 	.flexslider-image-container span{
 		display: inline;
@@ -1269,9 +1277,9 @@ video {
 */
 /* Adjusting font-size */
 @media only screen and (max-width: 510px) {
-	html,body{
+	/*html,body{
 		font-size: 0.70rem;
-	}
+	}*/
 
 /*	#navigation-bottom #programming-button{
 		font-size: 1.35rem;
@@ -1290,9 +1298,9 @@ video {
 */
 
 @media only screen and (max-width: 420px) {
-	html,body{
+	/*html,body{
 		font-size: 0.55rem;
-	}
+	}*/
 /*
 	#navigation-bottom #programming-button{
 		font-size: 1.25rem;
