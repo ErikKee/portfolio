@@ -992,6 +992,12 @@ $(window).bind("load", function() {
 		video.appendChild(sourceWebm);
 		video.appendChild(sourceOgv);
 		video.play();
+
+		if(video.play == true){
+			$('#debug-text2').text("PLAYING");
+		}else{
+			$('#debug-text2').text("NOT PLAYING");
+		}
 	}
 
 	
