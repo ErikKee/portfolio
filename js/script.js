@@ -968,20 +968,29 @@ $('#midi-next-button').click(function(){
 
 /* load video after page load */
 $(window).bind("load", function() {  
-	var video = document.getElementById('background-video');
 
-	var sourceMp4 = document.createElement('source');
-	var sourceWebm = document.createElement('source'); 
-	var sourceOgv = document.createElement('source'); 
-	sourceMp4.setAttribute('src', 'video/grass-35.mp4');
-	sourceMp4.setAttribute('type', 'video/mp4');
-	sourceWebm.setAttribute('src', 'video/grass-35.webm');
-	sourceWebm.setAttribute('type', 'video/webm');
-	sourceOgv.setAttribute('src', 'video/grass-35.ogv');
-	sourceOgv.setAttribute('type', 'video/ogv');
+	if (WURFL.is_mobile === true) {
+	    // targetSmartPhoneDevices();
+	    console.log("is mobile!!!!!!!!!!!!!!!!!");
+	}
+	else{
+		var video = document.getElementById('background-video');
 
-	video.appendChild(sourceMp4);
-	video.appendChild(sourceWebm);
-	video.appendChild(sourceOgv);
-	video.play();
+		var sourceMp4 = document.createElement('source');
+		var sourceWebm = document.createElement('source'); 
+		var sourceOgv = document.createElement('source'); 
+		sourceMp4.setAttribute('src', 'video/grass-35.mp4');
+		sourceMp4.setAttribute('type', 'video/mp4');
+		sourceWebm.setAttribute('src', 'video/grass-35.webm');
+		sourceWebm.setAttribute('type', 'video/webm');
+		sourceOgv.setAttribute('src', 'video/grass-35.ogv');
+		sourceOgv.setAttribute('type', 'video/ogv');
+
+		video.appendChild(sourceMp4);
+		video.appendChild(sourceWebm);
+		video.appendChild(sourceOgv);
+		video.play();
+	}
+
+	
 }); 
