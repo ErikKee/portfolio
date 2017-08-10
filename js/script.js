@@ -951,3 +951,14 @@ $('#midi-next-button').click(function(){
 	console.log("MIDI NEXT");
 })
 
+$(window).bind("load", function() {  
+	var video = document.getElementById('background-video');
+	var source = document.createElement('source');
+
+	source.setAttribute('src', 'video/grass-35.mp4');
+
+	video.appendChild(source);
+	video.play();
+
+	//$('#background-video').load();
+}); 
