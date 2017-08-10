@@ -275,6 +275,8 @@ $(document).ready(function(){
 	    } catch (ex) {}
 	}
 
+		
+
 
 	/*$('#debug-text').text($(window).width());*/
 
@@ -338,6 +340,16 @@ $(document).ready(function(){
 
 	init();
 	 //$('input[type="range"]').rangeslider();
+
+	 /*var v = $('#background-video').get(0);
+	 v.pause();
+
+	if(v.paused === false){
+		$('#debug-text2').text("PLAYING");
+	}
+	else{
+		$('#debug-text2').text("NOT PLAYING");
+	}*/
 
 	 $(function(){
 		$('#volume-slider').rangeslider({
@@ -998,6 +1010,16 @@ $(window).bind("load", function() {
 		}else{
 			$('#debug-text2').text("NOT PLAYING");
 		}
+
+		var v = $('#background-video').get(0);
+	 //v.pause();
+
+	if(v.paused === true){
+		$('#debug-text2').text("PAUSED");
+	}
+	else{
+		$('#debug-text2').text("PLAYING");
+	}
 	}
 
 	
