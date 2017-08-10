@@ -194,8 +194,8 @@ function init(){
 		//$(".slick").css("opacity", '1');
 	}, 300);
 
-	var v = $('#background-video').get(0);
-	v.play();
+	//var v = $('#background-video').get(0);
+	//v.play();
 
 	/*$('#initial-screen').animate({}, 5500, 'swing', function(){
 		$('#initial-screen').animate({opacity:'0'}, 1500, 'swing', function(){
@@ -782,8 +782,8 @@ function switchPage(pageType, pageIndex){
 	    	}
 
 	    	if(pageType == landingPage){
-	    		var v = $('#background-video').get(0);
-	    		v.play();
+	    		//var v = $('#background-video').get(0);
+	    		//v.play();
 	    	}
 
 	    });
