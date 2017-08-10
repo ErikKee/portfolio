@@ -1,5 +1,5 @@
 
-/* To identify current page type*/
+/* To identify current page type */
 const landingPage = "landing-page";
 const resumePage = "resume-page";
 const programmingList = "programming-list";
@@ -8,52 +8,51 @@ const programmingItem = "programming-item";
 const musicItem = "music-item";
 var currentPageType = landingPage;
 
-var enableButton = true;
-
 // Animation timing
 const fadeOutTime = 220;
 const fadeInTime = 400;
 
 /* MIDI PLAYER*/
+
+/*
+Rumor said that firefox & opera won't support mp3, but mp3 seem to work fine for my firefox browser. 
+still haven't tested on Opera though 
+*/
 var extension = ".mp3";
 var agent = navigator.userAgent.toLowerCase();
 
-/*
-Rumor said that firefox won't support mp3, but mp3 seem to work fine for my firefox browser. 
-still haven't tested on Opera though 
-*/
-if(agent.indexOf('firefox') != -1 || agent.indexOf('opera') != -1){
+if(agent.indexOf('opera') != -1){
 	console.log("using .ogg");
 	extension = ".ogg";
 }
 
-var audio = new Audio();
-
-/* File name of the songs*/
+/* File name of the tracks */
 var playlist = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"];
-var currentPlaylistIndex = 0;
 
-
+/* Track title */
 var trackTitle = ["Welcome Back", "Night Season", "Air Forest", "Bar Fight", 
-"Punk", "Sherd Master", "Gear Up", "RAWR", "Panic", "Insomnia", "Bai"];
+"Punk", "Sherd Master", "Gear Up", "RAWR", "Panic", "Insomnia", "See Ya"];
 
+/* Track compose date */
 var trackDate = ["September 4, 2015", "March 5th, 2017", "April 15, 2010", "December 4, 2012", "May 19, 2015",
  "Unknown", "Febuary 29, 2016", "September 27, 2014", "January 27, 2012", "July 17, 2015", "October 3, 2012"];
 
-
+/* Track description */
 var trackDescription = [
 "Welcome back, you did great.", 
 "This is an ongoing draft that I've been working on since March of 2017.", 
 "Instrumental solo part of one of my oldest piece.", 
 "I wrote this piece with a comedic bar fight scene in mind.", 
-"Heyo This is Track 05", 
-"When I first learn guitar, I imagined this is how being a guitar sherd master would feel like.", 
-"Now imagine a video game briefing or choose your weapon/equipment screen.", 
 " ", 
+"This is what I imagined how being a guitar sherd master would feel like when I started learning guitar.", 
+"Video game: \"choose your weapon/equipment\" screen.", 
+"Unleash the beast.", 
 " ", 
 "Zzz", 
-" "];
+"Okay bye."];
 
+var audio = new Audio();
+var currentPlaylistIndex = 0;
 audio.src = 'audio/' + playlist[currentPlaylistIndex] + extension;
 audio.controls = true;
 audio.loop = false;
@@ -63,16 +62,6 @@ audio.addEventListener("timeupdate", function(){seekTimeUpdate();});
 audio.addEventListener("ended", function(){switchTrack("next");})
 
 var seeking = false;
-
-
-//============
-
-
-/*var videoInstance1 = new Vimeo.Player("guitar1");
-var videoPlayer = videoInstance1;*/
-/*var videoInstance2 = new Vimeo.Player("guitar2");
-var videoInstance3 = new Vimeo.Player("guitar3");
-var videoInstance4 = new Vimeo.Player("guitar4");*/
 
 function switchTrack(direction){
 	if(direction == "next"){
@@ -110,9 +99,9 @@ function seekTimeUpdate(){
 	if(seeking === false){
 		$('#seek-slider').val(time).change();
 		$('#midi-current-time').text(secondToString(audio.currentTime));
-		console.log("seeking false - updating time");
+		//console.log("seeking false - updating time");
 	}else{
-		console.log("seeking true - should stop updating");
+		//console.log("seeking true - should stop updating");
 	}
 
 	// Re-print just in case if reInitTrack() failed to print at initialization
@@ -193,26 +182,15 @@ function init(){
 		$('#initial-screen').hide(1000);
 		//$(".slick").css("opacity", '1');
 	}, 300);
-
-	//var v = $('#background-video').get(0);
-	//v.play();
-
-	/*$('#initial-screen').animate({}, 5500, 'swing', function(){
-		$('#initial-screen').animate({opacity:'0'}, 1500, 'swing', function(){
-			$('#initial-screen').hide();
-
-		});
-	});*/
-
 }
 
 /* Update playlist item's highlight */
 function refreshMidiTrackList(){
 	var playlistChildren = $('#midi-tracklist').children().toArray();
 
-	for(var i = 0; i < playlist.length - 1; i++){
+	for(var i = 0; i <= playlist.length - 1; i++){
 		if($(playlistChildren[i]).attr('track-id') == currentPlaylistIndex){
-			console.log("EQUAL TO PLAYLIST = " +  i);
+			//console.log("EQUAL TO PLAYLIST = " +  i);
 			//$(playlistChildren[i]).addClass('hovered');
 			$(playlistChildren[i]).css("background-color", "rgba(143,195,31, 0.5)");
 
@@ -223,13 +201,15 @@ function refreshMidiTrackList(){
 			});
 		}
 		else{
-			console.log("NOT EQUAL = " + i);
+			//console.log("NOT EQUAL = " + i);
 			//$(playlistChildren[i]).removeClass('hovered');
 			$(playlistChildren[i]).css("background-color", "rgba(143,195,31, 0.1)");
 			$(playlistChildren[i]).hover(function(){
 				$(this).css("background-color", "rgba(143,195,31, 0.5)");
+				$(this).css("transition", "background-color 0s");
 			}, function(){
 				$(this).css("background-color", "rgba(143,195,31, 0.1)");
+				$(this).css("transition", " background-color 0.15s ease-out");
 			});
 		}
 	}
@@ -375,12 +355,15 @@ $(document).ready(function(){
 				console.log('VOL - position: ' + position, 'value: ' + value);
 				audio.volume = value / 100;
 				//$('.header .pull-right').text(value+'K');
+
+				$('#midi-description-text').("VOLUME = " + audio.volume);
 				
 			},
 			onSlideEnd:function(position, value){
 				//console.log('onSlideEnd');
 				console.log('VOL - position: ' + position, 'value: ' + value);
 				audio.volume = value / 100;
+				$('#midi-description-text').("VOLUME = " + audio.volume);
 
 			}
 		});
@@ -449,7 +432,7 @@ $(document).ready(function(){
 		$(this).magnificPopup({
 
 		// Delay in milliseconds before popup is removed
-			removalDelay: 100,
+			removalDelay: fadeOutTime,
 
 			// Class that is added to popup wrapper and background
 			// make it unique to apply your CSS animations just to this exact popup
@@ -476,7 +459,7 @@ $(document).ready(function(){
 			    		directionNav : false,
 			    		slideshow: false,
 			    		animation:"fade",
-			    		animationSpeed: 300,
+			    		animationSpeed: 500,
 			    		controlNav: false
 			    	});
 
@@ -490,9 +473,9 @@ $(document).ready(function(){
 			    	});
 				},
 				open: function() {
-					$('.slick').animate({opacity:'0'}, 150);
-					$('#demo-prev').animate({opacity:'0'}, 150);
-					$('#demo-next').animate({opacity:'0'}, 150);
+					$('.slick').animate({opacity:'0'}, fadeOutTime);
+					$('#demo-prev').animate({opacity:'0'}, fadeOutTime);
+					$('#demo-next').animate({opacity:'0'}, fadeOutTime);
 
 					/*if($(window).width() < 576){
 						var flexsliderImageHeight = $('.flexslider > ul > li > .flexslider-container > .row').height();
@@ -506,9 +489,9 @@ $(document).ready(function(){
 					console.log("DESTROY");
 					$($('.programming-flexslider-toggle').attr('toggle-target')).flexslider("destroy");
 		    		//$('body').height(50+'px'); 
-		    		$('.slick').animate({opacity:'1'}, 150);
-		    		$('#demo-prev').animate({opacity:'1'}, 150);
-		    		$('#demo-next').animate({opacity:'1'}, 150);
+		    		$('.slick').animate({opacity:'1'}, fadeOutTime);
+		    		$('#demo-prev').animate({opacity:'1'}, fadeOutTime);
+		    		$('#demo-next').animate({opacity:'1'}, fadeOutTime);
 
 		    		/*console.log("POST HEIGHT = " + $('.slick').height() );*/
 		    		//$('.flexslider').flexslider(0);
@@ -688,11 +671,20 @@ $(document).ready(function(){
 
     $('#demo-prev').click(function(){
     	console.log("PREV");
+    	// Stop midi player when user move to the other slide
+    	if(currentPageType == musicItem && (audio.paused == false)){
+    		stopAudio();
+    	}
     	prevNextButton("prev");
+
     })
 
     $('#demo-next').click(function(){
     	console.log("NEXT");
+    	// Stop midi player when user move to the other slide
+    	if(currentPageType == musicItem && (audio.paused == false)){
+    		stopAudio();
+    	}
     	prevNextButton("next");
     })
 
@@ -749,6 +741,11 @@ function switchPage(pageType, pageIndex){
 	    		reInitTrack(false);
 	    		$('#volume-slider').rangeslider('update', true);
 				$('#seek-slider').rangeslider('update', true);
+
+				/*console.log("MUSIC INDEX" + pageIndex);
+				if(pageIndex != 1 && (audio.paused != false)){
+					console.log("need to stop music");
+				}*/
 
 
 	    	}
@@ -810,10 +807,7 @@ function switchPage(pageType, pageIndex){
 		// Placed outside of animation because currentPageType and pageType will already be the same after animation delay
 		if((currentPageType == musicItem || currentPageType == musicList) && (pageType != musicItem && pageType != musicList)){
 			console.log("Destroying nanoscroller");
-
-			audio.pause();
-			audio.currentTime = 0;
-			$('#midi-play-button').html('<i class="fa fa-play" aria-hidden="true"></i>');
+			stopAudio();
 			$(".nano").nanoScroller({ destroy: true });
 
 		}
@@ -849,6 +843,12 @@ function switchPage(pageType, pageIndex){
 	}else{
 		$('.custom-slick-prev').hide();
 	}*/
+}
+
+function stopAudio(){
+	audio.pause();
+	audio.currentTime = 0;
+	$('#midi-play-button').html('<i class="fa fa-play" aria-hidden="true"></i>');
 }
 
 function changeTextColor(){
@@ -999,7 +999,7 @@ $(window).bind("load", function() {
 
 	var video = document.getElementById('background-video');
 	var sourceMp4 = document.createElement('source');
-	sourceMp4.setAttribute('src', 'video/grass-35.mp4');
+	sourceMp4.setAttribute('src', 'video/grass-35-10b.mp4');
 	sourceMp4.setAttribute('type', 'video/mp4');
 
 	video.appendChild(sourceMp4);

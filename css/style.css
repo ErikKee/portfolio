@@ -951,7 +951,7 @@ video {
 	outline: none;
 }
 
-.midi-category-button:focus, .midi-track-button:focus{
+.midi-category-button:focus, .midi-track-button:focus, #midi-tracklist-container:focus{
 	outline: none;
 }
 
@@ -963,7 +963,7 @@ video {
 	background-color: rgba(143,195,31, 0.1); /*rgba(100,100,150,0.5);*/
 	border: none;
 	outline: none;
-	transition: background-color 0.15s ease-out;
+	/*transition: background-color 0.15s ease-out;*/
 }
 
 .midi-track-button span{
@@ -973,12 +973,12 @@ video {
 	right: 0;
 }
 
-.midi-track-button:hover{
-	background-color: rgba(143,195,31, 0.5); /*rgba(100,100,150,0.8);*/
+/*.midi-track-button:hover{
+	background-color: rgba(143,195,31, 0.5); rgba(100,100,150,0.8);
 	transition: background-color 0s;
-}
+}*/
 
-.midi-track-button-overlay{
+/*.midi-track-button-overlay{
 	position: absolute;
 	font-size: 0.7rem;
 	line-height: 0.7rem;
@@ -990,12 +990,12 @@ video {
 	bottom: 0;
 	
 	transition: all 0.15s ;
-}
+}*/
 
-.midi-button-effect:hover .midi-track-button-overlay{
+/*.midi-button-effect:hover .midi-track-button-overlay{
 	opacity: 1;
 	padding-left: 6rem;
-}
+}*/
 
 
 
@@ -1055,9 +1055,9 @@ video {
 .mfp-fade.mfp-bg {
   opacity: 0;
 
-  -webkit-transition: all 0.15s ease-out;
-  -moz-transition: all 0.15s ease-out;
-  transition: all 0.15s ease-out;
+  -webkit-transition: all 0.25s ease-out;
+  -moz-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
 }
 /* overlay animate in */
 .mfp-fade.mfp-bg.mfp-ready {
@@ -1072,9 +1072,9 @@ video {
 .mfp-fade.mfp-wrap .mfp-content {
   opacity: 0;
 
-  -webkit-transition: all 0.15s ease-out;
-  -moz-transition: all 0.15s ease-out;
-  transition: all 0.15s ease-out;
+  -webkit-transition: all 0.25s ease-out;
+  -moz-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
 }
 /* content animate it */
 .mfp-fade.mfp-wrap.mfp-ready .mfp-content {
