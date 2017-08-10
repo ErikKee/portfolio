@@ -951,6 +951,8 @@ $('#midi-next-button').click(function(){
 	console.log("MIDI NEXT");
 })
 
+
+/* load video after page load */
 $(window).bind("load", function() {  
 	var video = document.getElementById('background-video');
 	var source = document.createElement('source');
@@ -959,6 +961,4 @@ $(window).bind("load", function() {
 
 	video.appendChild(source);
 	video.play();
-
-	//$('#background-video').load();
 }); 
