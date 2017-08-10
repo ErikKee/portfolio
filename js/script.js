@@ -356,14 +356,14 @@ $(document).ready(function(){
 				audio.volume = value / 100;
 				//$('.header .pull-right').text(value+'K');
 
-				$('#midi-description-text').("VOLUME = " + audio.volume);
+				$('#midi-description-text').text("VOLUME = " + audio.volume);
 				
 			},
 			onSlideEnd:function(position, value){
 				//console.log('onSlideEnd');
 				console.log('VOL - position: ' + position, 'value: ' + value);
 				audio.volume = value / 100;
-				$('#midi-description-text').("VOLUME = " + audio.volume);
+				$('#midi-description-text').text("VOLUME = " + audio.volume);
 
 			}
 		});
