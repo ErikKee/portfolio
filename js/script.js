@@ -980,7 +980,8 @@ $(window).bind("load", function() {
 	sourceOgv.setAttribute('src', 'video/grass-35.ogv');
 	sourceOgv.setAttribute('type', 'video/ogv');
 
-	//video.appendChild(sourceMp4);
+	video.appendChild(sourceMp4);
+	video.appendChild(sourceWebm);
 	video.appendChild(sourceOgv);
 	video.play();
 }); 
