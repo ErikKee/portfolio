@@ -972,10 +972,15 @@ $(window).bind("load", function() {
 
 	var sourceMp4 = document.createElement('source');
 	var sourceWebm = document.createElement('source'); 
+	var sourceOgv = document.createElement('source'); 
 	sourceMp4.setAttribute('src', 'video/grass-35.mp4');
+	sourceMp4.setAttribute('type', 'video/mp4');
 	sourceWebm.setAttribute('src', 'video/grass-35.webm');
+	sourceWebm.setAttribute('type', 'video/webm');
+	sourceOgv.setAttribute('src', 'video/grass-35.ogv');
+	sourceOgv.setAttribute('type', 'video/ogv');
 
 	//video.appendChild(sourceMp4);
-	video.appendChild(sourceWebm);
+	video.appendChild(sourceOgv);
 	video.play();
 }); 
