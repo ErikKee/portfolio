@@ -969,10 +969,13 @@ $('#midi-next-button').click(function(){
 /* load video after page load */
 $(window).bind("load", function() {  
 	var video = document.getElementById('background-video');
-	var source = document.createElement('source');
 
-	source.setAttribute('src', 'video/grass-35.mp4');
+	var sourceMp4 = document.createElement('source');
+	var sourceWebm = document.createElement('source'); 
+	sourceMp4.setAttribute('src', 'video/grass-35.mp4');
+	sourceWebm.setAttribute('src', 'video/grass-35.webm');
 
-	video.appendChild(source);
+	//video.appendChild(sourceMp4);
+	video.appendChild(sourceWebm);
 	video.play();
 }); 

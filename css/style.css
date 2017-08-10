@@ -477,6 +477,10 @@ video {
 	border: none;
 	color: rgb(50,50,50);
 	opacity: 0.8;
+	padding-left: 0;
+	padding-right: 0;
+	margin-left: 0;
+	margin-right: 0;
 	border-radius: 0;
 	z-index: 5;
 	height: 4rem;
@@ -497,7 +501,7 @@ video {
 #navigation-bottom button{
 	cursor: pointer;
 	font-size: 1.5rem;
-	background-color: rgba(0,0,0,0.0);
+	background-color: rgba(0,0,0,0.5);
 	border: none;
 	color: rgb(255,255,255);
 	opacity: 1;
@@ -545,6 +549,10 @@ video {
 	bottom: 0;
 	right: 0;
 	min-height: auto;
+	margin-right: 0;
+	margin-left: 0;
+	padding-right: 0;
+	padding-left: 0;
 }
 
 
