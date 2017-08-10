@@ -969,7 +969,7 @@ $('#midi-next-button').click(function(){
 /* load video after page load */
 $(window).bind("load", function() {  
 
-	if (WURFL.is_mobile === true) {
+	if (WURFL.is_mobile === true && WURFL.form_factor === "Smartphone") {
 	    // targetSmartPhoneDevices();
 	    console.log("is mobile!!!!!!!!!!!!!!!!!");
 	}
