@@ -142,15 +142,50 @@ html,body{
 	overflow: hidden;
 }
 
+#background-video-container{
+	position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+#background-video-container video {
+	position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 150%;
+    min-height: 150%;
+
+	/*min-width: 100%;
+	min-height: 100%;*//*
+	left: -50%;*/
+	width: auto;
+	height: auto;
+	/*z-index: -100;*/
+	background-size: cover;
+	background-color: black; /*rgba(143,195,31,0.4);*/ /* Background fall back */
+}
 
 video {
 	position: absolute;
-	min-width: 150%;
-	min-height: 150%;
-	left: -50%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    
+
+	/*min-width: 150%;
+	min-height: 150%;*/
 	width: auto;
-	height: auto;
-	z-index: -100;
+    height: auto;
+
+	/*
+	left: -50%;
+	/*width: auto;
+	height: auto;*/
+	/*z-index: -100;*/
 	background-size: cover;
 	background-color: black; /*rgba(143,195,31,0.4);*/ /* Background fall back */
 }

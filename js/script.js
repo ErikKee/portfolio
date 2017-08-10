@@ -787,6 +787,8 @@ function switchPage(pageType, pageIndex){
     		//Back to landing page
     		console.log("IF == ");
     		$('#back-button').hide(fadeInTime);
+    		$('#background-video-container').animate({opacity:'1'}, fadeInTime, 'swing');
+    		
     		changeTextColor();
     		//var v = $('#background-video').get(0);
     		//$('#background-video').get(0).play();
@@ -796,6 +798,7 @@ function switchPage(pageType, pageIndex){
     		//toggle
     		// From landing page to somewhere else
     		console.log("ELSE == ");
+    		$('#background-video-container').animate({opacity:'0'}, fadeInTime, 'swing');
     		changeTextColor();
     		$('#back-button').show(fadeInTime);
 			$('#back-button').animate({opacity:'1'}, fadeInTime);
