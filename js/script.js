@@ -18,6 +18,8 @@ const fadeInTime = 400;
 Rumor said that firefox & opera won't support mp3, but mp3 seem to work fine for my firefox browser. 
 still haven't tested on Opera though 
 */
+
+// Default extension = mp3
 var extension = ".mp3";
 var agent = navigator.userAgent.toLowerCase();
 
@@ -992,7 +994,7 @@ $('#midi-next-button').click(function(){
 $(window).bind("load", function() {  
 	console.log("loading background video");
 
-	$('#debug-text').text(WURFL.form_factor);
+	//$('#debug-text').text(WURFL.form_factor);
 
 	var video = document.getElementById('background-video');
 	var sourceMp4 = document.createElement('source');
