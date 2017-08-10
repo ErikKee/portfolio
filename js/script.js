@@ -987,7 +987,7 @@ $(window).bind("load", function() {
 	    $('#debug-text').text("THIS IS MOBILE");
 	}
 	else{
-		$('#debug-text').text("NOT MOBILE");
+		$('#debug-text').text(WURFL.form_factor);
 		var video = document.getElementById('background-video');
 
 		var sourceMp4 = document.createElement('source');
