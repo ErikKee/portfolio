@@ -910,8 +910,8 @@ const refreshRate = 1000 / 60;
 const maxXPosition = 150;
 const maxYPosition = 350;
 let rect = document.getElementById('background-video-container');
-let speedX = 0.3;
-let speedY = 0.5;
+let speedX = 0.4;
+let speedY = 0.65;
 let positionX = 10;
 let positionY = 10;
 
