@@ -910,7 +910,7 @@ const maxXPosition = 150;
 const maxYPosition = 350;
 let rect = document.getElementById('background-video-container');
 let speedX = 0.4;
-let speedY = 0.65;
+let speedY = 0.7;
 let positionX = 10;
 let positionY = 10;
 
@@ -919,15 +919,15 @@ function step() {
 	positionY = positionY + speedY;
 
 	if((positionX > (maxXPosition*0.75)) || (positionX < (maxXPosition*0.25))){
-		positionX = positionX + (speedX * 0.5);
-		$('#debug-text2').text("X IF");
+		positionX = positionX + (speedX * 0.75);
+		$('#debug-text').text("X IF");
 	}else{
 		positionX = positionX + speedX;
-		$('#debug-text2').text("X ELSE");
+		$('#debug-text').text("X ELSE");
 	}
 
 	if((positionY > (maxYPosition*0.75)) || (positionY < (maxYPosition*0.25))){
-		positionY = positionY + (speedX * 1.5);
+		positionY = positionY + (speedX * 0.8);
 		$('#debug-text2').text("Y IF");
 	}else{
 		positionY = positionY + speedY;
