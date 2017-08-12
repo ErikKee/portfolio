@@ -920,10 +920,10 @@ function step() {
 
 	if((positionX > (maxXPosition*0.75)) || (positionX < (maxXPosition*0.25))){
 		positionX = positionX + (speedX * 0.5);
-		$('#debug-text2').text("Y IF");
+		$('#debug-text2').text("X IF");
 	}else{
 		positionX = positionX + speedX;
-		$('#debug-text2').text("Y ELSE");
+		$('#debug-text2').text("X ELSE");
 	}
 
 	if((positionY > (maxYPosition*0.75)) || (positionY < (maxYPosition*0.25))){
