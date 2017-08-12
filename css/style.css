@@ -126,10 +126,6 @@ html,body{
 	background: rgba(255,255,255,1); /*#134e5e;*/ /* fallback for old browsers */
 	/*background: -webkit-linear-gradient(to right, #134e5e, #71b280);*/ /* Chrome 10-25, Safari 5.1-6 */
 	/*background: linear-gradient(to right, #134e5e, #71b280);*/ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-	background-image: url("images/guitar1.jpg");
-
-	background-image: url("images/guitar1.jpg");
 	background-size: cover;
 }
 
@@ -202,7 +198,7 @@ video {
 	height: auto;*/
 	/*z-index: -100;*/
 	background-size: cover;
-	/*background-color: black;*/ /*rgba(143,195,31,0.4);*/ /* Background fall back */
+	background-color: rgba(143,195,31,0.4); /* Background fall back */
 
 
 }

@@ -4,7 +4,12 @@
 	<meta charset="utf-8">
 	<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
 	<title>Ayy Lmao</title>
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<link rel="stylesheet" href="node_modules/tether/dist/css/tether.min.css"/>
 	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"/>
@@ -16,6 +21,7 @@
 	<link rel="stylesheet" href="libraries/rangeslider/rangeslider.css"/>
 	<link rel="stylesheet" href="libraries/nanoscroller/nanoscroller.css"/>
 	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+
 </head>
 <body>
 
@@ -179,12 +185,10 @@
 					<div class="col-12 col-md-6 px-5 d-flex align-items-center justify-content-center text-center text-md-left">
 					<div>
 						<p class="text-medium-3" style="color: #8fc31f;">Experience</p>
-						<p class="text-medium-1 hiddenTextToggle" id="experience-wenbit-detail-toggle" 
-						value="iOS Developer Intern | Wenbit Sdn Bhd, Malaysia"
-						onclick="toggleDetail('experience-wenbit-detail')">
+						<p class="text-medium-1 hiddenTextToggle" id="experience-wenbit-detail-toggle" value="iOS Developer Intern | Wenbit Sdn Bhd, Malaysia" onclick="toggleDetail('experience-wenbit-detail')">
 						<i class="fa fa-angle-right" aria-hidden="true"></i> iOS Developer Intern | Wenbit Sdn Bhd, Malaysia
 						</p>
-						<div id="experience-wenbit-detail" class="hiddenText" style="height: 0px;">
+						<div id="experience-wenbit-detail" class="hiddenText" style="height: 0px;" onclick="toggleDetail('experience-wenbit-detail')">
 							<p class="textSmall">
 								Developed a housing properties searching iOS application.
 								Implemented search feature that interacts with company's online database and designed the user interface
@@ -193,12 +197,10 @@
 						<br/>
 						<p class="text-medium-3" style="color: #8fc31f;">Academic Projects</p>
 
-						<p class="text-medium-1 hiddenTextToggle" id="projects-game-engine-detail-toggle" 
-						value="Video Game Engine"
-						onclick="toggleDetail('projects-game-engine-detail')">
+						<p class="text-medium-1 hiddenTextToggle" id="projects-game-engine-detail-toggle" value="Video Game Engine" onclick="toggleDetail('projects-game-engine-detail')">
 						<i class="fa fa-angle-right" aria-hidden="true"></i> Video Game Engine
 						</p>
-						<div id="projects-game-engine-detail" class="hiddenText" style="height: 0px;">
+						<div id="projects-game-engine-detail" class="hiddenText" style="height: 0px;" onclick="toggleDetail('projects-game-engine-detail')">
 							<p class="textSmall">
 								Developed a 3D graphical engine based on Three.js that is capable of rendering a scene according to an input JSON file, and apply JavaScript scripts to each rendered objects to achieve animation and player control.
 							</p>
@@ -206,23 +208,19 @@
 
 
 
-						<p class="text-medium-1 hiddenTextToggle" id="projects-google-dev-detail-toggle"
-						value="Google Developer Study Jam"
-						onclick="toggleDetail('projects-google-dev-detail')">
+						<p class="text-medium-1 hiddenTextToggle" id="projects-google-dev-detail-toggle" value="Google Developer Study Jam" onclick="toggleDetail('projects-google-dev-detail')">
 						<i class="fa fa-angle-right" aria-hidden="true"></i> Google Developer Study Jam
 						</p>
-						<div id="projects-google-dev-detail" class="hiddenText" style="height: 0px;">
+						<div id="projects-google-dev-detail" class="hiddenText" style="height: 0px;" onclick="toggleDetail('projects-google-dev-detail')">
 							<p class="textSmall">
 								An Android developer workshop held by Google at Oklahoma State University. The objective was to create a Magic Ball Android Application that shows random answer when user shake their device.
 							</p>
 						</div>
 
-						<p class="text-medium-1 hiddenTextToggle" id="projects-ios-inthebooks-detail-toggle"
-						value="iOS Application - In The Books"
-						onclick="toggleDetail('projects-ios-inthebooks-detail')">
+						<p class="text-medium-1 hiddenTextToggle" id="projects-ios-inthebooks-detail-toggle" value="iOS Application - In The Books" onclick="toggleDetail('projects-ios-inthebooks-detail')">
 						<i class="fa fa-angle-right" aria-hidden="true"></i> iOS Application - In The Books
 						</p>
-						<div id="projects-ios-inthebooks-detail" class="hiddenText" style="height: 0px;">
+						<div id="projects-ios-inthebooks-detail" class="hiddenText" style="height: 0px;" onclick="toggleDetail('projects-ios-inthebooks-detail')">
 							<p class="textSmall">
 								Developed as a team to create an iOS application to help managing hotel restaurant's inventory and ingredient cost.
 							</p>
@@ -231,12 +229,10 @@
 
 						<!-- Campus Involvement -->
 						<p class="text-medium-3" style="color: #8fc31f;">Campus Involvement</p>
-						<p class="text-medium-1 hiddenTextToggle" id="campus-drum-detail-toggle" 
-						value="Malaysia 24 Season Drum Troupe"
-						onclick="toggleDetail('campus-drum-detail')">
+						<p class="text-medium-1 hiddenTextToggle" id="campus-drum-detail-toggle" value="Malaysia 24 Season Drum Troupe" onclick="toggleDetail('campus-drum-detail')">
 						<i class="fa fa-angle-right" aria-hidden="true"></i> Malaysia 24 Season Drum Troupe
 						</p>
-						<div id="campus-drum-detail" class="hiddenText" style="height: 0px;">
+						<div id="campus-drum-detail" class="hiddenText" style="height: 0px;" onclick="toggleDetail('campus-drum-detail')">
 							<p class="textSmall">
 								Wrote song, coached members in drumming, and performed in various events.
 							</p>
@@ -569,15 +565,15 @@
 								<div class="col-12 p-0 m-0">
 									<div id="midi-tracklist-container-scroller" class="nano">
 										<div id="midi-tracklist" class="nano-content overthrow">
-											<button id="woah" track-id="0" class="col-12 py-1 midi-track-button text-left">Welcome Back<span>0:30</span></button>
-											<button id="woah2" track-id="1" class="col-12 py-1 midi-track-button text-left">Night Season<span>1:55</span></button>
-											<button id="woah3" track-id="2" class="col-12 py-1 midi-track-button text-left">Air Forest<span>1:01</span></button>
+											<button id="woah" track-id="0" class="col-12 py-1 midi-track-button text-left">Welcome Back<span>0:31</span></button>
+											<button id="woah2" track-id="1" class="col-12 py-1 midi-track-button text-left">Night Season<span>1:31</span></button>
+											<button id="woah3" track-id="2" class="col-12 py-1 midi-track-button text-left">Air Forest<span>0:58</span></button>
 											<button id="woah4" track-id="3" class="col-12 py-1 midi-track-button text-left">Bar Fight<span>0:45</span></button>
 											<button track-id="4" class="col-12 py-1 midi-track-button text-left">Punk<span>1:07</span></button>
 											<button track-id="5" class="col-12 py-1 midi-track-button text-left">Sherd Master<span>0:17</span></button>
 											<button track-id="6" class="col-12 py-1 midi-track-button text-left">Gear Up<span>0:37</span></button>
 											<button track-id="7" class="col-12 py-1 midi-track-button text-left">RAWR<span>1:09</span></button>
-											<button track-id="8" class="col-12 py-1 midi-track-button text-left">Panic<span>0:31</span></button>
+											<button track-id="8" class="col-12 py-1 midi-track-button text-left">Panic<span>0:30</span></button>
 											<button track-id="9" class="col-12 py-1 midi-track-button text-left">Insomnia<span>0:40</span></button>
 											<button track-id="10" class="col-12 py-1 midi-track-button text-left">See Ya<span>0:43</span></button>
 										</div>

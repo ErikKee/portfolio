@@ -351,14 +351,14 @@ $(document).ready(function(){
 			},
 			onSlide:function(position, value){
 				//console.log('onSlide');
-				console.log('VOL - position: ' + position, 'value: ' + value);
+				//console.log('VOL - position: ' + position, 'value: ' + value);
 				audio.volume = value / 100;
 				//$('.header .pull-right').text(value+'K');
 				
 			},
 			onSlideEnd:function(position, value){
 				//console.log('onSlideEnd');
-				console.log('VOL - position: ' + position, 'value: ' + value);
+				//console.log('VOL - position: ' + position, 'value: ' + value);
 				audio.volume = value / 100;
 
 			}
@@ -638,7 +638,7 @@ function switchPage(pageType, pageIndex){
 
 	console.log("target index = " + pageIndex);
 
-	/* pageType is the target page type, white currentPageType is the previous one */
+	/* pageType is the target page type, currentPageType is the previous one */
 
 	if(currentPageType != pageType){
 		$('#title').stop();
@@ -674,13 +674,6 @@ function switchPage(pageType, pageIndex){
 	    		reInitTrack(false);
 	    		$('#volume-slider').rangeslider('update', true);
 				$('#seek-slider').rangeslider('update', true);
-
-				/*console.log("MUSIC INDEX" + pageIndex);
-				if(pageIndex != 1 && (audio.paused != false)){
-					console.log("need to stop music");
-				}*/
-
-
 	    	}
 
 	    	$('.slick').animate({opacity:'1'}, fadeInTime, 'swing');
@@ -725,16 +718,9 @@ function switchPage(pageType, pageIndex){
 	    	}
 
 	    	if(pageType == landingPage){
-	    		//var v = $('#background-video').get(0);
-	    		//v.play();
 	    	}
 
 	    });
-		/*console.log("currentPageType = " + currentPageType  + " | pageType: " + pageType);
-		console.log("T = " + (currentPageType != "landing-page"));
-		console.log("T = " + (pageType == "landing-page"));
-		console.log("T = " + (currentPageType == "landing-page"));
-		console.log("T = " + (pageType != "landing-page"));*/
 
 		// Destroy nanoscroller plugin
 		// Placed outside of animation because currentPageType and pageType will already be the same after animation delay
@@ -839,49 +825,12 @@ function toggleDetail(id) {
     }
 }
 
-function programmingListResize(){
-		var screenRatio = ( ($(window).height()) /  ($(window).width()));
 
-		// 1.4 = real vertical
-		if(screenRatio > 1.4){
-			// Vertical 2x3
-			//console.log("1.4 - " + screenRatio);
-			$('.programming-cards-container').height( ($(window).width()) * 1 );
-			$('.programming-cards-container').width((($(window).width()) * 0.8));
-			$('.programming-card').height(($('.programming-cards-container').height()) * 0.34 );
-			$('.programming-card').width($('.programming-card').height());
-		}
-		else if(screenRatio > 1.04){
-			// Vertical 2x3
-			//console.log("1.04 - " + screenRatio);
-			$('.programming-cards-container').height( ($(window).width()) * 0.8 );
-			$('.programming-cards-container').width((($(window).width()) * 0.72));
-			$('.programming-card').height(($('.programming-cards-container').height()) * 0.34 );
-			$('.programming-card').width($('.programming-card').height());
-		}
-		else if(screenRatio > 0.8){
-			// Square
-			//console.log("0.8 - " + screenRatio);
-			$('.programming-cards-container').height( ($(window).height()) * 0.5 );
-			$('.programming-cards-container').width((($(window).height()) * 1.1));
-			$('.programming-card').height(($('.programming-cards-container').height()) * 0.5 );
-			$('.programming-card').width($('.programming-card').height());
-		}else{
-			// < 0.8
-			// Horizontal 3x2
-			//console.log("less than 0.8 - " + screenRatio);
-			$('.programming-cards-container').height( ($(window).height()) * 0.65 );
-			$('.programming-cards-container').width((($(window).height()) * 1.2));
-			$('.programming-card').height(($('.programming-cards-container').height()) * 0.5 );
-			$('.programming-card').width($('.programming-card').height());
-		}
-}
-
-
-/* MIDI PLAYER */
-
-
-
+/*
+	======================================================================
+		MIDI PLAYER CONTROL
+	======================================================================
+*/
 $('#midi-play-button').click(function(){
 	console.log("MIDI PLAY");
 	if(audio.volume == 0){
@@ -927,13 +876,13 @@ $(window).bind("load", function(){
 	if(!isMobileDevice()){
 		var video = document.getElementById('background-video');
 		var sourceMp4 = document.createElement('source');
-		sourceMp4.setAttribute('src', 'video/grass-35-10b1.mp4');
+		sourceMp4.setAttribute('src', 'video/grass-35-10b.mp4');
 		sourceMp4.setAttribute('type', 'video/mp4');
 
 		video.appendChild(sourceMp4);
 		video.play();
 
-		// In case somehow the video still can't be played
+		// If somehow the video still can't be played
 		if(video.paused === true){
 			$('#video-credit').hide();
 			$('#debug-text2').text("VIDEO NOT PLAYING: REMOVING VIDEO");
@@ -961,8 +910,8 @@ const refreshRate = 1000 / 60;
 const maxXPosition = 150;
 const maxYPosition = 350;
 let rect = document.getElementById('background-video-container');
-let speedX = 0.25;
-let speedY = 0.4;
+let speedX = 0.3;
+let speedY = 0.5;
 let positionX = 10;
 let positionY = 10;
 
