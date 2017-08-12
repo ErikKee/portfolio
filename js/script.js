@@ -44,11 +44,11 @@ var trackDescription = [
 "Welcome back, you did great.", 
 "This is an ongoing draft that I've been working on since March of 2017.", 
 "Instrumental solo part of one of my oldest piece.", 
-"I wrote this piece with a comedic bar fight scene in mind.", 
+"Hold my beer.", 
 " ", 
 "This is what I imagined how being a guitar sherd master would feel like when I started learning guitar.", 
-"Video game: \"choose your weapon/equipment\" screen.", 
-"Unleash the beast.", 
+" ", 
+" ", 
 " ", 
 "Zzz", 
 "Okay bye."];
@@ -82,7 +82,6 @@ function switchTrack(direction){
 			currentPlaylistIndex--;
 		}
 	}
-	//audio.src = 'audio/' + playlist[currentPlaylist][currentPlaylistIndex] + extension;
 	console.log("SWITCH TO " + playlist[currentPlaylistIndex]);
 	reInitTrack(true);
 
@@ -885,7 +884,6 @@ $(window).bind("load", function(){
 		// If somehow the video still can't be played
 		if(video.paused === true){
 			$('#video-credit').hide();
-			$('#debug-text2').text("VIDEO NOT PLAYING: REMOVING VIDEO");
 			//video.children('source').prop('src', '');
 			video.src = "";
 			video.load();
@@ -895,12 +893,13 @@ $(window).bind("load", function(){
 			window.requestAnimationFrame(step);
 		}
 		else{
-			$('#debug-text2').text("VIDEO PLAYING");
+			//$('#debug-text2').text("VIDEO PLAYING");
 		}
 	}
 	else{
 		// Substitute by moving the background around 
 		window.requestAnimationFrame(step);
+		$('#video-credit').hide();
 	}
 }); 
 
@@ -919,7 +918,15 @@ function step() {
 	positionX = positionX + speedX;
 	positionY = positionY + speedY;
 	if (positionX > maxXPosition || positionX < 0) {
-		speedX = speedX * (-1);
+		//speedX = speedX * (-1);
+
+		if((positionX > (maxXPosition*0.7)) || (positionX < (maxXPosition*0.3))){
+			speedX = speedX * (-1) * 0.5;
+			$('#debug-text2').text("Y IF");
+		}else{
+			speedX = speedX * (-1);
+			$('#debug-text2').text("Y ELSE");
+		}
 	}
 	if (positionY > maxYPosition || positionY < 0) {
 		speedY = speedY * (-1);
