@@ -44,7 +44,7 @@
 
 
 /* Used in programming-list and music-list */
-.textMedium4 {
+.text-medium-5 {
 	color: rgb(76,76,76);
 	font-size: 1.75rem;
 	font-weight: 600;
@@ -54,7 +54,7 @@
 }
 
 /* Currently the only usage is MIDI title */
-.textMedium3 {
+.text-medium-4 {
 	color: rgb(76,76,76);
 	font-size: 1.5rem;
 	font-weight: 400;
@@ -64,7 +64,7 @@
 }
 
 /* Mainly for sub-title with green text */
-.textMedium2 {
+.text-medium-3 {
 	color: rgb(76,76,76);
 	font-size: 1.15rem;
 	font-weight: 400;
@@ -73,10 +73,21 @@
 	/*margin-top: 2.0rem;*/
 }
 
+.text-medium-2 {
+	color: rgb(76,76,76);
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.15rem;
+	margin-bottom: 0;
+	/*margin-top: 2.0rem;*/
+}
+
+
 /* Most of the detail text */
-.textMedium1 {
+.text-medium-1 {
 	color: rgb(76,76,76);
 	font-size: 0.85rem;
+
 	font-weight: 400;
 	line-height: 1.2rem;
 	margin-bottom: 0rem;
@@ -106,8 +117,8 @@
 html,body{
 	/*font-family: 'Roboto', sans-serif;*/
 	/*font-family:  sans-serif;*/
-	color: rgb(76,76,76);;
-
+	color: rgb(76,76,76);
+	background-size: cover;
 	width: 100%;
 	height: 100%;
 	transition-duration: 0.2s;
@@ -115,6 +126,11 @@ html,body{
 	background: rgba(255,255,255,1); /*#134e5e;*/ /* fallback for old browsers */
 	/*background: -webkit-linear-gradient(to right, #134e5e, #71b280);*/ /* Chrome 10-25, Safari 5.1-6 */
 	/*background: linear-gradient(to right, #134e5e, #71b280);*/ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+	background-image: url("images/guitar1.jpg");
+
+	background-image: url("images/guitar1.jpg");
+	background-size: cover;
 }
 
 
@@ -150,6 +166,8 @@ html,body{
     left: 0;
     overflow: hidden;
     background-color: rgba(143,195,31,0.5);
+    background-size: cover;
+    background: url('../background.png') center center / cover no-repeat; /* Background fall back */
 }
 
 #background-video-container video {
@@ -159,14 +177,10 @@ html,body{
     min-width: 150%;
     min-height: 150%;
 
-	/*min-width: 100%;
-	min-height: 100%;*//*
-	left: -50%;*/
 	width: auto;
 	height: auto;
 	/*z-index: -100;*/
 	background-size: cover;
-	background-color: rgba(143,195,31,0.5); /* Background fall back */
 }
 
 video {
@@ -188,7 +202,9 @@ video {
 	height: auto;*/
 	/*z-index: -100;*/
 	background-size: cover;
-	background-color: black; /*rgba(143,195,31,0.4);*/ /* Background fall back */
+	/*background-color: black;*/ /*rgba(143,195,31,0.4);*/ /* Background fall back */
+
+
 }
 
 #video-background{
@@ -621,13 +637,13 @@ video {
 	cursor: pointer;
 }
 
-.music-card .textMedium4, .programming-card .textMedium4{
+.music-card .text-medium-5, .programming-card .text-medium-5{
 	transition-duration: 0.15s;
 	-webkit-transition-timing-function: ease-out; /* Safari and Chrome */
     transition-timing-function: ease-out;
 }
 
-.music-card:hover .textMedium4, .programming-card:hover .textMedium4{
+.music-card:hover .text-medium-5, .programming-card:hover .text-medium-5{
 	font-size: 1.85rem;
 
 }
@@ -763,6 +779,10 @@ video {
 	font-weight: 100;
 	color: rgba(255,255,255,0.5);
 	display: none;
+}
+
+.flexslider-text{
+	color: white;
 }
 
 
@@ -1086,11 +1106,12 @@ video {
 }
 
 
-/* MOBILE */
-@media only screen and (max-width: 576px){
+
+/* Bootstrap 4 - MD */
+@media only screen and (max-width: 768px){
 
 	html,body{
-		font-size: 0.72rem;
+		font-size: 0.875rem;
 	}
 
 	.navigation-top{
@@ -1118,19 +1139,19 @@ video {
 		font-size: 1.4rem;
 	}
 
+}
+
+
+/* MOBILE */
+@media only screen and (max-width: 576px){
+
+	html,body{
+		font-size: 0.72rem;
+	}
+
 
 	
 
-
-/*	.programming-cards-container{
-		height: 20rem;
-		width: 35rem;
-	}
-
-	.programming-card {
-		height: 10rem;
-		width: 10rem;
-	}*/
 }
 
 @media only screen and (max-height: 500px) {

@@ -501,7 +501,7 @@ $(document).ready(function(){
 
 
 
-	$('.guitar-popup-toggle').each(function(){
+	$('.video-popup-toggle').each(function(){
 		var self = this;
 		//var iframe = document.getElementById('video');
 		// $f == Froogaloop
@@ -1004,23 +1004,23 @@ $(window).bind("load", function() {
 	video.appendChild(sourceMp4);
 	video.play();
 
-	if(video.play == true){
-		$('#debug-text2').text("PLAYING");
+	/*if(video.play == true){
+		$('#debug-text2').text("VIDEO PLAYING");
 	}else{
-		$('#debug-text2').text("NOT PLAYING");
-	}
+		$('#debug-text2').text("VIDEO NOT PLAYING");
+	}*/
 
 	/* If video can't play, then it is mobile device */
 	if(video.paused === true){
 		$('#video-credit').hide();
-		$('#debug-text2').text("PAUSED REMOVING VIDEO");
+		$('#debug-text2').text("VIDEO NOT PLAYING: REMOVING VIDEO");
 		//video.children('source').prop('src', '');
 		video.src = "";
 		video.load();
 		video.remove();
 	}
 	else{
-		$('#debug-text2').text("PLAYING");
+		$('#debug-text2').text("VIDEO PLAYING");
 	}
 	
 }); 
