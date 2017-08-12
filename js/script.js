@@ -884,66 +884,22 @@ $(window).bind("load", function(){
 		// If somehow the video still can't be played
 		if(video.paused === true){
 			$('#video-credit').hide();
-			//video.children('source').prop('src', '');
 			video.src = "";
 			video.load();
 			video.remove();
 
 			// Substitute by moving the background around 
-			window.requestAnimationFrame(step);
-		}
-		else{
-			//$('#debug-text2').text("VIDEO PLAYING");
+			$('#video-credit').hide();
+			$('#background-video-container').css("animation", "background-animationX 18s, background-animationY 12s");
+			$('#background-video-container').css("animation-timing-function", "ease-in-out");
+			$('#background-video-container').css("animation-iteration-count", "infinite");
 		}
 	}
 	else{
-		// Substitute by moving the background around 
-		window.requestAnimationFrame(step);
+		// Substitute by moving the background around
 		$('#video-credit').hide();
+		$('#background-video-container').css("animation", "background-animationX 18s, background-animationY 12s");
+		$('#background-video-container').css("animation-timing-function", "ease-in-out");
+		$('#background-video-container').css("animation-iteration-count", "infinite");
 	}
 }); 
-
-
-
-const refreshRate = 1000 / 60;
-const maxXPosition = 150;
-const maxYPosition = 350;
-let rect = document.getElementById('background-video-container');
-let speedX = 0.4;
-let speedY = 0.6;
-let positionX = 10;
-let positionY = 10;
-
-function step() {
-	//positionX = positionX + speedX;
-	positionY = positionY + speedY;
-
-	if((positionX > (maxXPosition*0.75)) || (positionX < (maxXPosition*0.25))){
-		positionX = positionX + (speedX * 0.75);
-		$('#debug-text').text("X IF");
-	}else{
-		positionX = positionX + speedX;
-		$('#debug-text').text("X ELSE");
-	}
-
-	if((positionY > (maxYPosition*0.75)) || (positionY < (maxYPosition*0.25))){
-		positionY = positionY + (speedX * 0.8);
-		$('#debug-text2').text("Y IF");
-	}else{
-		positionY = positionY + speedY;
-		$('#debug-text2').text("Y ELSE");
-	}
-
-
-	if (positionX > maxXPosition || positionX < 0) {
-		speedX = speedX * (-1);
-	}
-	if (positionY > maxYPosition || positionY < 0) {
-		speedY = speedY * (-1);
-	}
-	rect.style.left = '-'+positionX + 'px';
-	rect.style.top = '-'+positionY + 'px';
-	window.requestAnimationFrame(step);
-}
-
-//window.requestAnimationFrame(step);

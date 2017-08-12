@@ -164,6 +164,22 @@ html,body{
     background-color: rgba(143,195,31,0.5);
     background-size: cover;
     background: url('../background.png') center center / cover no-repeat; /* Background fall back */
+
+    /*animation: background-animationX 15s, background-animationY 10s;*/
+    /*animation-timing-function: ease-in-out;
+    animation-iteration-count:infinite;*/
+}
+
+@keyframes background-animationX {
+    0%{left: 0px;}
+    50%{left: -120px;}
+    100%{left: 0px;}
+}
+
+@keyframes background-animationY {
+    0%{top: 0px;}
+    50%{top: -80px;}
+    100%{top: 0px;}
 }
 
 #background-video-container video {
