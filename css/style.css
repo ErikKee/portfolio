@@ -362,7 +362,7 @@ video {
 
 /* Project title's font */
 #title{
-	font-size: 3rem;
+	font-size: 2.8rem;
 	text-align: left;
 	padding-left: 0;
 	/*background-color: rgba(0,0,0,0.1);*/
@@ -1141,24 +1141,39 @@ video {
 
 }
 
+@media only screen and (max-width: 768px) and (max-height: 620px) {
+	html,body{
+		font-size: 0.7rem;
+	}
+}
+
+@media only screen and (max-width: 768px) and (max-height: 400px) {
+	html,body{
+		font-size: 0.5rem;
+	}
+}
+
 
 /* MOBILE */
 @media only screen and (max-width: 576px){
-
 	html,body{
 		font-size: 0.72rem;
 	}
-
-
-	
-
 }
 
-@media only screen and (max-height: 500px) {
+@media only screen and (max-width: 576px) and (max-height: 550px) {
 	html,body{
-		font-size: 0.75rem;
+		font-size: 0.6rem;
 	}
 }
+
+@media only screen and (max-width: 576px) and (max-height: 450px) {
+	html,body{
+		font-size: 0.5rem;
+	}
+}
+
+
 
 
 /* 
