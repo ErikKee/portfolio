@@ -918,19 +918,25 @@ function step() {
 	//positionX = positionX + speedX;
 	positionY = positionY + speedY;
 
-	if((positionX > (maxXPosition*0.7)) || (positionX < (maxXPosition*0.3))){
-		//speedX = speedX * (-1) * 0.8;
-		positionX = positionX + (speedX * 0.8);
+	if((positionX > (maxXPosition*0.75)) || (positionX < (maxXPosition*0.25))){
+		positionX = positionX + (speedX * 0.5);
 		$('#debug-text2').text("Y IF");
 	}else{
 		positionX = positionX + speedX;
-		//speedX = speedX * (-1);
 		$('#debug-text2').text("Y ELSE");
 	}
+
+	if((positionY > (maxYPosition*0.75)) || (positionY < (maxYPosition*0.25))){
+		positionY = positionY + (speedX * 1.5);
+		$('#debug-text2').text("Y IF");
+	}else{
+		positionY = positionY + speedY;
+		$('#debug-text2').text("Y ELSE");
+	}
+
+
 	if (positionX > maxXPosition || positionX < 0) {
 		speedX = speedX * (-1);
-
-
 	}
 	if (positionY > maxYPosition || positionY < 0) {
 		speedY = speedY * (-1);
