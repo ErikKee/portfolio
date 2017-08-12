@@ -909,39 +909,75 @@ $('#midi-next-button').click(function(){
 })
 
 
+/*
+	======================================================================
+		BACKGROUND VIDEO /IMAGE
+	======================================================================
+
+*/
+
+// Detect if the website is running on a mobile device
+function isMobileDevice() {
+	return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+};
+
 /* load video after page load */
-$(window).bind("load", function() {  
-	console.log("loading background video");
-
-	//$('#debug-text').text(WURFL.form_factor);
-
-
+$(window).bind("load", function(){
+	// Since autoplay doesn't work in mobile device
 	if(!isMobileDevice()){
 		var video = document.getElementById('background-video');
 		var sourceMp4 = document.createElement('source');
-		sourceMp4.setAttribute('src', 'video/grass-35-10b.mp4');
+		sourceMp4.setAttribute('src', 'video/grass-35-10b1.mp4');
 		sourceMp4.setAttribute('type', 'video/mp4');
 
 		video.appendChild(sourceMp4);
 		video.play();
-	}
-	
 
-	/* If video can't play, then it is mobile device */
-	/*if(video.paused === true){
-		$('#video-credit').hide();
-		$('#debug-text2').text("VIDEO NOT PLAYING: REMOVING VIDEO");
-		//video.children('source').prop('src', '');
-		video.src = "";
-		video.load();
-		video.remove();
+		// In case somehow the video still can't be played
+		if(video.paused === true){
+			$('#video-credit').hide();
+			$('#debug-text2').text("VIDEO NOT PLAYING: REMOVING VIDEO");
+			//video.children('source').prop('src', '');
+			video.src = "";
+			video.load();
+			video.remove();
+
+			// Substitute by moving the background around 
+			window.requestAnimationFrame(step);
+		}
+		else{
+			$('#debug-text2').text("VIDEO PLAYING");
+		}
 	}
 	else{
-		$('#debug-text2').text("VIDEO PLAYING");
-	}*/
-	
+		// Substitute by moving the background around 
+		window.requestAnimationFrame(step);
+	}
 }); 
 
-function isMobileDevice() {
-    return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
-};
+
+
+const refreshRate = 1000 / 60;
+const maxXPosition = 150;
+const maxYPosition = 350;
+let rect = document.getElementById('background-video-container');
+let speedX = 0.25;
+let speedY = 0.4;
+let positionX = 10;
+let positionY = 10;
+
+function step() {
+	positionX = positionX + speedX;
+	positionY = positionY + speedY;
+	if (positionX > maxXPosition || positionX < 0) {
+		speedX = speedX * (-1);
+	}
+	if (positionY > maxYPosition || positionY < 0) {
+		speedY = speedY * (-1);
+	}
+	rect.style.left = '-'+positionX + 'px';
+	rect.style.top = '-'+positionY + 'px';
+	window.requestAnimationFrame(step);
+}
+
+//window.requestAnimationFrame(step);
