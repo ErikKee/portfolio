@@ -910,7 +910,7 @@ const maxXPosition = 150;
 const maxYPosition = 350;
 let rect = document.getElementById('background-video-container');
 let speedX = 0.4;
-let speedY = 0.7;
+let speedY = 0.6;
 let positionX = 10;
 let positionY = 10;
 
