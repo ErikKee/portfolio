@@ -172,13 +172,13 @@ html,body{
 
 @keyframes background-animationX {
     0%{left: 0px;}
-    50%{left: -150px;}
+    50%{left: -180px;}
     100%{left: 0px;}
 }
 
 @keyframes background-animationY {
     0%{top: 0px;}
-    50%{top: -100px;}
+    50%{top: -150px;}
     100%{top: 0px;}
 }
 
