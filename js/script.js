@@ -875,7 +875,7 @@ $(window).bind("load", function(){
 	if(!isMobileDevice()){
 		var video = document.getElementById('background-video');
 		var sourceMp4 = document.createElement('source');
-		sourceMp4.setAttribute('src', 'video/grass-35-10b123.mp4');
+		sourceMp4.setAttribute('src', 'video/grass-35-10b.mp4');
 		sourceMp4.setAttribute('type', 'video/mp4');
 		sourceMp4.setAttribute('onerror', 'playerError()');
 
