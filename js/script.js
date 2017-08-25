@@ -875,31 +875,34 @@ $(window).bind("load", function(){
 	if(!isMobileDevice()){
 		var video = document.getElementById('background-video');
 		var sourceMp4 = document.createElement('source');
-		sourceMp4.setAttribute('src', 'video/grass-35-10b.mp4');
+		sourceMp4.setAttribute('src', 'video/grass-35-10b123.mp4');
 		sourceMp4.setAttribute('type', 'video/mp4');
+		sourceMp4.setAttribute('onerror', 'playerError()');
 
 		video.appendChild(sourceMp4);
 		video.play();
-
 		// If somehow the video still can't be played
 		if(video.paused === true){
-			$('#video-credit').hide();
 			video.src = "";
 			video.load();
 			video.remove();
-
-			// Substitute by moving the background around 
-			$('#video-credit').hide();
-			$('#background-video-container').css("animation", "background-animationX 12s, background-animationY 8s");
-			$('#background-video-container').css("animation-timing-function", "ease-in-out");
-			$('#background-video-container').css("animation-iteration-count", "infinite");
+			backgroundAnimation();
 		}
 	}
 	else{
-		// Substitute by moving the background around
-		$('#video-credit').hide();
-		$('#background-video-container').css("animation", "background-animationX 18s, background-animationY 12s");
-		$('#background-video-container').css("animation-timing-function", "ease-in-out");
-		$('#background-video-container').css("animation-iteration-count", "infinite");
+		backgroundAnimation();
 	}
 }); 
+
+// If somehow the video still can't be played
+function playerError(){
+	backgroundAnimation();
+}
+
+function backgroundAnimation(){
+	// Substitute by moving the background around 
+	$('#video-credit').hide();
+	$('#background-video-container').css("animation", "background-animationX 12s, background-animationY 8s");
+	$('#background-video-container').css("animation-timing-function", "ease-in-out");
+	$('#background-video-container').css("animation-iteration-count", "infinite");
+}
