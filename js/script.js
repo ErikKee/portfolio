@@ -98,12 +98,351 @@ function init(){
 			resumeDetailExpandHeight = 74;
 		}
 	}, 100));
-}
+
+
+
+	/*
+		======================================================================
+			Page Navigation
+		======================================================================
+	*/
+
+	/* The lightbox image gallery that can be found in PROGRAMMING and DRUM, toggle via clicking the image of the demo page */
+	$('.flexslider-toggle').each(function(){
+		var self = this;
+		$(this).magnificPopup({
+
+			// Delay in milliseconds before popup is removed
+			removalDelay: fadeOutTime,
+
+			// Class that is added to popup wrapper and background
+			// make it unique to apply your CSS animations just to this exact popup
+			mainClass: 'mfp-fade',
+			navigateByImgClick: false,
+			closeBtnInside: false,
+
+			items: [
+			{
+				src: $(this).attr('toggle-target'),
+				type: 'inline'
+			}
+			],
+
+			callbacks: {
+				beforeOpen: function() {
+
+			    	//console.log("Opening - " + $(self).attr('toggle-target'));
+			    	$($(self).attr('toggle-target')).flexslider({
+			    		startAt: 0, 
+			    		directionNav : false,
+			    		slideshow: false,
+			    		animation:"fade",
+			    		animationSpeed: 500,
+			    		controlNav: false
+			    	});
+
+			    	$($(self).attr('toggle-target') + '-prev').on('click', function(){
+			    		//console.log("SLIDE");
+			    		$($(self).attr('toggle-target')).flexslider("previous");
+			    	});  
+			    	$($(self).attr('toggle-target') + '-next').on('click', function(){
+			    		//console.log("SLIDE");
+			    		$($(self).attr('toggle-target')).flexslider("next");
+			    	});
+				},
+				open: function() {
+					$('.slick').animate({opacity:'0'}, fadeOutTime);
+					$('#demo-prev').animate({opacity:'0'}, fadeOutTime);
+					$('#demo-next').animate({opacity:'0'}, fadeOutTime);
+				},
+				close: function(){
+					// Unbind navigation button
+					$($(self).attr('toggle-target') + '-prev').off('click');
+					$($(self).attr('toggle-target') + '-next').off('click');
+
+		    		$('.slick').animate({opacity:'1'}, fadeOutTime);
+		    		$('#demo-prev').animate({opacity:'1'}, fadeOutTime);
+		    		$('#demo-next').animate({opacity:'1'}, fadeOutTime);
+		    	}
+		    }
+		})
+	});
+
+	// Button: BACK | X
+	$('#back-button-container').on("click",function(){
+		//console.log("#back-button-container - BACK BUTTON | X");
+		if(currentPageType == programmingList || currentPageType == resumePage || currentPageType == musicList){
+			switchPage(landingPage);
+		}
+		else if(currentPageType == programmingItem){
+			switchPage(programmingList);
+		}
+		else if(currentPageType == musicItem){
+			switchPage(musicList);
+		}
+	});
+
+	// Button: Bottom - PROGRAMMING
+	$("#programming-button").on("click",function(){
+		switchPage("programming-list");
+	});
+
+	// Button: Bottom - RESUME
+	$("#resume-button").on("click",function(){
+		switchPage("resume-page");
+	});
+
+	// Button: Bottom - MUSIC
+	$("#music-button").on("click",function(){
+		switchPage("music-list");
+	});
+
+	$(".programming-card").on("click",function(){
+		//console.log("index = " + $(this).attr('target-index'));
+		switchPage("programming-item", $(this).attr('target-index'));
+	});
+
+	$(".music-card").on("click",function(){
+		//console.log("index = " + $(this).attr('target-index'));
+		switchPage("music-item", $(this).attr('target-index'))
+	});
+
+	$('#demo-prev').click(function(){
+		//console.log("PREV");
+		// Stop midi player when user move to the other slide
+		if(currentPageType == musicItem && (audio.paused == false)){
+			stopAudio();
+		}
+		prevNextButton("prev");
+
+	})
+
+	$('#demo-next').click(function(){
+		//console.log("NEXT");
+		// Stop midi player when user move to the other slide
+		if(currentPageType == musicItem && (audio.paused == false)){
+			stopAudio();
+		}
+		prevNextButton("next");
+	})
+
+
+
+	/*
+		======================================================================
+			MIDI Player
+		======================================================================
+	*/
+
+	audio.addEventListener("timeupdate", function(){seekTimeUpdate();});
+	audio.addEventListener("ended", function(){switchTrack("next");})
+
+	/* Midi playlist's song button */
+	$('.midi-track-button').click(function(){
+
+		/* To solve a problem where the audio volume would suddenly turned into 0 */
+		if(audio.volume == 0){
+			//console.log("audio = " + audio.volume);
+			audio.volume = 0.8;
+			$('#volume-slider').val(audio.volume * 100).change();
+		}
+
+		var thisTarget = $(this).attr('track-id');
+		currentPlaylistIndex = thisTarget;
+		reInitTrack(true);
+		refreshMidiTrackList();
+	});
+
+	/* MIDI player seeker */
+	$('#seek-slider').rangeslider({
+		polyfill:false,
+		onInit:function(){
+			seeking = false;
+			console.log("SEEK");
+			//$('.header .pull-right').text($('input[type="range"]').val()+'K');
+		},
+		onSlide:function(position, value){
+			$('#midi-current-time').text(secondToString(audio.duration * (value/100)));
+			console.log('onSlide');
+			//console.log('SEEK - position: ' + position, 'value: ' + value);
+			
+			//$('.header .pull-right').text(value+'K');
+		},
+		onSlideEnd:function(position, value){
+			//console.log('onSlideEnd');
+			//console.log("DURATION - " + audio.duration);
+			//console.log('SEEK - position: ' + position, 'value: ' + value);
+			seeking = false;
+			audio.currentTime = audio.duration * (value/100);
+		}
+	});
+
+	/* MIDI player volume changer. Doesn't work in mobile */
+	$('#volume-slider').rangeslider({
+		polyfill:false,
+		onInit:function(){
+			audio.volume = 0.8;
+		},
+		onSlide:function(position, value){
+			//console.log('onSlide');
+			//console.log('VOL - position: ' + position, 'value: ' + value);
+			audio.volume = value / 100;
+			//$('.header .pull-right').text(value+'K');
+			
+		},
+		onSlideEnd:function(position, value){
+			//console.log('onSlideEnd');
+			//console.log('VOL - position: ' + position, 'value: ' + value);
+			audio.volume = value / 100;
+		}
+	});
+
+
+	/* MIDI Button: << PREV */
+	$('#midi-prev-button').click(function(){
+		if(audio.currentTime > 2){
+			audio.currentTime = 0;
+		}
+		else{
+			//console.log("PREV TRACK");
+			switchTrack("prev");
+			refreshMidiTrackList();
+		}
+	})
+
+	/* MIDI Button: >> NEXT */
+	$('#midi-next-button').click(function(){
+		//console.log("NEXT TRACK");
+		switchTrack("next");
+		refreshMidiTrackList();
+	})
+
+
+	// For other browser
+	document.getElementById('seek-slider-container').addEventListener("mousedown", function(){
+		seeking = true;
+	})
+
+	document.getElementById('seek-slider-container').addEventListener("mouseup", function(){
+		if(seeking == true){
+			seeking = false;
+		}
+	})
+
+	// For chrome
+	document.getElementById('seek-slider-container').addEventListener("pointerdown", function() {
+		seeking = true;
+	}, false)
+
+	document.getElementById('seek-slider-container').addEventListener("pointerup", function() {
+		if(seeking == true){seeking = false;}
+	}, false)
+
+	// Mobile
+	document.getElementById('seek-slider-container').addEventListener("touchstart", function() {
+		seeking = true;
+	})
+
+	document.getElementById('seek-slider-container').addEventListener("touchend", function() {
+		if(seeking == true){seeking = false;}
+	})
+
+
+	/* MIDI Button: > Play */
+	$('#midi-play-button').click(function(){
+		//console.log("MIDI PLAY");
+		if(audio.volume == 0){
+			audio.volume = 0.8;
+			$('#volume-slider').val(audio.volume * 100).change();
+		}
+		if(audio.paused){
+			audio.play();
+			$('#midi-play-button').html('<i class="fa fa-pause" aria-hidden="true"></i>');
+		}
+		else{
+			audio.pause();
+			$('#midi-play-button').html('<i class="fa fa-play" aria-hidden="true"></i>');
+		}
+	})
+
+
+
+	/*
+		======================================================================
+			GUITAR DEMO
+		======================================================================
+
+	*/
+
+	/* For Music -> Guitar */
+	$('.video-popup-toggle').each(function(){
+		var self = this;
+		$(this).magnificPopup({
+
+		// Delay in milliseconds before popup is removed
+			removalDelay: 100,
+
+			// Class that is added to popup wrapper and background
+			// make it unique to apply your CSS animations just to this exact popup
+			mainClass: 'mfp-fade',
+			navigateByImgClick: false,
+			closeBtnInside: false,
+
+			items: [
+			{
+				src: $('<div class="container d-flex align-items-center justify-content-center"> <iframe src="https://player.vimeo.com/video/' + $(self).attr('toggle-target') + '?autoplay=1&title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> </div>'),
+				type: 'inline'
+			}
+			],
+
+			callbacks: {
+
+				beforeOpen: function() {
+			    	//console.log("Opening = " + $(self).attr('toggle-target'));
+				},
+				open: function() {
+					$('.slick').animate({opacity:'0'}, 150);
+					$('#demo-prev').animate({opacity:'0'}, 150);
+					$('#demo-next').animate({opacity:'0'}, 150);
+				},
+				close: function(){
+		    		$('.slick').animate({opacity:'1'}, 150);
+		    		$('#demo-prev').animate({opacity:'1'}, 150);
+		    		$('#demo-next').animate({opacity:'1'}, 150);
+		    	}
+		    }
+		})
+	});
+} // End init()
 
 
 $(document).ready(function(){
 
 	init();
+
+	// Load background video for landing page
+	if(!isMobileDevice()){
+		var video = document.getElementById('background-video');
+		var sourceMp4 = document.createElement('source');
+		sourceMp4.setAttribute('src', 'video/grass-35-10b.mp4');
+		sourceMp4.setAttribute('type', 'video/mp4');
+		sourceMp4.setAttribute('onerror', 'playerError()');
+
+		video.appendChild(sourceMp4);
+		video.play();
+
+		// If somehow the video still can't be played
+		if(video.paused === true){
+			video.src = "";
+			video.load();
+			video.remove();
+			playerError();
+		}
+	}
+	else{
+		backgroundAnimation();
+	}
+
 
 	/* ==================== KEEP FOR STUDY PURPOSE ==================== */
 	/*	$('.slick').on('beforeChange', function(event, slick, currentSlide, nextSlide){
@@ -237,125 +576,6 @@ function prevNextButton(direction){
     });
 }
 
-/* The lightbox image gallery that can be found in PROGRAMMING and DRUM, toggle via clicking the image of the demo page */
-$('.flexslider-toggle').each(function(){
-	var self = this;
-	$(this).magnificPopup({
-
-		// Delay in milliseconds before popup is removed
-		removalDelay: fadeOutTime,
-
-		// Class that is added to popup wrapper and background
-		// make it unique to apply your CSS animations just to this exact popup
-		mainClass: 'mfp-fade',
-		navigateByImgClick: false,
-		closeBtnInside: false,
-
-		items: [
-		{
-			src: $(this).attr('toggle-target'),
-			type: 'inline'
-		}
-		],
-
-		callbacks: {
-			beforeOpen: function() {
-
-		    	//console.log("Opening - " + $(self).attr('toggle-target'));
-		    	$($(self).attr('toggle-target')).flexslider({
-		    		startAt: 0, 
-		    		directionNav : false,
-		    		slideshow: false,
-		    		animation:"fade",
-		    		animationSpeed: 500,
-		    		controlNav: false
-		    	});
-
-		    	$($(self).attr('toggle-target') + '-prev').on('click', function(){
-		    		//console.log("SLIDE");
-		    		$($(self).attr('toggle-target')).flexslider("previous");
-		    	});  
-		    	$($(self).attr('toggle-target') + '-next').on('click', function(){
-		    		//console.log("SLIDE");
-		    		$($(self).attr('toggle-target')).flexslider("next");
-		    	});
-			},
-			open: function() {
-				$('.slick').animate({opacity:'0'}, fadeOutTime);
-				$('#demo-prev').animate({opacity:'0'}, fadeOutTime);
-				$('#demo-next').animate({opacity:'0'}, fadeOutTime);
-			},
-			close: function(){
-				// Unbind navigation button
-				$($(self).attr('toggle-target') + '-prev').off('click');
-				$($(self).attr('toggle-target') + '-next').off('click');
-
-	    		$('.slick').animate({opacity:'1'}, fadeOutTime);
-	    		$('#demo-prev').animate({opacity:'1'}, fadeOutTime);
-	    		$('#demo-next').animate({opacity:'1'}, fadeOutTime);
-	    	}
-	    }
-	})
-});
-
-// Button: BACK | X
-$('#back-button-container').on("click",function(){
-	//console.log("#back-button-container - BACK BUTTON | X");
-	if(currentPageType == programmingList || currentPageType == resumePage || currentPageType == musicList){
-		switchPage(landingPage);
-	}
-	else if(currentPageType == programmingItem){
-		switchPage(programmingList);
-	}
-	else if(currentPageType == musicItem){
-		switchPage(musicList);
-	}
-});
-
-// Button: Bottom - PROGRAMMING
-$("#programming-button").on("click",function(){
-	switchPage("programming-list");
-});
-
-// Button: Bottom - RESUME
-$("#resume-button").on("click",function(){
-	switchPage("resume-page");
-});
-
-// Button: Bottom - MUSIC
-$("#music-button").on("click",function(){
-	switchPage("music-list");
-});
-
-$(".programming-card").on("click",function(){
-	//console.log("index = " + $(this).attr('target-index'));
-	switchPage("programming-item", $(this).attr('target-index'));
-});
-
-$(".music-card").on("click",function(){
-	//console.log("index = " + $(this).attr('target-index'));
-	switchPage("music-item", $(this).attr('target-index'))
-});
-
-$('#demo-prev').click(function(){
-	//console.log("PREV");
-	// Stop midi player when user move to the other slide
-	if(currentPageType == musicItem && (audio.paused == false)){
-		stopAudio();
-	}
-	prevNextButton("prev");
-
-})
-
-$('#demo-next').click(function(){
-	//console.log("NEXT");
-	// Stop midi player when user move to the other slide
-	if(currentPageType == musicItem && (audio.paused == false)){
-		stopAudio();
-	}
-	prevNextButton("next");
-})
-
 
 /*
 	======================================================================
@@ -430,15 +650,13 @@ var trackDescription = [
 
 var audio = new Audio();
 var currentPlaylistIndex = 0;
+var seeking = false; // Determine if user is pressing the player seeking bar
+
 audio.src = 'audio/' + playlist[currentPlaylistIndex] + extension;
 audio.controls = true;
 audio.loop = false;
 audio.autoplay = false;
 audio.volume = 0.8;
-audio.addEventListener("timeupdate", function(){seekTimeUpdate();});
-audio.addEventListener("ended", function(){switchTrack("next");})
-
-var seeking = false;
 
 function switchTrack(direction){
 	if(direction == "next"){
@@ -470,7 +688,7 @@ function seekTimeUpdate(){
 		$('#seek-slider').val(time).change();
 		$('#midi-current-time').text(secondToString(audio.currentTime));
 	}else{
-		//console.log("seeking true - should stop updating");
+		//console.log("seeking = true");
 	}
 
 	// Re-print just in case if reInitTrack() failed to print at initialization
@@ -552,203 +770,16 @@ function stopAudio(){
 	$('#midi-play-button').html('<i class="fa fa-play" aria-hidden="true"></i>');
 }
 
-/* Midi playlist's song button */
-$('.midi-track-button').click(function(){
-
-	/* To solve a problem where the audio volume would suddenly turned into 0 */
-	if(audio.volume == 0){
-		//console.log("audio = " + audio.volume);
-		audio.volume = 0.8;
-		$('#volume-slider').val(audio.volume * 100).change();
-	}
-
-	var thisTarget = $(this).attr('track-id');
-	currentPlaylistIndex = thisTarget;
-	reInitTrack(true);
-	refreshMidiTrackList();
-});
-
-/* MIDI player seeker */
-$('#seek-slider').rangeslider({
-	polyfill:false,
-	onInit:function(){
-		seeking = false;
-		//console.log("SEEK");
-		//$('.header .pull-right').text($('input[type="range"]').val()+'K');
-	},
-	onSlide:function(position, value){
-		$('#midi-current-time').text(secondToString(audio.duration * (value/100)));
-		//console.log('onSlide');
-		//console.log('SEEK - position: ' + position, 'value: ' + value);
-		
-		//$('.header .pull-right').text(value+'K');
-	},
-	onSlideEnd:function(position, value){
-		//console.log('onSlideEnd');
-		//console.log("DURATION - " + audio.duration);
-		//console.log('SEEK - position: ' + position, 'value: ' + value);
-		seeking = false;
-		audio.currentTime = audio.duration * (value/100);
-	}
-});
-
-/* MIDI player volume changer. Doesn't work in mobile */
-$('#volume-slider').rangeslider({
-	polyfill:false,
-	onInit:function(){
-		audio.volume = 0.8;
-	},
-	onSlide:function(position, value){
-		//console.log('onSlide');
-		//console.log('VOL - position: ' + position, 'value: ' + value);
-		audio.volume = value / 100;
-		//$('.header .pull-right').text(value+'K');
-		
-	},
-	onSlideEnd:function(position, value){
-		//console.log('onSlideEnd');
-		//console.log('VOL - position: ' + position, 'value: ' + value);
-		audio.volume = value / 100;
-	}
-});
-
-/* Handle MIDI player seek bar's behavior. Doesn't work in chrome */
-$(document)
-.on('mousedown', '.rangeslider', function(e) {
-	e.preventDefault();
-	//console.log("ON MOUSDOWN");
-	if(this.id == "js-rangeslider-1"){
-		seeking = true;
-	}
-})
-.on('mouseup', function() {
-	if(seeking == true){
-		seeking = false;
-	}
-});
-
-/* MIDI Button: > Play */
-$('#midi-play-button').click(function(){
-	//console.log("MIDI PLAY");
-	if(audio.volume == 0){
-		audio.volume = 0.8;
-		$('#volume-slider').val(audio.volume * 100).change();
-	}
-	if(audio.paused){
-		audio.play();
-		$('#midi-play-button').html('<i class="fa fa-pause" aria-hidden="true"></i>');
-	}
-	else{
-		audio.pause();
-		$('#midi-play-button').html('<i class="fa fa-play" aria-hidden="true"></i>');
-	}
-})
-
-/* MIDI Button: << PREV */
-$('#midi-prev-button').click(function(){
-	if(audio.currentTime > 2){
-		//console.log("> 2");
-		audio.currentTime = 0;
-	}
-	else{
-		//console.log("PREV TRACK");
-		switchTrack("prev");
-		refreshMidiTrackList();
-	}
-})
-
-/* MIDI Button: >> NEXT */
-$('#midi-next-button').click(function(){
-	//console.log("NEXT TRACK");
-	switchTrack("next");
-	refreshMidiTrackList();
-})
-
-
-/*
-	======================================================================
-		GUITAR DEMO
-	======================================================================
-
-*/
-
-/* For Music -> Guitar */
-$('.video-popup-toggle').each(function(){
-	var self = this;
-	$(this).magnificPopup({
-
-	// Delay in milliseconds before popup is removed
-		removalDelay: 100,
-
-		// Class that is added to popup wrapper and background
-		// make it unique to apply your CSS animations just to this exact popup
-		mainClass: 'mfp-fade',
-		navigateByImgClick: false,
-		closeBtnInside: false,
-
-		items: [
-		{
-			src: $('<div class="container d-flex align-items-center justify-content-center"> <iframe src="https://player.vimeo.com/video/' + $(self).attr('toggle-target') + '?autoplay=1&title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> </div>'),
-			type: 'inline'
-		}
-		],
-
-		callbacks: {
-
-			beforeOpen: function() {
-		    	//console.log("Opening = " + $(self).attr('toggle-target'));
-			},
-			open: function() {
-				$('.slick').animate({opacity:'0'}, 150);
-				$('#demo-prev').animate({opacity:'0'}, 150);
-				$('#demo-next').animate({opacity:'0'}, 150);
-			},
-			close: function(){
-	    		$('.slick').animate({opacity:'1'}, 150);
-	    		$('#demo-prev').animate({opacity:'1'}, 150);
-	    		$('#demo-next').animate({opacity:'1'}, 150);
-	    	}
-	    }
-	})
-});
-
-
 /*
 	======================================================================
 		BACKGROUND VIDEO /IMAGE
 	======================================================================
-
 */
 
 // Detect if the website is running on a mobile device
 function isMobileDevice() {
 	return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
 };
-
-/* load video after page load */
-$(window).bind("load", function(){
-	// Since autoplay doesn't work in mobile device
-	if(!isMobileDevice()){
-		var video = document.getElementById('background-video');
-		var sourceMp4 = document.createElement('source');
-		sourceMp4.setAttribute('src', 'video/grass-35-10b.mp4');
-		sourceMp4.setAttribute('type', 'video/mp4');
-		sourceMp4.setAttribute('onerror', 'playerError()');
-
-		video.appendChild(sourceMp4);
-		video.play();
-		// If somehow the video still can't be played
-		if(video.paused === true){
-			video.src = "";
-			video.load();
-			video.remove();
-			backgroundAnimation();
-		}
-	}
-	else{
-		backgroundAnimation();
-	}
-}); 
 
 // If somehow the video still can't be played
 function playerError(){
