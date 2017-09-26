@@ -258,12 +258,10 @@ function init(){
 		polyfill:false,
 		onInit:function(){
 			seeking = false;
-			console.log("SEEK");
 			//$('.header .pull-right').text($('input[type="range"]').val()+'K');
 		},
 		onSlide:function(position, value){
 			$('#midi-current-time').text(secondToString(audio.duration * (value/100)));
-			console.log('onSlide');
 			//console.log('SEEK - position: ' + position, 'value: ' + value);
 			
 			//$('.header .pull-right').text(value+'K');
