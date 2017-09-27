@@ -152,7 +152,7 @@ html,body{
     left: 0;
     overflow: hidden;
     background-size: cover;
-    background: url('../background.png') center center / cover no-repeat; /* Background fall back */
+    background: url('../images/background.png') center center / cover no-repeat; /* Background fall back */
 	background-color: rgba(143,195,31,0.5);
 
     /*animation: background-animationX 15s, background-animationY 10s;*/
