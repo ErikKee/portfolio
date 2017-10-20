@@ -160,6 +160,9 @@ function init(){
 					$($(self).attr('toggle-target') + '-prev').off('click');
 					$($(self).attr('toggle-target') + '-next').off('click');
 
+					// Remove instance
+					$($(self).attr('toggle-target')).removeData('flexslider');
+
 		    		$('.slick').animate({opacity:'1'}, fadeOutTime);
 		    		$('#demo-prev').animate({opacity:'1'}, fadeOutTime);
 		    		$('#demo-next').animate({opacity:'1'}, fadeOutTime);
