@@ -151,8 +151,8 @@ html,body{
     bottom: 0;
     left: 0;
     overflow: hidden;
-    background-size: cover;
-    background: url('../images/background.png') center center / cover no-repeat; /* Background fall back */
+    /*background-size: cover;*/
+    background: url('../images/background.png') left center / cover no-repeat; /*center center / cover no-repeat;*/ /* Background fall back */
 	background-color: rgba(143,195,31,0.5);
 
     /*animation: background-animationX 15s, background-animationY 10s;*/
@@ -161,15 +161,15 @@ html,body{
 }
 
 @keyframes background-animationX {
-    0%{left: 0px;}
-    50%{left: -180px;}
-    100%{left: 0px;}
+    0%{left: -2rem;}
+    50%{left: 0px;}
+    100%{left: -2rem;}
 }
 
 @keyframes background-animationY {
-    0%{top: 0px;}
-    50%{top: -150px;}
-    100%{top: 0px;}
+    0%{top: -2rem;}
+    50%{top: 0px;}
+    100%{top: -2rem;}
 }
 
 #background-video-container video {
@@ -182,7 +182,6 @@ html,body{
 	width: auto;
 	height: auto;
 	background-size: cover;
-	position: center center;
 }
 
 #video-background{

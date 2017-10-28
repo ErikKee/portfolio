@@ -815,7 +815,7 @@ function playerError(){
 
 function backgroundAnimation(){
 	// Substitute by moving the background around 
-	$('#background-video-container').css("animation", "background-animationX 12s, background-animationY 8s");
+	$('#background-video-container').css("animation", "background-animationX 12s infinite, background-animationY 8s infinite");
 	$('#background-video-container').css("animation-timing-function", "ease-in-out");
-	$('#background-video-container').css("animation-iteration-count", "infinite");
+	//$('#background-video-container').css("animation-iteration-count", "infinite");
 }
