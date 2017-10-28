@@ -1,3 +1,50 @@
 <div>
     <h1>Ayy lmao</h1>
 </div>
+
+<!-- TEMP NOTE -->
+rgba(143,195,31, 1)
+
+
+TODO LIST:
+- Working link
+- Bottom button's effect?
+
+cursor: pointer;
+
+<p class="textMedium2 color-green" style="color: #8fc31f;">RUN</p>
+
+<!-- HOW TO DISABLE RIGHTCLICK -->
+<div oncontextmenu=”return false;” ></div>
+
+
+<!-- SCALE TO DEVICE SCREEN SIZE -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<!-- $(window).bind("load", function()) -->
+/* load video after page load */
+$(window).bind("load", function(){
+	// Since autoplay doesn't work in mobile device
+	if(!isMobileDevice()){
+		var video = document.getElementById('background-video');
+		var sourceMp4 = document.createElement('source');
+		sourceMp4.setAttribute('src', 'video/grass-35-10b.mp4');
+		sourceMp4.setAttribute('type', 'video/mp4');
+		sourceMp4.setAttribute('onerror', 'playerError()');
+
+		video.appendChild(sourceMp4);
+		video.play();
+
+		// If somehow the video still can't be played
+		if(video.paused === true){
+			video.src = "";
+			video.load();
+			video.remove();
+			playerError();
+		}
+	}
+	else{
+		backgroundAnimation();
+	}
+}); 

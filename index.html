@@ -1,106 +1,146 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:fb="http://ogp.me/ns/fb#">
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
-	<title>Ayy lmao</title>
+	<title>Erik Kee - Portfolio</title>
+	<meta name="description" content="Portfolio" />
+	<meta name="keywords" content="Portfolio" />
+	<meta name="author" content="Portfolio" />
+	<meta property="og:image" content="http://chkee.herokuapp.com/images/portfolio-thumbnail.png" />
+	<meta property="og:title" content="Erik Kee" />
+	<meta property="og:description" content="Portfolio" />
+	<meta name="theme-color" content="#8fc31f">
+	<link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+	<link rel="manifest" href="favicons/manifest.json">
+	<link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#8fc31f">
 	
-	<link rel="stylesheet" href="node_modules/tether/dist/css/tether.min.css">
-	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-	<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
-	<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="magnific-popup/magnific-popup.css">
+	<link rel="stylesheet" href="libraries/tether/dist/css/tether.min.css"/>
+	<link rel="stylesheet" href="libraries/bootstrap/dist/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="libraries/slick/slick.css" type="text/css"/>
+	<link rel="stylesheet" href="libraries/slick/slick-theme.css" type="text/css"/>
+	<link rel="stylesheet" href="libraries/font-awesome-4.7.0/css/font-awesome.min.css" type="text/css"/>
+	<link rel="stylesheet" href="libraries/magnific-popup/magnific-popup.css"/>
+	<link rel="stylesheet" href="libraries/flexSlider/flexslider.css" type="text/css"/>
+	<link rel="stylesheet" href="libraries/rangeslider/rangeslider.css"/>
+	<link rel="stylesheet" href="libraries/nanoscroller/nanoscroller.css"/>
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
 
-<!-- 	<script src="pace/pace.min.js"></script>
-  	<link href="pace/pace-minimal.css" rel="stylesheet" /> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="libraries/tether/dist/js/tether.min.js"></script>
+	<script src="libraries/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="js/script.js" async></script>
 
-	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 
+	<div id="initial-screen"></div>
 
-	<div id="demo-prev" class="col-1 p-0">
-		<button type="button" class="custom-slick-prev" style="text-align: left;">
+	<!-- Title + back button -->
+	<div class="navigation-top container-fluid fixed-top"> 
+		<div class="row">
+			<div class="col-8 col-sm-10 push-1 p-0"> 
+				<div id="title"></div>
+			</div>
+
+			<div id="back-button-container" class="col-2 offset-2 offset-sm-0 pull-1">
+				<div class="back-button-extended-area"></div>
+				<button id="back-button" minimal-button=""><span>BACK | <b>✕</b></span></button>
+			</div>
+		</div>
+	</div>
+
+	<!-- PREV & NEXT button for programming-item and music-item -->
+	<div id="demo-prev" class="p-0">
+		<button type="button" style="text-align: left;">
 			<span><i class="fa fa-angle-left" aria-hidden="true"></i></span>
 			<br>
 			PREV
 		</button>
 	</div> 
 
-	<div id="demo-next" class="col-1 p-0">
-		<button type="button" class="custom-slick-next w-100" style="text-align: right;">
+	<div id="demo-next" class="p-0">
+		<button type="button" style="text-align: right;">
 			<span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
 			<br>
 			NEXT
 		</button>
 	</div> 
 
-		
+	<div id="background-video-container">
+		<video oncontextmenu="return false;" id="background-video" autoplay loop muted></video>
+	</div>
+
+	<!-- This slick will hold most of the website's content -->
 	<div class="slick d-flex align-items-center" style="opacity: 1.0;">
 
 		<!-- LANDING PAGE -->
-		<div class="demo d-flex align-items-center" name="programming-list">
-			<div class="container bg-info col-10 p-0 justify-content-md-center d-flex align-items-center" style="height: 28rem; margin-bottom: 5rem; margin-top: 4rem;">
-				<div class="textBig text-center">
-					AYYYYYYYYY<br/>
-					LANDING PAGE
+		<div class="demo d-flex align-items-center" top-title="" page-type="landing-page">
+			<div class="container col-10 p-0 justify-content-center d-flex align-items-center">
+				<div class="container p-0 m-0 d-flex align-items-center justify-content-center">
+					<div>
+						<img class="mx-auto d-block" src="images/logo-ss-w.png" style="height: 8rem; width: 8rem;">
+						<div class="mx-auto mt-1">
+							<p id="debug-text" class="text-medium-3 text-center" style="color: white;">Erik Kee</p>
+							<p class="textSmall text-center" style="color: white;">Developer - Songwriter - Explorer</p>
+							<!-- <p id="debug-text2" class="text-medium-5 text-center" style="color: white;"></p>
+							<p class="text-medium-5 text-center" style="color: white;">Ver 1.97</p> -->
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 
 		<!-- PROGRAMMING LIST -->
-		<div class="demo d-flex align-items-center" align="center" name="programming-list">
-			<div class="container col-10 p-0 d-flex align-items-center" style="height: 28rem; margin-bottom: 5rem; margin-top: 4rem;">
+		<div class="demo d-flex align-items-center" top-title=" " page-type="programming-list">
+			<div class="container mb-5 col-10 d-flex align-items-center justify-content-center">
 
-				<div class="row justify-content-md-center bg-info">
-					<div class="programming-card video-game d-flex align-items-center text-center">
-						<div>
-							<h4 class="card-title">Three.js</h4>
-							<p>Video Game Engine Demo</p>
-							<p class="textSmall">[Coursework - Video Game Engine]</p>
+				<div class="row w-100 d-flex align-items-center justify-content-center p-0">
+					<div class="container w-75">
+						<div class="programming-card d-flex align-items-center justify-content-center text-center" target-index="0">
+							<div>
+								<h4 class="text-medium-5 mt-3">Three.js</h4> 
+								<p class="textSmall mb-3">Coursework - Video Game Engine</p>
+							</div>
 						</div>
-					</div>
-					<div class="programming-card align-items-center glsl">
-						<div>
-							<h4 class="card-title">GLSL</h4>
-							<p>GLSL DEMO</p>
-							<p class="textSmall">[Coursework - OpenGL Shading Language]</p>
+
+						<div class="programming-card d-flex align-items-center justify-content-center text-center" target-index="1">
+							<div>
+								<div>
+									<h4 class="text-medium-5 mt-3">GLSL</h4>
+									<p class="textSmall mb-3">Coursework - OpenGL Shading Language]</p>
+								</div>
+							</div>
 						</div>
-					</div>
-					<div class="programming-card">
-						<div>
-							<h4 class="card-title">Internship</h4>
-							<p>HouseNearby</p>
-							<p class="textSmall">[Internship - iOS Development]</p>
+
+						<div class="programming-card d-flex align-items-center justify-content-center text-center" target-index="2">
+							<div>
+								<h4 class="text-medium-5 mt-3">Internship</h4>
+								<p class="textSmall mb-3">iOS Development - HouseNearby</p>
+							</div>
 						</div>
-					</div>
-					<div class="programming-card">
-						<div>
-							<h4 class="card-title">Hackathon</h4>
-							<p>TEACH ME!</p>
-							<p class="textSmall">[Hackathon - App Challenge @GREAT2016]</p>
+						
+						<div class="programming-card d-flex align-items-center justify-content-center text-center" target-index="3">
+							<div>
+								<h4 class="text-medium-5 mt-3">Hackathon</h4>
+								<p class="textSmall mb-3">App Challenge @GREAT2016 - TEACH ME!</p>
+							</div>
 						</div>
-					</div>
-					<div class="programming-card">
-						<div>
-							<h4 class="card-title">iOS</h4>
-							<p>InTheBooks</p>
-							<p class="textSmall">[Coursework - Mobile App Development]</p>
+						<div class="programming-card d-flex align-items-center justify-content-center text-center" target-index="4">
+							<div>
+								<h4 class="text-medium-5 mt-3">iOS</h4>
+								<p class="textSmall mb-3">Coursework - Mobile App Development</p>
+							</div>
 						</div>
-					</div>
-					<div class="programming-card">
-						<div>
-							<h4 class="card-title">iOS</h4>
-							<p>ESCAPE</p>
-							<p class="textSmall">[Coursework - Mobile App Development]</p>
-						</div>
-					</div>
-					<div class="programming-card">
-						<div>
-							<h4 class="card-title">iOS</h4>
-							<p>RUNTIME</p>
-							<p class="textSmall">[Coursework - Mobile App Development]</p>
+						<div class="programming-card d-flex align-items-center justify-content-center text-center" target-index="5">
+							<div>
+								<h4 class="text-medium-5 mt-3">Android</h4>
+								<p class="textSmall mb-3">Google Developer Study Jam</p>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -108,338 +148,1060 @@
 		</div>
 
 		<!-- RESUME -->
-		<div id="resumePage" class="demo d-flex align-items-center" name="programming-list">
-			<div class="container col-10 p-0" style="height: 28rem; margin-bottom: 5rem; margin-top: 4rem; background-color: rgb(0,0,0,0.1);">
+		<div class="demo d-flex align-items-center" top-title="Resume" page-type="resume-page">
 
-				<!-- <div> -->
+			<div class="container col-10 mb-5">
 
-					<div id="title-container" class="container col-12">
-						<div class="row">
-							<div class="col-9 p-0">
-								<div id="projectTitle">
-									RESUME
-								</div>
-							</div>
-							<div class="col-3 p-0" align="text-right">
-								<button id="backButton"> <span>BACK | <b>✕</b></span></button>
-							</div>
+				<div class="row pt-5 pt-md-2">
+					<div class="col-12 col-md-6 verticalDivider text-center text-md-left">
+						<div>
+							<p class="text-medium-3" style="color: #8fc31f;">Name</p>
+							<p class="text-medium-1">Chiahau(Erik) Kee</p>
+							<br/>
+							<p class="text-medium-3" style="color: #8fc31f;">Programming</p>
+							<p class="text-medium-1">
+								JavaScript, HTML, CSS, Swift, Java<br/>Bootstrap, jQuery, Angular, Three.js<br/>C, C++, MySQL, GLSL, JSON, XML
+							</p>
+							<br/>
+							<p class="text-medium-3" style="color: #8fc31f;">Education</p>
+							<p class="text-medium-1">
+								Oklahoma State University, Stillwater, Oklahoma<br/>Bachelor of Science in Computer Science
+							</p>
+							<br/>
+							<p class="text-medium-3" style="color: #8fc31f;">Location</p>
+							<p class="text-medium-1">
+								I often travel between OK and CA, but I'm willing to relocate to anywhere in the United States.
+							</p>
+							<br/>
+							<p class="text-medium-3" style="color: #8fc31f;">Language</p>
+							<p class="text-medium-1">
+								English, Chinese, Cantonese - Professional working proficiency<br/>
+								Japanese, Malay - Limited working proficiency
+							</p>
 						</div>
+						<br/>
 					</div>
 
-
-					<div id="verticalDivider">
-						<div class="row pt-2" style="height: 24rem; ">
-							<div class="col pl-4">
-								<p class="textMedium2 mt-2" style="color: #8fc31f;">Name</p>
-								<p class="textMedium1">KIKAHO</p>
-								<p class="textMedium2" style="color: #8fc31f;">Programming</p>
-								<p class="textMedium1">
-									Swift, Java, JavaScript, C, C++<br/>html, CSS, Bootstrap4, MySQL, JSON<br/>Three.js, GLSL
-								</p>
-								<p class="textMedium2" style="color: #8fc31f;">Education</p>
-								<p class="textMedium1">
-									Oklahoma State University, Stillwater, Oklahoma<br/>Bachelor of Science in Computer Science
-								</p>
-								<p class="textMedium2" style="color: #8fc31f;">Language</p>
-								<p class="textMedium1">
-									English, Chinese, Cantonese - Native profieciency<br/>
-									Japanese, Malay - Limited working profieciency
-								</p>
-
-							</div>
-
-							<div class="col pl-3">
-								<p class="textMedium2 mt-2" style="color: #8fc31f;">Experience</p>
-								<p class="textMedium1 hiddenTextToggle" id="experience-wenbit-detail-toggle" 
-								value="iOS Developer Intern | Wenbit Sdn Bhd, Malaysia"
-								onclick="toggleDetail('experience-wenbit-detail')">
-								<i class="fa fa-angle-right" aria-hidden="true"></i> iOS Developer Intern | Wenbit Sdn Bhd, Malaysia
-								</p>
-								<div id="experience-wenbit-detail" class="hiddenText" style="height: 0px;">
-									<p class="textSmall">
-										Developed a housing properties searching iOS application<br/>
-										Implemented search feature that interacts with company's online database and designed the user interface
-									</p>
-								</div>
-
-								<p class="textMedium2" style="color: #8fc31f;">Academic Projects</p>
-
-								<p class="textMedium1 hiddenTextToggle" id="projects-game-engine-detail-toggle" 
-								value="Video Game Engine"
-								onclick="toggleDetail('projects-game-engine-detail')">
-								<i class="fa fa-angle-right" aria-hidden="true"></i> Video Game Engine
-								</p>
-								<div id="projects-game-engine-detail" class="hiddenText" style="height: 0px;">
-									<p class="textSmall">
-										Developed a 3D graphical engine based on Three.js that is able to render a scene according to custom JSON file, custom script can also be applied into each rendered objects to achieve player control and animation effects. 
-									</p>
-								</div>
-
-
-
-								<p class="textMedium1 hiddenTextToggle" id="projects-google-dev-detail-toggle"
-								value="Google Developer Study Jam"
-								onclick="toggleDetail('projects-google-dev-detail')">
-								<i class="fa fa-angle-right" aria-hidden="true"></i> Google Developer Study Jam
-								</p>
-								<div id="projects-google-dev-detail" class="hiddenText" style="height: 0px;">
-									<p class="textSmall">
-										A workshop held in Oklahoma State University by Google. The objective is to create an Android mobile application that is capable to detect device shaking motion and perform animation accordingly.
-									</p>
-								</div>
-
-								<p class="textMedium1 hiddenTextToggle" id="projects-ios-inthebooks-detail-toggle"
-								value="iOS Application - In The Books"
-								onclick="toggleDetail('projects-ios-inthebooks-detail')">
-								<i class="fa fa-angle-right" aria-hidden="true"></i> iOS Application - In The Books
-								</p>
-								<div id="projects-ios-inthebooks-detail" class="hiddenText" style="height: 0px;">
-									<p class="textSmall">
-										Developed as a team to create an iOS application for hotel inventory management that is capable of storing data into online database.
-									</p>
-								</div>
-
-								<p class="textMedium2" style="color: #8fc31f;">Campus Involvement</p>
-								<p class="textMedium1 hiddenTextToggle" id="campus-drum-detail-toggle" 
-								value="Malaysia 24 Season Drum Troupe"
-								onclick="toggleDetail('campus-drum-detail')">
-								<i class="fa fa-angle-right" aria-hidden="true"></i> Malaysia 24 Season Drum Troupe
-								</p>
-								<div id="campus-drum-detail" class="hiddenText" style="height: 0px;">
-									<p class="textSmall">
-										Developed a housing properties searching iOS application<br/>
-										Implemented search feature that interacts with company's online database and designed the user interface
-									</p>
-								</div>
-
-								<br/>
-								<button href="popupDummy.html" class="ajax-popup-link demoButton">RESUME.PDF</button>
-								<button href="popupDummy.html" class="ajax-popup-link demoButton">GITHUB</button>
-							</div> 
-							<!-- END RIGHT COLUMN -->
+					<div class="col-12 col-md-6 px-5 d-flex align-items-center justify-content-center text-center text-md-left">
+					<div>
+						<p class="text-medium-3" style="color: #8fc31f;">Experience</p>
+						<p class="text-medium-1 hiddenTextToggle" id="experience-wenbit-detail-toggle" value="iOS Developer Intern | Wenbit Sdn Bhd, Malaysia" onclick="toggleDetail('experience-wenbit-detail')">
+						<i class="fa fa-angle-right" aria-hidden="true"></i> iOS Developer Intern | Wenbit Sdn Bhd, Malaysia
+						</p>
+						<div id="experience-wenbit-detail" class="hiddenText" style="height: 0px;" onclick="toggleDetail('experience-wenbit-detail')">
+							<p class="textSmall">
+								Developed a housing properties searching iOS application.
+								Implemented search feature that interacts with company's online database and designed the user interface.
+							</p>
 						</div>
-					</div>
-				<!-- </div> -->
+						<br/>
+						<p class="text-medium-3" style="color: #8fc31f;">Academic Projects</p>
+
+						<p class="text-medium-1 hiddenTextToggle" id="projects-game-engine-detail-toggle" value="Video Game Engine" onclick="toggleDetail('projects-game-engine-detail')">
+						<i class="fa fa-angle-right" aria-hidden="true"></i> Video Game Engine
+						</p>
+						<div id="projects-game-engine-detail" class="hiddenText" style="height: 0px;" onclick="toggleDetail('projects-game-engine-detail')">
+							<p class="textSmall">
+								Developed a 3D graphical engine based on Three.js that is capable of rendering a scene according to an input JSON file, and apply JavaScript scripts to each rendered objects to achieve animation and player control.
+							</p>
+						</div>
+
+
+
+						<p class="text-medium-1 hiddenTextToggle" id="projects-google-dev-detail-toggle" value="Google Developer Study Jam" onclick="toggleDetail('projects-google-dev-detail')">
+						<i class="fa fa-angle-right" aria-hidden="true"></i> Google Developer Study Jam
+						</p>
+						<div id="projects-google-dev-detail" class="hiddenText" style="height: 0px;" onclick="toggleDetail('projects-google-dev-detail')">
+							<p class="textSmall">
+								An Android developer workshop held by Google at Oklahoma State University. The objective was to create a Magic Ball Android Application that shows random answers when user shake their device.
+							</p>
+						</div>
+
+						<p class="text-medium-1 hiddenTextToggle" id="projects-ios-inthebooks-detail-toggle" value="iOS Application - In The Books" onclick="toggleDetail('projects-ios-inthebooks-detail')">
+						<i class="fa fa-angle-right" aria-hidden="true"></i> iOS Application - In The Books
+						</p>
+						<div id="projects-ios-inthebooks-detail" class="hiddenText" style="height: 0px;" onclick="toggleDetail('projects-ios-inthebooks-detail')">
+							<p class="textSmall">
+								Developed as a team to create an iOS application to help managing hotel restaurant's inventory and ingredient cost.
+							</p>
+						</div>
+						<br/>
+
+						<!-- Campus Involvement -->
+						<p class="text-medium-3" style="color: #8fc31f;">Campus Involvement</p>
+						<p class="text-medium-1 hiddenTextToggle" id="campus-drum-detail-toggle" value="24 Season Drum Troupe" onclick="toggleDetail('campus-drum-detail')">
+						<i class="fa fa-angle-right" aria-hidden="true"></i> 24 Season Drum Troupe
+						</p>
+						<div id="campus-drum-detail" class="hiddenText" style="height: 0px;" onclick="toggleDetail('campus-drum-detail')">
+							<p class="textSmall">
+								Vice president/songwriter of the drum team. I lead the team to performing in the NBA Thunder Halftime Show, and an International Drum Competition in Johor Malaysia. 
+							</p>
+						</div>
+						<br/>
+						<button onclick="window.open('Resume - Erik Kee.pdf');" class="demo-button">RESUME.PDF</button>
+						<button onclick="window.open('https://github.com/chkee');" class="demo-button">GITHUB<span><i class="fa fa-external-link" aria-hidden="true"></i></span></button>
+
+						</div>
+					</div> 
+				</div>
 			</div>
 		</div>
 
 
 		<!-- MUSIC LIST -->
-		<div class="demo d-flex align-items-center" align="center" name="music-list">
-			<div class="container col-10 p-0 d-flex align-items-center" style="height: 28rem; margin-bottom: 5rem; margin-top: 4rem;">
+		<div class="demo d-flex align-items-center" top-title=" " page-type="music-list">
+			<div class="container mb-5 col-10 d-flex align-items-center justify-content-center">
 
-				<div class="row w-100 justify-content-md-center bg-info">
-					<div class="music-card midi justify-content-md-center d-flex align-items-center text-center">
-						<div>
-							<p class="textMedium3">MIDI</p>
-							<p class="textSmall">MIDI Demo Tracks</p>
+				<div class="row w-100 justify-content-center d-flex align-items-center justify-content-center">
+					<div class="container w-50">
+						<div class="music-card drum justify-content-center d-flex align-items-center text-center" target-index="0">
+							<div>
+								<p class="text-medium-5 p-0 m-0">Drum</p>
+								<p class="textSmall m-2 no-wrap">Malaysia 24 Season Drum troupe @OSU</p>
+							</div>
 						</div>
-					</div>
-					<div class="music-card guitar justify-content-md-center d-flex align-items-center text-center">
-						<div>
-							<p class="textMedium3">GUITAR</p>
-							<p class="textSmall">Guitar Demo Videos</p>
+						<div class="music-card midi justify-content-center d-flex align-items-center text-center" target-index="1">	
+							<div>
+								<p class="text-medium-5 no-wrap">MIDI Programming</p>
+								<p class="textSmall">MIDI Demo Tracks</p>
+							</div>
 						</div>
-					</div>
-					<div class="music-card drum justify-content-md-center d-flex align-items-center text-center">
-						<div>
-							<p class="textMedium3">DRUM</p>
-							<p class="textSmall">Malaysia 24 Season Drum troupe @OSU</p>
-						</div>
+						<!-- <div class="music-card guitar justify-content-center d-flex align-items-center text-center" target-index="2">
+							<div>
+								<p class="text-medium-5">Guitar</p>
+								<p class="textSmall">Guitar Demo Videos</p>
+							</div>
+						</div> -->
 					</div>
 				</div>
 			</div>
 		</div>
 
 
-		<!-- PROGRAMMING 01 - VIDEO GAME ENGINE -->
-		<div id="resumePage" class="demo d-flex align-items-center" name="programming-list">
-			<div class="container col-10 p-0" style="height: 28rem; margin-bottom: 5rem; margin-top: 4rem; background-color: rgb(0,0,0,0.1);">
+		<!-- PROGRAMMING 00 - Three.js -->
+		<div class="demo d-flex align-items-center" top-title="Three.js" page-type="programming-item">
+			<div class="container mb-5 col-10 d-flex align-items-center">
 
-				<!-- <div> -->
-
-					<div id="title-container" class="container col-12">
-						<div class="row">
-							<div class="col-9 p-0">
-								<div id="projectTitle">
-									VIDEO GAME ENGINE
+				<div class="row pt-5 pt-md-2">
+					<div class="col-12 col-md-6 verticalDivider d-flex align-items-center">
+						<div toggle-target="#flexslider-p-0" class="container flexslider-toggle magnificPopupImageTriger w-75 p-0 mx-auto">
+							<img src="images/programming-0-3.jpg" class="img-fluid">
+							<div class="overlay d-flex align-items-center justify-content-center">
+								<div class="align-items-center text-center">
+									<i class="fa fa-search-plus" aria-hidden="true"></i>
+									<p class="overlayText">Click to view image gallery</p>
 								</div>
-							</div>
-							<div class="col-3 p-0" align="text-right">
-								<button id="backButton"> <span>BACK | <b>✕</b></span></button>
 							</div>
 						</div>
 					</div>
 
+					<div class="col-12 col-md-6 px-5 mt-4 mt-md-0 d-flex align-items-center text-center text-md-left">
+						<div>
+							<p class="text-medium-3" style="color: #8fc31f;">Coursework: Video Game Engine</p>
+							<p class="text-medium-1">
+								A 3D graphical engine based on Three.js that is capable of rendering a scene according to an input JSON file. Custom JavaScript scripts can also be applied to each rendered objects to achieve animation and player control. 
+							</p>
+							<br/>
+							<button onclick="window.open('https://threejs-demo.herokuapp.com/');" class="demo-button">VIEW DEMO<span><i class="fa fa-external-link" aria-hidden="true"></i></span></button>
+							<br/>
+							<button onclick="window.open('https://github.com/chkee/three.js-demo');" class="demo-button">GITHUB<span><i class="fa fa-external-link" aria-hidden="true"></i></span></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-					<div id="verticalDivider">
-						<div class="row pt-2" style="height: 24rem; ">
+		<!-- PROGRAMMING 01 - GLSL -->
+		<div class="demo d-flex align-items-center" top-title="OpenGL Shading Language" page-type="programming-item">
+			<div class="container mb-5 col-10 d-flex align-items-center">
 
-							<div class="col pl-4 ">
-								<img id="VideoGameGallery" src="images/kid-running.jpg" href="images/kid-running.jpg"  
-								class="img-fluid w-75 mx-auto">
+				<div class="row pt-5 pt-md-2">
+					<div class="col-12 col-md-6 verticalDivider d-flex align-items-center">
+						<div toggle-target="#flexslider-p-1" class="container flexslider-toggle magnificPopupImageTriger w-75 p-0 mx-auto">
 
-
-								
-
-							<!-- 	<div id="videoGame01" class="mfp-hide magnificPopupContainer">
-									<img id="VideoGameGallery" src="images/VideoGameEngine01.jpg" class="magnificPopupMid img-fluid mx-auto">
+							<img src="images/programming-1-1.jpg" class="img-responsive">
+							<div class="overlay d-flex align-items-center justify-content-center">
+								<div class="align-items-center text-center">
+									<i class="fa fa-search-plus" aria-hidden="true"></i>
+									<p class="overlayText">Click to view image gallery</p>
 								</div>
-								<div id="videoGame02" class="mfp-hide magnificPopupContainer">
-									<img id="VideoGameGallery" src="images/VideoGameEngine02.jpg" class="magnificPopupMid img-fluid mx-auto">
-								</div>
-								<div id="videoGame03" class="mfp-hide magnificPopupContainer">
-									<img id="VideoGameGallery" src="images/VideoGameEngine03.jpg" class="magnificPopupMid img-fluid mx-auto">
-								</div>
- -->
-								
+							</div>
+						</div>
+					</div>
 
+					<div class="col-12 col-md-6 px-5 mt-4 mt-md-0 d-flex align-items-center text-center text-md-left">
+						<div>
+							<p class="text-medium-3" style="color: #8fc31f;">Coursework: RUN</p>
+							<p class="text-medium-1">
+								An animated scene created utilizing OpenGL Shading Language (GLSL). The scene featured a red car being chased by an UFO.
+							</p>
+							<br/>
+							<button onclick="window.open('https://glsl-demo.herokuapp.com/');" class="demo-button">VIEW DEMO<span><i class="fa fa-external-link" aria-hidden="true"></i></span></button>
+							<br/>
+							<button onclick="window.open('https://github.com/chkee/glsl-demo');" class="demo-button">GITHUB<span><i class="fa fa-external-link" aria-hidden="true"></i></span></button>
+						</div>
+					</div> 
+				</div>
+			</div>
+		</div>
+
+		<!-- PROGRAMMING 02 - Internship -->
+		<div class="demo d-flex align-items-center" top-title="Internship" page-type="programming-item">
+			<div class="container col-10 mb-5 d-flex align-items-center justify-content-center">
+
+				<div class="row pt-5 pt-md-2">
+					<div class="col-12 col-md-6 verticalDivider d-flex align-items-center">
+						<div toggle-target="#flexslider-p-2" class="container flexslider-toggle magnificPopupImageTriger w-75 p-0 mx-auto">
+
+							<img src="images/thumbnail-p2.jpg" class="img-responsive">
+							<div class="overlay d-flex align-items-center justify-content-center">
+								<div class="align-items-center text-center">
+									<i class="fa fa-search-plus" aria-hidden="true"></i>
+									<p class="overlayText">Click to view image gallery</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-12 col-md-6 px-5 mt-4 mt-md-0 d-flex align-items-center justify-content-center text-center text-md-left">
+						<div>
+							<p class="text-medium-3" style="color: #8fc31f;">HouseNearby - Wenbit Sdn Bhd</p>
+							<p class="text-medium-1">
+								The company I have interned with is a startup company in Malaysia called Wenbit Sdn Bhd. The objective is to design and create a housing property searching iOS application. My tasks included designing the application's user interface, user experience, and its functionality. I successfully implemented a search feature that was able to communicate with the company's online database through RESTful API, and get search result according to user's input.
+							</p>
+						</div>
+					</div> 
+				</div>
+			</div>
+		</div>
+
+		<!-- PROGRAMMING 03 - Hackathon -->
+		<div class="demo d-flex align-items-center" top-title="Hackathon" page-type="programming-item">
+			<div class="container col-10 mb-5 d-flex align-items-center justify-content-center">
+
+				<div class="row pt-5 pt-md-2">
+					<div class="col-12 col-md-6 verticalDivider d-flex align-items-center">
+						<div toggle-target="#flexslider-p-3" class="container flexslider-toggle magnificPopupImageTriger w-75 p-0 mx-auto">
+
+							<img src="images/thumbnail-p3.jpg" class="img-responsive">
+							<div class="overlay d-flex align-items-center justify-content-center">
+								<div class="align-items-center text-center">
+									<i class="fa fa-search-plus" aria-hidden="true"></i>
+									<p class="overlayText">Click to view image gallery</p>
+								</div>
 							</div>
 
-							<div class="col pl-3">
-								<p class="textMedium1">
-									A 3D graphical engine based on Three.js that is capable of rendering a scene according to custom JSON file. Custom scripts can also be applied into each rendered objects to achieve player control and animation effects. 
-								</p>
+						</div>
+					</div>
 
+					<div class="col-12 col-md-6 px-5 mt-4 mt-md-0 d-flex align-items-center justify-content-center text-center text-md-left">
+						<div>
+							<p class="text-medium-3" style="color: #8fc31f;">Teach Me! - App Challenge @GREAT2016</p>
+							<p class="text-medium-1">
+								Pitched an application idea and made its prototype in an application challenge hackathon event held in Sarawak, Malaysia. The main idea is to build a platform for people to get help in learning, and earn money from teaching. Sort of like UBER but for education, anyone can be a teacher as long as they have the knowledge in that subject matter.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- PROGRAMMING 04 - iOS -->
+		<div class="demo d-flex align-items-center" top-title="iOS Development" page-type="programming-item">
+			<div class="container col-10 mb-5 d-flex align-items-center justify-content-center">
+
+				<div class="row pt-5 pt-md-2">
+					<div class="col-12 col-md-6 verticalDivider d-flex align-items-center">
+						<div toggle-target="#flexslider-p-4" class="container flexslider-toggle magnificPopupImageTriger w-75 p-0 mx-auto">
+
+							<img src="images/thumbnail-p4+.jpg" class="img-responsive">
+							<div class="overlay d-flex align-items-center justify-content-center">
+								<div class="align-items-center text-center">
+									<i class="fa fa-search-plus" aria-hidden="true"></i>
+									<p class="overlayText">Click to view image gallery</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-12 col-md-6 px-5 mt-4 mt-md-0 d-flex align-items-center justify-content-center text-center text-md-left">
+						<div>
+							<p class="text-medium-3" style="color: #8fc31f;">iOS Development</p>
+							<p class="text-medium-1">
+								The Mobile Application Development course I took at Oklahoma State University provided me the opportunity to learn about iOS development, and collaboration with other students.
 								<br/>
-								<button href="popupDummy.html" class="ajax-popup-link demoButton">VIEW DEMO</button>
-								<button href="popupDummy.html" class="ajax-popup-link demoButton">GITHUB</button>
-							</div> 
-							<!-- END RIGHT COLUMN -->
+								The gallery shows some of the key projects I have done in the course.
+							</p>
 						</div>
-					</div>
-				<!-- </div> -->
+					</div> 
+				</div>
 			</div>
 		</div>
 
+		<!-- PROGRAMMING 05 - Android -->
+		<div class="demo d-flex align-items-center" top-title="Android Development" page-type="programming-item">
+			<div class="container col-10 mb-5 d-flex align-items-center justify-content-center">
 
+				<div class="row pt-5 pt-md-2">
+					<div class="col-12 col-md-6 verticalDivider d-flex align-items-center">
+						<div toggle-target="#flexslider-p-5" class="container flexslider-toggle magnificPopupImageTriger w-75 p-0 mx-auto">
 
-
-
-		<!-- PROTOTYPE PAGE -->
-		<div class="demo bg-color-green" name="programming-1">
-			<div class="container col-10 p-0 bg-color-white" style="height: 15rem; margin-bottom: 5rem; margin-top: 4rem;">
-
-				<div id="title-container" class="container col-12">
-					<div class="row">
-						<div class="col-9 bg-color-green p-0">
-							<div id="projectTitle">
-								VIDEO GAME ENGINE
+							<img src="images/thumbnail-p5.jpg" class="img-responsive">
+							<div class="overlay d-flex align-items-center justify-content-center">
+								<div class="align-items-center text-center">
+									<i class="fa fa-search-plus" aria-hidden="true"></i>
+									<p class="overlayText">Click to view image gallery</p>
+								</div>
 							</div>
 						</div>
-						<div class="col-3 bg-color-green p-0" align="text-right">
-							<button id="backButton"> <span>BACK | <b>✕</b></span></button>
+					</div>
+
+					<div class="col-12 col-md-6 px-5 mt-4 mt-md-0 d-flex align-items-center justify-content-center text-center text-md-left">
+						<div>
+							<p class="text-medium-3" style="color: #8fc31f;">Google Developer Study Jam</p>
+							<p class="text-medium-1">
+								An Android developer workshop held by Google at Oklahoma State University. The objective was to create a Magic Ball Android Application that shows random answers when user shake their device.
+							</p>
+							<br/>
+							<button onclick="window.open('https://github.com/chkee/android-magic-ball');" class="demo-button">GITHUB<span><i class="fa fa-external-link" aria-hidden="true"></i></span></button>
 						</div>
-					</div>
-				</div>
-
-
-
-				<div class="row bg-color-green" style="height: 24rem;">
-					<div class="col-6 pl-5 pt-5 bg-info">
-						<img src="images/kid-running.jpg" href="images/kid-running.jpg"  class="image-link img-fluid w-75 mx-auto">
-					</div>
-					<div class="col-6 pt-5 pl-5">
-						3D graphical game engine based on Three.js
-						Able to generate scene based on an input JSON file
-						Implemented keyboard control
-						<br/>
-						<br/>
-						<button href="popupDummy.html" class="ajax-popup-link demoButton">VIEW DEMO</button>
-						<button href="popupDummy.html" class="ajax-popup-link demoButton">VIEW ON GITHUB</button>
-					</div>
+					</div> 
 				</div>
 			</div>
 		</div>
 
-		<!-- Third page -->
-		<div class="demo bg-color-green" name="programming-list">
-			iOS - RUNTIME
-		</div>
+		<!-- MUSIC 01 - Drum -->
+		<div class="demo d-flex align-items-center" top-title="24 Festive Drum" page-type="music-item">
+			<div class="container col-10 mb-5 d-flex align-items-center justify-content-center">
 
-		<!-- Third page -->
-		<div class="demo bg-color-green" name="programming-list">
-			third
-		</div>
-
-		<!-- PROTOTYPE PAGE -->
-		<div class="demo bg-color-green" name="programming-list">
-			<div class="container col-10 p-0 bg-color-white" style="height: 28rem; margin-bottom: 5rem; margin-top: 4rem;">
-
-				<div id="title-container" class="container col-12">
-					<div class="row">
-						<div class="col-9 bg-color-green p-0">
-							<div id="projectTitle">
-								WRYYYYYYYYYY
+				<div class="row pt-2 pt-md-2">
+					<div class="col-12 col-md-6 verticalDivider d-flex align-items-center">
+						<div toggle-target="#flexslider-m-0" class="container flexslider-toggle magnificPopupImageTriger w-75 p-0 mx-auto">
+							<img src="images/music-0-1.jpg" class="img-responsive">
+							<div class="overlay d-flex align-items-center justify-content-center">
+								<div class="align-items-center text-center">
+									<i class="fa fa-search-plus" aria-hidden="true"></i>
+									<p class="overlayText">Click to view image gallery</p>
+								</div>
 							</div>
 						</div>
-						<div class="col-3 bg-color-green p-0" align="text-right">
-							<button id="backButton"> <span>BACK | <b>✕</b></span></button>
+					</div>
+
+					<div class="col-12 col-md-6 px-5 mt-4 mt-md-0 d-flex align-items-center justify-content-center text-center text-md-left">
+						<div>
+							<p class="text-medium-3" style="color: #8fc31f;">Malaysia 24 Festive Drum Troupe</p>
+							<p class="text-medium-1">
+								I was a vice president/songwriter of Oklahoma State University Malaysia 24 Festive Drum Troupe. I lead the team to performing in the NBA Thunder Halftime Show, and an International Drum Competition in Johor Malaysia.
+							</p>
+							<br/>
+							<button toggle-target="229331145" class="video-popup-toggle demo-button">PERFORMANCE VIDEO</button>
 						</div>
-					</div>
-				</div>
-
-
-
-				<div class="row bg-color-white" style="height: 24rem; opacity: 0.5;">
-					<div class="col-6 pl-5 pt-5 bg-info">
-						<img src="images/kid-running.jpg" href="images/kid-running.jpg"  class="image-link img-fluid w-75 mx-auto">
-					</div>
-					<div class="col-6 pt-5 pl-5">
-						LMAO
-						<a href="popupDumie.html" class="ajax-popup-link">Show inline popup</a>
 					</div>
 				</div>
 			</div>
 		</div>
 
-	</div><!-- END SLICK -->
 
+		<!-- MUSIC 01 - MIDI -->
+		<div class="demo d-flex align-items-center" top-title="MIDI Programming" page-type="music-item">
+			<div class="container col-10 mb-5 d-flex align-items-center justify-content-center">
 
+				<div class="row w-100">
+					<div class="col-12 verticalDivider col-md-6 d-flex align-items-center justify-content-center">
+						<div class="col-12 container p-0 m-0">
+							<div class="text-center text-md-left">
+								<h1 id="midi-title-text" class="text-medium-4 my-2" style="color: #8fc31f;">Title</h1>
+								<p id="midi-date-text" class="text-medium-1 mt-3"> Composed date:</p>
+								<p id="midi-description-text" class="text-medium-1" style="white-space:pre-wrap;"></p>
+							</div>
 
+							<!-- SEEK SLIDER -->
+							<div id="seek-slider-container" class="row w-100 p-0 m-0 d-flex align-items-center justify-content-center">
+								<input id="seek-slider" type="range" min="0" max="100" value="0" step="1" data-rangeslider>
+							</div>
+							
+							<!-- TIME INDICATOR -->
+							<div class="container p-0 m-0 w-100 d-flex align-items-center justify-content-center" style="height: 10px;">
+								<div class="col-5 p-0 text-left" style="height: 10px;">
+									<p id="midi-current-time" class="textSmall">0 : 00</p>
+								</div>
+								<div class="col-5 p-0 text-right" style="height: 10px;">
+									<p id="midi-end-time" class="textSmall">0 : 00</p>
+								</div>
+							</div>
 
+							<!-- PREV PLAY NEXT BUTTON -->
+							<div id="midi-player-buttons-container" class="p-0 m-0 d-flex align-items-center justify-content-center">
+								<button id="midi-prev-button" class="col-2"><i class="fa fa-backward" aria-hidden="true"></i></button>
+								<button id="midi-play-button" class="col-8 col-md-6"><i class="fa fa-play" aria-hidden="true"></i></button>
+								<button id="midi-next-button" class="col-2"><i class="fa fa-forward" aria-hidden="true"></i></button>
+							</div>
 
-<!-- 	<img id="videoGame01" src="images/VideoGameEngine01.jpg" class="container d-flex justify-content-md-center magnificPopupMid mfp-hide img-fluid mx-auto">
+							<!-- VOLUME CONTROL -->
+							<div class="row d-flex align-items-center justify-content-center">
+								<div class="">
+									<i id="midi-vol-down-icon" class="fa fa-volume-off" aria-hidden="true"></i>
+								</div>
+								<div class="col-6 col-md-8">
+									<input id="volume-slider" type="range" min="0" max="100" value="80" step="1" data-rangeslider>
+								</div>
+								<div class="">
+									<i id="midi-vol-up-icon" class="fa fa-volume-up" aria-hidden="true"></i>
+								</div>
+							</div>
+						</div>
+					</div>
 
-	<img id="videoGame02" src="images/VideoGameEngine02.jpg" class="container d-flex justify-content-md-center magnificPopupMid mfp-hide img-fluid mx-auto">
+					<div class="col-12 col-md-6 px-5 mt-4 mt-md-0 d-flex align-items-center justify-content-center text-center text-md-left">
+						
+						<div class="container col-12 p-0 m-0">
+							<div class="row">
+								<p class="text-medium-3 w-100 mt-3 text-center text-md-left" style="color: #8fc31f;">MIDI</p>
+								<p class="textSmall2">MIDI (Musical Instrument Digital Interface) is a protocol designed for recording and playing back music on digital synthesizers that is supported by many makes of personal computer sound cards.</p>
+								<p class="text-medium-1">Here are some of my past midi works:</p>
+							</div>
 
-	<img id="videoGame03" src="images/VideoGameEngine03.jpg" class="container d-flex justify-content-md-center magnificPopupMid mfp-hide img-fluid mx-auto"> -->
-
-
-
-	<div id="navigation-bottom" class="container-fluid fixed-bottom" style="margin-left: 2%; margin-right: 2%;">
-
-
-		<div class="row">
-
-			<div class="col" align="center">
-				<button type="button" id="programming-toggle" class="btn btn-secondary">PROGRAMMING</button>
+							<div id="midi-tracklist-container" class="row mt-2">
+								<div class="col-12 p-0 m-0">
+									<div id="midi-tracklist-container-scroller" class="nano">
+										<div id="midi-tracklist" class="nano-content overthrow">
+											<button id="woah" track-id="0" class="col-12 py-1 midi-track-button text-left">Welcome Back<span>0:31</span></button>
+											<button id="woah2" track-id="1" class="col-12 py-1 midi-track-button text-left">Night Season<span>1:31</span></button>
+											<button id="woah3" track-id="2" class="col-12 py-1 midi-track-button text-left">Air Forest<span>0:58</span></button>
+											<button id="woah4" track-id="3" class="col-12 py-1 midi-track-button text-left">Bar Fight<span>0:45</span></button>
+											<button track-id="4" class="col-12 py-1 midi-track-button text-left">Punk<span>1:07</span></button>
+											<button track-id="5" class="col-12 py-1 midi-track-button text-left">Sherd Master<span>0:17</span></button>
+											<button track-id="6" class="col-12 py-1 midi-track-button text-left">Gear Up<span>0:37</span></button>
+											<button track-id="7" class="col-12 py-1 midi-track-button text-left">RAWR<span>1:09</span></button>
+											<button track-id="8" class="col-12 py-1 midi-track-button text-left">Panic<span>0:30</span></button>
+											<button track-id="9" class="col-12 py-1 midi-track-button text-left">Insomnia<span>0:40</span></button>
+											<button track-id="10" class="col-12 py-1 midi-track-button text-left">See Ya<span>0:43</span></button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div> 
+				</div>
 			</div>
+		</div>
 
-			<div class="col" align="center">
-				<button type="button" id="resume-toggle" class="btn btn-secondary">RESUME</button>
+		<!-- MUSIC 02 - Guitar -->
+		<!-- <div class="demo d-flex align-items-center" top-title="Guitar" page-type="music-item">
+			<div class="container col-10 mb-5 d-flex align-items-center justify-content-center">
+
+				<div class="row w-75 pt-2 pt-md-2">
+					<div toggle-target="228303101" class="col-12 col-md-6 mx-auto my-2 guitar-thumbnail-container container video-popup-toggle align-items-center justify-content-center">
+						<img src="images/guitar3d2.jpg" class="img-fluid guitar-thumbnail"></img>
+						<div class="guitar-thumbnail-text">Solo Arrangement 1</div>
+						<div class="guitar-thumbnail-effect"></div>
+					</div>
+
+					<div toggle-target="228303124" class="col-12 col-md-6 mx-auto my-2 guitar-thumbnail-container container video-popup-toggle align-items-center justify-content-center">
+						<img src="images/guitar4d2.jpg" class="img-fluid guitar-thumbnail"></img>
+						<div class="guitar-thumbnail-text">Solo Arrangement 2</div>
+						<div class="guitar-thumbnail-effect"></div>
+					</div>
+
+					<div toggle-target="228303057" class="col-12 col-md-6 mx-auto my-2 guitar-thumbnail-container container video-popup-toggle align-items-center justify-content-center">
+						<img src="images/guitar2d2.jpg" class="img-fluid guitar-thumbnail"></img>
+						<div class="guitar-thumbnail-text">Solo Arrangement 3</div>
+						<div class="guitar-thumbnail-effect"></div>
+					</div>
+
+					<div toggle-target="228302979" class="col-12 col-md-6 mx-auto my-2 guitar-thumbnail-container container video-popup-toggle align-items-center justify-content-center">
+						<img src="images/guitar1d2.jpg" class="img-fluid guitar-thumbnail"></img>
+						<div class="guitar-thumbnail-text">Solo Arrangement 4</div>
+						<div class="guitar-thumbnail-effect"></div>
+					</div>
+				</div>
 			</div>
+		</div> -->
 
+	</div>
 
-			<div class="col" align="center">
-				<button type="button" id="project-toggle" class="btn btn-secondary">MUSIC</button>
+	<!-- P0 Three.js -->
+	<div id="flexslider-p-0" class="container mfp-hide">
+		<div class="flexslider flexslider-p-0 imageGalleryLightbox">
+			<ul class="slides">
+				<li>
+					<div class="container flexslider-container col-12">
+						<div class="row">
+							<div class="col-12 col-md-8 p-0 flexslider-image-container">
+								<img src="images/programming-0-1.jpg"/>
+								<span><div>1</div>/3</span>
+							</div>
+							<div class="col-12 col-md-4 flexslider-text-container pt-1 text-center text-md-left d-flex align-items-center justify-content-center">
+								<div class="flexslider-text w-100">
+									<p class="text-medium-2 color-green" style="color: #8fc31f;">Three.js</p>
+									This is a game where you dodge the projectile coming from the boss(right-hand side), and try to survive as long as you can.
+								</div>
+								<span><div>1</div>/3</span>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li >
+					<div class="container flexslider-container col-12">
+						<div class="row">
+							<div class="col-12 col-md-8 p-0 flexslider-image-container">
+								<img src="images/programming-0-2.jpg" />
+								<span><div>2</div>/3</span>
+							</div>
+							<div class="col-12 col-md-4 flexslider-text-container pt-1 text-center text-md-left d-flex align-items-center justify-content-center">
+								<div class="flexslider-text w-100">
+									<p class="text-medium-2 color-green" style="color: #8fc31f;">Three.js</p>
+									This is a game where you win by turning every balls into green color.
+								</div>
+								<span><div>2</div>/3</span>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li >
+					<div class="container flexslider-container col-12">
+						<div class="row">
+							<div class="col-12 col-md-8 p-0 bg-info flexslider-image-container">
+								<img src="images/programming-0-3.jpg" />
+								<span><div>3</div>/3</span>
+							</div>
+							<div class="col-12 col-md-4 flexslider-text-container pt-1 text-center text-md-left d-flex align-items-center justify-content-center">
+								<div class="flexslider-text w-100">
+									<p class="text-medium-2 color-green" style="color: #8fc31f;">Three.js</p>
+									This is not a game but rather a scene with bunch of objects assigned with different scripts to make them move/jump around.
+								</div>
+								<span><div>3</div>/3</span>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<div>
+				<button id="flexslider-p-0-prev" class="custom-flexslider-button-prev">
+					<span><i class="fa fa-angle-left" aria-hidden="true"></i></span>
+					<br>
+					PREV
+				</button>
+				<button id="flexslider-p-0-next" class="custom-flexslider-button-next">
+					<span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+					<br>
+					NEXT
+				</button>
 			</div>
 		</div>
 	</div>
 
+	<!-- P1 GLSL -->
+	<div id="flexslider-p-1" class="container mfp-hide">
+		<div class="flexslider flexslider-p-1 imageGalleryLightbox">
+			<ul class="slides">
+				<li>
+					<div class="container flexslider-container col-12">
+						<div class="row">
+							<div class="col-12 col-md-8 p-0 flexslider-image-container">
+								<img src="images/programming-1-1.jpg"/>
+								<span><div>1</div>/1</span>
+							</div>
+							<div class="col-12 col-md-4 flexslider-text-container pt-1 text-center text-md-left d-flex align-items-center justify-content-center">
+								<div class="flexslider-text w-100">
+									<p class="text-medium-2 color-green" style="color: #8fc31f;">RUN</p>
+									A never ending chase scene between a red car and an UFO.
+								</div>
+								<span><div>1</div>/1</span>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
 
+	<!-- P2 Internship -->
+	<div id="flexslider-p-2" class="container mfp-hide">
+		<div class="flexslider flexslider-p-0 imageGalleryLightbox">
+			<ul class="slides">
+				<li>
+					<div class="container flexslider-container col-12">
+						<div class="row">
+							<div class="col-12 col-md-8 p-0 flexslider-image-container">
+								<img src="images/programming-2-1.png"/>
+								<span><div>1</div>/2</span>
+							</div>
+							<div class="col-12 col-md-4 flexslider-text-container pt-1 text-center text-md-left d-flex align-items-center justify-content-center">
+								<div class="flexslider-text w-100">
+									<p class="text-medium-2 color-green" style="color: #8fc31f;">HouseNearby</p>
+									Landing screen of the application.
+								</div>
+								<span><div>1</div>/2</span>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li >
+					<div class="container flexslider-container col-12">
+						<div class="row">
+							<div class="col-12 col-md-8 p-0 flexslider-image-container">
+								<img src="images/programming-2-2.png" />
+								<span><div>2</div>/2</span>
+							</div>
+							<div class="col-12 col-md-4 flexslider-text-container pt-1 text-center text-md-left d-flex align-items-center justify-content-center">
+								<div class="flexslider-text w-100">
+									<p class="text-medium-2 color-green" style="color: #8fc31f;">HouseNearby</p>
+									Master detail menu.
+								</div>
+								<span><div>2</div>/2</span>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<div>
+				<button id="flexslider-p-2-prev" class="custom-flexslider-button-prev">
+					<span><i class="fa fa-angle-left" aria-hidden="true"></i></span>
+					<br>
+					PREV
+				</button>
+				<button id="flexslider-p-2-next" class="custom-flexslider-button-next">
+					<span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+					<br>
+					NEXT
+				</button>
+			</div>
+		</div>
+	</div>
 
+	<!-- P3 Hackathon -->
+	<div id="flexslider-p-3" class="container mfp-hide">
+		<div class="flexslider flexslider-p-0 imageGalleryLightbox">
+			<ul class="slides">
+				<li>
+					<div class="container flexslider-container col-12">
+						<div class="row">
+							<div class="col-12 col-md-8 p-0 flexslider-image-container">
+								<img src="images/programming-3-1.png"/>
+								<span><div>1</div>/4</span>
+							</div>
+							<div class="col-12 col-md-4 flexslider-text-container pt-1 text-center text-md-left d-flex align-items-center justify-content-center">
+								<div class="flexslider-text w-100">
+								<p class="text-medium-2 color-green" style="color: #8fc31f;">Teach Me!</p>
+									Login screen of the application.
+								</div>
+								<span><div>1</div>/4</span>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li >
+					<div class="container flexslider-container col-12">
 
-<script src="node_modules/jquery/dist/jquery.min.js"></script>
-<script src="slick/slick.min.js"></script>
-<script src="magnific-popup/jquery.magnific-popup.js"></script>
+						<div class="row">
+							<div class="col-12 col-md-8 p-0 flexslider-image-container">
+								<img src="images/programming-3-2.png" />
+								<span><div>2</div>/4</span>
+							</div>
+							<div class="col-12 col-md-4 flexslider-text-container pt-1 text-center text-md-left d-flex align-items-center justify-content-center">
+								<div class="flexslider-text w-100">
+									<p class="text-medium-2 color-green" style="color: #8fc31f;">Teach Me!</p>
+									Master detail menu.
+								</div>
+								<span><div>2</div>/4</span>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li >
+					<div class="container flexslider-container col-12">
 
-<script src="node_modules/tether/dist/js/tether.min.js"></script>
-<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+						<div class="row">
+							<div class="col-12 col-md-8 p-0 flexslider-image-container">
+								<img src="images/programming-3-3.png" />
+								<span><div>3</div>/4</span>
+							</div>
+							<div class="col-12 col-md-4 flexslider-text-container pt-1 text-center text-md-left d-flex align-items-center justify-content-center">
+								<div class="flexslider-text w-100">
+									<p class="text-medium-2 color-green" style="color: #8fc31f;">Teach Me!</p>
+									Home screen.
+								</div>
+								<span><div>3</div>/4</span>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li >
+					<div class="container flexslider-container col-12">
+						<div class="row">
+							<div class="col-12 col-md-8 p-0 flexslider-image-container">
+								<img src="images/programming-3-4.png" />
+								<span><div>4</div>/4</span>
+							</div>
+							<div class="col-12 col-md-4 flexslider-text-container pt-1 text-center text-md-left d-flex align-items-center justify-content-center">
+								<div class="flexslider-text w-100">
+									<p class="text-medium-2 color-green" style="color: #8fc31f;">Teach Me!</p>
+									Detail page of a particular teacher.
+								</div>
+								<span><div>4</div>/4</span>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<div>
+				<button id="flexslider-p-3-prev" class="custom-flexslider-button-prev">
+					<span><i class="fa fa-angle-left" aria-hidden="true"></i></span>
+					<br>
+					PREV
+				</button>
+				<button id="flexslider-p-3-next" class="custom-flexslider-button-next">
+					<span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+					<br>
+					NEXT
+				</button>
+			</div>
+		</div>
+	</div>
 
-<script src="js/script.js"></script>
+	<!-- P4 iOS -->
+	<div id="flexslider-p-4" class="container mfp-hide">
+		<div class="flexslider flexslider-p-0 imageGalleryLightbox">
+			<ul class="slides">
+				<li>
+					<div class="container flexslider-container col-12">
+						<div class="row">
+							<div class="col-12 col-md-8 p-0 flexslider-image-container">
+								<img src="images/programming-4-11.png"/>
+								<span><div>1</div>/6</span>
+							</div>
+							<div class="col-12 col-md-4 flexslider-text-container pt-1 text-center text-md-left d-flex align-items-center justify-content-center">
+								<div class="flexslider-text w-100">
+									<p class="text-medium-2 color-green" style="color: #8fc31f;">In the Books</p>
+									In the Books was an application created to help manage hotel restaurant's inventory and ingredient costs. The user can set a budget goal and the application will calculate the required amount of ingredients the user should buy to meet their goal. The application will also notify the user when an ingredient is about to expire.
+								</div>
+								<span><div>1</div>/6</span>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li >
+					<div class="container flexslider-container col-12">
+						<div class="row">
+							<div class="col-12 col-md-8 flexslider-image-container p-0 flexslider-image-container">
+								<img src="images/programming-4-12.png"/>
+								<span><div>2</div>/6</span>
+							</div>
+							<div class="col-12 col-md-4 flexslider-text-container pt-1 text-center text-md-left d-flex align-items-center justify-content-center">
+								<div class="flexslider-text w-100">
+									<p class="text-medium-2 color-green" style="color: #8fc31f;">In the Books</p>
+									In the Books was an application created to help manage hotel restaurant's inventory and ingredient costs. The user can set a budget goal and the application will calculate the required amount of ingredients the user should buy to meet their goal. The application will also notify the user when an ingredient is about to expire.
+								</div>
+								<span><div>2</div>/6</span>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li >
+					<div class="container flexslider-container col-12">
+						<div class="row">
+							<div class="col-12 col-md-8 p-0 flexslider-image-container">
+								<img src="images/programming-4-21.png" />
+								<span><div>3</div>/6</span>
+							</div>
+							<div class="col-12 col-md-4 flexslider-text-container pt-1 text-center text-md-left d-flex align-items-center justify-content-center">
+								<div class="flexslider-text w-100">
+									<p class="text-medium-2 color-green" style="color: #8fc31f;">ESCAPE</p>
+									This is a mobile game similar to the puzzle game Unblock Me. Players win by clearing the path for the red block to reach the other end of the map.
+									<br/>
+								</div>
+								<span><div>3</div>/6</span>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li >
+					<div class="container flexslider-container col-12">
 
+						<div class="row">
+							<div class="col-12 col-md-8 p-0 flexslider-image-container">
+								<img src="images/programming-4-22.png" />
+								<span><div>4</div>/6</span>
+							</div>
+							<div class="col-12 col-md-4 flexslider-text-container pt-1 text-center text-md-left d-flex align-items-center justify-content-center">
+								<div class="flexslider-text w-100">
+									<p class="text-medium-2 color-green" style="color: #8fc31f;">ESCAPE</p>
+									This is a mobile game similar to the puzzle game Unblock Me. Players win by clearing the path for the red block to reach the other end of the map.
+									<br/>
+								</div>
+								<span><div>4</div>/6</span>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li >
+					<div class="container flexslider-container col-12">
+						<div class="row">
+							<div class="col-12 col-md-8 p-0 flexslider-image-container">
+								<img src="images/programming-4-31.png" />
+								<span><div>5</div>/6</span>
+							</div>
+							<div class="col-12 col-md-4 flexslider-text-container pt-1 text-center text-md-left d-flex align-items-center justify-content-center">
+								<div class="flexslider-text w-100">
+									<p class="text-medium-2 color-green" style="color: #8fc31f;">RUNTIME</p>
+									This is a timer application. Its function include recording multiple laps and show statistics like fastest, slowest, average lap time.
+								</div>
+								<span><div>5</div>/6</span>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li >
+					<div class="container flexslider-container col-12">
+						<div class="row">
+							<div class="col-12 col-md-8 p-0 flexslider-image-container">
+								<img src="images/programming-4-32.png" />
+								<span><div>6</div>/6</span>
+							</div>
+							<div class="col-12 col-md-4 flexslider-text-container pt-1 text-center text-md-left d-flex align-items-center justify-content-center">
+								<div class="flexslider-text w-100">
+									<p class="text-medium-2 color-green" style="color: #8fc31f;">RUNTIME</p>
+									This is a timer application. Its function include recording multiple laps and show statistics like fastest, slowest, average lap time.
+								</div>
+								<span><div>6</div>/6</span>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<div>
+				<button id="flexslider-p-4-prev" class="custom-flexslider-button-prev">
+					<span><i class="fa fa-angle-left" aria-hidden="true"></i></span>
+					<br>
+					PREV
+				</button>
+				<button id="flexslider-p-4-next" class="custom-flexslider-button-next">
+					<span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+					<br>
+					NEXT
+				</button>
+			</div>
+		</div>
+	</div>
 
+	<!-- P5 Android -->
+	<div id="flexslider-p-5" class="container mfp-hide">
+		<div class="flexslider flexslider-p-0 imageGalleryLightbox">
+			<ul class="slides">
+				<li>
+					<div class="container flexslider-container col-12">
+						<div class="row">
+							<div class="col-12 col-md-8 p-0 flexslider-image-container">
+								<img src="images/programming-5-1.png"/>
+								<span><div>1</div>/3</span>
+							</div>
+							<div class="col-12 col-md-4 flexslider-text-container pt-1 text-center text-md-left d-flex align-items-center justify-content-center">
+								<div class="flexslider-text w-100">
+									<p class="text-medium-2 color-green" style="color: #8fc31f;">Magic Ball</p>
+									Initial screen.
+								</div>
+								<span><div>1</div>/3</span>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li >
+					<div class="container flexslider-container col-12">
+						<div class="row">
+							<div class="col-12 col-md-8 flexslider-image-container p-0 flexslider-image-container">
+								<img src="images/programming-5-2.png"/>
+								<span><div>2</div>/3</span>
+							</div>
+							<div class="col-12 col-md-4 flexslider-text-container pt-1 text-center text-md-left d-flex align-items-center justify-content-center">
+								<div class="flexslider-text w-100">
+									<p class="text-medium-2 color-green" style="color: #8fc31f;">Magic Ball</p>
+									Answer after the device being shaken.
+								</div>
+								<span><div>2</div>/3</span>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li >
+					<div class="container flexslider-container col-12">
+						<div class="row">
+							<div class="col-12 col-md-8 p-0 flexslider-image-container">
+								<img src="images/programming-5-3.png" />
+								<span><div>3</div>/3</span>
+							</div>
+							<div class="col-12 col-md-4 flexslider-text-container pt-1 text-center text-md-left d-flex align-items-center justify-content-center">
+								<div class="flexslider-text w-100">
+									<p class="text-medium-2 color-green" style="color: #8fc31f;">Magic Ball</p>
+									Another answer.
+								</div>
+								<span><div>3</div>/3</span>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<div>
+				<button id="flexslider-p-5-prev" class="custom-flexslider-button-prev">
+					<span><i class="fa fa-angle-left" aria-hidden="true"></i></span>
+					<br>
+					PREV
+				</button>
+				<button id="flexslider-p-5-next" class="custom-flexslider-button-next">
+					<span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+					<br>
+					NEXT
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- M0 - Drum -->
+	<div id="flexslider-m-0" class="container mfp-hide">
+		<div class="flexslider flexslider-p-0 imageGalleryLightbox">
+			<ul class="slides">
+				<li>
+					<div class="container flexslider-container col-12">
+						<div class="row">
+							<div class="col-12 col-md-8 p-0 flexslider-image-container">
+								<img src="images/music-0-1.jpg"/>
+								<span><div>1</div>/6</span>
+							</div>
+							<div class="col-12 col-md-4 flexslider-text-container pt-1 text-center text-md-left d-flex align-items-center justify-content-center">
+								<div class="flexslider-text w-100">
+									<p class="text-medium-2 color-green" style="color: #8fc31f;">24 Festive Drum International Tournament 2014</p>
+									Guest performance in 24 Festive Drum International Tournament 2014
+								</div>
+								<span><div>1</div>/6</span>
+							</div>
+						</div>
+					</div>
+
+				</li>
+				<li >
+					<div class="container flexslider-container col-12">
+						<div class="row">
+							<div class="col-12 col-md-8 flexslider-image-container p-0 flexslider-image-container">
+								<img src="images/music-0-2.jpg"/>
+								<span><div>2</div>/6</span>
+							</div>
+							<div class="col-12 col-md-4 flexslider-text-container pt-1 text-center text-md-left d-flex align-items-center justify-content-center">
+								<div class="flexslider-text w-100">
+									<p class="text-medium-2 color-green" style="color: #8fc31f;">24 Festive Drum International Tournament 2014</p>
+									Guest performance in 24 Festive Drum International Tournament 2014
+								</div>
+								<span><div>2</div>/6</span>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li >
+					<div class="container flexslider-container col-12">
+						<div class="row">
+							<div class="col-12 col-md-8 p-0 flexslider-image-container">
+								<img src="images/music-0-3.jpg" />
+								<span><div>3</div>/6</span>
+							</div>
+							<div class="col-12 col-md-4 flexslider-text-container pt-1 text-center text-md-left d-flex align-items-center justify-content-center">
+								<div class="flexslider-text w-100">
+									<p class="text-medium-2 color-green" style="color: #8fc31f;">24 Festive Drum International Tournament 2014</p>
+									Guest performance in 24 Festive Drum International Tournament 2014
+								</div>
+								<span><div>3</div>/6</span>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li >
+					<div class="container flexslider-container col-12">
+						<div class="row">
+							<div class="col-12 col-md-8 p-0 flexslider-image-container">
+								<img src="images/music-0-4.jpg" />
+								<span><div>4</div>/6</span>
+							</div>
+							<div class="col-12 col-md-4 flexslider-text-container pt-1 text-center text-md-left d-flex align-items-center justify-content-center">
+								<div class="flexslider-text w-100">
+									<p class="text-medium-2 color-green" style="color: #8fc31f;">NBA</p>
+									NBA halftime show in December 9th, 2014
+								</div>
+								<span><div>4</div>/6</span>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li >
+					<div class="container flexslider-container col-12">
+						<div class="row">
+							<div class="col-12 col-md-8 p-0 flexslider-image-container">
+								<img src="images/music-0-5.jpg" />
+								<span><div>5</div>/6</span>
+							</div>
+							<div class="col-12 col-md-4 flexslider-text-container pt-1 text-center text-md-left d-flex align-items-center justify-content-center">
+								<div class="flexslider-text w-100">
+									<p class="text-medium-2 color-green" style="color: #8fc31f;">NBA</p>
+									NBA halftime show in December 9th, 2014
+								</div>
+								<span><div>5</div>/6</span>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li >
+					<div class="container flexslider-container col-12">
+						<div class="row">
+							<div class="col-12 col-md-8 p-0 flexslider-image-container">
+								<img src="images/music-0-6.jpg" />
+								<span><div>6</div>/6</span>
+							</div>
+							<div class="col-12 col-md-4 flexslider-text-container pt-1 text-center text-md-left d-flex align-items-center justify-content-center">
+								<div class="flexslider-text w-100">
+									<p class="text-medium-2" style="color: #8fc31f;">Practice</p>
+									11 hours intensive practice with drummers from Malaysia for the guest performance in 24 Festive Drum International Tournament 2014.
+								</div>
+								<span><div>6</div>/6</span>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<div>
+				<button id="flexslider-m-0-prev" class="custom-flexslider-button-prev">
+					<span><i class="fa fa-angle-left" aria-hidden="true"></i></span>
+					<br>
+					PREV
+				</button>
+				<button id="flexslider-m-0-next" class="custom-flexslider-button-next">
+					<span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+					<br>
+					NEXT
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<div id="navigation-bottom" class="container-fluid fixed-bottom">
+		<div class="row">
+			<div class="col-4 p-0 bottom-vertical-divider">
+				<button id="programming-button" type="button" class="p-0">PROGRAMMING</button>
+			</div>
+			<div class="col-4 p-0 bottom-vertical-divider">
+				<button id="resume-button" type="button" class="p-0">RESUME</button>
+			</div>
+			<div class="col-4 p-0" align="center">
+				<button id="music-button" type="button" class="p-0">MUSIC</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- <script src="node_modules/jquery/dist/jquery.min.js"></script> -->
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+	<script src="libraries/slick/slick.min.js"></script>
+	<script src="libraries/magnific-popup/jquery.magnific-popup.js"></script>
+	<script src="libraries/flexSlider/jquery.flexslider.js"></script>
+	<script src="libraries/rangeslider/rangeslider.min.js"></script>
+	<script src="libraries/nanoscroller/jquery.nanoscroller.min.js"></script>
+	<script src="libraries/nanoscroller/overthrow.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
 
 </body>
 </html>
