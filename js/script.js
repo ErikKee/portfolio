@@ -425,7 +425,7 @@ $(document).ready(function(){
 	if(!isMobileDevice()){
 		var video = document.getElementById('background-video');
 		var sourceMp4 = document.createElement('source');
-		sourceMp4.setAttribute('src', 'video/grass-35-10b.mp4');
+		sourceMp4.setAttribute('src', 'video/grass-3.mp4');
 		sourceMp4.setAttribute('type', 'video/mp4');
 		sourceMp4.setAttribute('onerror', 'playerError()');
 
@@ -789,7 +789,6 @@ function playerError(){
 
 function backgroundAnimation(){
 	// Substitute by moving the background around 
-	$('#video-credit').hide();
 	$('#background-video-container').css("animation", "background-animationX 12s, background-animationY 8s");
 	$('#background-video-container').css("animation-timing-function", "ease-in-out");
 	$('#background-video-container').css("animation-iteration-count", "infinite");

@@ -174,13 +174,15 @@ html,body{
 
 #background-video-container video {
 	position: absolute;
-    top: 0;
-    left: 0;
-    min-width: 150%;
-    min-height: 150%;
+    /*left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);*/
+    min-width: 100%;
+    min-height: 100%;
 	width: auto;
 	height: auto;
 	background-size: cover;
+	position: center center;
 }
 
 #video-background{
@@ -189,13 +191,7 @@ html,body{
 	position: absolute;
 }
 
-#video-credit{
-	font-size: 0.75rem;
-	color: white;
-	bottom: 0;
-	right: 2px;
-	position: absolute;
-}
+
 
 
 /* 
