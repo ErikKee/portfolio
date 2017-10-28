@@ -430,7 +430,21 @@ $(document).ready(function(){
 		sourceMp4.setAttribute('onerror', 'playerError()');
 
 		video.appendChild(sourceMp4);
-		video.play();
+		//video.play();
+
+		var playPromise = video.play();
+
+		if (playPromise !== undefined) {
+			playPromise.then(_ => {
+		      // Automatic playback started!
+		      // Show playing UI.
+		  })
+			.catch(error => {
+		    	// Auto-play was prevented
+		    	// Run alternative moving background
+		    	playerError();
+		  });
+		}
 
 		// If somehow the video still can't be played
 		if(video.paused === true){
@@ -699,7 +713,7 @@ function seekTimeUpdate(){
 function reInitTrack(autoPlay){
 	audio.pause();
 	audio.src = 'audio/' + playlist[currentPlaylistIndex] + extension;
-	audio.play();
+	//audio.play();
 
 	if(autoPlay == false){
 		// Play for 50miliseconds just to get audio duration
@@ -713,6 +727,18 @@ function reInitTrack(autoPlay){
 		$('#midi-play-button').html('<i class="fa fa-play" aria-hidden="true"></i>');
 	}
 	else{
+		var playPromise = audio.play();
+
+		if (playPromise !== undefined) {
+			playPromise.then(_ => {
+			    // Automatic playback started!
+			    // Show playing UI.
+			}).catch(error => {
+			    // Auto-play was prevented
+			    // Show paused UI.
+			});
+		}
+
 		$('#midi-current-time').text(secondToString(audio.currentTime));
 		$('#midi-end-time').text(secondToString(audio.duration));
 		$('#midi-play-button').html('<i class="fa fa-pause" aria-hidden="true"></i>');
